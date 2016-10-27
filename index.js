@@ -17,8 +17,8 @@ const judging = {
         judging.watchSendDataToServer();
     },
     initializeSession: () => {
-        let sessionString = localStorage.getItem(SESSION_NAME);
-        let isNew = (sessionString === null);
+        let sessionString = localStorage.getItem(SESSION_NAME) || '';
+        let isNew = (sessionString === '');
         if(isNew) {
             sessionString = BASE_MODEL_STRING;
         }
@@ -85,6 +85,7 @@ const judging = {
                 var payload = { identifier, session };
                 console.log(payload);
                 alert('dati inviati al server'+identifier);
+                localStorage.setItem(SESSION_NAME, '');
             }
         }, false );
     },

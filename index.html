@@ -37,12 +37,16 @@
   }
   /* end of reset */
   h2 {
-    font-size: 20px;
+    font-size: 22px;
     line-height: 40px;
     height: 40px;
     width: 100%;
     border: 1px solid black;
-
+  }
+  h3 {
+    font-size: 20px;
+    line-height: 30px;
+    height: 30px;
   }
   h2::after {
     content: " >";
@@ -52,12 +56,14 @@
     width: 80%;
     padding: 4px;
     margin:2px;
+    border: 1px solid darkgrey;
   }
   button {
     width: 80px;
     height: 60px;
     padding: 4px;
     margin: 12px;
+    border: 1px solid darkgrey;
   }
   li .accordionBox {
     display: none;
@@ -76,19 +82,20 @@
           Judge:
           <input type="text" data-id="registration-field-judge" class="inputs registration-field-judge">
           <br/><br/>
-          Team A:<br/>
-          <input type="text" data-id="registration-field-player1A" class="inputs">
-          <input type="text" data-id="registration-field-player2A" class="inputs">
-          <input type="text" data-id="registration-field-player3A" class="inputs">
-          <input type="text" data-id="registration-field-player4A" class="inputs">
-          <input type="text" data-id="registration-field-player5A" class="inputs">
+          <h3>Team A:</h3>
+          Player 1A:<input type="text" data-id="registration-field-player1A" class="inputs">
+          Player 2A:<input type="text" data-id="registration-field-player2A" class="inputs">
+          Player 3A:<input type="text" data-id="registration-field-player3A" class="inputs">
+          Player 4A:<input type="text" data-id="registration-field-player4A" class="inputs">
+          Player 5A:<input type="text" data-id="registration-field-player5A" class="inputs">
           <br/><br/>
-          Team B:<br/>
-          <input type="text" data-id="registration-field-player1B" class="inputs">
-          <input type="text" data-id="registration-field-player2B" class="inputs">
-          <input type="text" data-id="registration-field-player3B" class="inputs">
-          <input type="text" data-id="registration-field-player4B" class="inputs">
-          <input type="text" data-id="registration-field-player5B" class="inputs">
+          <h3>Team B:</h3>
+          Player 1B:<input type="text" data-id="registration-field-player1B" class="inputs">
+          Player 2B:<input type="text" data-id="registration-field-player2B" class="inputs">
+          Player 3B:<input type="text" data-id="registration-field-player3B" class="inputs">
+          Player 4B:<input type="text" data-id="registration-field-player4B" class="inputs">
+          Player 5B:<input type="text" data-id="registration-field-player5B" class="inputs">
+          <br/><br/>
         </div>
       </li>
       <li>
