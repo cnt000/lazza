@@ -65,11 +65,18 @@
     margin: 12px;
     border: 1px solid darkgrey;
   }
+  button.small {
+    width: 30px;
+    height: 30px;
+  }
   li .accordionBox {
     display: none;
   }
   li .accordionBox.open {
     display: block;
+  }
+  b {
+    font-weight: bold;
   }
   </style>
 </head>
@@ -117,11 +124,45 @@
           <span data-id="result-executionA" class="result">0</span>
           <span data-id="times-executionA" class="times">0</span>
           <br/><br/>
+          Annotation For AI<br/>
+          Music:
+          <button class="vote-button small" data-id="voting-musicA" data-value="1">+</button>
+          <button class="vote-button small" data-id="voting-musicA" data-value="-1">-</button>
+          <span data-id="result-musicA" class="result">0</span>
+          <span data-id="times-musicA" class="times">0</span>
+          Flow:
+          <button class="vote-button small" data-id="voting-flowA" data-value="1">+</button>
+          <button class="vote-button small" data-id="voting-flowA" data-value="-1">-</button>
+          <span data-id="result-flowA" class="result">0</span>
+          <span data-id="times-flowA" class="times">0</span>
+          Coop:
+          <button class="vote-button small" data-id="voting-coopA" data-value="1">+</button>
+          <button class="vote-button small" data-id="voting-coopA" data-value="-1">-</button>
+          <span data-id="result-coopA" class="result">0</span>
+          <span data-id="times-coopA" class="times">0</span>
+          Variety:
+          <button class="vote-button small" data-id="voting-varietyA" data-value="1">+</button>
+          <button class="vote-button small" data-id="voting-varietyA" data-value="-1">-</button>
+          <span data-id="result-varietyA" class="result">0</span>
+          <span data-id="times-varietyA" class="times">0</span>
+          <br/><br/>
         </div>
       </li>
       <li>
-        <h2 data-accordion-id="2">Vote TEAM B</h2>
+        <h2 data-accordion-id="2">Review Team A and Artistic</h2>
         <div data-accordion-id="2" class="accordionBox">
+          Review Difficulty Team A
+          <br />
+          <div data-id="review-difficultyA" class="review"></div>
+          Review Execution Team A
+          <br />
+          <div data-id="review-executionA" class="review"></div>
+          <br/><br/>
+        </div>
+      </li>
+      <li>
+        <h2 data-accordion-id="3">Vote TEAM B</h2>
+        <div data-accordion-id="3" class="accordionBox">
           <br/>
           Difficulty<br/>
           <button class="vote-button" data-id="voting-difficultyB" data-value="-0.5">BAD</button>
@@ -141,8 +182,20 @@
         </div>
       </li>
       <li>
-        <h2 data-accordion-id="3">Review Vote</h2>
-        <div data-accordion-id="3" class="accordionBox">
+        <h2 data-accordion-id="4">Review Team B and Artistic</h2>
+        <div data-accordion-id="4" class="accordionBox">
+          Review Difficulty Team B
+          <br />
+          <div data-id="review-difficultyB" class="review"></div>
+          Review Execution Team B
+          <br />
+          <div data-id="review-executionB" class="review"></div>
+          <br/><br/>
+        </div>
+      </li>
+      <li>
+        <h2 data-accordion-id="5">Send Final Results</h2>
+        <div data-accordion-id="5" class="accordionBox">
           <button id="send-data">Send</button>
         </div>
       </li>

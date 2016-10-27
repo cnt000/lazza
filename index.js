@@ -2,6 +2,8 @@ const BASE_MODEL_STRING = '{ "fields": [], "votes": [] }';
 const INPUT_SELECTOR = 'input[type=text]';
 const BUTTON_SELECTOR = '.vote-button';
 const RESULT_SELECTOR = '.result';
+const TIMES_SELECTOR = '.times';
+const REVIEW_SELECTOR = '.review';
 const SEND_BUTTON_SELECTOR = '#send-data';
 const SESSION_NAME = 'lazza_';
 
@@ -32,7 +34,7 @@ const judging = {
             var inputEl = document.querySelector('input[data-id='+field.from+']');
             inputEl.value = field.data;
         });
-        judging.log("* ------ loadVotesData ----- *");
+        judging.log('* ------ loadVotesData ----- *');
     },
     loadVotesData: () => {
         var resultEls = document.querySelectorAll(RESULT_SELECTOR);
@@ -45,7 +47,7 @@ const judging = {
             }, 0.0);
             result.innerText = parseFloat(sum,10).toFixed(1);
         });
-        var resultEls = document.querySelectorAll('.times');
+        var resultEls = document.querySelectorAll(TIMES_SELECTOR);
         resultEls.forEach((result)=>{
             var votingSumId = result.dataset.id.replace( 'times', 'voting');
             var sum = judging.session.votes.filter(function(elem) {
@@ -53,7 +55,21 @@ const judging = {
             });
             result.innerText = sum.length;
         });
-        judging.log("* ------ loadVotesData ----- *");
+        var reviewEls = document.querySelectorAll(REVIEW_SELECTOR);
+        reviewEls.forEach((reviewEl) => {
+            var reviewId = reviewEl.dataset.id.replace( 'review', 'voting');
+            reviewEl.innerHTML = '';
+            var badgesEls = document.createElement('div');
+            judging.session.votes.forEach((elem) => {
+                if(reviewId === elem.from) {
+                    var badge = badgesEls.appendChild(document.createElement('span'));
+                    badge.innerHTML += elem.from.replace(/voting-/, '') + ' <b>' + elem.vote + '</b><br/>';
+                }
+            });
+            reviewEl.appendChild(badgesEls);
+        });
+
+        judging.log('* ------ loadVotesData ----- *');
     },
     watchFieldsInputs: () => {
         var inputs = document.querySelectorAll(INPUT_SELECTOR);
@@ -79,8 +95,8 @@ const judging = {
                 //CALL AJAX API TO SAVE session
                 // ajax --> lazza.php (lazza_data_(random)this.session)
                 var dt = new Date();
-                var dateFile = dt.getFullYear() + "_" + (dt.getMonth() + 1) + "_" + dt.getDate();
-                var identifier = "lazza_data_"+dateFile + "_" + (Math.random()*1000000).toFixed(2);
+                var dateFile = dt.getFullYear() + '_' + (dt.getMonth() + 1) + '_' + dt.getDate();
+                var identifier = 'lazza_data_'+dateFile + '_' + (Math.random()*1000000).toFixed(2);
                 var session = this.session;
                 var payload = { identifier, session };
                 console.log(payload);
@@ -119,7 +135,7 @@ const judging = {
     log(msg) {
         console.log(msg);
         console.log(judging.session);
-        console.log(" * **- -------------------------- -** *");
+        console.log(' * **- -------------------------- -** *');
     }
 }
 
@@ -139,3 +155,5 @@ const togglePanel = (id) => {
         accordionPanel.className = 'accordionBox open';
     }
 }
+
+togglePanel(2);
