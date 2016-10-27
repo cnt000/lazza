@@ -63,7 +63,7 @@ const judging = {
             judging.session.votes.forEach((elem) => {
                 if(reviewId === elem.from) {
                     var badge = badgesEls.appendChild(document.createElement('span'));
-                    badge.innerHTML += elem.from.replace(/voting-/, '') + ' <b>' + elem.vote + '</b><br/>';
+                    badge.innerHTML += elem.time+1 + ': ' + elem.vote + '</b><br/>';
                 }
             });
             reviewEl.appendChild(badgesEls);
@@ -122,7 +122,10 @@ const judging = {
             }
             break;
             case 'vote':
-            judging.session.votes.push({from: id, vote: value, time: 0});
+            var timesArr = judging.session.votes.filter((obj) => {
+              return (obj.from === id);
+            });
+            judging.session.votes.push({from: id, vote: value, time: timesArr.length++});
             break;
             default:
             return;
