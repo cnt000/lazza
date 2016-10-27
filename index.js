@@ -1,6 +1,7 @@
 const BASE_MODEL_STRING = '{ "fields": [], "votes": [] }';
 const INPUT_SELECTOR = 'input[type=text]';
 const BUTTON_SELECTOR = '.vote-button';
+const RESULT_SELECTOR = '.result';
 const SEND_BUTTON_SELECTOR = '#send-data';
 const SESSION_NAME = 'lazza_';
 
@@ -34,7 +35,7 @@ const judging = {
         judging.log("* ------ loadVotesData ----- *");
     },
     loadVotesData: () => {
-        var resultEls = document.querySelectorAll('.result');
+        var resultEls = document.querySelectorAll(RESULT_SELECTOR);
         resultEls.forEach((result)=>{
             var votingSumId = result.dataset.id.replace( 'result', 'voting');
             var sum = judging.session.votes.reduce(function(prevVal, elem) {
@@ -43,6 +44,14 @@ const judging = {
                 prevVal;
             }, 0.0);
             result.innerText = parseFloat(sum,10).toFixed(1);
+        });
+        var resultEls = document.querySelectorAll('.times');
+        resultEls.forEach((result)=>{
+            var votingSumId = result.dataset.id.replace( 'times', 'voting');
+            var sum = judging.session.votes.filter(function(elem) {
+                return (elem.from === votingSumId);
+            });
+            result.innerText = sum.length;
         });
         judging.log("* ------ loadVotesData ----- *");
     },
