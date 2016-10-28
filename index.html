@@ -94,11 +94,7 @@
   li:nth-of-type(4), li:nth-of-type(5) {
     background: lightcoral;
   }
-  [data-id='review-teamworkA'] .remove,
-  [data-id='review-flowA'] .remove,
-  [data-id='review-varietyA'] .remove,
-  [data-id='review-generalA'] .remove,
-  [data-id='review-musicA'] .remove {
+  [data-id^='review'] .remove {
     display: none;
   }
   </style>
@@ -192,8 +188,8 @@
           <span data-id="times-difficultyA" class="times">0</span>
           <br/><br/>
           Execution<br/>
-          <button class="vote-button" data-id="voting-executionA" data-value="-0.3">0.3</button>
-          <button class="vote-button" data-id="voting-executionA" data-value="-0.1">0.1</button>
+          <button class="vote-button" data-id="voting-executionA" data-value="-0.1">MINOR</button>
+          <button class="vote-button" data-id="voting-executionA" data-value="-0.3">DROP</button>
           <span data-id="result-executionA" class="result">0</span>
           <span data-id="times-executionA" class="times">0</span>
           <br/><br/>
@@ -245,7 +241,7 @@
           <button class="vote-button single" data-id="voting-teamwork-finalA" data-value="2">AMAZING</button>
           <span data-id="result-teamwork-finalA" class="result">0</span>
           <br/>
-          <h3>Previous annotation Teamworks</h3>
+          <span>Previous annotation Teamworks</span>
           <span data-id="review-teamworkA" class="review">-</span>
           <br/><br/>
           Music (one vote)<br/>
@@ -256,7 +252,7 @@
           <button class="vote-button single" data-id="voting-music-finalA" data-value="2">AMAZING</button>
           <span data-id="result-music-finalA" class="result">0</span>
           <br/>
-          <h3>Previous annotation Music</h3>
+          <span>Previous annotation Music</span>
           <span data-id="review-musicA" class="review">-</span>
           <br/><br/>
           Flow (one vote)<br/>
@@ -267,7 +263,7 @@
           <button class="vote-button single" data-id="voting-flow-finalA" data-value="2">AMAZING</button>
           <span data-id="result-flow-finalA" class="result">0</span>
           <br/>
-          <h3>Previous annotation Flow</h3>
+          <span>Previous annotation Flow</span>
           <span data-id="review-flowA" class="review">-</span>
           <br/><br/>
           Variety (one vote)<br/>
@@ -278,7 +274,7 @@
           <button class="vote-button single" data-id="voting-variety-finalA" data-value="2">AMAZING</button>
           <span data-id="result-variety-finalA" class="result">0</span>
           <br/>
-          <h3>Previous annotation Variety</h3>
+          <span>Previous annotation Variety</span>
           <span data-id="review-varietyA" class="review">-</span>
           <br/><br/>
           General impression (one vote)<br/>
@@ -289,7 +285,7 @@
           <button class="vote-button single" data-id="voting-general-finalA" data-value="2">AMAZING</button>
           <span data-id="result-general-finalA" class="result">0</span>
           <br/>
-          <h3>Previous annotation Variety</h3>
+          <span>Previous annotation Variety</span>
           <span data-id="review-generalA" class="review">-</span>
           <br/><br/>
         </div>
@@ -309,23 +305,105 @@
           <span data-id="times-difficultyB" class="times">0</span>
           <br/><br/>
           Execution<br/>
-          <button class="vote-button" data-id="voting-executionB" data-value="-0.3">0.3</button>
-          <button class="vote-button" data-id="voting-executionB" data-value="-0.1">0.5</button>
+          <button class="vote-button" data-id="voting-executionB" data-value="-0.1">MINOR</button>
+          <button class="vote-button" data-id="voting-executionB" data-value="-0.3">DROP</button>
           <span data-id="result-executionB" class="result">0</span>
           <span data-id="times-executionB" class="times">0</span>
+          <br/><br/>
+          Annotation For AI<br/>
+          Teamwork:
+          <button class="vote-button small" data-id="voting-teamworkB" data-value="1">+</button>
+          <button class="vote-button small" data-id="voting-teamworkB" data-value="-1">-</button>
+          <span data-id="result-teamworkB" class="result">0</span>
+          <span data-id="times-teamworkB" class="times">0</span>
+          Music:
+          <button class="vote-button small" data-id="voting-musicB" data-value="1">+</button>
+          <button class="vote-button small" data-id="voting-musicB" data-value="-1">-</button>
+          <span data-id="result-musicB" class="result">0</span>
+          <span data-id="times-musicB" class="times">0</span>
+          Flow:
+          <button class="vote-button small" data-id="voting-flowB" data-value="1">+</button>
+          <button class="vote-button small" data-id="voting-flowB" data-value="-1">-</button>
+          <span data-id="result-flowB" class="result">0</span>
+          <span data-id="times-flowB" class="times">0</span>
+          Variety:
+          <button class="vote-button small" data-id="voting-varietyB" data-value="1">+</button>
+          <button class="vote-button small" data-id="voting-varietyB" data-value="-1">-</button>
+          <span data-id="result-varietyB" class="result">0</span>
+          <span data-id="times-varietyB" class="times">0</span>
+          General impression:
+          <button class="vote-button small" data-id="voting-generalB" data-value="1">+</button>
+          <button class="vote-button small" data-id="voting-generalB" data-value="-1">-</button>
+          <span data-id="result-generalB" class="result">0</span>
+          <span data-id="times-generalB" class="times">0</span>
           <br/><br/>
         </div>
         <br />
       </li>
       <li>
-        <h2 data-accordion-id="4"><i class="material-icons">alarm_on</i> Review Team B and Artistic</h2>
+        <h2 data-accordion-id="4"><i class="material-icons">alarm_on</i> Review Team A and Artistic</h2>
         <div data-accordion-id="4" class="accordionBox">
-          Review Difficulty Team B
+          Review Difficulty Team A
           <br />
           <div data-id="review-difficultyB" class="review"></div>
-          Review Execution Team B
+          Review Execution Team A
           <br />
           <div data-id="review-executionB" class="review"></div>
+          <br/><br/>
+          Teamwork (one vote)<br/>
+          <button class="vote-button single" data-id="voting-teamwork-finalB" data-value="0">BAD</button>
+          <button class="vote-button single" data-id="voting-teamwork-finalB" data-value="0.5">NOT GOOD</button>
+          <button class="vote-button single" data-id="voting-teamwork-finalB" data-value="1">MEDIUM</button>
+          <button class="vote-button single" data-id="voting-teamwork-finalB" data-value="1.5">GOOD</button>
+          <button class="vote-button single" data-id="voting-teamwork-finalB" data-value="2">AMAZING</button>
+          <span data-id="result-teamwork-finalB" class="result">0</span>
+          <br/>
+          <span>Previous annotation Teamworks</span>
+          <span data-id="review-teamworkB" class="review">-</span>
+          <br/><br/>
+          Music (one vote)<br/>
+          <button class="vote-button single" data-id="voting-music-finalB" data-value="0">BAD</button>
+          <button class="vote-button single" data-id="voting-music-finalB" data-value="0.5">NOT GOOD</button>
+          <button class="vote-button single" data-id="voting-music-finalB" data-value="1">MEDIUM</button>
+          <button class="vote-button single" data-id="voting-music-finalB" data-value="1.5">GOOD</button>
+          <button class="vote-button single" data-id="voting-music-finalB" data-value="2">AMAZING</button>
+          <span data-id="result-music-finalB" class="result">0</span>
+          <br/>
+          <span>Previous annotation Music</span>
+          <span data-id="review-musicB" class="review">-</span>
+          <br/><br/>
+          Flow (one vote)<br/>
+          <button class="vote-button single" data-id="voting-flow-finalB" data-value="0">BAD</button>
+          <button class="vote-button single" data-id="voting-flow-finalB" data-value="0.5">NOT GOOD</button>
+          <button class="vote-button single" data-id="voting-flow-finalB" data-value="1">MEDIUM</button>
+          <button class="vote-button single" data-id="voting-flow-finalB" data-value="1.5">GOOD</button>
+          <button class="vote-button single" data-id="voting-flow-finalB" data-value="2">AMAZING</button>
+          <span data-id="result-flow-finalB" class="result">0</span>
+          <br/>
+          <span>Previous annotation Flow</span>
+          <span data-id="review-flowB" class="review">-</span>
+          <br/><br/>
+          Variety (one vote)<br/>
+          <button class="vote-button single" data-id="voting-variety-finalB" data-value="0">BAD</button>
+          <button class="vote-button single" data-id="voting-variety-finalB" data-value="0.5">NOT GOOD</button>
+          <button class="vote-button single" data-id="voting-variety-finalB" data-value="1">MEDIUM</button>
+          <button class="vote-button single" data-id="voting-variety-finalB" data-value="1.5">GOOD</button>
+          <button class="vote-button single" data-id="voting-variety-finalB" data-value="2">AMAZING</button>
+          <span data-id="result-variety-finalB" class="result">0</span>
+          <br/>
+          <span>Previous annotation Variety</span>
+          <span data-id="review-varietyB" class="review">-</span>
+          <br/><br/>
+          General impression (one vote)<br/>
+          <button class="vote-button single" data-id="voting-general-finalB" data-value="0">BAD</button>
+          <button class="vote-button single" data-id="voting-general-finalB" data-value="0.5">NOT GOOD</button>
+          <button class="vote-button single" data-id="voting-general-finalB" data-value="1">MEDIUM</button>
+          <button class="vote-button single" data-id="voting-general-finalB" data-value="1.5">GOOD</button>
+          <button class="vote-button single" data-id="voting-general-finalB" data-value="2">AMAZING</button>
+          <span data-id="result-general-finalB" class="result">0</span>
+          <br/>
+          <span>Previous annotation Variety</span>
+          <span data-id="review-generalB" class="review">-</span>
           <br/><br/>
         </div>
         <br />
