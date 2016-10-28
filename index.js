@@ -63,19 +63,29 @@ const judging = {
             judging.session.votes.forEach((elem) => {
                 if(reviewId === elem.from) {
                     var badge = badgesEls.appendChild(document.createElement('span'));
-                    badge.innerHTML += elem.time+1 + ': ' + elem.vote + '</b><br/>';
+                    badge.innerHTML += '<div data-id="' + elem.from + '" data-time="' + elem.time + '">' +(elem.time+1) + ': ' + elem.vote + '</b> <span class="remove">Remove<span><br/>';
                 }
             });
             reviewEl.appendChild(badgesEls);
         });
-
+        judging.watchRemoveReview();
         judging.log('* ------ loadVotesData ----- *');
+    },
+    watchRemoveReview: () => {
+      var removeEls = document.querySelectorAll('.remove');
+      removeEls.forEach((removeEl) => {
+        removeEl.addEventListener('click', () => {
+            console.log('Rimuovo', removeEl.parentElement.dataset.id, removeEl.parentElement.dataset.time);
+            judging.saveData('remove', removeEl.parentElement.dataset.id, null, removeEl.parentElement.dataset.time);
+            judging.loadVotesData();
+        }, false );
+      });
     },
     watchFieldsInputs: () => {
         var inputs = document.querySelectorAll(INPUT_SELECTOR);
         inputs.forEach( (inp)=> {
             inp.addEventListener('change', () => {
-                judging.saveData('input', inp.dataset.id, inp.value);
+                judging.saveData('input', inp.dataset.id, inp.value, 0);
             }, false );
         });
     },
@@ -83,7 +93,11 @@ const judging = {
         var buttons = document.querySelectorAll(BUTTON_SELECTOR);
         buttons.forEach( (but)=> {
             but.addEventListener('click', () => {
-                judging.saveData('vote', but.dataset.id, but.dataset.value, true);
+              var voteType = 'vote';
+                if(but.className.indexOf('single') > -1) {
+                  voteType = 'single';
+                }
+                judging.saveData(voteType, but.dataset.id, but.dataset.value, 0);
                 judging.loadVotesData();
             }, false );
         });
@@ -105,27 +119,51 @@ const judging = {
             }
         }, false );
     },
-    saveData: (type, id, value) => {
+    saveData: (type, id, value, time) => {
         switch(type) {
             case 'input':
-            var existent = judging.session.fields.filter(function(obj) {
-                return (obj.from === id)
-            });
-            if(existent.length === 0) {
-                judging.session.fields.push({from: id, data: value});
-            }  else {
-                judging.session.fields.map((obj) => {
-                    if(obj.from === id) {
-                        obj.data = value;
-                    }
-                });
-            }
+              var existent = judging.session.fields.filter(function(obj) {
+                  return (obj.from === id)
+              });
+              if(existent.length === 0) {
+                  judging.session.fields.push({from: id, data: value});
+              }  else {
+                  judging.session.fields.map((obj) => {
+                      if(obj.from === id) {
+                          obj.data = value;
+                      }
+                  });
+              }
             break;
             case 'vote':
-            var timesArr = judging.session.votes.filter((obj) => {
-              return (obj.from === id);
-            });
-            judging.session.votes.push({from: id, vote: value, time: timesArr.length++});
+              var timesArr = judging.session.votes.filter((obj) => {
+                return (obj.from === id);
+              });
+              judging.session.votes.push({from: id, vote: value, time: timesArr.length++});
+            break;
+            case 'single':
+              var sameIdVote = judging.session.votes.filter((obj) => {
+                return (obj.from === id);
+              });
+              if(sameIdVote.length === 0) {
+                judging.session.votes.push({from: id, vote: value, time: 0});
+              }  else {
+                sameIdVote.forEach((obj) => {
+                  if(obj.from === id && obj.time === 0) {
+                    obj.vote = value;
+                  }
+                });
+              }
+            break;
+            case 'remove':
+              var filteredVotes = judging.session.votes.filter((obj) => {
+                if((obj.from == id && obj.time == time+"")) {
+                  return false;
+                } else {
+                  return true;
+                }
+              });
+              judging.session.votes = filteredVotes;
             break;
             default:
             return;
@@ -152,11 +190,9 @@ document.querySelectorAll('h2').forEach((d)=>{
 
 const togglePanel = (id) => {
     var accordionPanel = document.querySelector('div[data-accordion-id="'+id+'"]');
-    if(accordionPanel.className.indexOf('open') > -1) {
-        accordionPanel.className = 'accordionBox' ;
+    if(accordionPanel.parentElement.className.indexOf('open') > -1) {
+        accordionPanel.parentElement.className = '' ;
     } else {
-        accordionPanel.className = 'accordionBox open';
+        accordionPanel.parentElement.className = 'open';
     }
 }
-
-togglePanel(2);

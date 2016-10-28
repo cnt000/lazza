@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Lazza</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -36,15 +37,24 @@
     list-style: none;
   }
   /* end of reset */
-  h2 {
-    border: 1px solid black;
+  #main-accordion h2 {
+    font-size: 1.6rem;
+    padding: 1.78rem 0 1.424rem 0;
+    margin: 0;
   }
-  h2::after {
+  #main-accordion h2::after {
     content: " >";
+  }
+  #main-accordion .open h2::after {
+    content: " v";
+  }
+  #main-accordion h3 {
+    font-size: 1.4rem;
   }
   input {
     display: block;
     width: 80%;
+    height: 50px;
     padding: 4px;
     margin:2px;
     border: 1px solid darkgrey;
@@ -60,43 +70,116 @@
     width: 30px;
     height: 30px;
   }
-  li .accordionBox {
+  li {
+    border-top: 1px solid black;
+  }
+  li:last-child {
+    border-bottom: 1px solid black;
+  }
+  #main-accordion li .accordionBox {
     display: none;
   }
-  li .accordionBox.open {
+  #main-accordion li.open .accordionBox {
     display: block;
+  }
+  li:first-child {
+    background: lightblue;
+  }
+  li:last-child {
+    background: lightgoldenrodyellow;
+  }
+  li:nth-of-type(2), li:nth-of-type(3) {
+    background: lightseagreen;
+  }
+  li:nth-of-type(4), li:nth-of-type(5) {
+    background: lightcoral;
+  }
+  [data-id='review-teamworkA'] .remove,
+  [data-id='review-flowA'] .remove,
+  [data-id='review-varietyA'] .remove,
+  [data-id='review-generalA'] .remove,
+  [data-id='review-musicA'] .remove {
+    display: none;
   }
   </style>
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
 </head>
 <body>
+  <header>
+    <nav>
+      <div class="nav-wrapper grey darken-3">
+        <a href="#" class="brand-logo">TEAM BATTLE</a>
+      </div>
+    </nav>
+  </header>
   <div id="main-accordion">
     <ul>
       <li>
-        <h2 data-accordion-id="0">Registration</h2>
+        <h2 data-accordion-id="0"><i class="material-icons">filter_drama</i> Registration</h2>
         <div data-accordion-id="0" class="accordionBox">
-          Judge:
-          <input type="text" data-id="registration-field-judge" class="inputs registration-field-judge">
-          <br/><br/>
+          <div class="input-field">
+            <i class="material-icons prefix">account_box</i>
+            <input id="registration-field-judge" type="text" data-id="registration-field-judge" class="inputs">
+            <label for="registration-field-judge" class="active">Judge</label>
+          </div>
           <h3>Team A:</h3>
-          Player 1A:<input type="text" data-id="registration-field-player1A" class="inputs">
-          Player 2A:<input type="text" data-id="registration-field-player2A" class="inputs">
-          Player 3A:<input type="text" data-id="registration-field-player3A" class="inputs">
-          Player 4A:<input type="text" data-id="registration-field-player4A" class="inputs">
-          Player 5A:<input type="text" data-id="registration-field-player5A" class="inputs">
-          <br/><br/>
+          <div class="input-field">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="registration-field-player1A" type="text" data-id="registration-field-player1A" class="inputs">
+            <label for="registration-field-player1A" class="active">Player 1A:</label>
+          </div>
+          <div class="input-field">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="registration-field-player2A" type="text" data-id="registration-field-player2A" class="inputs">
+            <label for="registration-field-player2A" class="active">Player 2A:</label>
+          </div>
+          <div class="input-field">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="registration-field-player3A" type="text" data-id="registration-field-player3A" class="inputs">
+            <label for="registration-field-player3A" class="active">Player 3A:</label>
+          </div>
+          <div class="input-field">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="registration-field-player4A" type="text" data-id="registration-field-player4A" class="inputs">
+            <label for="registration-field-player4A" class="active">Player 4A:</label>
+          </div>
+          <div class="input-field">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="registration-field-player5A" type="text" data-id="registration-field-player5A" class="inputs">
+            <label for="registration-field-player5A" class="active">Player 5A:</label>
+          </div>
           <h3>Team B:</h3>
-          Player 1B:<input type="text" data-id="registration-field-player1B" class="inputs">
-          Player 2B:<input type="text" data-id="registration-field-player2B" class="inputs">
-          Player 3B:<input type="text" data-id="registration-field-player3B" class="inputs">
-          Player 4B:<input type="text" data-id="registration-field-player4B" class="inputs">
-          Player 5B:<input type="text" data-id="registration-field-player5B" class="inputs">
-          <br/><br/>
+          <div class="input-field">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="registration-field-player1B" type="text" data-id="registration-field-player1B" class="inputs">
+            <label for="registration-field-player1B" class="active">Player 1B:</label>
+          </div>
+          <div class="input-field">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="registration-field-player2B" type="text" data-id="registration-field-player2B" class="inputs">
+            <label for="registration-field-player2B" class="active">Player 2B:</label>
+          </div>
+          <div class="input-field">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="registration-field-player3B" type="text" data-id="registration-field-player3B" class="inputs">
+            <label for="registration-field-player3B" class="active">Player 3B:</label>
+          </div>
+          <div class="input-field">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="registration-field-player4B" type="text" data-id="registration-field-player4B" class="inputs">
+            <label for="registration-field-player4B" class="active">Player 4B:</label>
+          </div>
+          <div class="input-field">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="registration-field-player5B" type="text" data-id="registration-field-player5B" class="inputs">
+            <label for="registration-field-player5B" class="active">Player 5B:</label>
+          </div>
         </div>
+        <br />
       </li>
       <li>
-        <h2 data-accordion-id="1">Vote TEAM A</h2>
+        <h2 data-accordion-id="1"><i class="material-icons">alarm_add</i> Vote TEAM A</h2>
         <div data-accordion-id="1" class="accordionBox">
           <br/>
           Difficulty<br/>
@@ -115,6 +198,11 @@
           <span data-id="times-executionA" class="times">0</span>
           <br/><br/>
           Annotation For AI<br/>
+          Teamwork:
+          <button class="vote-button small" data-id="voting-teamworkA" data-value="1">+</button>
+          <button class="vote-button small" data-id="voting-teamworkA" data-value="-1">-</button>
+          <span data-id="result-teamworkA" class="result">0</span>
+          <span data-id="times-teamworkA" class="times">0</span>
           Music:
           <button class="vote-button small" data-id="voting-musicA" data-value="1">+</button>
           <button class="vote-button small" data-id="voting-musicA" data-value="-1">-</button>
@@ -125,36 +213,90 @@
           <button class="vote-button small" data-id="voting-flowA" data-value="-1">-</button>
           <span data-id="result-flowA" class="result">0</span>
           <span data-id="times-flowA" class="times">0</span>
-          Coop:
-          <button class="vote-button small" data-id="voting-coopA" data-value="1">+</button>
-          <button class="vote-button small" data-id="voting-coopA" data-value="-1">-</button>
-          <span data-id="result-coopA" class="result">0</span>
-          <span data-id="times-coopA" class="times">0</span>
           Variety:
           <button class="vote-button small" data-id="voting-varietyA" data-value="1">+</button>
           <button class="vote-button small" data-id="voting-varietyA" data-value="-1">-</button>
           <span data-id="result-varietyA" class="result">0</span>
           <span data-id="times-varietyA" class="times">0</span>
+          General impression:
+          <button class="vote-button small" data-id="voting-generalA" data-value="1">+</button>
+          <button class="vote-button small" data-id="voting-generalA" data-value="-1">-</button>
+          <span data-id="result-generalA" class="result">0</span>
+          <span data-id="times-generalA" class="times">0</span>
           <br/><br/>
         </div>
+        <br />
       </li>
       <li>
-        <h2 data-accordion-id="2">Review Team A and Artistic</h2>
+        <h2 data-accordion-id="2"><i class="material-icons">alarm_on</i> Review Team A and Artistic</h2>
         <div data-accordion-id="2" class="accordionBox">
           Review Difficulty Team A
           <br />
           <div data-id="review-difficultyA" class="review"></div>
-          Review Music Team A
+          Review Execution Team A
           <br />
-          <div data-id="review-musicA" class="review"></div>
-          Review Coop Team A
-          <br />
-          <div data-id="review-coopA" class="review"></div>
+          <div data-id="review-executionA" class="review"></div>
+          <br/><br/>
+          Teamwork (one vote)<br/>
+          <button class="vote-button single" data-id="voting-teamwork-finalA" data-value="0">BAD</button>
+          <button class="vote-button single" data-id="voting-teamwork-finalA" data-value="0.5">NOT GOOD</button>
+          <button class="vote-button single" data-id="voting-teamwork-finalA" data-value="1">MEDIUM</button>
+          <button class="vote-button single" data-id="voting-teamwork-finalA" data-value="1.5">GOOD</button>
+          <button class="vote-button single" data-id="voting-teamwork-finalA" data-value="2">AMAZING</button>
+          <span data-id="result-teamwork-finalA" class="result">0</span>
+          <br/>
+          <h3>Previous annotation Teamworks</h3>
+          <span data-id="review-teamworkA" class="review">-</span>
+          <br/><br/>
+          Music (one vote)<br/>
+          <button class="vote-button single" data-id="voting-music-finalA" data-value="0">BAD</button>
+          <button class="vote-button single" data-id="voting-music-finalA" data-value="0.5">NOT GOOD</button>
+          <button class="vote-button single" data-id="voting-music-finalA" data-value="1">MEDIUM</button>
+          <button class="vote-button single" data-id="voting-music-finalA" data-value="1.5">GOOD</button>
+          <button class="vote-button single" data-id="voting-music-finalA" data-value="2">AMAZING</button>
+          <span data-id="result-music-finalA" class="result">0</span>
+          <br/>
+          <h3>Previous annotation Music</h3>
+          <span data-id="review-musicA" class="review">-</span>
+          <br/><br/>
+          Flow (one vote)<br/>
+          <button class="vote-button single" data-id="voting-flow-finalA" data-value="0">BAD</button>
+          <button class="vote-button single" data-id="voting-flow-finalA" data-value="0.5">NOT GOOD</button>
+          <button class="vote-button single" data-id="voting-flow-finalA" data-value="1">MEDIUM</button>
+          <button class="vote-button single" data-id="voting-flow-finalA" data-value="1.5">GOOD</button>
+          <button class="vote-button single" data-id="voting-flow-finalA" data-value="2">AMAZING</button>
+          <span data-id="result-flow-finalA" class="result">0</span>
+          <br/>
+          <h3>Previous annotation Flow</h3>
+          <span data-id="review-flowA" class="review">-</span>
+          <br/><br/>
+          Variety (one vote)<br/>
+          <button class="vote-button single" data-id="voting-variety-finalA" data-value="0">BAD</button>
+          <button class="vote-button single" data-id="voting-variety-finalA" data-value="0.5">NOT GOOD</button>
+          <button class="vote-button single" data-id="voting-variety-finalA" data-value="1">MEDIUM</button>
+          <button class="vote-button single" data-id="voting-variety-finalA" data-value="1.5">GOOD</button>
+          <button class="vote-button single" data-id="voting-variety-finalA" data-value="2">AMAZING</button>
+          <span data-id="result-variety-finalA" class="result">0</span>
+          <br/>
+          <h3>Previous annotation Variety</h3>
+          <span data-id="review-varietyA" class="review">-</span>
+          <br/><br/>
+          General impression (one vote)<br/>
+          <button class="vote-button single" data-id="voting-general-finalA" data-value="0">BAD</button>
+          <button class="vote-button single" data-id="voting-general-finalA" data-value="0.5">NOT GOOD</button>
+          <button class="vote-button single" data-id="voting-general-finalA" data-value="1">MEDIUM</button>
+          <button class="vote-button single" data-id="voting-general-finalA" data-value="1.5">GOOD</button>
+          <button class="vote-button single" data-id="voting-general-finalA" data-value="2">AMAZING</button>
+          <span data-id="result-general-finalA" class="result">0</span>
+          <br/>
+          <h3>Previous annotation Variety</h3>
+          <span data-id="review-generalA" class="review">-</span>
           <br/><br/>
         </div>
+        <br />
       </li>
       <li>
-        <h2 data-accordion-id="3">Vote TEAM B</h2>
+        <h2 data-accordion-id="3"><i class="material-icons">alarm_add</i> Vote TEAM B</h2>
         <div data-accordion-id="3" class="accordionBox">
           <br/>
           Difficulty<br/>
@@ -173,9 +315,10 @@
           <span data-id="times-executionB" class="times">0</span>
           <br/><br/>
         </div>
+        <br />
       </li>
       <li>
-        <h2 data-accordion-id="4">Review Team B and Artistic</h2>
+        <h2 data-accordion-id="4"><i class="material-icons">alarm_on</i> Review Team B and Artistic</h2>
         <div data-accordion-id="4" class="accordionBox">
           Review Difficulty Team B
           <br />
@@ -185,12 +328,14 @@
           <div data-id="review-executionB" class="review"></div>
           <br/><br/>
         </div>
+        <br />
       </li>
       <li>
-        <h2 data-accordion-id="5">Send Final Results</h2>
+        <h2 data-accordion-id="5"><i class="material-icons">backup</i> Send Final Results</h2>
         <div data-accordion-id="5" class="accordionBox">
           <button id="send-data">Send</button>
         </div>
+        <br />
       </li>
     </div>
   </body>
