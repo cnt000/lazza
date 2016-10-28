@@ -106,16 +106,22 @@ const judging = {
         var sendButton = document.querySelector(SEND_BUTTON_SELECTOR);
         sendButton.addEventListener('click', () => {
             if(confirm('Are you sure? DEFINITIVE')) {
-                //CALL AJAX API TO SAVE session
-                // ajax --> lazza.php (lazza_data_(random)this.session)
                 var dt = new Date();
                 var dateFile = dt.getFullYear() + '_' + (dt.getMonth() + 1) + '_' + dt.getDate();
                 var identifier = 'lazza_data_'+dateFile + '_' + (Math.random()*1000000).toFixed(2);
-                var session = this.session;
+                var  session = judging.session;
                 var payload = { identifier, session };
-                console.log(payload);
-                alert('dati inviati al server'+identifier);
-                localStorage.setItem(SESSION_NAME, '');
+                // http://localhost/lazza.php/{$table}/{$id}
+                fetchival('lazza.php/tournament/' + identifier)
+                  .post({ session: payload })
+                  .then(() => {
+                    alert('dati inviati al server'+identifier);
+                    localStorage.setItem(SESSION_NAME, '');
+                  })
+                  .catch(err => {
+                    console.log(err)
+                  });
+                  console.log(payload);
             }
         }, false );
     },
