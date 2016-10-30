@@ -1,9 +1,11 @@
 const BASE_MODEL_STRING = '{ "fields": [], "votes": [] }';
-const INPUT_SELECTOR = 'input[type=text]';
+const INPUT_SELECTOR = '.inputs';
 const BUTTON_SELECTOR = '.vote-button';
 const RESULT_SELECTOR = '.result';
+const PARTIAL_RESULT_SELECTOR = '.partial';
 const TIMES_SELECTOR = '.times';
 const REVIEW_SELECTOR = '.review';
+const FINAL_RESULT_SELECTOR = '.final';
 const SEND_BUTTON_SELECTOR = '#send-data';
 const SESSION_NAME = 'lazza_';
 
@@ -11,65 +13,56 @@ const judging = {
     session: {},
     init: () => {
         judging.initializeSession();
-        judging.saveSessionToLocalStorage();
-        judging.loadFieldsData();
+        judging._saveSessionToLocalStorage();
+
         judging.loadVotesData();
-        judging.watchFieldsInputs();
-        judging.watchVotesButtons();
-        judging.watchSendDataToServer();
+
+        judging.watcher(INPUT_SELECTOR, 'change', judging.entryField);
+        judging.watcher(BUTTON_SELECTOR, 'click', judging.vote);
+        judging.watcher(SEND_BUTTON_SELECTOR, 'click', judging.sendToServer);
     },
     initializeSession: () => {
         let sessionString = localStorage.getItem(SESSION_NAME) || '';
         let isNew = (sessionString === '');
-        if(isNew) {
-            sessionString = BASE_MODEL_STRING;
-        }
-        judging.session = JSON.parse(sessionString);
-    },
-    saveSessionToLocalStorage: () => {
-        localStorage.setItem(SESSION_NAME, JSON.stringify(judging.session));
-    },
-    loadFieldsData: () => {
-        judging.session.fields.forEach((field)=>{
-            var inputEl = document.querySelector('input[data-id='+field.from+']');
-            inputEl.value = field.data;
-        });
-        judging.log('* ------ loadVotesData ----- *');
+        judging.session = JSON.parse((isNew) ? BASE_MODEL_STRING : sessionString);
     },
     loadVotesData: () => {
-        var resultEls = document.querySelectorAll(RESULT_SELECTOR);
-        resultEls.forEach((result)=>{
-            var votingSumId = result.dataset.id.replace( 'result', 'voting');
-            var sum = judging.session.votes.reduce(function(prevVal, elem) {
-                return (elem.from === votingSumId) ?
-                parseFloat(prevVal,10) + parseFloat(elem.vote,10) :
-                prevVal;
-            }, 0.0);
-            result.innerText = parseFloat(sum,10).toFixed(1);
-        });
-        var resultEls = document.querySelectorAll(TIMES_SELECTOR);
-        resultEls.forEach((result)=>{
-            var votingSumId = result.dataset.id.replace( 'times', 'voting');
-            var sum = judging.session.votes.filter(function(elem) {
-                return (elem.from === votingSumId);
-            });
-            result.innerText = sum.length;
-        });
-        var reviewEls = document.querySelectorAll(REVIEW_SELECTOR);
-        reviewEls.forEach((reviewEl) => {
-            var reviewId = reviewEl.dataset.id.replace( 'review', 'voting');
-            reviewEl.innerHTML = '';
-            var badgesEls = document.createElement('div');
-            judging.session.votes.forEach((elem) => {
-                if(reviewId === elem.from) {
-                    var badge = badgesEls.appendChild(document.createElement('span'));
-                    badge.innerHTML += '<div data-id="' + elem.from + '" data-time="' + elem.time + '">' +(elem.time+1) + ': ' + elem.vote + '</b> <span class="remove">Remove<span><br/>';
-                }
-            });
-            reviewEl.appendChild(badgesEls);
-        });
-        judging.watchRemoveReview();
-        judging.log('* ------ loadVotesData ----- *');
+      judging.loader(INPUT_SELECTOR, judging.loadFieldsData);
+      judging.loader(RESULT_SELECTOR, judging.loadResultData);
+      judging.loader(TIMES_SELECTOR, judging.loadTimesData);
+
+      judging.loader(REVIEW_SELECTOR, judging.loadReviewData);
+      judging.watchRemoveReview();
+      judging.loader(PARTIAL_RESULT_SELECTOR, judging.loadPartialResultData);
+      judging.loader(FINAL_RESULT_SELECTOR, judging.loadFinalResultData);
+    },
+    loadResultData: (element) => {
+      var votingSumId = element.dataset.id.replace( 'result', 'voting');
+      var sum = judging.session.votes.reduce(function(prevVal, elem) {
+          return (elem.from === votingSumId) ?
+          parseFloat(prevVal,10) + parseFloat(elem.vote,10) :
+          prevVal;
+      }, 0.0);
+      element.innerText = parseFloat(sum,10).toFixed(1);
+    },
+    loadTimesData: (element) => {
+      var votingSumId = element.dataset.id.replace( 'times', 'voting');
+      var sum = judging.session.votes.filter(function(elem) {
+          return (elem.from === votingSumId);
+      });
+      element.innerText = sum.length;
+    },
+    loadReviewData: (element) => {
+      var reviewId = element.dataset.id.replace( 'review', 'voting');
+      var badgesEls = document.createElement('div');
+      element.innerHTML = '';
+      judging.session.votes.forEach((elem) => {
+          if(reviewId === elem.from) {
+              var badge = badgesEls.appendChild(document.createElement('span'));
+              badge.innerHTML += '<div data-id="' + elem.from + '" data-time="' + elem.time + '">' +(elem.time+1) + ': ' + elem.vote + '</b> <span class="remove">Remove<span><br/>';
+          }
+      });
+      element.appendChild(badgesEls);
     },
     watchRemoveReview: () => {
       var removeEls = document.querySelectorAll('.remove');
@@ -81,49 +74,55 @@ const judging = {
         }, false );
       });
     },
-    watchFieldsInputs: () => {
-        var inputs = document.querySelectorAll(INPUT_SELECTOR);
-        inputs.forEach( (inp)=> {
-            inp.addEventListener('change', () => {
-                judging.saveData('input', inp.dataset.id, inp.value, 0);
-            }, false );
-        });
+    loadFinalResultData: (element) => {
+      var sum = judging.session.votes.reduce(function(prevVal, elem) {
+          return (elem.from.indexOf('A') > -1) ? parseFloat(prevVal,10) + parseFloat(elem.vote,10) : prevVal
+      }, 0.0);
+      element.innerText = sum;
     },
-    watchVotesButtons: () => {
-        var buttons = document.querySelectorAll(BUTTON_SELECTOR);
-        buttons.forEach( (but)=> {
-            but.addEventListener('click', () => {
-              var voteType = 'vote';
-                if(but.className.indexOf('single') > -1) {
-                  voteType = 'single';
-                }
-                judging.saveData(voteType, but.dataset.id, but.dataset.value, 0);
-                judging.loadVotesData();
-            }, false );
-        });
+    loadPartialResultData: (element) => {
+      var sum = judging.session.votes.reduce(function(prevVal, elem) {
+        return (elem.from.indexOf('A') > -1) ? parseFloat(prevVal,10) + parseFloat(elem.vote,10) : prevVal
+      }, 0.0);
+      element.innerText = sum;
     },
-    watchSendDataToServer: () => {
-        var sendButton = document.querySelector(SEND_BUTTON_SELECTOR);
-        sendButton.addEventListener('click', () => {
-            if(confirm('Are you sure? DEFINITIVE')) {
-                var dt = new Date();
-                var dateFile = dt.getFullYear() + '_' + (dt.getMonth() + 1) + '_' + dt.getDate();
-                var identifier = 'lazza_data_'+dateFile + '_' + (Math.random()*1000000).toFixed(2);
-                var  session = judging.session;
-                var payload = { identifier, session };
-                // http://localhost/lazza.php/{$table}/{$id}
-                fetchival('lazza.php/tournament/' + identifier)
-                  .post({ session: payload })
-                  .then(() => {
-                    alert('dati inviati al server'+identifier);
-                    localStorage.setItem(SESSION_NAME, '');
-                  })
-                  .catch(err => {
-                    console.log(err)
-                  });
-                  console.log(payload);
+    entryField: (element) => {
+      judging.saveData('input', element.dataset.id, element.value, 0);
+    },
+    vote: (element) => {
+      var type = (element.className.indexOf('single') > -1) ? 'single' : 'vote' ;
+      judging.saveData(type, element.dataset.id, element.dataset.value, 0);
+      judging.loadVotesData();
+    },
+    loadFieldsData: (element) => {
+        judging.session.fields.forEach((field)=>{
+            if(field.from === element.dataset.id) {
+              element.value = field.data;
             }
-        }, false );
+        });
+    },
+    sendToServer: (element) => {
+      if(confirm('Are you sure? DEFINITIVE')) {
+          var dt = new Date();
+          var dateFile = dt.getFullYear() + '_' + (dt.getMonth() + 1) + '_' + dt.getDate();
+          var identifier = 'lazza_data_'+dateFile + '_' + (Math.random()*1000000).toFixed(2);
+          var session = judging.session;
+          var payload = { identifier, session };
+          // http://localhost/lazza.php/{$table}/{$id}
+          fetchival('lazza.php/tournament/' + identifier)
+            .post({ session: payload })
+            .then(() => {
+              alert('dati inviati al server'+identifier);
+              localStorage.setItem(SESSION_NAME, '');
+            })
+            .catch(err => {
+              console.log(err)
+            });
+            console.log(payload);
+      }
+    },
+    _saveSessionToLocalStorage: () => {
+        localStorage.setItem(SESSION_NAME, JSON.stringify(judging.session));
     },
     saveData: (type, id, value, time) => {
         switch(type) {
@@ -174,10 +173,21 @@ const judging = {
             default:
             return;
         }
-        judging.saveSessionToLocalStorage();
+        judging._saveSessionToLocalStorage();
     },
-    saveSessionToLocalStorage: () => {
-        localStorage.setItem(SESSION_NAME, JSON.stringify(judging.session));
+    watcher: (selector, domEvent, callback) => {
+      var selectedElements = document.querySelectorAll(selector);
+      selectedElements.forEach((elem) => {
+        elem.addEventListener(domEvent, () => {
+          callback(elem);
+        }, false );
+      });
+    },
+    loader: (selector, callback) => {
+      var selectedElements = document.querySelectorAll(selector);
+      selectedElements.forEach((elem) => {
+        callback(elem);
+      });
     },
     log(msg) {
         console.log(msg);

@@ -197,6 +197,9 @@
           <span data-id="result-executionA" class="result">0</span>
           <span data-id="times-executionA" class="times">0</span>
           <br/><br/>
+          Partial Result:
+          <span data-id="partial-teamA" class="partial">0</span>
+          <br/><br/>
           Annotation For AI<br/>
           Teamwork:
           <button class="vote-button small" data-id="voting-teamworkA" data-value="1">+</button>
@@ -292,6 +295,8 @@
           <span>Previous annotation Variety</span>
           <span data-id="review-generalA" class="review">-</span>
           <br/><br/>
+          Final Result:
+          <span data-id="final-teamA" class="final">0</span>
         </div>
         <br />
       </li>
@@ -345,12 +350,12 @@
         <br />
       </li>
       <li>
-        <h2 data-accordion-id="4"><i class="material-icons">alarm_on</i> Review Team A and Artistic</h2>
+        <h2 data-accordion-id="4"><i class="material-icons">alarm_on</i> Review Team B and Artistic</h2>
         <div data-accordion-id="4" class="accordionBox">
-          Review Difficulty Team A
+          Review Difficulty Team B
           <br />
           <div data-id="review-difficultyB" class="review"></div>
-          Review Execution Team A
+          Review Execution Team B
           <br />
           <div data-id="review-executionB" class="review"></div>
           <br/><br/>
@@ -415,6 +420,52 @@
       <li>
         <h2 data-accordion-id="5"><i class="material-icons">backup</i> Send Final Results</h2>
         <div data-accordion-id="5" class="accordionBox">
+          <div class="input-field">
+            <i class="material-icons prefix">account_box</i>
+            <input id="registration-field-judge" type="text" data-id="registration-field-judge" class="inputs">
+            <label for="registration-field-judge" class="active">Judge</label>
+          </div>
+          <br/><br/>
+          Team A:<br/>
+          Difficulty:
+          <span data-id="result-difficultyA" class="result">0</span>
+          <span data-id="times-difficultyA" class="times">0</span>
+          Execution:
+          <span data-id="result-executionA" class="result">0</span>
+          <span data-id="times-executionA" class="times">0</span>
+          Teamwork
+          <span data-id="result-teamwork-finalA" class="result">0</span>
+          Music
+          <span data-id="result-music-finalA" class="result">0</span>
+          Flow
+          <span data-id="result-flow-variety-finalA" class="result">0</span>
+          Variety
+          <span data-id="result-variety-finalA" class="result">0</span>
+          General Impression
+          <span data-id="result-general-finalA" class="result">0</span>
+          FINAL RESULT:
+          <span data-id="final-teamA" class="final">0</span>
+          <br/><br/>
+          Team B:<br/>
+          Difficulty:
+          <span data-id="result-difficultyB" class="result">0</span>
+          <span data-id="times-difficultyB" class="times">0</span>
+          Execution:
+          <span data-id="result-executionB" class="result">0</span>
+          <span data-id="times-executionB" class="times">0</span>
+          Teamwork
+          <span data-id="result-teamwork-finalB" class="result">0</span>
+          Music
+          <span data-id="result-music-finalB" class="result">0</span>
+          Flow
+          <span data-id="result-flow-finalB" class="result">0</span>
+          Variety
+          <span data-id="result-variety-finalB" class="result">0</span>
+          General Impression
+          <span data-id="result-general-finalB" class="result">0</span>
+          FINAL RESULT:
+          <span data-id="final-teamB" class="final">0</span>
+          <br/><br/>
           <button id="send-data">Send</button>
         </div>
         <br />
