@@ -32,7 +32,7 @@ const judging = {
       judging.loader(TIMES_SELECTOR, judging.loadTimesData);
 
       judging.loader(REVIEW_SELECTOR, judging.loadReviewData);
-      judging.watchRemoveReview();
+      judging.watcher('.remove', 'click', judging.removeVoteData);
       judging.loader(PARTIAL_RESULT_SELECTOR, judging.loadPartialResultData);
       judging.loader(FINAL_RESULT_SELECTOR, judging.loadFinalResultData);
     },
@@ -64,15 +64,9 @@ const judging = {
       });
       element.appendChild(badgesEls);
     },
-    watchRemoveReview: () => {
-      var removeEls = document.querySelectorAll('.remove');
-      removeEls.forEach((removeEl) => {
-        removeEl.addEventListener('click', () => {
-            console.log('Rimuovo', removeEl.parentElement.dataset.id, removeEl.parentElement.dataset.time);
-            judging.saveData('remove', removeEl.parentElement.dataset.id, null, removeEl.parentElement.dataset.time);
-            judging.loadVotesData();
-        }, false );
-      });
+    removeVoteData: (element) => {
+      judging.saveData('remove', element.parentElement.dataset.id, null, element.parentElement.dataset.time);
+      judging.loadVotesData();
     },
     loadFinalResultData: (element) => {
       var sum = judging.session.votes.reduce(function(prevVal, elem) {
