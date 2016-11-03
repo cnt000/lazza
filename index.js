@@ -8,6 +8,7 @@ const REVIEW_SELECTOR = '.review';
 const FINAL_RESULT_SELECTOR = '.final';
 const SEND_BUTTON_SELECTOR = '#send-data';
 const SESSION_NAME = 'lazza_';
+const SESSION_NAME_REDUX = 'lazza_redux_';
 
 const judging = {
     session: {},
@@ -66,6 +67,8 @@ const judging = {
     },
     removeVoteData: (element) => {
       judging.saveData('remove', element.parentElement.dataset.id, null, element.parentElement.dataset.time);
+
+      store.dispatch(removeVote(element.parentElement.dataset.id, null, element.parentElement.dataset.time));
       judging.loadVotesData();
     },
     loadFinalResultData: (element) => {
@@ -81,11 +84,18 @@ const judging = {
       element.innerText = sum;
     },
     entryField: (element) => {
+      store.dispatch(entryField(element.dataset.id, element.value));
       judging.saveData('input', element.dataset.id, element.value, 0);
     },
     vote: (element) => {
       var type = (element.className.indexOf('single') > -1) ? 'single' : 'vote' ;
       judging.saveData(type, element.dataset.id, element.dataset.value, 0);
+
+      if((element.className.indexOf('single') > -1)) {
+        store.dispatch(oneshotVote(element.dataset.id, element.dataset.value, 0));
+      } else {
+        store.dispatch(vote(element.dataset.id, element.dataset.value, 0));
+      }
       judging.loadVotesData();
     },
     loadFieldsData: (element) => {
@@ -206,3 +216,128 @@ const togglePanel = (id) => {
         accordionPanel.parentElement.className = 'open';
     }
 }
+
+function removeVote(id, value, time) {
+  return {
+    type: 'REMOVE_VOTE',
+    id: id,
+    value: value,
+    time: time
+  };
+}
+
+function entryField(id, value) {
+  return {
+    type: 'ENTRY_FIELD',
+    id: id,
+    value: value
+  };
+}
+
+function vote(id, value, time) {
+  return {
+    type: 'VOTE',
+    id: id,
+    value: value,
+    time: time
+  };
+}
+
+
+function oneshotVote(id, value, time) {
+  return {
+    type: 'ONESHOT_VOTE',
+    id: id,
+    value: value,
+    time: time
+  };
+}
+
+const { createStore } = Redux;
+
+var defaultState = {
+  judging: {
+    session: '',
+    fields: [],
+    votes: []
+  }
+};
+
+function judgingApp(state, action) {
+  switch (action.type) {
+    case 'VOTE':
+      var newState = Object.assign({}, state);
+      var timesArr = newState.judging.votes.filter((obj) => {
+        return (obj.id === action.id);
+      });
+      newState.judging.votes.push({
+        id: action.id,
+        value: action.value,
+        time: timesArr.length++
+      });
+
+      return newState;
+
+    case 'ONESHOT_VOTE':
+      var newState = Object.assign({}, state);
+      var existent = newState.judging.votes.filter((obj) => {
+          return (obj.id === action.id)
+      });
+      if(existent.length === 0) {
+          newState.judging.votes.push({id: action.id, value: action.value, time: 0});
+      }  else {
+          newState.judging.votes.forEach((obj) => {
+              if(obj.id === action.id) {
+                  obj.value = action.value;
+              }
+          });
+      }
+
+      return newState;
+
+    case 'ENTRY_FIELD':
+        var newState = Object.assign({}, state);
+        var existent = newState.judging.fields.filter((obj) => {
+            return (obj.id === action.id)
+        });
+        if(existent.length === 0) {
+            newState.judging.fields.push({id: action.id, value: action.value});
+        }  else {
+            newState.judging.fields.forEach((obj) => {
+                if(obj.id === action.id) {
+                    obj.value = action.value;
+                }
+            });
+        }
+
+        return newState;
+
+    case 'REMOVE_VOTE':
+        var newState = Object.assign({}, state);
+        var filteredVotes = newState.judging.votes.filter((element) => {
+          return (element.id != action.id || element.time != action.time)
+        });
+        newState.judging.votes = filteredVotes;
+
+        return newState;
+
+    default:
+      return state;
+  }
+}
+
+const persistedState = localStorage.getItem(SESSION_NAME_REDUX) ? JSON.parse(localStorage.getItem(SESSION_NAME_REDUX)) : defaultState;
+
+var store = createStore(judgingApp, persistedState);
+
+store.subscribe(()=>{
+  localStorage.setItem(SESSION_NAME_REDUX, JSON.stringify(store.getState()));
+  console.log(store.getState());
+});
+
+
+// store.dispatch(vote('execution-team-A', 0.25, 0));
+// store.dispatch(vote('execution-team-A', 0.50, 1));
+// store.dispatch(removeVote('execution-team-A', 0.50, 1));
+// store.dispatch(entryField('judge', 'edosss'));
+console.log(store.getState());
