@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import VoteButton from './VoteButton'
+import VoteContainer from '../containers/VoteContainer'
 import logo from './logo.svg';
 import './App.css';
 
@@ -11,9 +11,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <VoteButton type="execution" weight="0.1" oneshot="false">BAD</VoteButton>
-        <VoteButton type="execution" weight="0.2" oneshot="false">NOT GOOD</VoteButton>
-        <VoteButton type="execution" weight="0.3" oneshot="false">GOOD</VoteButton>
+        <VoteContainer type="execution" weight="0.1" oneshot="false">BAD</VoteContainer>
+        <VoteContainer type="execution" weight="0.2" oneshot="false">NOT GOOD</VoteContainer>
+        <VoteContainer type="execution" weight="0.3" oneshot="false">GOOD</VoteContainer>
       </div>
     );
   }

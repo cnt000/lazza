@@ -1,22 +1,12 @@
 const vote = (state = {}, action) => {
   switch (action.type) {
-    case 'INCREMENT':
+    case 'VOTE':
       console.log('incrementoooo');
+      return state
       break;
     default:
       return state
   }
 };
 
-const votes = (state = [], action) => {
-  switch (action.type) {
-    case 'INCREMENT':
-      return state.map(t =>
-        vote(t, action)
-      )
-    default:
-      return state
-  }
-}
-
-export default votes
+export default vote
