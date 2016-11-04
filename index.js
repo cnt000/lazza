@@ -7,6 +7,7 @@ const TIMES_SELECTOR = '.times';
 const REVIEW_SELECTOR = '.review';
 const FINAL_RESULT_SELECTOR = '.final';
 const SEND_BUTTON_SELECTOR = '#send-data';
+const REMOVE_SELECTOR = '.remove';
 const SESSION_NAME = 'lazza_';
 const SESSION_NAME_REDUX = 'lazza_redux_';
 const { createStore } = Redux;
@@ -23,7 +24,6 @@ const judging = {
     session: {},
     store: {},
     init: () => {
-
         const persistedState = localStorage.getItem(SESSION_NAME_REDUX) ? JSON.parse(localStorage.getItem(SESSION_NAME_REDUX)) : defaultState;
         store = createStore(judgingApp, persistedState);
 
@@ -46,18 +46,21 @@ const judging = {
       judging.loader(TIMES_SELECTOR, judging.loadTimesData);
 
       judging.loader(REVIEW_SELECTOR, judging.loadReviewData);
-      judging.watcher('.remove', 'click', judging.removeVoteData);
+      judging.watcher(REMOVE_SELECTOR, 'click', judging.removeVoteData);
       judging.loader(PARTIAL_RESULT_SELECTOR, judging.loadPartialResultData);
       judging.loader(FINAL_RESULT_SELECTOR, judging.loadFinalResultData);
     },
     loadResultData: (element) => {
       var votingSumId = element.dataset.id.replace( 'result', 'voting');
+      element.innerText = judging.sumVotes(votingSumId);
+    },
+    sumVotes: (votingSumId) => {
       var sum = store.getState().judging.votes.reduce(function(prevVal, elem) {
           return (elem.id === votingSumId) ?
           parseFloat(prevVal,10) + parseFloat(elem.value,10) :
           prevVal;
       }, 0.0);
-      element.innerText = parseFloat(sum,10).toFixed(1);
+      return parseFloat(sum,10).toFixed(1);
     },
     loadTimesData: (element) => {
       var votingSumId = element.dataset.id.replace( 'times', 'voting');
@@ -115,7 +118,7 @@ const judging = {
           var dt = new Date();
           var dateFile = dt.getFullYear() + '_' + (dt.getMonth() + 1) + '_' + dt.getDate();
           var identifier = 'lazza_data_'+dateFile + '_' + (Math.random()*1000000).toFixed(2);
-          var session = judging.session;
+          var session = store.getState();
           var payload = { identifier, session };
           // http://localhost/lazza.php/{$table}/{$id}
           fetchival('lazza.php/tournament/' + identifier)
