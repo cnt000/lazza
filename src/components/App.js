@@ -9,7 +9,7 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>Team Battle</h2>
         </div>
         <VoteContainer type="execution" weight="0.1" oneshot="false">BAD</VoteContainer>
         <VoteContainer type="execution" weight="0.2" oneshot="false">NOT GOOD</VoteContainer>
