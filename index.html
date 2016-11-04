@@ -4,158 +4,7 @@
   <meta charset="utf-8">
   <title>Lazza</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-  html, body, div, span, applet, object, iframe,
-  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-  a, abbr, acronym, address, big, cite, code,
-  del, dfn, em, img, ins, kbd, q, s, samp,
-  small, strike, strong, sub, sup, tt, var,
-  b, u, i, center,
-  dl, dt, dd, ol, ul, li,
-  fieldset, form, label, legend,
-  table, caption, tbody, tfoot, thead, tr, th, td,
-  article, aside, canvas, details, embed,
-  figure, figcaption, footer, header, hgroup,
-  menu, nav, output, ruby, section, summary,
-  time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-  }
-  /* HTML5 display-role reset for older browsers */
-  article, aside, details, figcaption, figure,
-  footer, header, hgroup, menu, nav, section {
-    display: block;
-  }
-  body {
-    line-height: 1;
-  }
-  ol, ul {
-    list-style: none;
-  }
-  /* end of reset */
-  #main-accordion h2 {
-    font-size: 1.6rem;
-    padding: 1.78rem 0 1.424rem 0;
-    margin: 0;
-  }
-  #main-accordion h2::after {
-    content: " >";
-  }
-  #main-accordion .open h2::after {
-    content: " v";
-  }
-  #main-accordion h3 {
-    font-size: 1.4rem;
-    text-align: center;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-  }
-  input {
-    display: block;
-    width: 80%;
-    height: 50px;
-    padding: 4px;
-    margin:2px;
-    border: 1px solid darkgrey;
-  }
-  button {
-    width: 150px;
-    height: 100px;
-    padding: 4px;
-    border: 1px solid darkgrey;
-  }
-  button.small {
-    width: 50px;
-    height: 50px;
-  }
-  li {
-    border-top: 1px solid black;
-  }
-  li:last-child {
-    border-bottom: 1px solid black;
-  }
-  #main-accordion li .accordionBox {
-    display: none;
-  }
-  #main-accordion li.open .accordionBox {
-    display: block;
-  }
-  li:first-child {
-    background: lightblue;
-  }
-  li:last-child {
-    background: lightgoldenrodyellow;
-  }
-  li:nth-of-type(2), li:nth-of-type(3) {
-    background: lightseagreen;
-  }
-  li:nth-of-type(4), li:nth-of-type(5) {
-    background: lightcoral;
-  }
-  [data-id^='review'] .remove {
-    display: none;
-  }
-  [data-id='review-executionA'] .remove,
-  [data-id='review-difficultyA'] .remove {
-    display: inline;
-  }
-  .vote-group {
-    display: flex;
-    justify-content: center;
-  }
-  .vote-group button {
-    margin: 0 20px;
-  }
-  .header-vote {
-    text-align: center;
-    padding: 8px 0;
-  }
-  .header-vote > div {
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-  }
-  #main-accordion button:focus {
-    background-color: lightgrey;
-  }
-  .voting-block {
-    padding: 14px 0;
-    border: 1px solid black;
-    margin: 5px 50px;
-    border-radius: 2px;
-    width: auto;
-  }
-  .voting-block:hover {
-    background: #13a29a;
-  }
-  #main-accordion .small-buttons {
-    display: flex;
-    justify-content: center;
-  }
-  #main-accordion .small-buttons .vote-group button {
-    margin-right: 12px;
-  }
-  #main-accordion .small-buttons .voting-block {
-    padding: 4px 0;
-    border: 1px solid black;
-    margin: 5px 10px;
-    border-radius: 2px;
-  }
-  .partial-title {
-    display: inline-block;
-    margin-top: 26px;
-  }
-  .final-result {
-    font-size: 32px;
-  }
-  .review span {
-    display: inline-block;
-    padding: 4px;
-  }
-  </style>
+  <link rel="stylesheet" href="style.css">
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.js"></script>
@@ -173,20 +22,18 @@
       <li>
         <h2 data-accordion-id="0"><i class="material-icons">filter_drama</i> Registration</h2>
         <div data-accordion-id="0" class="accordionBox">
-          <div class="input-field">
-            <i class="material-icons prefix">account_box</i>
-            <input id="registration-field-judge" type="text" data-id="registration-field-judge" class="inputs">
-            <label for="registration-field-judge" class="active">Judge</label>
-          </div>
-          <!--div class="input-field">
-            <i class="material-icons prefix">account_box</i>
+          <div class="select-field">
             <select id="judging-type" data-id="judging-type" class="inputs">
               <option>Pairs</option>
               <option>Co-op</option>
               <option>SuperPro</option>
             </select>
-            <label for="judging-type" class="active">Game type: </label>
-          </div-->
+          </div>
+          <div class="input-field">
+            <i class="material-icons prefix">account_box</i>
+            <input id="registration-field-judge" type="text" data-id="registration-field-judge" class="inputs">
+            <label for="registration-field-judge" class="active">Judge</label>
+          </div>
           <h3>Team A:</h3>
           <div class="input-field">
             <i class="material-icons prefix">account_circle</i>
