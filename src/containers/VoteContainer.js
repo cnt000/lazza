@@ -1,19 +1,18 @@
 import { connect } from 'react-redux'
-import { incrementVote } from '../index'
+import { vote } from '../actions'
 import Vote from '../components/Vote'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    type: ownProps.type,
-    weight: ownProps.weight,
-    oneshot: ownProps.oneshot
+      id: ownProps.type,
+      value: ownProps.weight
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onClick: () => {
-      dispatch(incrementVote(ownProps.type))
+      dispatch(vote(ownProps.type, ownProps.weight, 0))
     }
   }
 }
