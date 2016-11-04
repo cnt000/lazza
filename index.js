@@ -9,26 +9,39 @@ const FINAL_RESULT_SELECTOR = '.final';
 const SEND_BUTTON_SELECTOR = '#send-data';
 const SESSION_NAME = 'lazza_';
 const SESSION_NAME_REDUX = 'lazza_redux_';
+const { createStore } = Redux;
+
+const defaultState = {
+  judging: {
+    session: '',
+    fields: [],
+    votes: []
+  }
+};
 
 const judging = {
     session: {},
+    store: {},
     init: () => {
-        judging.initializeSession();
-        judging._saveSessionToLocalStorage();
 
+        const persistedState = localStorage.getItem(SESSION_NAME_REDUX) ? JSON.parse(localStorage.getItem(SESSION_NAME_REDUX)) : defaultState;
+        store = createStore(judgingApp, persistedState);
+
+        store.subscribe(()=>{
+          localStorage.setItem(SESSION_NAME_REDUX, JSON.stringify(store.getState()));
+          judging.loadVotesData();
+          console.log(store.getState());
+        });
+
+        judging.loader(INPUT_SELECTOR, judging.loadFieldsData);
         judging.loadVotesData();
+        console.log(store.getState());
 
         judging.watcher(INPUT_SELECTOR, 'change', judging.entryField);
         judging.watcher(BUTTON_SELECTOR, 'click', judging.vote);
         judging.watcher(SEND_BUTTON_SELECTOR, 'click', judging.sendToServer);
     },
-    initializeSession: () => {
-        let sessionString = localStorage.getItem(SESSION_NAME) || '';
-        let isNew = (sessionString === '');
-        judging.session = JSON.parse((isNew) ? BASE_MODEL_STRING : sessionString);
-    },
     loadVotesData: () => {
-      judging.loader(INPUT_SELECTOR, judging.loadFieldsData);
       judging.loader(RESULT_SELECTOR, judging.loadResultData);
       judging.loader(TIMES_SELECTOR, judging.loadTimesData);
 
@@ -39,17 +52,17 @@ const judging = {
     },
     loadResultData: (element) => {
       var votingSumId = element.dataset.id.replace( 'result', 'voting');
-      var sum = judging.session.votes.reduce(function(prevVal, elem) {
-          return (elem.from === votingSumId) ?
-          parseFloat(prevVal,10) + parseFloat(elem.vote,10) :
+      var sum = store.getState().judging.votes.reduce(function(prevVal, elem) {
+          return (elem.id === votingSumId) ?
+          parseFloat(prevVal,10) + parseFloat(elem.value,10) :
           prevVal;
       }, 0.0);
       element.innerText = parseFloat(sum,10).toFixed(1);
     },
     loadTimesData: (element) => {
       var votingSumId = element.dataset.id.replace( 'times', 'voting');
-      var sum = judging.session.votes.filter(function(elem) {
-          return (elem.from === votingSumId);
+      var sum = store.getState().judging.votes.filter(function(elem) {
+          return (elem.id === votingSumId);
       });
       element.innerText = sum.length;
     },
@@ -57,53 +70,45 @@ const judging = {
       var reviewId = element.dataset.id.replace( 'review', 'voting');
       var badgesEls = document.createElement('div');
       element.innerHTML = '';
-      judging.session.votes.forEach((elem) => {
-          if(reviewId === elem.from) {
+      store.getState().judging.votes.forEach((elem) => {
+          if(reviewId === elem.id) {
               var badge = badgesEls.appendChild(document.createElement('span'));
-              badge.innerHTML += '<div data-id="' + elem.from + '" data-time="' + elem.time + '">' +(elem.time+1) + ': ' + elem.vote + '</b> <span class="remove">Remove<span><br/>';
+              badge.innerHTML += '<div data-id="' + elem.id + '" data-time="' + elem.time + '">' +(elem.time+1) + ': ' + elem.value + '</b> <span class="remove">X<span><br/>';
           }
       });
       element.appendChild(badgesEls);
     },
-    removeVoteData: (element) => {
-      judging.saveData('remove', element.parentElement.dataset.id, null, element.parentElement.dataset.time);
-
-      store.dispatch(removeVote(element.parentElement.dataset.id, null, element.parentElement.dataset.time));
-      judging.loadVotesData();
-    },
     loadFinalResultData: (element) => {
-      var sum = judging.session.votes.reduce(function(prevVal, elem) {
-          return (elem.from.indexOf('A') > -1) ? parseFloat(prevVal,10) + parseFloat(elem.vote,10) : prevVal
+      var sum = store.getState().judging.votes.reduce(function(prevVal, elem) {
+          return (elem.id.indexOf('A') > -1) ? parseFloat(prevVal,10) + parseFloat(elem.value,10) : prevVal
       }, 0.0);
       element.innerText = sum;
     },
     loadPartialResultData: (element) => {
-      var sum = judging.session.votes.reduce(function(prevVal, elem) {
-        return (elem.from.indexOf('A') > -1) ? parseFloat(prevVal,10) + parseFloat(elem.vote,10) : prevVal
+      var sum = store.getState().judging.votes.reduce(function(prevVal, elem) {
+        return (elem.id.indexOf('A') > -1) ? parseFloat(prevVal,10) + parseFloat(elem.value,10) : prevVal
       }, 0.0);
       element.innerText = sum;
     },
+    loadFieldsData: (element) => {
+      store.getState().judging.fields.forEach((field)=>{
+        if(field.id === element.dataset.id) {
+          element.value = field.value;
+        }
+      });
+    },
+    removeVoteData: (element) => {
+      store.dispatch(removeVote(element.parentElement.dataset.id, null, element.parentElement.dataset.time));
+    },
     entryField: (element) => {
       store.dispatch(entryField(element.dataset.id, element.value));
-      judging.saveData('input', element.dataset.id, element.value, 0);
     },
     vote: (element) => {
-      var type = (element.className.indexOf('single') > -1) ? 'single' : 'vote' ;
-      judging.saveData(type, element.dataset.id, element.dataset.value, 0);
-
       if((element.className.indexOf('single') > -1)) {
         store.dispatch(oneshotVote(element.dataset.id, element.dataset.value, 0));
       } else {
         store.dispatch(vote(element.dataset.id, element.dataset.value, 0));
       }
-      judging.loadVotesData();
-    },
-    loadFieldsData: (element) => {
-        judging.session.fields.forEach((field)=>{
-            if(field.from === element.dataset.id) {
-              element.value = field.data;
-            }
-        });
     },
     sendToServer: (element) => {
       if(confirm('Are you sure? DEFINITIVE')) {
@@ -125,60 +130,6 @@ const judging = {
             console.log(payload);
       }
     },
-    _saveSessionToLocalStorage: () => {
-        localStorage.setItem(SESSION_NAME, JSON.stringify(judging.session));
-    },
-    saveData: (type, id, value, time) => {
-        switch(type) {
-            case 'input':
-              var existent = judging.session.fields.filter(function(obj) {
-                  return (obj.from === id)
-              });
-              if(existent.length === 0) {
-                  judging.session.fields.push({from: id, data: value});
-              }  else {
-                  judging.session.fields.map((obj) => {
-                      if(obj.from === id) {
-                          obj.data = value;
-                      }
-                  });
-              }
-            break;
-            case 'vote':
-              var timesArr = judging.session.votes.filter((obj) => {
-                return (obj.from === id);
-              });
-              judging.session.votes.push({from: id, vote: value, time: timesArr.length++});
-            break;
-            case 'single':
-              var sameIdVote = judging.session.votes.filter((obj) => {
-                return (obj.from === id);
-              });
-              if(sameIdVote.length === 0) {
-                judging.session.votes.push({from: id, vote: value, time: 0});
-              }  else {
-                sameIdVote.forEach((obj) => {
-                  if(obj.from === id && obj.time === 0) {
-                    obj.vote = value;
-                  }
-                });
-              }
-            break;
-            case 'remove':
-              var filteredVotes = judging.session.votes.filter((obj) => {
-                if((obj.from == id && obj.time == time+"")) {
-                  return false;
-                } else {
-                  return true;
-                }
-              });
-              judging.session.votes = filteredVotes;
-            break;
-            default:
-            return;
-        }
-        judging._saveSessionToLocalStorage();
-    },
     watcher: (selector, domEvent, callback) => {
       var selectedElements = document.querySelectorAll(selector);
       selectedElements.forEach((elem) => {
@@ -192,11 +143,6 @@ const judging = {
       selectedElements.forEach((elem) => {
         callback(elem);
       });
-    },
-    log(msg) {
-        console.log(msg);
-        console.log(judging.session);
-        console.log(' * **- -------------------------- -** *');
     }
 }
 
@@ -243,7 +189,6 @@ function vote(id, value, time) {
   };
 }
 
-
 function oneshotVote(id, value, time) {
   return {
     type: 'ONESHOT_VOTE',
@@ -252,16 +197,6 @@ function oneshotVote(id, value, time) {
     time: time
   };
 }
-
-const { createStore } = Redux;
-
-var defaultState = {
-  judging: {
-    session: '',
-    fields: [],
-    votes: []
-  }
-};
 
 function judgingApp(state, action) {
   switch (action.type) {
@@ -275,7 +210,6 @@ function judgingApp(state, action) {
         value: action.value,
         time: timesArr.length++
       });
-
       return newState;
 
     case 'ONESHOT_VOTE':
@@ -292,7 +226,6 @@ function judgingApp(state, action) {
               }
           });
       }
-
       return newState;
 
     case 'ENTRY_FIELD':
@@ -309,7 +242,6 @@ function judgingApp(state, action) {
                 }
             });
         }
-
         return newState;
 
     case 'REMOVE_VOTE':
@@ -318,26 +250,9 @@ function judgingApp(state, action) {
           return (element.id != action.id || element.time != action.time)
         });
         newState.judging.votes = filteredVotes;
-
         return newState;
 
     default:
       return state;
   }
 }
-
-const persistedState = localStorage.getItem(SESSION_NAME_REDUX) ? JSON.parse(localStorage.getItem(SESSION_NAME_REDUX)) : defaultState;
-
-var store = createStore(judgingApp, persistedState);
-
-store.subscribe(()=>{
-  localStorage.setItem(SESSION_NAME_REDUX, JSON.stringify(store.getState()));
-  console.log(store.getState());
-});
-
-
-// store.dispatch(vote('execution-team-A', 0.25, 0));
-// store.dispatch(vote('execution-team-A', 0.50, 1));
-// store.dispatch(removeVote('execution-team-A', 0.50, 1));
-// store.dispatch(entryField('judge', 'edosss'));
-console.log(store.getState());
