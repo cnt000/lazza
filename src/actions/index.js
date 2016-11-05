@@ -16,20 +16,12 @@ export const entryField = (id, value) => {
   };
 }
 
-export const vote = (id, value, time) => {
+export const vote = (id, value, oneshot) => {
+    let voteType = (JSON.parse(oneshot)) ? 'ONESHOT_VOTE' : 'VOTE';
   return {
-    type: 'VOTE',
+    type: voteType,
     id: id,
     value: value,
-    time: time
-  };
-}
-
-export const oneshotVote = (id, value, time) => {
-  return {
-    type: 'ONESHOT_VOTE',
-    id: id,
-    value: value,
-    time: time
+    time: 0
   };
 }

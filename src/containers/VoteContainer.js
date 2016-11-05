@@ -5,14 +5,15 @@ import Vote from '../components/Vote'
 const mapStateToProps = (state, ownProps) => {
   return {
       id: ownProps.type,
-      value: ownProps.weight
+      value: ownProps.weight,
+      oneshot: ownProps.oneshot
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onClick: () => {
-      dispatch(vote(ownProps.type, ownProps.weight, 0))
+        dispatch(vote(ownProps.type, ownProps.weight, ownProps.oneshot))
     }
   }
 }
