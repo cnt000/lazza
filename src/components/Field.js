@@ -1,14 +1,23 @@
 import React, { PropTypes } from 'react'
 
-const Field = ({ children, onChange}) => (
-  <div>
-    <b>{children}</b>
-    <input type="text" onChange={e => {
-         e.preventDefault()
-         onChange(e.target.value)
-     }} />
-  </div>
-)
+const Field = ({ children, field = {}, onChange}) => {
+    let input;
+
+     return (
+      <div>
+        <b>{children}</b>
+        <input type="text" onChange={e => {
+             e.preventDefault()
+             onChange(e.target.value)
+         }}
+         value={input.value}
+         ref={node => {
+             input = node;
+         }}
+         />
+      </div>
+  );
+};
 
 Field.propTypes = {
   children: PropTypes.node.isRequired,

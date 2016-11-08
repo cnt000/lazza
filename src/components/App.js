@@ -15,7 +15,11 @@ class App extends Component {
         Judge
         <div>
             <FieldContainer type="judge">Judge</FieldContainer>
-            <FieldContainer type="player-team-A">Player 1A:</FieldContainer>
+            <FieldContainer type="player-A1">Judge</FieldContainer>
+            <FieldContainer type="player-A2">Judge</FieldContainer>
+            <FieldContainer type="player-A3">Judge</FieldContainer>
+            <FieldContainer type="player-A4">Judge</FieldContainer>
+            <FieldContainer type="player-A5">Judge</FieldContainer>
         </div>
         Execution
         <div>
