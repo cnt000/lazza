@@ -16,6 +16,13 @@ export const entryField = (id, value) => {
   };
 }
 
+export const loadResult = (id) => {
+  return {
+    type: 'LOAD_RESULT',
+    id: id
+  };
+}
+
 export const vote = (id, value, oneshot) => {
     let voteType = (JSON.parse(oneshot)) ? 'ONESHOT_VOTE' : 'VOTE';
   return {

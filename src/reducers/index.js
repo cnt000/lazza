@@ -3,6 +3,13 @@ const judginApp = (state = {}, action) => {
   var existent;
 
   switch (action.type) {
+    case 'LOAD_VOTE':
+      newState = Object.assign({}, state);
+      var sum = newState.judging.votes.reduce((obj, prev) => {
+          return (obj.id === action.id) ? obj.value + prev : prev;
+      }, 0);
+      return sum;
+
     case 'VOTE':
       newState = Object.assign({}, state);
       var timesArr = newState.judging.votes.filter((obj) => {

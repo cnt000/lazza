@@ -10,9 +10,9 @@ const Field = ({ children, field = {}, onChange}) => {
              e.preventDefault()
              onChange(e.target.value)
          }}
-         value={input.value}
          ref={node => {
              input = node;
+             input.value = field.value;
          }}
          />
       </div>
