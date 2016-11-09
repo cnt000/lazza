@@ -3,11 +3,14 @@ import { loadResult } from '../actions'
 import Result from '../components/Result'
 
 const mapStateToProps = (state, ownProps) => {
+    var sum = state.judging.votes.reduce((prevVal, elem) => {
+        return (elem.id === ownProps.type) ?
+        parseFloat(prevVal,10) + parseFloat(elem.value,10) :
+        prevVal;
+    }, 0.0);
   return {
       id: ownProps.type,
-      value: state.judging.votes.reduce((obj, prev) => {
-        return (obj.id === ownProps.type) ? obj.value + prev : prev;
-      }, 0)
+      value: sum
   }
 }
 
