@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import VoteContainer from '../containers/VoteContainer';
 import FieldContainer from '../containers/FieldContainer';
 import ResultContainer from '../containers/ResultContainer';
+import CustomTextInput from '../components/CustomTextInput';
 import logo from './logo.svg';
 import './App.css';
 
@@ -13,6 +14,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Team Battle</h2>
         </div>
+        <CustomTextInput />
         Judge
         <div>
             <FieldContainer type="judge">Judge</FieldContainer>
