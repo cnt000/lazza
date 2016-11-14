@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 const Player = ({ fields }) => {
   return (
     <div>
-        {fields.map(p => <input type="text" data-id={p.id} />)}
+        {fields.map(p => <input key={p.id} defaultValue={p.value} type="text" data-id={p.id} />)}
     </div>
   )
 }

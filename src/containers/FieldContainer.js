@@ -4,15 +4,15 @@ import Field from '../components/Field'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-      id: ownProps.type,
-      field: state.judging.fields.find((obj) => { return obj.id === ownProps.type })
+    id: ownProps.type,
+    field: state.judging.fields.find((obj) => { return obj.id === ownProps.type })
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onChange: (value) => {
-        dispatch(entryField(ownProps.type, value))
+      dispatch(entryField(ownProps.type, value))
     }
   }
 }

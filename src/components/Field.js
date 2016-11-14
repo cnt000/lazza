@@ -6,7 +6,10 @@ const Field = ({ children, field = {}, onChange}) => {
      return (
       <div>
         <b>{children}</b>
-        <input defaultValue={field.value} type="text" onChange={e => {
+        <input
+          type="text" 
+          defaultValue={field.value}
+          onChange={e => {
              e.preventDefault()
              onChange(e.target.value)
          }}
@@ -19,7 +22,6 @@ const Field = ({ children, field = {}, onChange}) => {
 };
 
 Field.propTypes = {
-  children: PropTypes.node.isRequired,
   onChange: PropTypes.func.isRequired
 }
 

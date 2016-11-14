@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import VoteContainer from '../containers/VoteContainer';
 import FieldContainer from '../containers/FieldContainer';
-import ResultContainer from '../containers/ResultContainer';
 import PartialResult from '../components/PartialResult';
 import Player from '../components/Player';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -13,18 +11,17 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <h2>Team Battle</h2>
         </div>
         Judge
         <div>
-            <FieldContainer type="judge">Judge</FieldContainer>
-            <FieldContainer type="player-A1">Judge</FieldContainer>
-            <FieldContainer type="player-A2">Judge</FieldContainer>
-            <FieldContainer type="player-A3">Judge</FieldContainer>
-            <FieldContainer type="player-A4">Judge</FieldContainer>
-            <FieldContainer type="player-A5">Judge</FieldContainer>
-
+            <FieldContainer type="judge" />
+            <FieldContainer type="player-A1" />
+            <FieldContainer type="player-A2" />
+            <FieldContainer type="player-A3" />
+            <FieldContainer type="player-A4" />
+            <FieldContainer type="player-A5" />
+            Player Field:
             <Player type="player-A5" />
         </div>
         Execution
