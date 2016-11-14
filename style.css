@@ -36,10 +36,12 @@ ol, ul {
   margin: 0;
 }
 #main-accordion h2::after {
-  content: " >";
+  content: " +";
+  right: 10px;
+  position: absolute;
 }
 #main-accordion .open h2::after {
-  content: " v";
+  content: " -";
 }
 #main-accordion h3 {
   font-size: 1.4rem;
@@ -151,4 +153,19 @@ li:nth-of-type(4), li:nth-of-type(5) {
 .select-field select {
   display: block;
   width: 80%;
+}
+
+.input-field {
+  display: flex;
+}
+
+.input-field [type="checkbox"]:not(:checked),
+.input-field [type="checkbox"]:checked {
+  position: static;;
+  opacity: 1;
+  margin: 0 8px;
+}
+
+#judging-type {
+  margin: 0 auto;
 }

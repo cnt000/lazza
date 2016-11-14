@@ -96,7 +96,11 @@ const judging = {
     loadFieldsData: (element) => {
       store.getState().judging.fields.forEach((field)=>{
         if(field.id === element.dataset.id) {
-          element.value = field.value;
+          if(field.value && element.type === 'checkbox') {
+            element.checked = true;
+          } else {
+            element.value = field.value;
+          }
         }
       });
     },
@@ -104,7 +108,8 @@ const judging = {
       store.dispatch(removeVote(element.parentElement.dataset.id, null, element.parentElement.dataset.time));
     },
     entryField: (element) => {
-      store.dispatch(entryField(element.dataset.id, element.value));
+      var value = (element.type === 'checkbox') ? element.checked : element.value;
+      store.dispatch(entryField(element.dataset.id, value));
     },
     vote: (element) => {
       if((element.className.indexOf('single') > -1)) {

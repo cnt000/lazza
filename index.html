@@ -24,6 +24,7 @@
         <div data-accordion-id="0" class="accordionBox">
           <div class="select-field">
             <select id="judging-type" data-id="judging-type" class="inputs">
+              <option>Select game type...</option>
               <option>Pairs</option>
               <option>Co-op</option>
               <option>SuperPro</option>
@@ -39,52 +40,82 @@
             <i class="material-icons prefix">account_circle</i>
             <input id="registration-field-player1A" type="text" data-id="registration-field-player1A" class="inputs">
             <label for="registration-field-player1A" class="active">Player 1A:</label>
+            <div>
+              <span>PLAY</span><input type="checkbox" data-id="play-player1A" class="inputs" />
+            </div>
           </div>
           <div class="input-field">
             <i class="material-icons prefix">account_circle</i>
             <input id="registration-field-player2A" type="text" data-id="registration-field-player2A" class="inputs">
             <label for="registration-field-player2A" class="active">Player 2A:</label>
+            <div>
+              <span>PLAY</span><input type="checkbox" data-id="play-player2A" class="inputs" />
+            </div>
           </div>
           <div class="input-field">
             <i class="material-icons prefix">account_circle</i>
             <input id="registration-field-player3A" type="text" data-id="registration-field-player3A" class="inputs">
             <label for="registration-field-player3A" class="active">Player 3A:</label>
+            <div>
+              <span>PLAY</span><input type="checkbox" data-id="play-player3A" class="inputs" />
+            </div>
           </div>
           <div class="input-field">
             <i class="material-icons prefix">account_circle</i>
             <input id="registration-field-player4A" type="text" data-id="registration-field-player4A" class="inputs">
             <label for="registration-field-player4A" class="active">Player 4A:</label>
+            <div>
+              <span>PLAY</span><input type="checkbox" data-id="play-player4A" class="inputs" />
+            </div>
           </div>
           <div class="input-field">
             <i class="material-icons prefix">account_circle</i>
             <input id="registration-field-player5A" type="text" data-id="registration-field-player5A" class="inputs">
             <label for="registration-field-player5A" class="active">Player 5A:</label>
+            <div>
+              <span>PLAY</span><input type="checkbox" data-id="play-player5A" class="inputs" />
+            </div>
           </div>
           <h3>Team B:</h3>
           <div class="input-field">
             <i class="material-icons prefix">account_circle</i>
             <input id="registration-field-player1B" type="text" data-id="registration-field-player1B" class="inputs">
             <label for="registration-field-player1B" class="active">Player 1B:</label>
+            <div>
+              <span>PLAY</span><input type="checkbox" data-id="play-player1B" class="inputs" />
+            </div>
           </div>
           <div class="input-field">
             <i class="material-icons prefix">account_circle</i>
             <input id="registration-field-player2B" type="text" data-id="registration-field-player2B" class="inputs">
             <label for="registration-field-player2B" class="active">Player 2B:</label>
+            <div>
+              <span>PLAY</span><input type="checkbox" data-id="play-player2B" class="inputs" />
+            </div>
           </div>
           <div class="input-field">
             <i class="material-icons prefix">account_circle</i>
             <input id="registration-field-player3B" type="text" data-id="registration-field-player3B" class="inputs">
             <label for="registration-field-player3B" class="active">Player 3B:</label>
+            <div>
+              <span>PLAY</span><input type="checkbox" data-id="play-player3B" class="inputs" />
+            </div>
           </div>
           <div class="input-field">
             <i class="material-icons prefix">account_circle</i>
             <input id="registration-field-player4B" type="text" data-id="registration-field-player4B" class="inputs">
             <label for="registration-field-player4B" class="active">Player 4B:</label>
+            <div>
+              <span>PLAY</span><input type="checkbox" data-id="play-player4B" class="inputs" />
+            </div>
           </div>
           <div class="input-field">
             <i class="material-icons prefix">account_circle</i>
             <input id="registration-field-player5B" type="text" data-id="registration-field-player5B" class="inputs">
             <label for="registration-field-player5B" class="active">Player 5B:</label>
+            <div>
+              <span>PLAY</span><input type="checkbox" data-id="play-player5B" class="inputs" />
+            </div>
           </div>
         </div>
         <br />
@@ -392,48 +423,81 @@
                 <input id="registration-field-judge" type="text" data-id="registration-field-judge" class="inputs">
                 <label for="registration-field-judge" class="active">Judge</label>
               </div>
-              <br/><br/>
-              Team A:<br/>
-              Difficulty:
-              <span data-id="result-difficultyA" class="result">0</span>
-              <span data-id="times-difficultyA" class="times">0</span>
-              Execution:
-              <span data-id="result-executionA" class="result">0</span>
-              <span data-id="times-executionA" class="times">0</span>
-              Teamwork
-              <span data-id="result-teamwork-finalA" class="result">0</span>
-              Music
-              <span data-id="result-music-finalA" class="result">0</span>
-              Flow
-              <span data-id="result-flow-variety-finalA" class="result">0</span>
-              Variety
-              <span data-id="result-variety-finalA" class="result">0</span>
-              General Impression
-              <span data-id="result-general-finalA" class="result">0</span>
-              FINAL RESULT:
-              <span data-id="final-teamA" class="final">0</span>
-              <br/><br/>
-              Team B:<br/>
-              Difficulty:
-              <span data-id="result-difficultyB" class="result">0</span>
-              <span data-id="times-difficultyB" class="times">0</span>
-              Execution:
-              <span data-id="result-executionB" class="result">0</span>
-              <span data-id="times-executionB" class="times">0</span>
-              Teamwork
-              <span data-id="result-teamwork-finalB" class="result">0</span>
-              Music
-              <span data-id="result-music-finalB" class="result">0</span>
-              Flow
-              <span data-id="result-flow-finalB" class="result">0</span>
-              Variety
-              <span data-id="result-variety-finalB" class="result">0</span>
-              General Impression
-              <span data-id="result-general-finalB" class="result">0</span>
-              FINAL RESULT:
-              <span data-id="final-teamB" class="final">0</span>
-              <br/><br/>
-              <button id="send-data">Send</button>
+
+              <h3>Team A:</h3>
+              <div class="header-vote">
+                <div>Difficulty: </div>
+                <span data-id="result-difficultyA" class="result">0</span>
+                <span data-id="times-difficultyA" class="times">0</span>
+              </div>
+
+              <div class="header-vote"><div>Execution: </div>
+                <span data-id="result-executionA" class="result">0</span>
+                <span data-id="times-executionA" class="times">0</span>
+              </div>
+
+              <div class="header-vote"><div>Teamwork: </div>
+                <span data-id="result-teamwork-finalA" class="result">0</span>
+              </div>
+
+              <div class="header-vote"><div>Music: </div>
+                <span data-id="result-music-finalA" class="result">0</span>
+              </div>
+
+              <div class="header-vote"><div>Flow: </div>
+                <span data-id="result-flow-variety-finalA" class="result">0</span>
+              </div>
+
+              <div class="header-vote"><div>Variety: </div>
+                <span data-id="result-variety-finalA" class="result">0</span>
+              </div>
+
+              <div class="header-vote"><div>General Impression: </div>
+                <span data-id="result-general-finalA" class="result">0</span>
+              </div>
+
+              <div class="header-vote"><div>FINAL RESULT: </div>
+                <span data-id="final-teamA" class="final">0</span>
+              </div>
+
+              <h3>Team B:</h3>
+              <div class="header-vote"><div>Difficulty: </div>
+                <span data-id="result-difficultyB" class="result">0</span>
+                <span data-id="times-difficultyB" class="times">0</span>
+              </div>
+
+              <div class="header-vote"><div>Execution: </div>
+                <span data-id="result-executionB" class="result">0</span>
+                <span data-id="times-executionB" class="times">0</span>
+              </div>
+
+              <div class="header-vote"><div>Teamwork </div>
+                <span data-id="result-teamwork-finalB" class="result">0</span>
+              </div>
+
+              <div class="header-vote"><div>Music </div>
+                <span data-id="result-music-finalB" class="result">0</span>
+              </div>
+
+              <div class="header-vote"><div>Flow </div>
+                <span data-id="result-flow-finalB" class="result">0</span>
+              </div>
+
+              <div class="header-vote"><div>Variety </div>
+                <span data-id="result-variety-finalB" class="result">0</span>
+              </div>
+
+              <div class="header-vote"><div>General Impression </div>
+                <span data-id="result-general-finalB" class="result">0</span>
+              </div>
+
+              <div class="header-vote"><div>FINAL RESULT: </div>
+                <span data-id="final-teamB" class="final">0</span>
+              </div>
+
+              <div class="header-vote">
+                <button id="send-data">Send</button>
+              </div>
             </div>
             <br />
           </li>
