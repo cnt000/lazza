@@ -6,13 +6,12 @@ const Field = ({ children, field = {}, onChange}) => {
      return (
       <div>
         <b>{children}</b>
-        <input type="text" onChange={e => {
+        <input defaultValue={field.value} type="text" onChange={e => {
              e.preventDefault()
              onChange(e.target.value)
          }}
          ref={node => {
              input = node;
-             input.value = field.value;
          }}
          />
       </div>
