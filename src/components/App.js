@@ -31,12 +31,27 @@ class App extends Component {
             <VoteContainer type="execution" weight="0.3" oneshot="false">GOOD</VoteContainer>
             <PartialResult type="execution" />
         </div>
+        Difficulty
+        <div>
+            <VoteContainer type="difficulty" weight="-0.25" oneshot="false">BAD</VoteContainer>
+            <VoteContainer type="difficulty" weight="0" oneshot="false">NOT GOOD</VoteContainer>
+            <VoteContainer type="difficulty" weight="0.25" oneshot="false">GOOD</VoteContainer>
+            <VoteContainer type="difficulty" weight="0.5" oneshot="false">GOOD</VoteContainer>
+            <PartialResult type="difficulty" />
+        </div>
         Variety
         <div>
             <VoteContainer type="variety" weight="1" oneshot="true">1</VoteContainer>
             <VoteContainer type="variety" weight="2" oneshot="true">2</VoteContainer>
             <VoteContainer type="variety" weight="3" oneshot="true">3</VoteContainer>
             <PartialResult type="variety" />
+        </div>
+        Teamwork
+        <div>
+            <VoteContainer type="teamwork" weight="1" oneshot="true">1</VoteContainer>
+            <VoteContainer type="teamwork" weight="2" oneshot="true">2</VoteContainer>
+            <VoteContainer type="teamwork" weight="3" oneshot="true">3</VoteContainer>
+            <PartialResult type="teamwork" />
         </div>
       </div>
     );

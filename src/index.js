@@ -10,7 +10,8 @@ const defaultState = {
   judging: {
     session: '',
     fields: [],
-    votes: []
+    votes: [],
+    results: {}
   }
 };
 

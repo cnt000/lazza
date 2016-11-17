@@ -16,9 +16,7 @@ const PartialResult = ({ votes, result }) => {
 
 const mapStateToProps = (state, ownProps) => ({
   votes: state.judging.votes.filter(elm => ownProps.type === elm.id),
-  result: state.judging.votes.reduce((prevVal, elm) => {
-    return (ownProps.type === elm.id) ? prevVal+parseFloat(elm.value): prevVal;
-  }, 0.0).toFixed(1)
+  result: state.judging.results[ownProps.type]
 })
 
 export default connect(

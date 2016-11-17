@@ -3,12 +3,6 @@ const judginApp = (state = {}, action) => {
   var existent;
 
   switch (action.type) {
-    case 'LOAD_VOTE':
-      newState = Object.assign({}, state);
-      var sum = newState.judging.votes.reduce((obj, prev) => {
-          return (obj.id === action.id) ? obj.value + prev : prev;
-      }, 0);
-      return sum;
 
     case 'VOTE':
       newState = Object.assign({}, state);
@@ -20,6 +14,11 @@ const judginApp = (state = {}, action) => {
         value: action.value,
         time: timesArr.length++
       });
+      if(typeof newState.judging.results[action.id] === 'undefined') {
+        newState.judging.results[action.id] = 0.0;
+      }
+      newState.judging.results[action.id] += parseFloat(action.value, 10);
+
       return newState;
 
     case 'ONESHOT_VOTE':
@@ -36,6 +35,9 @@ const judginApp = (state = {}, action) => {
               }
           });
       }
+
+      newState.judging.results[action.id] = parseFloat(action.value, 10);
+
       return newState;
 
     case 'ENTRY_FIELD':
