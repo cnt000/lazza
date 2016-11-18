@@ -12,12 +12,20 @@ const judginApp = (state = {}, action) => {
       newState.judging.votes.push({
         id: action.id,
         value: action.value,
-        time: timesArr.length++
+        time: timeMaxId(timesArr) + 1
       });
       if(typeof newState.judging.results[action.id] === 'undefined') {
-        newState.judging.results[action.id] = 0.0;
+        newState.judging.results[action.id] = {
+          value: 0.0,
+          time: 0
+        };
       }
-      newState.judging.results[action.id] += parseFloat(action.value, 10);
+      let oldVal = newState.judging.results[action.id].value;
+      let oldTime = newState.judging.results[action.id].time + 1;
+      newState.judging.results[action.id] = {
+        value: parseFloat(action.value, 10) + oldVal,
+        time: oldTime
+      };
 
       return newState;
 
@@ -36,7 +44,10 @@ const judginApp = (state = {}, action) => {
           });
       }
 
-      newState.judging.results[action.id] = parseFloat(action.value, 10);
+      newState.judging.results[action.id] = {
+        value: parseFloat(action.value, 10),
+        time: 0
+      };
 
       return newState;
 
@@ -69,5 +80,11 @@ const judginApp = (state = {}, action) => {
   }
 }
 
+function timeMaxId(array) {
+  return array.reduce((prevVal, elm) => {
+    return (prevVal > elm.time) ? prevVal : elm.time;
+  }, 0);
+
+}
 
 export default judginApp

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import VoteContainer from '../containers/VoteContainer';
 import FieldContainer from '../containers/FieldContainer';
 import PartialResult from '../components/PartialResult';
-import Player from '../components/Player';
+import VoteRow from '../components/VoteRow';
+import Total from '../components/Total';
 import './App.css';
 
 class App extends Component {
@@ -13,23 +14,26 @@ class App extends Component {
         <div className="App-header">
           <h2>Team Battle</h2>
         </div>
-        Judge
-        <div>
+
+        <div>Judge
             <FieldContainer type="judge" />
+            Players:
             <FieldContainer type="player-A1" />
             <FieldContainer type="player-A2" />
             <FieldContainer type="player-A3" />
             <FieldContainer type="player-A4" />
             <FieldContainer type="player-A5" />
-            Player Field:
-            <Player type="player-A5" />
         </div>
         Execution
         <div>
+          <VoteRow type="execution">
+            <Total type="execution" />
             <VoteContainer type="execution" weight="0.1" oneshot="false">BAD</VoteContainer>
             <VoteContainer type="execution" weight="0.2" oneshot="false">NOT GOOD</VoteContainer>
             <VoteContainer type="execution" weight="0.3" oneshot="false">GOOD</VoteContainer>
-            <PartialResult type="execution" />
+          </VoteRow>
+          Review Result:
+          <PartialResult type="execution" />
         </div>
         Difficulty
         <div>

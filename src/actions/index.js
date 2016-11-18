@@ -24,7 +24,7 @@ export const loadResult = (id) => {
 }
 
 export const vote = (id, value, oneshot) => {
-    let voteType = (JSON.parse(oneshot)) ? 'ONESHOT_VOTE' : 'VOTE';
+  let voteType = (JSON.parse(oneshot)) ? 'ONESHOT_VOTE' : 'VOTE';
   return {
     type: voteType,
     id: id,
