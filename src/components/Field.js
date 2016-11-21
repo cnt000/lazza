@@ -7,7 +7,7 @@ const Field = ({ children, field = {}, onChange}) => {
       <div>
         <b>{children}</b>
         <input
-          type="text" 
+          type="text"
           defaultValue={field.value}
           onChange={e => {
              e.preventDefault()

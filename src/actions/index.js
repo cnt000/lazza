@@ -16,6 +16,14 @@ export const entryField = (id, value) => {
   };
 }
 
+export const entryPlay = (id, value) => {
+  return {
+    type: 'ENTRY_PLAY',
+    id: id,
+    value: value
+  };
+}
+
 export const loadResult = (id) => {
   return {
     type: 'LOAD_RESULT',

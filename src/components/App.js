@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import VoteContainer from '../containers/VoteContainer';
 import FieldContainer from '../containers/FieldContainer';
+import PlayContainer from '../containers/PlayContainer';
 import PartialResult from '../components/PartialResult';
 import VoteRow from '../components/VoteRow';
 import Total from '../components/Total';
@@ -18,11 +19,20 @@ class App extends Component {
         <div>Judge
             <FieldContainer type="judge" />
             Players:
-            <FieldContainer type="player-A1" />
-            <FieldContainer type="player-A2" />
-            <FieldContainer type="player-A3" />
-            <FieldContainer type="player-A4" />
-            <FieldContainer type="player-A5" />
+            <FieldContainer type="player-A1-name" />
+            <PlayContainer type="player-A1-play" />
+
+            <FieldContainer type="player-A2-name" />
+            <PlayContainer type="player-A2-play" />
+
+            <FieldContainer type="player-A3-name" />
+            <PlayContainer type="player-A3-play" />
+
+            <FieldContainer type="player-A4-name" />
+            <PlayContainer type="player-A4-play" />
+
+            <FieldContainer type="player-A5-name" />
+            <PlayContainer type="player-A5-play" />
         </div>
         Execution
         <div>

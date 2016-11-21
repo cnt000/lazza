@@ -67,6 +67,22 @@ const judginApp = (state = {}, action) => {
         }
         return newState;
 
+    case 'ENTRY_PLAY':
+        newState = Object.assign({}, state);
+        existent = newState.judging.fields.filter((obj) => {
+            return (obj.id === action.id)
+        });
+        if(existent.length === 0) {
+            newState.judging.fields.push({id: action.id, value: action.value});
+        }  else {
+            newState.judging.fields.forEach((obj) => {
+                if(obj.id === action.id) {
+                    obj.value = action.value;
+                }
+            });
+        }
+        return newState;
+
     case 'REMOVE_VOTE':
         newState = Object.assign({}, state);
         var filteredVotes = newState.judging.votes.filter((element) => {
