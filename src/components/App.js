@@ -40,38 +40,103 @@ class App extends Component {
             <FieldContainer type="player-A5-name" />
             <PlayContainer type="player-A5-play" />
         </div>
+        <h2>TEAM A</h2>
+        Difficulty
+        <div>
+            <VoteContainer type="difficulty" weight="-0.5" oneshot="false">BAD</VoteContainer>
+            <VoteContainer type="difficulty" weight="-0.25" oneshot="false">NOT GOOD</VoteContainer>
+            <VoteContainer type="difficulty" weight="0" oneshot="false">MEDIUM</VoteContainer>
+            <VoteContainer type="difficulty" weight="0.25" oneshot="false">GOOD</VoteContainer>
+            <VoteContainer type="difficulty" weight="0.5" oneshot="false">AMAZING</VoteContainer>
+            <PartialResult type="difficulty" />
+        </div>
         Execution
         <div>
           <VoteRow type="execution">
             <Total type="execution" />
-            <VoteContainer type="execution" weight="0.1" oneshot="false">BAD</VoteContainer>
-            <VoteContainer type="execution" weight="0.2" oneshot="false">NOT GOOD</VoteContainer>
-            <VoteContainer type="execution" weight="0.3" oneshot="false">GOOD</VoteContainer>
+            <VoteContainer type="execution" weight="0.1" oneshot="false">MINOR</VoteContainer>
+            <VoteContainer type="execution" weight="0.3" oneshot="false">DROP</VoteContainer>
           </VoteRow>
           Review Result:
           <PartialResult type="execution" />
         </div>
-        Difficulty
+        <h2>Annotations AI</h2>
+        Teamwork
         <div>
-            <VoteContainer type="difficulty" weight="-0.25" oneshot="false">BAD</VoteContainer>
-            <VoteContainer type="difficulty" weight="0" oneshot="false">NOT GOOD</VoteContainer>
-            <VoteContainer type="difficulty" weight="0.25" oneshot="false">GOOD</VoteContainer>
-            <VoteContainer type="difficulty" weight="0.5" oneshot="false">GOOD</VoteContainer>
-            <PartialResult type="difficulty" />
+          <VoteContainer type="teamwork-annotation" weight="1" oneshot="false">+</VoteContainer>
+          <VoteContainer type="teamwork-annotation" weight="-1" oneshot="false">-</VoteContainer>
+          <PartialResult type="teamwork-annotation" />
+        </div>
+        Music
+        <div>
+          <VoteContainer type="music-annotation" weight="1" oneshot="false">+</VoteContainer>
+          <VoteContainer type="music-annotation" weight="-1" oneshot="false">-</VoteContainer>
+          <PartialResult type="music-annotation" />
+        </div>
+        Flow
+        <div>
+          <VoteContainer type="flow-annotation" weight="1" oneshot="false">+</VoteContainer>
+          <VoteContainer type="flow-annotation" weight="-1" oneshot="false">-</VoteContainer>
+          <PartialResult type="flow-annotation" />
         </div>
         Variety
         <div>
-            <VoteContainer type="variety" weight="1" oneshot="true">1</VoteContainer>
-            <VoteContainer type="variety" weight="2" oneshot="true">2</VoteContainer>
-            <VoteContainer type="variety" weight="3" oneshot="true">3</VoteContainer>
-            <PartialResult type="variety" />
+          <VoteContainer type="variety-annotation" weight="1" oneshot="false">+</VoteContainer>
+          <VoteContainer type="variety-annotation" weight="-1" oneshot="false">-</VoteContainer>
+          <PartialResult type="variety-annotation" />
         </div>
+        General Impression
+        <div>
+          <VoteContainer type="general-impression-annotation" weight="1" oneshot="false">+</VoteContainer>
+          <VoteContainer type="general-impression-annotation" weight="-1" oneshot="false">-</VoteContainer>
+          <PartialResult type="general-impression-annotation" />
+        </div>
+
+        <h2>ARTISTIC IMPRESSION</h2>
         Teamwork
         <div>
-            <VoteContainer type="teamwork" weight="1" oneshot="true">1</VoteContainer>
-            <VoteContainer type="teamwork" weight="2" oneshot="true">2</VoteContainer>
-            <VoteContainer type="teamwork" weight="3" oneshot="true">3</VoteContainer>
-            <PartialResult type="teamwork" />
+          <VoteContainer type="teamwork" weight="0" oneshot="false">BAD</VoteContainer>
+          <VoteContainer type="teamwork" weight="0.5" oneshot="false">NOT GOOD</VoteContainer>
+          <VoteContainer type="teamwork" weight="1" oneshot="false">MEDIUM</VoteContainer>
+          <VoteContainer type="teamwork" weight="1.5" oneshot="false">GOOD</VoteContainer>
+          <VoteContainer type="teamwork" weight="2" oneshot="false">AMAZING</VoteContainer>
+          <PartialResult type="teamwork" />
+        </div>
+        Music
+        <div>
+          <VoteContainer type="music" weight="0" oneshot="false">BAD</VoteContainer>
+          <VoteContainer type="music" weight="0.5" oneshot="false">NOT GOOD</VoteContainer>
+          <VoteContainer type="music" weight="1" oneshot="false">MEDIUM</VoteContainer>
+          <VoteContainer type="music" weight="1.5" oneshot="false">GOOD</VoteContainer>
+          <VoteContainer type="music" weight="2" oneshot="false">AMAZING</VoteContainer>
+          <PartialResult type="music" />
+        </div>
+        Flow
+        <div>
+          <VoteContainer type="flow" weight="0" oneshot="false">BAD</VoteContainer>
+          <VoteContainer type="flow" weight="0.5" oneshot="false">NOT GOOD</VoteContainer>
+          <VoteContainer type="flow" weight="1" oneshot="false">MEDIUM</VoteContainer>
+          <VoteContainer type="flow" weight="1.5" oneshot="false">GOOD</VoteContainer>
+          <VoteContainer type="flow" weight="2" oneshot="false">AMAZING</VoteContainer>
+          <PartialResult type="flow" />
+        </div>
+        Variety
+        <div>
+          <VoteContainer type="variety" weight="0" oneshot="false">BAD</VoteContainer>
+          <VoteContainer type="variety" weight="0.5" oneshot="false">NOT GOOD</VoteContainer>
+          <VoteContainer type="variety" weight="1" oneshot="false">MEDIUM</VoteContainer>
+          <VoteContainer type="variety" weight="1.5" oneshot="false">GOOD</VoteContainer>
+          <VoteContainer type="variety" weight="2" oneshot="false">AMAZING</VoteContainer>
+          <PartialResult type="variety" />
+        </div>
+        General Impression
+        <div>
+          <VoteContainer type="general-impression" weight="0" oneshot="false">BAD</VoteContainer>
+          <VoteContainer type="general-impression" weight="0.5" oneshot="false">NOT GOOD</VoteContainer>
+          <VoteContainer type="general-impression" weight="1" oneshot="false">MEDIUM</VoteContainer>
+          <VoteContainer type="general-impression" weight="1.5" oneshot="false">GOOD</VoteContainer>
+          <VoteContainer type="general-impression" weight="2" oneshot="false">AMAZING</VoteContainer>
+          <PartialResult type="general-impression" />
         </div>
       </div>
     );

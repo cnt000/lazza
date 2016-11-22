@@ -7,10 +7,13 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+  color: #fff;
+  background-color: #424242;
+  width: 100%;
+  height: 56px;
+  line-height: 56px;
+  margin: 0;
+  padding: 0;
 }
 
 .App-intro {
