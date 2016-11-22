@@ -18,6 +18,12 @@ class App extends Component {
 
         <div>Judge
             <FieldContainer type="judge" />
+            <select type="type-of-game">
+              <option value="Pair">Pair</option>
+              <option value="Co-op">Co-op</option>
+              <option value="SuperPro">SuperPro</option>
+            </select>
+            <br/>
             Players:
             <FieldContainer type="player-A1-name" />
             <PlayContainer type="player-A1-play" />
