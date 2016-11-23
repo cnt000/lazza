@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import appReducers from './reducers'
 import App from './components/App'
+import './index.css'
 
 const SESSION_NAME_REDUX = 'lazza_redux_';
 const defaultState = {
