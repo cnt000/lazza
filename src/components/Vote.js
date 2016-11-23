@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import './Vote.css';
 
 const Vote = ({ children, onClick }) => (
-  <button onClick={e => {
+  <button className="vote" onClick={e => {
          e.preventDefault()
          onClick()
        }}>
