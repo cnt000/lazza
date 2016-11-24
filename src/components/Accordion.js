@@ -71,104 +71,128 @@ var Accordion = React.createClass({
 
               <FieldContainer type="player-A5-name" />
               <PlayContainer type="player-A5-play" />
+
+              <br/>
+              Players:
+              <FieldContainer type="player-B1-name" />
+              <PlayContainer type="player-B1-play" />
+
+              <FieldContainer type="player-B2-name" />
+              <PlayContainer type="player-B2-play" />
+
+              <FieldContainer type="player-B3-name" />
+              <PlayContainer type="player-B3-play" />
+
+              <FieldContainer type="player-B4-name" />
+              <PlayContainer type="player-B4-play" />
+
+              <FieldContainer type="player-B5-name" />
+              <PlayContainer type="player-B5-play" />
           </div>
         </Section>
         <Section title="2 - Team A - Live judging">
           Difficulty
           <div>
-            <PartialResult type="difficulty" />
-              <VoteContainer type="difficulty" weight="-0.5" oneshot="false">BAD</VoteContainer>
-              <VoteContainer type="difficulty" weight="-0.25" oneshot="false">NOT GOOD</VoteContainer>
-              <VoteContainer type="difficulty" weight="0" oneshot="false">MEDIUM</VoteContainer>
-              <VoteContainer type="difficulty" weight="0.25" oneshot="false">GOOD</VoteContainer>
-              <VoteContainer type="difficulty" weight="0.5" oneshot="false">AMAZING</VoteContainer>
+              <Total type="difficulty-team-A" />
+              <VoteContainer type="difficulty-team-A" weight="-0.5" oneshot="false">BAD</VoteContainer>
+              <VoteContainer type="difficulty-team-A" weight="-0.25" oneshot="false">NOT GOOD</VoteContainer>
+              <VoteContainer type="difficulty-team-A" weight="0" oneshot="false">MEDIUM</VoteContainer>
+              <VoteContainer type="difficulty-team-A" weight="0.25" oneshot="false">GOOD</VoteContainer>
+              <VoteContainer type="difficulty-team-A" weight="0.5" oneshot="false">AMAZING</VoteContainer>
           </div>
           Execution
           <div>
-            <VoteRow type="execution">
-              <Total type="execution" />
-              <VoteContainer type="execution" weight="0.1" oneshot="false">MINOR</VoteContainer>
-              <VoteContainer type="execution" weight="0.3" oneshot="false">DROP</VoteContainer>
+            <VoteRow type="execution-team-A">
+              <Total type="execution-team-A" />
+              <VoteContainer type="execution-team-A" weight="0.1" oneshot="false">MINOR</VoteContainer>
+              <VoteContainer type="execution-team-A" weight="0.3" oneshot="false">DROP</VoteContainer>
             </VoteRow>
-            Review Result:
-            <PartialResult type="execution" />
           </div>
           Teamwork
           <div>
-            <VoteContainer type="teamwork-annotation" weight="1" oneshot="false">+</VoteContainer>
-            <VoteContainer type="teamwork-annotation" weight="-1" oneshot="false">-</VoteContainer>
-            <PartialResult type="teamwork-annotation" />
+            <VoteContainer type="teamwork-team-A-annotation" weight="1" oneshot="false">+</VoteContainer>
+            <VoteContainer type="teamwork-team-A-annotation" weight="-1" oneshot="false">-</VoteContainer>
+            <Total type="teamwork-team-A-annotation" />
           </div>
           Music
           <div>
-            <VoteContainer type="music-annotation" weight="1" oneshot="false">+</VoteContainer>
-            <VoteContainer type="music-annotation" weight="-1" oneshot="false">-</VoteContainer>
-            <PartialResult type="music-annotation" />
+            <VoteContainer type="music-team-A-annotation" weight="1" oneshot="false">+</VoteContainer>
+            <VoteContainer type="music-team-A-annotation" weight="-1" oneshot="false">-</VoteContainer>
+            <Total type="music-team-A-annotation" />
           </div>
           Flow
           <div>
-            <VoteContainer type="flow-annotation" weight="1" oneshot="false">+</VoteContainer>
-            <VoteContainer type="flow-annotation" weight="-1" oneshot="false">-</VoteContainer>
-            <PartialResult type="flow-annotation" />
+            <VoteContainer type="flow-team-A-annotation" weight="1" oneshot="false">+</VoteContainer>
+            <VoteContainer type="flow-team-A-annotation" weight="-1" oneshot="false">-</VoteContainer>
+            <Total type="flow-team-A-annotation" />
           </div>
           Variety
           <div>
-            <VoteContainer type="variety-annotation" weight="1" oneshot="false">+</VoteContainer>
-            <VoteContainer type="variety-annotation" weight="-1" oneshot="false">-</VoteContainer>
-            <PartialResult type="variety-annotation" />
+            <VoteContainer type="variety-team-A-annotation" weight="1" oneshot="false">+</VoteContainer>
+            <VoteContainer type="variety-team-A-annotation" weight="-1" oneshot="false">-</VoteContainer>
+            <Total type="variety-team-A-annotation" />
           </div>
           General Impression
           <div>
-            <VoteContainer type="general-impression-annotation" weight="1" oneshot="false">+</VoteContainer>
-            <VoteContainer type="general-impression-annotation" weight="-1" oneshot="false">-</VoteContainer>
-            <PartialResult type="general-impression-annotation" />
+            <VoteContainer type="general-impression-team-A-annotation" weight="1" oneshot="false">+</VoteContainer>
+            <VoteContainer type="general-impression-team-A-annotation" weight="-1" oneshot="false">-</VoteContainer>
+            <Total type="general-impression-team-A-annotation" />
           </div>
         </Section>
         <Section title="3 - Review Team A and Artistic Impression">
+          Execution Review:
+          <PartialResult type="execution-team-A" />
+          Difficulty Review:
+          <PartialResult type="difficulty-team-A" />
           Teamwork
           <div>
-            <PartialResult type="teamwork" />
-            <VoteContainer type="teamwork" weight="0" oneshot="false">BAD</VoteContainer>
-            <VoteContainer type="teamwork" weight="0.5" oneshot="false">NOT GOOD</VoteContainer>
-            <VoteContainer type="teamwork" weight="1" oneshot="false">MEDIUM</VoteContainer>
-            <VoteContainer type="teamwork" weight="1.5" oneshot="false">GOOD</VoteContainer>
-            <VoteContainer type="teamwork" weight="2" oneshot="false">AMAZING</VoteContainer>
+            <Total type="teamwork-team-A" />
+            <VoteContainer type="teamwork-team-A" weight="0" oneshot="true">BAD</VoteContainer>
+            <VoteContainer type="teamwork-team-A" weight="0.5" oneshot="true">NOT GOOD</VoteContainer>
+            <VoteContainer type="teamwork-team-A" weight="1" oneshot="true">MEDIUM</VoteContainer>
+            <VoteContainer type="teamwork-team-A" weight="1.5" oneshot="true">GOOD</VoteContainer>
+            <VoteContainer type="teamwork-team-A" weight="2" oneshot="true">AMAZING</VoteContainer>
+            Previous annotations: <PartialResult type="teamwork-team-A-annotation" />
           </div>
           Music
           <div>
-            <PartialResult type="music" />
-            <VoteContainer type="music" weight="0" oneshot="false">BAD</VoteContainer>
-            <VoteContainer type="music" weight="0.5" oneshot="false">NOT GOOD</VoteContainer>
-            <VoteContainer type="music" weight="1" oneshot="false">MEDIUM</VoteContainer>
-            <VoteContainer type="music" weight="1.5" oneshot="false">GOOD</VoteContainer>
-            <VoteContainer type="music" weight="2" oneshot="false">AMAZING</VoteContainer>
+            <Total type="music-team-A" />
+            <VoteContainer type="music-team-A" weight="0" oneshot="true">BAD</VoteContainer>
+            <VoteContainer type="music-team-A" weight="0.5" oneshot="true">NOT GOOD</VoteContainer>
+            <VoteContainer type="music-team-A" weight="1" oneshot="true">MEDIUM</VoteContainer>
+            <VoteContainer type="music-team-A" weight="1.5" oneshot="true">GOOD</VoteContainer>
+            <VoteContainer type="music-team-A" weight="2" oneshot="true">AMAZING</VoteContainer>
+            Previous annotations: <PartialResult type="music-team-A-annotation" />
           </div>
           Flow
           <div>
-            <PartialResult type="flow" />
-            <VoteContainer type="flow" weight="0" oneshot="false">BAD</VoteContainer>
-            <VoteContainer type="flow" weight="0.5" oneshot="false">NOT GOOD</VoteContainer>
-            <VoteContainer type="flow" weight="1" oneshot="false">MEDIUM</VoteContainer>
-            <VoteContainer type="flow" weight="1.5" oneshot="false">GOOD</VoteContainer>
-            <VoteContainer type="flow" weight="2" oneshot="false">AMAZING</VoteContainer>
+            <Total type="flow-team-A" />
+            <VoteContainer type="flow-team-A" weight="0" oneshot="true">BAD</VoteContainer>
+            <VoteContainer type="flow-team-A" weight="0.5" oneshot="true">NOT GOOD</VoteContainer>
+            <VoteContainer type="flow-team-A" weight="1" oneshot="true">MEDIUM</VoteContainer>
+            <VoteContainer type="flow-team-A" weight="1.5" oneshot="true">GOOD</VoteContainer>
+            <VoteContainer type="flow-team-A" weight="2" oneshot="true">AMAZING</VoteContainer>
+            Previous annotations: <PartialResult type="flow-team-A-annotation" />
           </div>
           Variety
           <div>
-            <PartialResult type="variety" />
-            <VoteContainer type="variety" weight="0" oneshot="false">BAD</VoteContainer>
-            <VoteContainer type="variety" weight="0.5" oneshot="false">NOT GOOD</VoteContainer>
-            <VoteContainer type="variety" weight="1" oneshot="false">MEDIUM</VoteContainer>
-            <VoteContainer type="variety" weight="1.5" oneshot="false">GOOD</VoteContainer>
-            <VoteContainer type="variety" weight="2" oneshot="false">AMAZING</VoteContainer>
+            <Total type="variety-team-A" />
+            <VoteContainer type="variety-team-A" weight="0" oneshot="true">BAD</VoteContainer>
+            <VoteContainer type="variety-team-A" weight="0.5" oneshot="true">NOT GOOD</VoteContainer>
+            <VoteContainer type="variety-team-A" weight="1" oneshot="true">MEDIUM</VoteContainer>
+            <VoteContainer type="variety-team-A" weight="1.5" oneshot="true">GOOD</VoteContainer>
+            <VoteContainer type="variety-team-A" weight="2" oneshot="true">AMAZING</VoteContainer>
+            Previous annotations: <PartialResult type="variety-team-A-annotation" />
           </div>
           General Impression
           <div>
-            <PartialResult type="general-impression" />
-            <VoteContainer type="general-impression" weight="0" oneshot="false">BAD</VoteContainer>
-            <VoteContainer type="general-impression" weight="0.5" oneshot="false">NOT GOOD</VoteContainer>
-            <VoteContainer type="general-impression" weight="1" oneshot="false">MEDIUM</VoteContainer>
-            <VoteContainer type="general-impression" weight="1.5" oneshot="false">GOOD</VoteContainer>
-            <VoteContainer type="general-impression" weight="2" oneshot="false">AMAZING</VoteContainer>
+            <Total type="general-impression-team-A" />
+            <VoteContainer type="general-impression-team-A" weight="0" oneshot="true">BAD</VoteContainer>
+            <VoteContainer type="general-impression-team-A" weight="0.5" oneshot="true">NOT GOOD</VoteContainer>
+            <VoteContainer type="general-impression-team-A" weight="1" oneshot="true">MEDIUM</VoteContainer>
+            <VoteContainer type="general-impression-team-A" weight="1.5" oneshot="true">GOOD</VoteContainer>
+            <VoteContainer type="general-impression-team-A" weight="2" oneshot="true">AMAZING</VoteContainer>
+            Previous annotations: <PartialResult type="general-impression-team-A-annotation" />
           </div>
         </Section>
         <Section title="4 - Team B - Live judging">
