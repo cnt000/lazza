@@ -311,7 +311,14 @@ var Accordion = React.createClass({
           </div>
         </Section>
         <Section title="6 - Submit Final Vote">
-
+          Execution Team A Final Review:
+          <PartialResult type="execution-team-A" />
+          Difficulty Team A Final Review:
+          <PartialResult type="difficulty-team-A" />
+          Execution Team B Final Review:
+          <PartialResult type="execution-team-B" />
+          Difficulty Team B Final Review:
+          <PartialResult type="difficulty-team-B" />
         </Section>
       </div>
     );

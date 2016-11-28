@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { removeVote } from '../actions'
+import { removeVote } from '../actions';
+import './PartialResult.css';
 
 
 const PartialResult = ({ votes, result, onClick }) => {
@@ -19,9 +20,7 @@ const PartialResult = ({ votes, result, onClick }) => {
              }}> X </span>
            </li>)}
       </ul>
-      <span>
-        {result.value.toFixed(1)} - {result.time}
-      </span>
+      <span className="total">Total: {result.value.toFixed(1)} - Votes: {result.time}</span>
     </div>
   )
 }
