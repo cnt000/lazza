@@ -38,19 +38,22 @@ const judginApp = (state = {}, action) => {
       return newState;
 
     case 'ENTRY_FIELD':
-        newState = {...state};
-        newState.judging.fields = save(newState.judging.fields, action);
-        return newState;
+      newState = {...state};
+      newState.judging.fields = save(newState.judging.fields, action);
+      return newState;
 
     case 'ENTRY_PLAY':
-        newState = {...state};
-        newState.judging.fields = save(newState.judging.fields, action);
-        return newState;
+      newState = {...state};
+      newState.judging.fields = save(newState.judging.fields, action);
+      return newState;
 
     case 'REMOVE_VOTE':
-        newState = {...state};
-        newState.judging.votes = selectItems(newState.judging.votes, action.id);
-        return newState;
+      newState = Object.assign({}, state);
+      var filteredVotes = newState.judging.votes.filter((element) => {
+      return (element.id !== action.id || element.time !== action.time)
+      });
+      newState.judging.votes = filteredVotes;
+      return newState;
 
     default:
       return state;
