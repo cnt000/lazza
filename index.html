@@ -8,6 +8,7 @@
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
   <header>
@@ -126,57 +127,57 @@
           <div class="voting-block">
             <div class="header-vote"><div>Difficulty</div> Point: <span data-id="result-difficultyA" class="result">0</span> Votes: <span data-id="times-difficultyA" class="times">0</span></div>
             <div class="vote-group">
-              <button class="vote-button" data-id="voting-difficultyA" data-value="-0.5">BAD</button>
-              <button class="vote-button" data-id="voting-difficultyA" data-value="-0.25">NOT GOOD</button>
-              <button class="vote-button" data-id="voting-difficultyA" data-value="0">MEDIUM</button>
-              <button class="vote-button" data-id="voting-difficultyA" data-value="0.25">GOOD</button>
-              <button class="vote-button" data-id="voting-difficultyA" data-value="0.5">AMAZING</button>
+              <button class="vote-button btn btn-lg btn-danger btn btn-lg btn-success" data-id="voting-difficultyA" data-value="-0.5">BAD</button>
+              <button class="vote-button btn btn-lg btn-danger btn btn-lg btn-success" data-id="voting-difficultyA" data-value="-0.25">NOT GOOD</button>
+              <button class="vote-button btn btn-lg btn-warning" data-id="voting-difficultyA" data-value="0">MEDIUM</button>
+              <button class="vote-button btn btn-lg btn-success" data-id="voting-difficultyA" data-value="0.25">GOOD</button>
+              <button class="vote-button btn btn-lg btn-success" data-id="voting-difficultyA" data-value="0.5">AMAZING</button>
             </div>
           </div>
           <div class="voting-block">
             <div class="header-vote"><div>Execution</div> Point: <span data-id="result-executionA" class="result">0</span> Votes: <span data-id="times-executionA" class="times">0</span></div>
             <div class="vote-group double">
-              <button class="vote-button" data-id="voting-executionA" data-value="-0.1">MINOR</button>
-              <button class="vote-button" data-id="voting-executionA" data-value="-0.3">DROP</button>
+              <button class="vote-button btn btn-lg btn-warning" data-id="voting-executionA" data-value="-0.1">MINOR</button>
+              <button class="vote-button btn btn-lg btn-success" data-id="voting-executionA" data-value="-0.3">DROP</button>
             </div>
             <div class="header-vote"><div class="partial-title">Partial Result (Difficulty+Execution):</div><span data-id="partial-teamA" class="partial">0</span></div>
           </div>
           <h3>Annotation For AI</h3>
-          <div class="small-buttons">
+          <div class="small-button btn btn-lg btn-successs">
             <div class="voting-block">
               <div class="header-vote"><div>Teamwork</div> Times:<span data-id="result-teamworkA" class="result">0</span> Votes:<span data-id="times-teamworkA" class="times">0</span></div>
               <div class="vote-group double">
-                <button class="vote-button small" data-id="voting-teamworkA" data-value="1">+</button>
-                <button class="vote-button small" data-id="voting-teamworkA" data-value="-1">-</button>
+                <button class="vote-button btn btn-lg btn-success small" data-id="voting-teamworkA" data-value="1">+</button>
+                <button class="vote-button btn btn-lg btn-success small" data-id="voting-teamworkA" data-value="-1">-</button>
               </div>
             </div>
             <div class="voting-block">
               <div class="header-vote"><div>Music</div> Times:<span data-id="result-musicA" class="result">0</span> Votes:<span data-id="times-musicA" class="times">0</span></div>
               <div class="vote-group">
-                <button class="vote-button small" data-id="voting-musicA" data-value="1">+</button>
-                <button class="vote-button small" data-id="voting-musicA" data-value="-1">-</button>
+                <button class="vote-button btn btn-lg btn-success small" data-id="voting-musicA" data-value="1">+</button>
+                <button class="vote-button btn btn-lg btn-success small" data-id="voting-musicA" data-value="-1">-</button>
               </div>
             </div>
             <div class="voting-block">
               <div class="header-vote"><div>Flow:</div> Times:<span data-id="result-flowA" class="result">0</span> Votes:<span data-id="times-flowA" class="times">0</span></div>
               <div class="vote-group">
-                <button class="vote-button small" data-id="voting-flowA" data-value="1">+</button>
-                <button class="vote-button small" data-id="voting-flowA" data-value="-1">-</button>
+                <button class="vote-button btn btn-lg btn-success small" data-id="voting-flowA" data-value="1">+</button>
+                <button class="vote-button btn btn-lg btn-success small" data-id="voting-flowA" data-value="-1">-</button>
 
               </div>
             </div>
             <div class="voting-block">
               <div class="header-vote"><div>Variety:</div> Times:<span data-id="result-varietyA" class="result">0</span> Votes:<span data-id="times-varietyA" class="times">0</span></div>
               <div class="vote-group">
-                <button class="vote-button small" data-id="voting-varietyA" data-value="1">+</button>
-                <button class="vote-button small" data-id="voting-varietyA" data-value="-1">-</button>
+                <button class="vote-button btn btn-lg btn-success small" data-id="voting-varietyA" data-value="1">+</button>
+                <button class="vote-button btn btn-lg btn-success small" data-id="voting-varietyA" data-value="-1">-</button>
               </div>
             </div>
             <div class="voting-block">
               <div class="header-vote"><div>General impression:</div> Times:<span data-id="result-generalA" class="result">0</span> Votes:<span data-id="times-generalA" class="times">0</span></div>
               <div class="vote-group">
-                <button class="vote-button small" data-id="voting-generalA" data-value="1">+</button>
-                <button class="vote-button small" data-id="voting-generalA" data-value="-1">-</button>
+                <button class="vote-button btn btn-lg btn-success small" data-id="voting-generalA" data-value="1">+</button>
+                <button class="vote-button btn btn-lg btn-success small" data-id="voting-generalA" data-value="-1">-</button>
               </div>
             </div>
           </div>
@@ -193,11 +194,11 @@
             <div class="voting-block">
               <div class="header-vote"><div>Teamwork (one vote)</div> Result: <span data-id="result-teamwork-finalA" class="result">0</span></div>
               <div class="vote-group">
-                <button class="vote-button single" data-id="voting-teamwork-finalA" data-value="0">BAD</button>
-                <button class="vote-button single" data-id="voting-teamwork-finalA" data-value="0.5">NOT GOOD</button>
-                <button class="vote-button single" data-id="voting-teamwork-finalA" data-value="1">MEDIUM</button>
-                <button class="vote-button single" data-id="voting-teamwork-finalA" data-value="1.5">GOOD</button>
-                <button class="vote-button single" data-id="voting-teamwork-finalA" data-value="2">AMAZING</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-teamwork-finalA" data-value="0">BAD</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-teamwork-finalA" data-value="0.5">NOT GOOD</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-teamwork-finalA" data-value="1">MEDIUM</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-teamwork-finalA" data-value="1.5">GOOD</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-teamwork-finalA" data-value="2">AMAZING</button>
               </div>
               <div class="header-vote">
                 <span>Previous annotation Teamworks</span>
@@ -207,11 +208,11 @@
             <div class="voting-block">
               <div class="header-vote"><div>Music (one vote)</div> Result: <span data-id="result-music-finalA" class="result">0</span></div>
               <div class="vote-group">
-                <button class="vote-button single" data-id="voting-music-finalA" data-value="0">BAD</button>
-                <button class="vote-button single" data-id="voting-music-finalA" data-value="0.5">NOT GOOD</button>
-                <button class="vote-button single" data-id="voting-music-finalA" data-value="1">MEDIUM</button>
-                <button class="vote-button single" data-id="voting-music-finalA" data-value="1.5">GOOD</button>
-                <button class="vote-button single" data-id="voting-music-finalA" data-value="2">AMAZING</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-music-finalA" data-value="0">BAD</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-music-finalA" data-value="0.5">NOT GOOD</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-music-finalA" data-value="1">MEDIUM</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-music-finalA" data-value="1.5">GOOD</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-music-finalA" data-value="2">AMAZING</button>
               </div>
               <div class="header-vote">
                 <span>Previous annotation Music</span>
@@ -221,11 +222,11 @@
             <div class="voting-block">
               <div class="header-vote"><div>Flow (one vote)</div> Result: <span data-id="result-flow-finalA" class="result">0</span></div>
               <div class="vote-group">
-                <button class="vote-button single" data-id="voting-flow-finalA" data-value="0">BAD</button>
-                <button class="vote-button single" data-id="voting-flow-finalA" data-value="0.5">NOT GOOD</button>
-                <button class="vote-button single" data-id="voting-flow-finalA" data-value="1">MEDIUM</button>
-                <button class="vote-button single" data-id="voting-flow-finalA" data-value="1.5">GOOD</button>
-                <button class="vote-button single" data-id="voting-flow-finalA" data-value="2">AMAZING</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-flow-finalA" data-value="0">BAD</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-flow-finalA" data-value="0.5">NOT GOOD</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-flow-finalA" data-value="1">MEDIUM</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-flow-finalA" data-value="1.5">GOOD</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-flow-finalA" data-value="2">AMAZING</button>
               </div>
               <div class="header-vote">
                 <span>Previous annotation Flow</span>
@@ -235,11 +236,11 @@
             <div class="voting-block">
               <div class="header-vote"><div>Variety (one vote)</div> Result: <span data-id="result-variety-finalA" class="result">0</span></div>
               <div class="vote-group">
-                <button class="vote-button single" data-id="voting-variety-finalA" data-value="0">BAD</button>
-                <button class="vote-button single" data-id="voting-variety-finalA" data-value="0.5">NOT GOOD</button>
-                <button class="vote-button single" data-id="voting-variety-finalA" data-value="1">MEDIUM</button>
-                <button class="vote-button single" data-id="voting-variety-finalA" data-value="1.5">GOOD</button>
-                <button class="vote-button single" data-id="voting-variety-finalA" data-value="2">AMAZING</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-variety-finalA" data-value="0">BAD</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-variety-finalA" data-value="0.5">NOT GOOD</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-variety-finalA" data-value="1">MEDIUM</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-variety-finalA" data-value="1.5">GOOD</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-variety-finalA" data-value="2">AMAZING</button>
               </div>
               <div class="header-vote">
                 <span>Previous annotation Variety</span>
@@ -249,11 +250,11 @@
             <div class="voting-block">
               <div class="header-vote"><div>General impression (one vote)</div> Result: <span data-id="result-general-finalA" class="result">0</span></div>
               <div class="vote-group">
-                <button class="vote-button single" data-id="voting-general-finalA" data-value="0">BAD</button>
-                <button class="vote-button single" data-id="voting-general-finalA" data-value="0.5">NOT GOOD</button>
-                <button class="vote-button single" data-id="voting-general-finalA" data-value="1">MEDIUM</button>
-                <button class="vote-button single" data-id="voting-general-finalA" data-value="1.5">GOOD</button>
-                <button class="vote-button single" data-id="voting-general-finalA" data-value="2">AMAZING</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-general-finalA" data-value="0">BAD</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-general-finalA" data-value="0.5">NOT GOOD</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-general-finalA" data-value="1">MEDIUM</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-general-finalA" data-value="1.5">GOOD</button>
+                <button class="vote-button btn btn-lg btn-success single" data-id="voting-general-finalA" data-value="2">AMAZING</button>
               </div>
               <div class="header-vote">
                 <span>Previous annotation Variety</span>
@@ -274,57 +275,57 @@
             <div class="voting-block">
               <div class="header-vote"><div>Difficulty</div> Point: <span data-id="result-difficultyB" class="result">0</span> Votes: <span data-id="times-difficultyB" class="times">0</span></div>
               <div class="vote-group">
-                <button class="vote-button" data-id="voting-difficultyB" data-value="-0.5">BAD</button>
-                <button class="vote-button" data-id="voting-difficultyB" data-value="-0.25">NOT GOOD</button>
-                <button class="vote-button" data-id="voting-difficultyB" data-value="0">MEDIUM</button>
-                <button class="vote-button" data-id="voting-difficultyB" data-value="0.25">GOOD</button>
-                <button class="vote-button" data-id="voting-difficultyB" data-value="0.5">AMAZING</button>
+                <button class="vote-button btn btn-lg btn-success" data-id="voting-difficultyB" data-value="-0.5">BAD</button>
+                <button class="vote-button btn btn-lg btn-success" data-id="voting-difficultyB" data-value="-0.25">NOT GOOD</button>
+                <button class="vote-button btn btn-lg btn-success" data-id="voting-difficultyB" data-value="0">MEDIUM</button>
+                <button class="vote-button btn btn-lg btn-success" data-id="voting-difficultyB" data-value="0.25">GOOD</button>
+                <button class="vote-button btn btn-lg btn-success" data-id="voting-difficultyB" data-value="0.5">AMAZING</button>
               </div>
             </div>
             <div class="voting-block">
               <div class="header-vote"><div>Execution</div> Point: <span data-id="result-executionB" class="result">0</span> Votes: <span data-id="times-executionB" class="times">0</span></div>
               <div class="vote-group double">
-                <button class="vote-button" data-id="voting-executionB" data-value="-0.1">MINOR</button>
-                <button class="vote-button" data-id="voting-executionB" data-value="-0.3">DROP</button>
+                <button class="vote-button btn btn-lg btn-success" data-id="voting-executionB" data-value="-0.1">MINOR</button>
+                <button class="vote-button btn btn-lg btn-success" data-id="voting-executionB" data-value="-0.3">DROP</button>
               </div>
               <div class="header-vote"><div class="partial-title">Partial Result (Difficulty+Execution):</div><span data-id="partial-teamB" class="partial">0</span></div>
             </div>
             <h3>Annotation For AI</h3>
-            <div class="small-buttons">
+            <div class="small-button btn btn-lg btn-successs">
               <div class="voting-block">
                 <div class="header-vote"><div>Teamwork</div> Times:<span data-id="result-teamworkB" class="result">0</span> Votes:<span data-id="times-teamworkB" class="times">0</span></div>
                 <div class="vote-group double">
-                  <button class="vote-button small" data-id="voting-teamworkB" data-value="1">+</button>
-                  <button class="vote-button small" data-id="voting-teamworkB" data-value="-1">-</button>
+                  <button class="vote-button btn btn-lg btn-success small" data-id="voting-teamworkB" data-value="1">+</button>
+                  <button class="vote-button btn btn-lg btn-success small" data-id="voting-teamworkB" data-value="-1">-</button>
                 </div>
               </div>
               <div class="voting-block">
                 <div class="header-vote"><div>Music</div> Times:<span data-id="result-musicB" class="result">0</span> Votes:<span data-id="times-musicB" class="times">0</span></div>
                 <div class="vote-group">
-                  <button class="vote-button small" data-id="voting-musicB" data-value="1">+</button>
-                  <button class="vote-button small" data-id="voting-musicB" data-value="-1">-</button>
+                  <button class="vote-button btn btn-lg btn-success small" data-id="voting-musicB" data-value="1">+</button>
+                  <button class="vote-button btn btn-lg btn-success small" data-id="voting-musicB" data-value="-1">-</button>
                 </div>
               </div>
               <div class="voting-block">
                 <div class="header-vote"><div>Flow:</div> Times:<span data-id="result-flowB" class="result">0</span> Votes:<span data-id="times-flowB" class="times">0</span></div>
                 <div class="vote-group">
-                  <button class="vote-button small" data-id="voting-flowB" data-value="1">+</button>
-                  <button class="vote-button small" data-id="voting-flowB" data-value="-1">-</button>
+                  <button class="vote-button btn btn-lg btn-success small" data-id="voting-flowB" data-value="1">+</button>
+                  <button class="vote-button btn btn-lg btn-success small" data-id="voting-flowB" data-value="-1">-</button>
 
                 </div>
               </div>
               <div class="voting-block">
                 <div class="header-vote"><div>Variety:</div> Times:<span data-id="result-varietyB" class="result">0</span> Votes:<span data-id="times-varietyB" class="times">0</span></div>
                 <div class="vote-group">
-                  <button class="vote-button small" data-id="voting-varietyB" data-value="1">+</button>
-                  <button class="vote-button small" data-id="voting-varietyB" data-value="-1">-</button>
+                  <button class="vote-button btn btn-lg btn-success small" data-id="voting-varietyB" data-value="1">+</button>
+                  <button class="vote-button btn btn-lg btn-success small" data-id="voting-varietyB" data-value="-1">-</button>
                 </div>
               </div>
               <div class="voting-block">
                 <div class="header-vote"><div>General impression:</div> Times:<span data-id="result-generalB" class="result">0</span> Votes:<span data-id="times-generalB" class="times">0</span></div>
                 <div class="vote-group">
-                  <button class="vote-button small" data-id="voting-generalB" data-value="1">+</button>
-                  <button class="vote-button small" data-id="voting-generalB" data-value="-1">-</button>
+                  <button class="vote-button btn btn-lg btn-success small" data-id="voting-generalB" data-value="1">+</button>
+                  <button class="vote-button btn btn-lg btn-success small" data-id="voting-generalB" data-value="-1">-</button>
                 </div>
               </div>
             </div>
@@ -341,11 +342,11 @@
               <div class="voting-block">
                 <div class="header-vote"><div>Teamwork (one vote)</div> Result: <span data-id="result-teamwork-finalB" class="result">0</span></div>
                 <div class="vote-group">
-                  <button class="vote-button single" data-id="voting-teamwork-finalB" data-value="0">BAD</button>
-                  <button class="vote-button single" data-id="voting-teamwork-finalB" data-value="0.5">NOT GOOD</button>
-                  <button class="vote-button single" data-id="voting-teamwork-finalB" data-value="1">MEDIUM</button>
-                  <button class="vote-button single" data-id="voting-teamwork-finalB" data-value="1.5">GOOD</button>
-                  <button class="vote-button single" data-id="voting-teamwork-finalB" data-value="2">AMAZING</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-teamwork-finalB" data-value="0">BAD</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-teamwork-finalB" data-value="0.5">NOT GOOD</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-teamwork-finalB" data-value="1">MEDIUM</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-teamwork-finalB" data-value="1.5">GOOD</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-teamwork-finalB" data-value="2">AMAZING</button>
                 </div>
                 <div class="header-vote">
                   <span>Previous annotation Teamworks</span>
@@ -355,11 +356,11 @@
               <div class="voting-block">
                 <div class="header-vote"><div>Music (one vote)</div> Result: <span data-id="result-music-finalB" class="result">0</span></div>
                 <div class="vote-group">
-                  <button class="vote-button single" data-id="voting-music-finalB" data-value="0">BAD</button>
-                  <button class="vote-button single" data-id="voting-music-finalB" data-value="0.5">NOT GOOD</button>
-                  <button class="vote-button single" data-id="voting-music-finalB" data-value="1">MEDIUM</button>
-                  <button class="vote-button single" data-id="voting-music-finalB" data-value="1.5">GOOD</button>
-                  <button class="vote-button single" data-id="voting-music-finalB" data-value="2">AMAZING</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-music-finalB" data-value="0">BAD</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-music-finalB" data-value="0.5">NOT GOOD</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-music-finalB" data-value="1">MEDIUM</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-music-finalB" data-value="1.5">GOOD</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-music-finalB" data-value="2">AMAZING</button>
                 </div>
                 <div class="header-vote">
                   <span>Previous annotation Music</span>
@@ -369,11 +370,11 @@
               <div class="voting-block">
                 <div class="header-vote"><div>Flow (one vote)</div> Result: <span data-id="result-flow-finalB" class="result">0</span></div>
                 <div class="vote-group">
-                  <button class="vote-button single" data-id="voting-flow-finalB" data-value="0">BAD</button>
-                  <button class="vote-button single" data-id="voting-flow-finalB" data-value="0.5">NOT GOOD</button>
-                  <button class="vote-button single" data-id="voting-flow-finalB" data-value="1">MEDIUM</button>
-                  <button class="vote-button single" data-id="voting-flow-finalB" data-value="1.5">GOOD</button>
-                  <button class="vote-button single" data-id="voting-flow-finalB" data-value="2">AMAZING</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-flow-finalB" data-value="0">BAD</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-flow-finalB" data-value="0.5">NOT GOOD</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-flow-finalB" data-value="1">MEDIUM</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-flow-finalB" data-value="1.5">GOOD</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-flow-finalB" data-value="2">AMAZING</button>
                 </div>
                 <div class="header-vote">
                   <span>Previous annotation Flow</span>
@@ -383,11 +384,11 @@
               <div class="voting-block">
                 <div class="header-vote"><div>Variety (one vote)</div> Result: <span data-id="result-variety-finalB" class="result">0</span></div>
                 <div class="vote-group">
-                  <button class="vote-button single" data-id="voting-variety-finalB" data-value="0">BAD</button>
-                  <button class="vote-button single" data-id="voting-variety-finalB" data-value="0.5">NOT GOOD</button>
-                  <button class="vote-button single" data-id="voting-variety-finalB" data-value="1">MEDIUM</button>
-                  <button class="vote-button single" data-id="voting-variety-finalB" data-value="1.5">GOOD</button>
-                  <button class="vote-button single" data-id="voting-variety-finalB" data-value="2">AMAZING</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-variety-finalB" data-value="0">BAD</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-variety-finalB" data-value="0.5">NOT GOOD</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-variety-finalB" data-value="1">MEDIUM</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-variety-finalB" data-value="1.5">GOOD</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-variety-finalB" data-value="2">AMAZING</button>
                 </div>
                 <div class="header-vote">
                   <span>Previous annotation Variety</span>
@@ -397,11 +398,11 @@
               <div class="voting-block">
                 <div class="header-vote"><div>General impression (one vote)</div> Result: <span data-id="result-general-finalB" class="result">0</span></div>
                 <div class="vote-group">
-                  <button class="vote-button single" data-id="voting-general-finalB" data-value="0">BAD</button>
-                  <button class="vote-button single" data-id="voting-general-finalB" data-value="0.5">NOT GOOD</button>
-                  <button class="vote-button single" data-id="voting-general-finalB" data-value="1">MEDIUM</button>
-                  <button class="vote-button single" data-id="voting-general-finalB" data-value="1.5">GOOD</button>
-                  <button class="vote-button single" data-id="voting-general-finalB" data-value="2">AMAZING</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-general-finalB" data-value="0">BAD</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-general-finalB" data-value="0.5">NOT GOOD</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-general-finalB" data-value="1">MEDIUM</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-general-finalB" data-value="1.5">GOOD</button>
+                  <button class="vote-button btn btn-lg btn-success single" data-id="voting-general-finalB" data-value="2">AMAZING</button>
                 </div>
                 <div class="header-vote">
                   <span>Previous annotation Variety</span>

@@ -49,6 +49,24 @@ ol, ul {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
 }
+#main-accordion li .accordionBox {
+  display: none;
+}
+#main-accordion li.open .accordionBox {
+  display: block;
+}
+li:first-child {
+  background: lightblue;
+}
+li:last-child {
+  background: lightgoldenrodyellow;
+}
+li:nth-of-type(2), li:nth-of-type(3) {
+  background: lightseagreen;
+}
+li:nth-of-type(4), li:nth-of-type(5) {
+  background: lightcoral;
+}
 input {
   display: block;
   width: 80%;
@@ -72,27 +90,6 @@ li {
 }
 li:last-child {
   border-bottom: 1px solid black;
-}
-#main-accordion li .accordionBox {
-  display: none;
-}
-#main-accordion li.open .accordionBox {
-  display: block;
-}
-li:first-child {
-  background: lightblue;
-}
-li:last-child {
-  background: lightgoldenrodyellow;
-}
-li:nth-of-type(2), li:nth-of-type(3) {
-  background: lightseagreen;
-}
-li:nth-of-type(4), li:nth-of-type(5) {
-  background: lightcoral;
-}
-[data-id^='review'] .remove {
-  display: none;
 }
 [data-id='review-executionA'] .remove,
 [data-id='review-difficultyA'] .remove {

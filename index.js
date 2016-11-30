@@ -73,12 +73,13 @@ const judging = {
       var reviewId = element.dataset.id.replace( 'review', 'voting');
       var badgesEls = document.createElement('div');
       element.innerHTML = '';
+      var diopo = '';
       store.getState().judging.votes.forEach((elem) => {
           if(reviewId === elem.id) {
-              var badge = badgesEls.appendChild(document.createElement('span'));
-              badge.innerHTML += '<div data-id="' + elem.id + '" data-time="' + elem.time + '">' +(elem.time+1) + ': ' + elem.value + '</b> <span class="remove">X<span><br/>';
+              diopo += '<div data-id="' + elem.id + '" data-time="' + elem.time + '">' +(elem.time+1) + ': ' + elem.value + ' <span class="remove">X<span></div>';
           }
       });
+      badgesEls.innerHTML = diopo;
       element.appendChild(badgesEls);
     },
     loadFinalResultData: (element) => {
