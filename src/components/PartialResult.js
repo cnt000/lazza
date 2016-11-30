@@ -4,9 +4,22 @@ import { removeVote } from '../actions';
 import './PartialResult.css';
 
 
-const PartialResult = ({ votes, result, onClick }) => {
+const PartialResult = ({ votes, result, onClick, type }) => {
+  let isAnnotation = (/-annotation/i).test(type) ? true : false;
+  if(isAnnotation) {
+    return (
+      <div className="annotation-result">
+        <span className="total">Annotations: {result.time}</span>
+        <ul>
+          {votes.map(p => <li key={p.id+'_'+p.time+'_'+p.value}>
+                          {(parseInt(p.value) === 1) ? '+' : '-'}
+                         </li>)}
+        </ul>
+      </div>
+    )
+  }
   return (
-    <div className="home-votes">
+    <div>
       <ul>
         {votes.map(p => <li key={p.id+'_'+p.time+'_'+p.value}>
             {p.time + '-> ' + p.value}
@@ -27,7 +40,8 @@ const PartialResult = ({ votes, result, onClick }) => {
 
 const mapStateToProps = (state, ownProps) => ({
   votes: state.judging.votes.filter(elm => ownProps.type === elm.id),
-  result: state.judging.results[ownProps.type] || { value: 0.0, time: 0}
+  result: state.judging.results[ownProps.type] || { value: 0.0, time: 0},
+  type: ownProps.type
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => {

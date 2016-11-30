@@ -9,3 +9,24 @@
 ul, li {
   list-style: none;
 }
+
+.annotation-result {
+  margin-top: 10px;
+}
+
+.annotation-result ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+.annotation-result li {
+  float: left;
+  padding: 4px;
+}
+
+.annotation-result .total {
+  font-size: 14px;
+}

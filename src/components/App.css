@@ -19,3 +19,18 @@
 .App-intro {
   font-size: large;
 }
+
+.vote-row {
+  border: 2px dashed black;
+  padding: 20px;
+  margin: 10px;
+}
+
+.annotation-block {
+  display: flex;
+}
+
+.annotation-block > div {
+  width: 20%;
+  display: inline-block;
+}

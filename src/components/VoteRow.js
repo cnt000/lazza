@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 
 const VoteRow = ({ children, type }) => (
-  <div type={type}>{children}</div>
+  <div type={type} className="vote-row">{children}</div>
 )
 
 VoteRow.propTypes = {

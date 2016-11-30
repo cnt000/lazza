@@ -5,6 +5,12 @@ const judginApp = (state = {}, action) => {
 
     case 'VOTE':
       newState = {...state};
+      let points = 0.0;
+      if((/execution/i).test(action.id)) {
+        points = 10.0;
+      } else if((/difficulty/i).test(action.id)) {
+        points = 5.0;
+      }
       var votesFiltered = selectItems(newState.judging.votes, action.id);
       newState.judging.votes.push({
         id: action.id,
@@ -14,15 +20,15 @@ const judginApp = (state = {}, action) => {
 
       if(typeof newState.judging.results[action.id] === 'undefined') {
         newState.judging.results[action.id] = {
-          value: 0.0,
+          value: points,
           time: 0
         };
       }
       let oldVal = newState.judging.results[action.id].value;
-      let oldTime = newState.judging.results[action.id].time + 1;
+      let newTime = newState.judging.results[action.id].time + 1;
       newState.judging.results[action.id] = {
-        value: parseFloat(action.value, 10) + oldVal,
-        time: oldTime
+        value: (parseFloat(action.value, 10) + oldVal),
+        time: newTime
       };
 
       return newState;
