@@ -153,6 +153,7 @@ var Accordion = React.createClass({
         <Section title="3 - Review Team A and Artistic Impression">
           Difficulty Review:
           <PartialResult type="difficulty-team-A" />
+          <br/>
           Execution Review:
           <PartialResult type="execution-team-A" />
           Teamwork
