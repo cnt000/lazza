@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Accordion from '../components/Accordion';
+import Accordion from '../components/Accordion/Accordion';
 import './App.css';
 
 class App extends Component {

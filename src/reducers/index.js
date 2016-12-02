@@ -30,6 +30,20 @@ const judginApp = (state = {}, action) => {
         value: (parseFloat(action.value, 10) + oldVal),
         time: newTime
       };
+      let totalA = 0.0;
+      let totalB = 0.0;
+      for(var key in newState.judging.results) {
+        if(newState.judging.results.hasOwnProperty(key)) {
+          if(/-A/.test(key)) {
+            totalA += newState.judging.results[key].value;
+          }
+          if(/-B/.test(key)) {
+            totalB += newState.judging.results[key].value;
+          }
+        }
+      }
+      newState.judging.results.totalA = totalA;
+      newState.judging.results.totalB = totalB;
 
       return newState;
 

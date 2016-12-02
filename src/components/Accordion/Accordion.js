@@ -1,10 +1,12 @@
 import React from 'react';
-import VoteContainer from '../containers/VoteContainer';
-import FieldContainer from '../containers/FieldContainer';
-import PlayContainer from '../containers/PlayContainer';
-import PartialResult from '../components/PartialResult';
-import VoteRow from '../components/VoteRow';
-import Total from '../components/Total';
+import VoteContainer from '../../containers/VoteContainer';
+import FieldContainer from '../../containers/FieldContainer';
+import PlayContainer from '../../containers/PlayContainer';
+import GameTypeContainer from '../../containers/GameTypeContainer';
+import ReviewResults from '../../components/ReviewResults/ReviewResults';
+import VoteRow from '../../components/VoteRow';
+import Total from '../../components/Total';
+import WinnerBadge from '../../components/WinnerBadge';
 import './Accordion.css';
 
 var Section = React.createClass({
@@ -49,11 +51,7 @@ var Accordion = React.createClass({
         <div className="title">{this.props.title}</div>
         <Section title="1 - Registration">
           <div>
-              <select type="type-of-game">
-                <option value="Pair">Pair</option>
-                <option value="Co-op">Co-op</option>
-                <option value="SuperPro">SuperPro</option>
-              </select>
+              <GameTypeContainer type="gametype" />
               <br/>
               Judge
               <FieldContainer type="judge" />
@@ -120,45 +118,45 @@ var Accordion = React.createClass({
               <br/>
               <VoteContainer type="teamwork-team-A-annotation" weight="-1" oneshot="false">-</VoteContainer>
               <VoteContainer type="teamwork-team-A-annotation" weight="1" oneshot="false">+</VoteContainer>
-              <PartialResult type="teamwork-team-A-annotation" />
+              <ReviewResults type="teamwork-team-A-annotation" />
             </div>
             <div>
               Music
               <br/>
               <VoteContainer type="music-team-A-annotation" weight="-1" oneshot="false">-</VoteContainer>
               <VoteContainer type="music-team-A-annotation" weight="1" oneshot="false">+</VoteContainer>
-              <PartialResult type="music-team-A-annotation" />
+              <ReviewResults type="music-team-A-annotation" />
             </div>
             <div>
               Flow
               <br/>
               <VoteContainer type="flow-team-A-annotation" weight="-1" oneshot="false">-</VoteContainer>
               <VoteContainer type="flow-team-A-annotation" weight="1" oneshot="false">+</VoteContainer>
-              <PartialResult type="flow-team-A-annotation" />
+              <ReviewResults type="flow-team-A-annotation" />
             </div>
             <div>
               Variety
               <br/>
               <VoteContainer type="variety-team-A-annotation" weight="-1" oneshot="false">-</VoteContainer>
               <VoteContainer type="variety-team-A-annotation" weight="1" oneshot="false">+</VoteContainer>
-              <PartialResult type="variety-team-A-annotation" />
+              <ReviewResults type="variety-team-A-annotation" />
             </div>
             <div>
               General Impression
               <br/>
               <VoteContainer type="general-impression-team-A-annotation" weight="-1" oneshot="false">-</VoteContainer>
               <VoteContainer type="general-impression-team-A-annotation" weight="1" oneshot="false">+</VoteContainer>
-              <PartialResult type="general-impression-team-A-annotation" />
+              <ReviewResults type="general-impression-team-A-annotation" />
             </div>
           </div>
         </Section>
         <Section title="3 - Review Team A and Artistic Impression">
           <div className="vote-row">
             Difficulty Review:
-            <PartialResult type="difficulty-team-A" />
+            <ReviewResults type="difficulty-team-A" />
             <br/>
             Execution Review:
-            <PartialResult type="execution-team-A" />
+            <ReviewResults type="execution-team-A" />
           </div>
           <div className="vote-row">
             Teamwork<br/>
@@ -169,7 +167,7 @@ var Accordion = React.createClass({
             <VoteContainer type="teamwork-team-A" weight="1.5" oneshot="true">GOOD</VoteContainer>
             <VoteContainer type="teamwork-team-A" weight="2" oneshot="true">AMAZING</VoteContainer>
             <br/>
-            Previous annotations: <PartialResult type="teamwork-team-A-annotation" />
+            Previous annotations: <ReviewResults type="teamwork-team-A-annotation" />
           </div>
           <div className="vote-row">
             Music<br/>
@@ -180,7 +178,7 @@ var Accordion = React.createClass({
             <VoteContainer type="music-team-A" weight="1.5" oneshot="true">GOOD</VoteContainer>
             <VoteContainer type="music-team-A" weight="2" oneshot="true">AMAZING</VoteContainer>
             <br/>
-            Previous annotations: <PartialResult type="music-team-A-annotation" />
+            Previous annotations: <ReviewResults type="music-team-A-annotation" />
           </div>
           <div className="vote-row">
             Flow<br/>
@@ -191,7 +189,7 @@ var Accordion = React.createClass({
             <VoteContainer type="flow-team-A" weight="1.5" oneshot="true">GOOD</VoteContainer>
             <VoteContainer type="flow-team-A" weight="2" oneshot="true">AMAZING</VoteContainer>
             <br/>
-            Previous annotations: <PartialResult type="flow-team-A-annotation" />
+            Previous annotations: <ReviewResults type="flow-team-A-annotation" />
           </div>
           <div className="vote-row">
             Variety<br/>
@@ -202,7 +200,7 @@ var Accordion = React.createClass({
             <VoteContainer type="variety-team-A" weight="1.5" oneshot="true">GOOD</VoteContainer>
             <VoteContainer type="variety-team-A" weight="2" oneshot="true">AMAZING</VoteContainer>
             <br/>
-            Previous annotations: <PartialResult type="variety-team-A-annotation" />
+            Previous annotations: <ReviewResults type="variety-team-A-annotation" />
           </div>
           <div className="vote-row">
             General Impression<br/>
@@ -213,7 +211,7 @@ var Accordion = React.createClass({
             <VoteContainer type="general-impression-team-A" weight="1.5" oneshot="true">GOOD</VoteContainer>
             <VoteContainer type="general-impression-team-A" weight="2" oneshot="true">AMAZING</VoteContainer>
             <br/>
-            Previous annotations: <PartialResult type="general-impression-team-A-annotation" />
+            Previous annotations: <ReviewResults type="general-impression-team-A-annotation" />
           </div>
         </Section>
         <Section title="4 - Team B - Live judging">
@@ -244,45 +242,45 @@ var Accordion = React.createClass({
               <br/>
               <VoteContainer type="teamwork-team-B-annotation" weight="-1" oneshot="false">-</VoteContainer>
               <VoteContainer type="teamwork-team-B-annotation" weight="1" oneshot="false">+</VoteContainer>
-              <PartialResult type="teamwork-team-B-annotation" />
+              <ReviewResults type="teamwork-team-B-annotation" />
             </div>
             <div>
               Music
               <br/>
               <VoteContainer type="music-team-B-annotation" weight="-1" oneshot="false">-</VoteContainer>
               <VoteContainer type="music-team-B-annotation" weight="1" oneshot="false">+</VoteContainer>
-              <PartialResult type="music-team-B-annotation" />
+              <ReviewResults type="music-team-B-annotation" />
             </div>
             <div>
               Flow
               <br/>
               <VoteContainer type="flow-team-B-annotation" weight="-1" oneshot="false">-</VoteContainer>
               <VoteContainer type="flow-team-B-annotation" weight="1" oneshot="false">+</VoteContainer>
-              <PartialResult type="flow-team-B-annotation" />
+              <ReviewResults type="flow-team-B-annotation" />
             </div>
             <div>
               Variety
               <br/>
               <VoteContainer type="variety-team-B-annotation" weight="-1" oneshot="false">-</VoteContainer>
               <VoteContainer type="variety-team-B-annotation" weight="1" oneshot="false">+</VoteContainer>
-              <PartialResult type="variety-team-B-annotation" />
+              <ReviewResults type="variety-team-B-annotation" />
             </div>
             <div>
               General Impression
               <br/>
               <VoteContainer type="general-impression-team-B-annotation" weight="-1" oneshot="false">-</VoteContainer>
               <VoteContainer type="general-impression-team-B-annotation" weight="1" oneshot="false">+</VoteContainer>
-              <PartialResult type="general-impression-team-B-annotation" />
+              <ReviewResults type="general-impression-team-B-annotation" />
             </div>
           </div>
         </Section>
         <Section title="5 - Review Team B and Artistic Impression">
           <div className="vote-row">
             Difficulty Review:
-            <PartialResult type="difficulty-team-B" />
+            <ReviewResults type="difficulty-team-B" />
             <br/>
             Execution Review:
-            <PartialResult type="execution-team-B" />
+            <ReviewResults type="execution-team-B" />
           </div>
           <div className="vote-row">
             Teamwork<br/>
@@ -293,7 +291,7 @@ var Accordion = React.createClass({
             <VoteContainer type="teamwork-team-B" weight="1.5" oneshot="true">GOOD</VoteContainer>
             <VoteContainer type="teamwork-team-B" weight="2" oneshot="true">AMAZING</VoteContainer>
             <br/>
-            Previous annotations: <PartialResult type="teamwork-team-B-annotation" />
+            Previous annotations: <ReviewResults type="teamwork-team-B-annotation" />
           </div>
           <div className="vote-row">
             Music<br/>
@@ -304,7 +302,7 @@ var Accordion = React.createClass({
             <VoteContainer type="music-team-B" weight="1.5" oneshot="true">GOOD</VoteContainer>
             <VoteContainer type="music-team-B" weight="2" oneshot="true">AMAZING</VoteContainer>
             <br/>
-            Previous annotations: <PartialResult type="music-team-B-annotation" />
+            Previous annotations: <ReviewResults type="music-team-B-annotation" />
           </div>
           <div className="vote-row">
             Flow<br/>
@@ -315,7 +313,7 @@ var Accordion = React.createClass({
             <VoteContainer type="flow-team-B" weight="1.5" oneshot="true">GOOD</VoteContainer>
             <VoteContainer type="flow-team-B" weight="2" oneshot="true">AMAZING</VoteContainer>
             <br/>
-            Previous annotations: <PartialResult type="flow-team-B-annotation" />
+            Previous annotations: <ReviewResults type="flow-team-B-annotation" />
           </div>
           <div className="vote-row">
             Variety<br/>
@@ -326,7 +324,7 @@ var Accordion = React.createClass({
             <VoteContainer type="variety-team-B" weight="1.5" oneshot="true">GOOD</VoteContainer>
             <VoteContainer type="variety-team-B" weight="2" oneshot="true">AMAZING</VoteContainer>
             <br/>
-            Previous annotations: <PartialResult type="variety-team-B-annotation" />
+            Previous annotations: <ReviewResults type="variety-team-B-annotation" />
           </div>
           <div className="vote-row">
             General Impression<br/>
@@ -337,43 +335,46 @@ var Accordion = React.createClass({
             <VoteContainer type="general-impression-team-B" weight="1.5" oneshot="true">GOOD</VoteContainer>
             <VoteContainer type="general-impression-team-B" weight="2" oneshot="true">AMAZING</VoteContainer>
             <br/>
-            Previous annotations: <PartialResult type="general-impression-team-B-annotation" />
+            Previous annotations: <ReviewResults type="general-impression-team-B-annotation" />
           </div>
         </Section>
         <Section title="6 - Submit Final Vote">
           <div className="final-vote-row vote-row">
             Team A Final Review:
             <h3>Execution:</h3>
-            <PartialResult type="execution-team-A" />
+            <ReviewResults type="execution-team-A" />
             <h3>Difficulty:</h3>
-            <PartialResult type="difficulty-team-A" />
+            <ReviewResults type="difficulty-team-A" />
             <h3>Teamwork:</h3>
-            <PartialResult type="teamwork-team-A" />
+            <ReviewResults type="teamwork-team-A" />
             <h3>Music:</h3>
-            <PartialResult type="music-team-A" />
+            <ReviewResults type="music-team-A" />
             <h3>Flow:</h3>
-            <PartialResult type="flow-team-A" />
+            <ReviewResults type="flow-team-A" />
             <h3>Variety:</h3>
-            <PartialResult type="variety-team-A" />
+            <ReviewResults type="variety-team-A" />
             <h3>General impression:</h3>
-            <PartialResult type="general-impression-team-A" />
+            <ReviewResults type="general-impression-team-A" />
           </div>
           <div className="final-vote-row vote-row">
             Team B Final Review:
             <h3>Execution:</h3>
-            <PartialResult type="execution-team-B" />
+            <ReviewResults type="execution-team-B" />
             <h3>Difficulty:</h3>
-            <PartialResult type="difficulty-team-B" />
+            <ReviewResults type="difficulty-team-B" />
             <h3>Teamwork:</h3>
-            <PartialResult type="teamwork-team-B" />
+            <ReviewResults type="teamwork-team-B" />
             <h3>Music:</h3>
-            <PartialResult type="music-team-B" />
+            <ReviewResults type="music-team-B" />
             <h3>Flow:</h3>
-            <PartialResult type="flow-team-B" />
+            <ReviewResults type="flow-team-B" />
             <h3>Variety:</h3>
-            <PartialResult type="variety-team-B" />
+            <ReviewResults type="variety-team-B" />
             <h3>General impression:</h3>
-            <PartialResult type="general-impression-team-B" />
+            <ReviewResults type="general-impression-team-B" />
+          </div>
+          <div className="vote-row">
+            <WinnerBadge />
           </div>
         </Section>
       </div>
