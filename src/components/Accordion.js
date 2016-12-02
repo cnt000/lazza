@@ -341,7 +341,7 @@ var Accordion = React.createClass({
           </div>
         </Section>
         <Section title="6 - Submit Final Vote">
-          <div className="final-vote-row">
+          <div className="final-vote-row vote-row">
             Team A Final Review:
             <h3>Execution:</h3>
             <PartialResult type="execution-team-A" />
@@ -358,7 +358,7 @@ var Accordion = React.createClass({
             <h3>General impression:</h3>
             <PartialResult type="general-impression-team-A" />
           </div>
-          <div className="final-vote-row">
+          <div className="final-vote-row vote-row">
             Team B Final Review:
             <h3>Execution:</h3>
             <PartialResult type="execution-team-B" />

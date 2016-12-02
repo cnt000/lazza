@@ -28,7 +28,9 @@
 
 .final-vote-row {
   float: left;
-  width: 50%;
+  width: 49%;
+  box-sizing: border-box;
+  margin: 2px;
 }
 
 .final-vote-row span {
