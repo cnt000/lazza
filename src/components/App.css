@@ -26,6 +26,15 @@
   margin: 10px;
 }
 
+.final-vote-row {
+  float: left;
+  width: 50%;
+}
+
+.final-vote-row span {
+  display: none;
+}
+
 .annotation-block {
   display: flex;
 }

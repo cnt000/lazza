@@ -12,30 +12,36 @@ const PartialResult = ({ votes, result, onClick, type }) => {
         <span className="total">Annotations: {result.time}</span>
         <ul>
           {votes.map(p => <li key={p.id+'_'+p.time+'_'+p.value}>
-                          {(parseInt(p.value) === 1) ? '+' : '-'}
+                          {(parseInt(p.value, 10) === 1) ? '+' : '-'}
                          </li>)}
         </ul>
       </div>
     )
   }
-  return (
-    <div>
-      <ul>
-        {votes.map(p => <li key={p.id+'_'+p.time+'_'+p.value}>
-            {p.time + '-> ' + p.value}
-            <span onClick={e => {
-               e.preventDefault()
-               onClick({
-                 type: p.id,
-                 weight: p.value,
-                 time: p.time
-                })
-             }}> X </span>
-           </li>)}
-      </ul>
-      <span className="total">Total: {result.value.toFixed(1)} - Votes: {result.time}</span>
-    </div>
-  )
+    if(votes.length === 0) {
+      return (
+        <div>No votes yet</div>
+      )
+    } else {
+      return (
+        <div>
+          <ul>
+            {votes.map(p => <li key={p.id+'_'+p.time+'_'+p.value}>
+                {p.time + '-> ' + p.value}
+                <span onClick={e => {
+                   e.preventDefault()
+                   onClick({
+                     type: p.id,
+                     weight: p.value,
+                     time: p.time
+                    })
+                 }}> X </span>
+               </li>)}
+          </ul>
+          <span className="total">Total: {result.value.toFixed(1)} - Votes: {result.time}</span>
+        </div>
+      )
+    }
 }
 
 const mapStateToProps = (state, ownProps) => ({

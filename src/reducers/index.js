@@ -38,7 +38,7 @@ const judginApp = (state = {}, action) => {
       newState.judging.votes = save(newState.judging.votes, action);
       newState.judging.results[action.id] = {
                                               value: parseFloat(action.value, 10),
-                                              time: 0
+                                              time: 1
                                             };
 
       return newState;
@@ -74,7 +74,7 @@ function selectItems(list, id) {
 
 function save(list, element) {
   let filteredList = selectItems(list, element.id);
-  let time = element.time || 0;
+  let time = element.time || 1;
   if(filteredList.length === 0) {
     list.push({id: element.id, value: element.value, time: time});
   } else {
