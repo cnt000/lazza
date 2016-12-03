@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Accordion title="Team Battle" />
+        <Accordion title="Team Battle Lazzaroni 2016" />
       </div>
     );
   }

@@ -3,6 +3,7 @@ import VoteContainer from '../../containers/VoteContainer';
 import FieldContainer from '../../containers/FieldContainer';
 import PlayContainer from '../../containers/PlayContainer';
 import GameTypeContainer from '../../containers/GameTypeContainer';
+import SendResponseContainer from '../../containers/SendResponseContainer';
 import ReviewResults from '../../components/ReviewResults/ReviewResults';
 import VoteRow from '../../components/VoteRow';
 import Total from '../../components/Total';
@@ -375,6 +376,7 @@ var Accordion = React.createClass({
           </div>
           <div className="vote-row">
             <WinnerBadge />
+            <SendResponseContainer>Send Final Response</SendResponseContainer>
           </div>
         </Section>
       </div>

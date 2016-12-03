@@ -40,3 +40,22 @@ export const vote = (id, value, oneshot) => {
     time: 0
   };
 }
+
+export const sendFinalResponse = (state) => {
+  let dt = new Date();
+  let dateFile = dt.getFullYear() + '_' + (dt.getMonth() + 1) + '_' + dt.getDate();
+  let identifier = 'lazza_data_' + dateFile + '_' + (Math.random()*1000000).toFixed(2);
+  state.session = identifier;
+  console.log(state);
+  fetch("//thbologna.it/lazza2/savefinal.php", {
+    method: "POST",
+    body: state
+  }).then(function (result) {
+    return {
+      type: 'SAVE_FINAL'
+    };
+  })
+  .catch (function (error) {
+      console.log('Request failed', error);
+  });
+}

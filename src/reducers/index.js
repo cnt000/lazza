@@ -75,6 +75,10 @@ const judginApp = (state = {}, action) => {
       newState.judging.votes = filteredVotes;
       return newState;
 
+    case 'SAVE_FINAL':
+      newState = Object.assign({}, state);
+      return newState;
+
     default:
       return state;
   }
