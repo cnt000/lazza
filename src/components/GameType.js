@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react'
 
 const GameType = ({ children, field = {}, onChange}) => {
-    let input;
     return (
       <div>
         <select type="type-of-game"
@@ -10,9 +9,7 @@ const GameType = ({ children, field = {}, onChange}) => {
              e.preventDefault()
              onChange(e.target.value)
          }}
-         ref={node => {
-             input = node;
-         }}>
+         >
           <option value="Pair">Pair</option>
           <option value="Co-op">Co-op</option>
           <option value="SuperPro">SuperPro</option>
