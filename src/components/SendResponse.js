@@ -5,11 +5,27 @@ const SendResponse = ({ children, state, onClick }) => {
     <button onClick={e => {
            e.preventDefault()
            confirm('Are you sure? It\'s FINAL decision')
-           onClick(state)
+           //onClick(state)
+           saveData(state)
          }}>
       {children}
     </button>
   );
+}
+
+function saveData(state) {
+  let dt = new Date();
+  let dateFile = dt.getFullYear() + '_' + (dt.getMonth() + 1) + '_' + dt.getDate();
+  let identifier = 'lazza_data_' + dateFile + '_' + (Math.random()*1000000).toFixed(2);
+  fetch("savefinal.php", {
+      method: "POST",
+      body: state
+    }).then(function (result) {
+      alert('OK')
+    })
+    .catch (function (error) {
+      alert('ERROR')
+    });
 }
 
 SendResponse.propTypes = {

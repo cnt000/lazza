@@ -63,14 +63,9 @@ function savedResponseError(identifier) {
 }
 
 export const sendFinalResponse = (state) => {
-  return {
-    type: 'SAVED_RESP_ERR',
-    id: "identifier"
-  }
   let dt = new Date();
   let dateFile = dt.getFullYear() + '_' + (dt.getMonth() + 1) + '_' + dt.getDate();
   let identifier = 'lazza_data_' + dateFile + '_' + (Math.random()*1000000).toFixed(2);
-  debugger;
   return dispatch => {
     dispatch(savingFinalResp(identifier));
     return fetch("//thbologna.it/lazza2/savefinal.php", {
