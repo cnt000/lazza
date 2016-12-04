@@ -67,8 +67,32 @@ const judginApp = (state = {}, action) => {
       newState.judging.votes = filteredVotes;
       return newState;
 
-    case 'SAVE_FINAL':
+    case 'SAVED_RESP':
       newState = Object.assign({}, state);
+      newState.judging.finalResponse = {
+        isSaving: false,
+        savedAt: Date.now(),
+        error: false
+      }
+      return newState;
+
+    case 'SAVED_RESP_ERR':
+      newState = Object.assign({}, state);
+      newState.judging.finalResponse = {
+        isSaving: false,
+        savedAt: Date.now(),
+        error: true
+      }
+      return newState;
+
+    case 'SAVING_RESP':
+      newState = Object.assign({}, state);
+      newState.judging.session = action.id;
+      newState.judging.finalResponse = {
+        isSaving: true,
+        savedAt: null,
+        error: null
+      }
       return newState;
 
     default:

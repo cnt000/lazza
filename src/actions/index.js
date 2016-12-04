@@ -41,24 +41,46 @@ export const vote = (id, value, oneshot) => {
   };
 }
 
+function savingFinalResp(identifier) {
+  return {
+    type: 'SAVING_RESP',
+    id: identifier
+  }
+}
+
+function savedResponse(identifier) {
+  return {
+    type: 'SAVED_RESP',
+    id: identifier
+  }
+}
+
+function savedResponseError(identifier) {
+  return {
+    type: 'SAVED_RESP_ERR',
+    id: identifier
+  }
+}
+
 export const sendFinalResponse = (state) => {
+  return {
+    type: 'SAVED_RESP_ERR',
+    id: "identifier"
+  }
   let dt = new Date();
   let dateFile = dt.getFullYear() + '_' + (dt.getMonth() + 1) + '_' + dt.getDate();
   let identifier = 'lazza_data_' + dateFile + '_' + (Math.random()*1000000).toFixed(2);
-  state.judging.session = identifier;
-  // console.log(state);
-  // fetch("//thbologna.it/lazza2/savefinal.php", {
-  //   method: "POST",
-  //   body: state
-  // }).then(function (result) {
-  //   return {
-  //     type: 'SAVE_FINAL'
-  //   };
-  // })
-  // .catch (function (error) {
-  //     console.log('Request failed', error);
-  // });
-  return {
-    type: 'SAVE_FINAL'
-  };
+  debugger;
+  return dispatch => {
+    dispatch(savingFinalResp(identifier));
+    return fetch("//thbologna.it/lazza2/savefinal.php", {
+      method: "POST",
+      body: state
+    }).then(function (result) {
+      dispatch(savedResponse(identifier))
+    })
+    .catch (function (error) {
+      dispatch(savedResponseError(identifier))
+    });
+  }
 }

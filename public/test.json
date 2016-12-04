@@ -1,0 +1,543 @@
+{
+  "judging": {
+    "session": "",
+    "fields": [
+      {
+        "id": "gametype",
+        "value": "Co-op",
+        "time": 1
+      },
+      {
+        "id": "judge",
+        "value": "ì-Mrci"
+      },
+      {
+        "id": "player-A1-name",
+        "value": "asdlaé°çP"
+      },
+      {
+        "id": "player-A2-name",
+        "value": ".amsmda..d"
+      },
+      {
+        "id": "player-A3-name",
+        "value": "ciaoss"
+      },
+      {
+        "id": "player-A4-name",
+        "value": "llosii"
+      },
+      {
+        "id": "player-A5-name",
+        "value": "jssioo"
+      },
+      {
+        "id": "player-B1-name",
+        "value": "kslpoii"
+      },
+      {
+        "id": "player-B2-name",
+        "value": "sjplwò"
+      },
+      {
+        "id": "player-B3-name",
+        "value": "lppppwasassa"
+      },
+      {
+        "id": "player-B4-name",
+        "value": "sjal"
+      },
+      {
+        "id": "player-B5-name",
+        "value": "msèè"
+      },
+      {
+        "id": "player-A3-play",
+        "value": "on",
+        "time": 1
+      },
+      {
+        "id": "player-A2-play",
+        "value": "on",
+        "time": 1
+      },
+      {
+        "id": "player-A5-play",
+        "value": "on",
+        "time": 1
+      },
+      {
+        "id": "player-B5-play",
+        "value": "on",
+        "time": 1
+      },
+      {
+        "id": "player-B3-play",
+        "value": "on",
+        "time": 1
+      },
+      {
+        "id": "player-B1-play",
+        "value": "on",
+        "time": 1
+      }
+    ],
+    "votes": [
+      {
+        "id": "difficulty-team-A",
+        "value": "0",
+        "time": 1
+      },
+      {
+        "id": "difficulty-team-A",
+        "value": "0.5",
+        "time": 2
+      },
+      {
+        "id": "difficulty-team-A",
+        "value": "-0.25",
+        "time": 3
+      },
+      {
+        "id": "difficulty-team-A",
+        "value": "0.25",
+        "time": 4
+      },
+      {
+        "id": "difficulty-team-A",
+        "value": "-0.5",
+        "time": 5
+      },
+      {
+        "id": "difficulty-team-A",
+        "value": "0.5",
+        "time": 6
+      },
+      {
+        "id": "difficulty-team-A",
+        "value": "-0.25",
+        "time": 7
+      },
+      {
+        "id": "difficulty-team-A",
+        "value": "0",
+        "time": 8
+      },
+      {
+        "id": "difficulty-team-A",
+        "value": "0.5",
+        "time": 9
+      },
+      {
+        "id": "difficulty-team-A",
+        "value": "0.25",
+        "time": 10
+      },
+      {
+        "id": "difficulty-team-A",
+        "value": "-0.25",
+        "time": 11
+      },
+      {
+        "id": "difficulty-team-A",
+        "value": "0",
+        "time": 12
+      },
+      {
+        "id": "difficulty-team-A",
+        "value": "0.5",
+        "time": 13
+      },
+      {
+        "id": "execution-team-A",
+        "value": "-0.3",
+        "time": 1
+      },
+      {
+        "id": "execution-team-A",
+        "value": "-0.3",
+        "time": 2
+      },
+      {
+        "id": "execution-team-A",
+        "value": "-0.3",
+        "time": 3
+      },
+      {
+        "id": "execution-team-A",
+        "value": "-0.3",
+        "time": 4
+      },
+      {
+        "id": "execution-team-A",
+        "value": "-0.1",
+        "time": 5
+      },
+      {
+        "id": "execution-team-A",
+        "value": "-0.1",
+        "time": 6
+      },
+      {
+        "id": "execution-team-A",
+        "value": "-0.1",
+        "time": 7
+      },
+      {
+        "id": "execution-team-A",
+        "value": "-0.3",
+        "time": 8
+      },
+      {
+        "id": "variety-team-A-annotation",
+        "value": "-1",
+        "time": 1
+      },
+      {
+        "id": "variety-team-A-annotation",
+        "value": "-1",
+        "time": 2
+      },
+      {
+        "id": "flow-team-A-annotation",
+        "value": "-1",
+        "time": 1
+      },
+      {
+        "id": "flow-team-A-annotation",
+        "value": "1",
+        "time": 2
+      },
+      {
+        "id": "music-team-A-annotation",
+        "value": "1",
+        "time": 1
+      },
+      {
+        "id": "teamwork-team-A-annotation",
+        "value": "1",
+        "time": 1
+      },
+      {
+        "id": "general-impression-team-A-annotation",
+        "value": "1",
+        "time": 1
+      },
+      {
+        "id": "general-impression-team-A-annotation",
+        "value": "-1",
+        "time": 2
+      },
+      {
+        "id": "general-impression-team-A-annotation",
+        "value": "-1",
+        "time": 3
+      },
+      {
+        "id": "teamwork-team-A",
+        "value": "1",
+        "time": 1
+      },
+      {
+        "id": "music-team-A",
+        "value": "2",
+        "time": 1
+      },
+      {
+        "id": "flow-team-A",
+        "value": "2",
+        "time": 1
+      },
+      {
+        "id": "variety-team-A",
+        "value": "1",
+        "time": 1
+      },
+      {
+        "id": "general-impression-team-A",
+        "value": "1.5",
+        "time": 1
+      },
+      {
+        "id": "difficulty-team-B",
+        "value": "0",
+        "time": 1
+      },
+      {
+        "id": "difficulty-team-B",
+        "value": "0",
+        "time": 2
+      },
+      {
+        "id": "difficulty-team-B",
+        "value": "0",
+        "time": 3
+      },
+      {
+        "id": "difficulty-team-B",
+        "value": "0.5",
+        "time": 4
+      },
+      {
+        "id": "difficulty-team-B",
+        "value": "0.25",
+        "time": 5
+      },
+      {
+        "id": "difficulty-team-B",
+        "value": "0.25",
+        "time": 6
+      },
+      {
+        "id": "difficulty-team-B",
+        "value": "0.5",
+        "time": 7
+      },
+      {
+        "id": "difficulty-team-B",
+        "value": "0.5",
+        "time": 8
+      },
+      {
+        "id": "difficulty-team-B",
+        "value": "0",
+        "time": 9
+      },
+      {
+        "id": "difficulty-team-B",
+        "value": "0",
+        "time": 10
+      },
+      {
+        "id": "difficulty-team-B",
+        "value": "0",
+        "time": 11
+      },
+      {
+        "id": "execution-team-B",
+        "value": "-0.3",
+        "time": 1
+      },
+      {
+        "id": "execution-team-B",
+        "value": "-0.3",
+        "time": 2
+      },
+      {
+        "id": "execution-team-B",
+        "value": "-0.3",
+        "time": 3
+      },
+      {
+        "id": "execution-team-B",
+        "value": "-0.1",
+        "time": 4
+      },
+      {
+        "id": "execution-team-B",
+        "value": "-0.1",
+        "time": 5
+      },
+      {
+        "id": "execution-team-B",
+        "value": "-0.3",
+        "time": 6
+      },
+      {
+        "id": "execution-team-B",
+        "value": "-0.3",
+        "time": 7
+      },
+      {
+        "id": "execution-team-B",
+        "value": "-0.1",
+        "time": 8
+      },
+      {
+        "id": "general-impression-team-B-annotation",
+        "value": "-1",
+        "time": 1
+      },
+      {
+        "id": "general-impression-team-B-annotation",
+        "value": "-1",
+        "time": 2
+      },
+      {
+        "id": "variety-team-B-annotation",
+        "value": "-1",
+        "time": 1
+      },
+      {
+        "id": "variety-team-B-annotation",
+        "value": "1",
+        "time": 2
+      },
+      {
+        "id": "flow-team-B-annotation",
+        "value": "1",
+        "time": 1
+      },
+      {
+        "id": "flow-team-B-annotation",
+        "value": "1",
+        "time": 2
+      },
+      {
+        "id": "flow-team-B-annotation",
+        "value": "-1",
+        "time": 3
+      },
+      {
+        "id": "teamwork-team-B-annotation",
+        "value": "-1",
+        "time": 1
+      },
+      {
+        "id": "teamwork-team-B-annotation",
+        "value": "-1",
+        "time": 2
+      },
+      {
+        "id": "music-team-B-annotation",
+        "value": "-1",
+        "time": 1
+      },
+      {
+        "id": "music-team-B-annotation",
+        "value": "-1",
+        "time": 2
+      },
+      {
+        "id": "teamwork-team-B",
+        "value": "1",
+        "time": 0
+      },
+      {
+        "id": "music-team-B",
+        "value": "1.5",
+        "time": 0
+      },
+      {
+        "id": "flow-team-B",
+        "value": "0.5",
+        "time": 0
+      },
+      {
+        "id": "variety-team-B",
+        "value": "1",
+        "time": 0
+      },
+      {
+        "id": "general-impression-team-B",
+        "value": "1.5",
+        "time": 0
+      }
+    ],
+    "results": {
+      "difficulty-team-A": {
+        "value": 6.25,
+        "time": 13
+      },
+      "totalA": 20.949999999999996,
+      "totalB": 15.699999999999998,
+      "execution-team-A": {
+        "value": 8.199999999999998,
+        "time": 8
+      },
+      "variety-team-A-annotation": {
+        "value": -2,
+        "time": 2
+      },
+      "flow-team-A-annotation": {
+        "value": 0,
+        "time": 2
+      },
+      "music-team-A-annotation": {
+        "value": 1,
+        "time": 1
+      },
+      "teamwork-team-A-annotation": {
+        "value": 1,
+        "time": 1
+      },
+      "general-impression-team-A-annotation": {
+        "value": -1,
+        "time": 3
+      },
+      "teamwork-team-A": {
+        "value": 1,
+        "time": 1
+      },
+      "music-team-A": {
+        "value": 2,
+        "time": 1
+      },
+      "flow-team-A": {
+        "value": 2,
+        "time": 1
+      },
+      "variety-team-A": {
+        "value": 1,
+        "time": 1
+      },
+      "general-impression-team-A": {
+        "value": 1.5,
+        "time": 1
+      },
+      "difficulty-team-B": {
+        "value": 7,
+        "time": 11
+      },
+      "execution-team-B": {
+        "value": 8.199999999999998,
+        "time": 8
+      },
+      "general-impression-team-B-annotation": {
+        "value": -2,
+        "time": 2
+      },
+      "variety-team-B-annotation": {
+        "value": 0,
+        "time": 2
+      },
+      "flow-team-B-annotation": {
+        "value": 1,
+        "time": 3
+      },
+      "teamwork-team-B-annotation": {
+        "value": -2,
+        "time": 2
+      },
+      "music-team-B-annotation": {
+        "value": -2,
+        "time": 2
+      },
+      "teamwork-team-B": {
+        "value": 1,
+        "time": 1
+      },
+      "music-team-B": {
+        "value": 1.5,
+        "time": 1
+      },
+      "flow-team-B": {
+        "value": 0.5,
+        "time": 1
+      },
+      "variety-team-B": {
+        "value": 1,
+        "time": 1
+      },
+      "general-impression-team-B": {
+        "value": 1.5,
+        "time": 1
+      }
+    },
+    "finalResponse": {
+      "isSaving": false,
+      "savedAt": 1480862862695,
+      "error": true
+    }
+  }
+}
