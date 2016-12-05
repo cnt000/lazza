@@ -57,9 +57,11 @@ var Accordion = React.createClass({
               Judge
               <FieldContainer type="judge" />
               <br/>
-              Players Team A:
-              <FieldContainer type="player-A1-name" />
-              <PlayContainer type="player-A1-play" />
+              <div className="form-group">
+                Players Team A:
+                <FieldContainer type="player-A1-name" />
+                <PlayContainer type="player-A1-play" />
+              </div>
 
               <FieldContainer type="player-A2-name" />
               <PlayContainer type="player-A2-play" />

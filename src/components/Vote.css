@@ -1,8 +1,9 @@
 button.vote {
-  width: 150px;
+  width: 120px;
   height: 100px;
   padding: 4px;
-  border: 1px solid darkgrey;
+  margin: 0 4px;
+  border: 1px solid darkgrey
 }
 button.annotation {
   width: 50px;

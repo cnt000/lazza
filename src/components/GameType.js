@@ -3,7 +3,9 @@ import React, { PropTypes } from 'react'
 const GameType = ({ children, field = {}, onChange}) => {
     return (
       <div>
-        <select type="type-of-game"
+        <select
+          className="form-control"
+          type="type-of-game"
           defaultValue={field.value}
           onChange={e => {
              e.preventDefault()

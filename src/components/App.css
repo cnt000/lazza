@@ -22,7 +22,7 @@
 
 .vote-row {
   border: 2px dashed black;
-  padding: 20px;
+  padding: 10px;
   margin: 10px;
 }
 
@@ -45,4 +45,8 @@
 .annotation-block > div {
   width: 20%;
   display: inline-block;
+}
+
+.form-group {
+  position: relative;
 }

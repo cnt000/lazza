@@ -4,16 +4,14 @@ const Play = ({ field = {}, onChange}) => {
     let input;
 
      return (
-      <div>
-        <input
-          type="checkbox"
-          defaultChecked={field.value}
-          onChange={e => {
-             onChange(e.target.value)
-         }}
-
-         />
-      </div>
+          <span className="input-group-addon">
+          <input
+            type="checkbox"
+            defaultChecked={field.value}
+            onChange={e => {
+               onChange(e.target.value)
+           }}
+           /> Play</span>
   );
 };
 

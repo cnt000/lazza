@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 
 const SendResponse = ({ children, state, onClick }) => {
   return (
-    <button onClick={e => {
+    <button className="btn btn-danger btn-lg btn-block" onClick={e => {
            e.preventDefault()
            confirm('Are you sure? It\'s FINAL decision')
            //onClick(state)

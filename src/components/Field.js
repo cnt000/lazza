@@ -4,10 +4,9 @@ const Field = ({ children, field = {}, onChange}) => {
     let input;
 
      return (
-      <div>
-        <b>{children}</b>
         <input
           type="text"
+          className="form-control"
           defaultValue={field.value}
           onChange={e => {
              e.preventDefault()
@@ -17,7 +16,6 @@ const Field = ({ children, field = {}, onChange}) => {
              input = node;
          }}
          />
-      </div>
   );
 };
 

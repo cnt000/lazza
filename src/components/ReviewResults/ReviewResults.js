@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { removeVote } from '../../actions';
+import Table from 'react-bootstrap/lib/Table';
 import './ReviewResults.css';
 
 
@@ -25,22 +26,34 @@ const ReviewResults = ({ votes, result, onClick, type }) => {
       </div>
     )
   }
-  
+
   return (
     <div>
-      <ul>
-        {votes.map(p => <li key={p.id+'_'+p.time+'_'+p.value}>
-            {p.time + '-> ' + p.value}
-            <span onClick={e => {
-               e.preventDefault()
-               onClick({
-                 type: p.id,
-                 weight: p.value,
-                 time: p.time
-                })
-             }}> X </span>
-           </li>)}
-      </ul>
+      <Table striped bordered condensed hover>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Value</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          {votes.map(p => <tr key={p.id+'_'+p.time+'_'+p.value}>
+              <td>{p.time}</td>
+              <td>{p.value}</td>
+              <td>
+                <span onClick={e => {
+                 e.preventDefault()
+                 onClick({
+                   type: p.id,
+                   weight: p.value,
+                   time: p.time
+                  })
+               }}> X </span>
+             </td>
+           </tr>)}
+        </tbody>
+      </Table>
       <span className="total">Total: {result.value.toFixed(1)} - Votes: {result.time}</span>
     </div>
   )

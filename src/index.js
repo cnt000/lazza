@@ -5,6 +5,7 @@ import { createStore } from 'redux'
 import appReducers from './reducers'
 import App from './components/App'
 import './index.css'
+import 'bootstrap/dist/css/bootstrap.css';
 
 const SESSION_NAME_REDUX = 'lazza_redux_';
 const defaultState = {
