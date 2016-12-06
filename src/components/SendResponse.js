@@ -17,14 +17,19 @@ function saveData(state) {
   let dt = new Date();
   let dateFile = dt.getFullYear() + '_' + (dt.getMonth() + 1) + '_' + dt.getDate();
   let identifier = 'lazza_data_' + dateFile + '_' + (Math.random()*1000000).toFixed(2);
-  fetch("savefinal.php", {
-      method: "POST",
-      body: state
+  fetch("savefinal.php",
+      {
+        method: 'post',
+        headers: {
+           'Accept': 'application/json, text/plain, */*',
+           'Content-Type': 'x-www-form-urlencoded'
+       },
+       body: 'json=' + encodeURI(JSON.stringify(state.judging))
     }).then(function (result) {
-      alert('OK')
+      console.log('OK')
     })
     .catch (function (error) {
-      alert('ERROR')
+      console.log('ERROR')
     });
 }
 
