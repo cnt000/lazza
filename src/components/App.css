@@ -19,34 +19,3 @@
 .App-intro {
   font-size: large;
 }
-
-.vote-row {
-  border: 2px dashed black;
-  padding: 10px;
-  margin: 10px;
-}
-
-.final-vote-row {
-  display: inline-block;
-  vertical-align: top;
-  width: 48%;
-  box-sizing: border-box;
-  margin: 2px;
-}
-
-.final-vote-row span {
-  display: none;
-}
-
-.annotation-block {
-  display: flex;
-}
-
-.annotation-block > div {
-  width: 20%;
-  display: inline-block;
-}
-
-.form-group {
-  position: relative;
-}

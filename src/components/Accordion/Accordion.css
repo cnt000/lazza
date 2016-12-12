@@ -104,3 +104,28 @@
   color: #000;
   line-height: 1.3;
 }
+
+.annotation-block {
+  display: flex;
+}
+
+.annotation-block > div {
+  width: 20%;
+  display: inline-block;
+}
+
+.final-vote-row {
+  display: inline-block;
+  vertical-align: top;
+  width: 48%;
+  box-sizing: border-box;
+  margin: 2px;
+}
+
+.final-vote-row span {
+  display: none;
+}
+
+.form-group {
+  position: relative;
+}

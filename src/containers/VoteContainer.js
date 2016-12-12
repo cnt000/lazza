@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { vote } from '../actions'
-import Vote from '../components/Vote'
+import Vote from '../components/Vote/Vote'
 
 const mapStateToProps = (state, ownProps) => {
   return {

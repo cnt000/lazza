@@ -1,13 +1,13 @@
+ul, li {
+  list-style: none;
+}
+
 .home-votes {
   margin: 14px;
 }
 
 .total {
   font-weight: bold;
-}
-
-ul, li {
-  list-style: none;
 }
 
 .annotation-result {

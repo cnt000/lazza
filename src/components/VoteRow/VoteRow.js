@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import './VoteRow.css'
 
 const VoteRow = ({ children, type }) => (
   <div type={type} className="vote-row">{children}</div>

@@ -4,7 +4,7 @@ const SendResponse = ({ children, state, onClick }) => {
   return (
     <button className="btn btn-danger btn-lg btn-block" onClick={e => {
            e.preventDefault()
-           confirm('Are you sure? It\'s FINAL decision')
+           if(!confirm('Are you sure? It\'s FINAL decision')) return false
            //onClick(state)
            saveData(state)
          }}>
@@ -16,7 +16,8 @@ const SendResponse = ({ children, state, onClick }) => {
 function saveData(state) {
   let dt = new Date();
   let dateFile = dt.getFullYear() + '_' + (dt.getMonth() + 1) + '_' + dt.getDate();
-  let identifier = 'lazza_data_' + dateFile + '_' + (Math.random()*1000000).toFixed(2);
+  let identifier = 'lazza_data_' + dateFile + '_' + (Math.random()*10000).toFixed(2);
+  state.judging.session = identifier;
   fetch("savefinal.php",
       {
         method: 'post',
@@ -24,7 +25,7 @@ function saveData(state) {
            'Accept': 'application/json, text/plain, */*',
            'Content-Type': 'x-www-form-urlencoded'
        },
-       body: 'json=' + encodeURI(JSON.stringify(state.judging))
+       body: encodeURI(JSON.stringify(state.judging))
     }).then(function (result) {
       console.log('OK')
     })

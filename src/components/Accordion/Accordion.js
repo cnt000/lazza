@@ -5,7 +5,7 @@ import PlayContainer from '../../containers/PlayContainer';
 import GameTypeContainer from '../../containers/GameTypeContainer';
 import SendResponseContainer from '../../containers/SendResponseContainer';
 import ReviewResults from '../../components/ReviewResults/ReviewResults';
-import VoteRow from '../../components/VoteRow';
+import VoteRow from '../../components/VoteRow/VoteRow';
 import Total from '../../components/Total';
 import WinnerBadge from '../../components/WinnerBadge';
 import './Accordion.css';
