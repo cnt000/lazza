@@ -52,49 +52,58 @@ var Accordion = React.createClass({
         <div className="title">{this.props.title}</div>
         <Section title="1 - Registration">
           <div>
-              Judge
-              <FieldContainer type="judge" />
-              <br/>
-              Type of game
-              <GameTypeContainer type="gametype" />
-              <br/>
+            Judge
+            <FieldContainer type="judge" />
+            <br/>
+            Type of game
+            <GameTypeContainer type="gametype" />
+            <br/>
+            Team A name:
+            <FieldContainer type="team-name-A" />
+            <br/>
+            Team B name:
+            <FieldContainer type="team-name-B" />
+          </div>
+        </Section>
+        <Section title="2 - Players">
+          <div>
               <div className="form-group">
                 Players Team A:
-                <FieldContainer type="player-A1-name" />
-                <PlayContainer type="player-A1-play" />
+                <FieldContainer type="player-name-A1" />
+                <PlayContainer type="player-play-A1" />
               </div>
 
-              <FieldContainer type="player-A2-name" />
-              <PlayContainer type="player-A2-play" />
+              <FieldContainer type="player-name-A2" />
+              <PlayContainer type="player-play-A2" />
 
-              <FieldContainer type="player-A3-name" />
-              <PlayContainer type="player-A3-play" />
+              <FieldContainer type="player-name-A3" />
+              <PlayContainer type="player-play-A3" />
 
-              <FieldContainer type="player-A4-name" />
-              <PlayContainer type="player-A4-play" />
+              <FieldContainer type="player-name-A4" />
+              <PlayContainer type="player-play-A4" />
 
-              <FieldContainer type="player-A5-name" />
-              <PlayContainer type="player-A5-play" />
+              <FieldContainer type="player-name-A5" />
+              <PlayContainer type="player-play-A5" />
 
               <br/>
               Players Team B:
-              <FieldContainer type="player-B1-name" />
-              <PlayContainer type="player-B1-play" />
+              <FieldContainer type="player-name-B1" />
+              <PlayContainer type="player-play-B1" />
 
-              <FieldContainer type="player-B2-name" />
-              <PlayContainer type="player-B2-play" />
+              <FieldContainer type="player-name-B2" />
+              <PlayContainer type="player-play-B2" />
 
-              <FieldContainer type="player-B3-name" />
-              <PlayContainer type="player-B3-play" />
+              <FieldContainer type="player-name-B3" />
+              <PlayContainer type="player-play-B3" />
 
-              <FieldContainer type="player-B4-name" />
-              <PlayContainer type="player-B4-play" />
+              <FieldContainer type="player-name-B4" />
+              <PlayContainer type="player-play-B4" />
 
-              <FieldContainer type="player-B5-name" />
-              <PlayContainer type="player-B5-play" />
+              <FieldContainer type="player-name-B5" />
+              <PlayContainer type="player-play-B5" />
           </div>
         </Section>
-        <Section title="2 - Team A - Live judging">
+        <Section title="3 - Team A - Live judging">
           <div className="vote-row">
               Difficulty
               <br/>
@@ -116,6 +125,7 @@ var Accordion = React.createClass({
               Result: <Total type="execution-team-A" />
             </VoteRow>
           </div>
+          ----- Under this line it's only an annotation, not final vote -----
           <div className="vote-row annotation-block">
             <div>
               Teamwork
@@ -154,7 +164,8 @@ var Accordion = React.createClass({
             </div>
           </div>
         </Section>
-        <Section title="3 - Review Team A and Artistic Impression">
+        <Section title="4 - Team A - Review and Artistic Impression">
+          <h2>REVIEW DIFFICULTY / EXECUTION</h2>
           <div className="vote-row">
             Difficulty Review:
             <ReviewResults type="difficulty-team-A" />
@@ -162,6 +173,7 @@ var Accordion = React.createClass({
             Execution Review:
             <ReviewResults type="execution-team-A" />
           </div>
+          <h2>VOTE ARTISTIC IMPRESSION</h2>
           <div className="vote-row">
             Teamwork<br/>
             <Total type="teamwork-team-A" />
@@ -218,7 +230,7 @@ var Accordion = React.createClass({
             Previous annotations: <ReviewResults type="general-impression-team-A-annotation" />
           </div>
         </Section>
-        <Section title="4 - Team B - Live judging">
+        <Section title="5 - Team B - Live judging">
           <div className="vote-row">
               Difficulty
               <br/>
@@ -240,6 +252,7 @@ var Accordion = React.createClass({
               Result: <Total type="execution-team-B" />
             </VoteRow>
           </div>
+          ----- Under this line it's only an annotation, not final vote -----
           <div className="vote-row annotation-block">
             <div>
               Teamwork
@@ -278,7 +291,8 @@ var Accordion = React.createClass({
             </div>
           </div>
         </Section>
-        <Section title="5 - Review Team B and Artistic Impression">
+        <Section title="6 - Team B - Review and Artistic Impression">
+          <h2>REVIEW DIFFICULTY / EXECUTION</h2>
           <div className="vote-row">
             Difficulty Review:
             <ReviewResults type="difficulty-team-B" />
@@ -286,6 +300,7 @@ var Accordion = React.createClass({
             Execution Review:
             <ReviewResults type="execution-team-B" />
           </div>
+          <h2>VOTE ARTISTIC IMPRESSION</h2>
           <div className="vote-row">
             Teamwork<br/>
             <Total type="teamwork-team-B" />
@@ -342,7 +357,7 @@ var Accordion = React.createClass({
             Previous annotations: <ReviewResults type="general-impression-team-B-annotation" />
           </div>
         </Section>
-        <Section title="6 - Submit Final Vote">
+        <Section title="7 - Submit Final Vote">
           <div className="final-vote-row vote-row">
             Team A Final Review:
             <h3>Execution:</h3>
