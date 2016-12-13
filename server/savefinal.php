@@ -11,8 +11,9 @@
   $manage = json_decode($json_trimmed, true);
 
   $judge = "";
-  $session = $manage['session'];
-  
+  $session =  "lazza_data_" . date("Y_m_d_") . rand(0,10000);
+  $manage['session'] = $session;
+
   foreach ($manage['fields'] as $key => $value) {
     if($value['id'] == "judge") {
       $judge = $value['value'];
@@ -24,7 +25,7 @@
 
   $query->bindParam(':session', $session, PDO::PARAM_STR, 100);
   $query->bindParam(':judge', $judge, PDO::PARAM_STR, 100);
-  $query->bindParam(':data', $json_trimmed, PDO::PARAM_STR);
+  $query->bindParam(':data', json_encode($manage), PDO::PARAM_STR);
 
   $query->execute();
 

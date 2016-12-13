@@ -8,7 +8,6 @@ const mapStateToProps = (state, ownProps) => {
     isSaving: state.judging.finalResponse
   }
 }
-console.log(savingFinalResp);
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {

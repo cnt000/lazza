@@ -52,10 +52,11 @@ var Accordion = React.createClass({
         <div className="title">{this.props.title}</div>
         <Section title="1 - Registration">
           <div>
-              <GameTypeContainer type="gametype" />
-              <br/>
               Judge
               <FieldContainer type="judge" />
+              <br/>
+              Type of game
+              <GameTypeContainer type="gametype" />
               <br/>
               <div className="form-group">
                 Players Team A:
