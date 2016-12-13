@@ -1,7 +1,8 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import {customMiddleware} from './actions'
 import appReducers from './reducers'
 import App from './components/App'
 import './index.css'
@@ -18,7 +19,11 @@ const defaultState = {
 };
 
 const persistedState = localStorage.getItem(SESSION_NAME_REDUX) ? JSON.parse(localStorage.getItem(SESSION_NAME_REDUX)) : defaultState;
-let store = createStore(appReducers, persistedState);
+let store = createStore(
+  appReducers,
+  persistedState,
+  applyMiddleware(customMiddleware)
+);
 
 store.subscribe(()=>{
   localStorage.setItem(SESSION_NAME_REDUX, JSON.stringify(store.getState()));

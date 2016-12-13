@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { sendFinalResponse } from '../actions'
+import { savingFinalResp } from '../actions'
 import SendResponse from '../components/SendResponse'
 
 const mapStateToProps = (state, ownProps) => {
@@ -8,11 +8,12 @@ const mapStateToProps = (state, ownProps) => {
     isSaving: state.judging.finalResponse
   }
 }
+console.log(savingFinalResp);
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onClick: (state) => {
-      dispatch(sendFinalResponse(state))
+      dispatch(savingFinalResp(state))
     }
   }
 }

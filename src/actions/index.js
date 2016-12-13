@@ -41,10 +41,11 @@ export const vote = (id, value, oneshot) => {
   };
 }
 
-function savingFinalResp(identifier) {
+export function savingFinalResp(identifier) {
   return {
     type: 'SAVING_RESP',
-    id: identifier
+    id: identifier,
+    cb: data => console.log("pippo", data)
   }
 }
 
@@ -62,20 +63,14 @@ function savedResponseError(identifier) {
   }
 }
 
-export const sendFinalResponse = (state) => {
-  let dt = new Date();
-  let dateFile = dt.getFullYear() + '_' + (dt.getMonth() + 1) + '_' + dt.getDate();
-  let identifier = 'lazza_data_' + dateFile + '_' + (Math.random()*1000000).toFixed(2);
-  return dispatch => {
-    dispatch(savingFinalResp(identifier));
-    return fetch("//thbologna.it/lazza2/savefinal.php", {
-      method: "POST",
-      body: state
-    }).then(function (result) {
-      dispatch(savedResponse(identifier))
+export const customMiddleware = store => next => action => {
+  if(action.type !== 'SAVING_RESP') return next(action);
+
+
+  fetch("//thbologna.it/lazza2/savefinal.php", {
+      method: 'POST',
+      body: "CIAO"
     })
-    .catch (function (error) {
-      dispatch(savedResponseError(identifier))
-    });
-  }
+    .then(response => response.json())
+    .then(json => action.cb({json}), error => action.cb({error}))
 }
