@@ -3,6 +3,7 @@ import VoteContainer from '../../containers/VoteContainer';
 import FieldContainer from '../../containers/FieldContainer';
 import PlayContainer from '../../containers/PlayContainer';
 import GameTypeContainer from '../../containers/GameTypeContainer';
+import SelectContainer from '../../containers/SelectContainer';
 import SendResponseContainer from '../../containers/SendResponseContainer';
 import ReviewResults from '../../components/ReviewResults/ReviewResults';
 import VoteRow from '../../components/VoteRow/VoteRow';
@@ -46,61 +47,68 @@ var Section = React.createClass({
 });
 
 var Accordion = React.createClass({
+
   render: function() {
     return (
       <div className="main-accordion">
         <div className="title">{this.props.title}</div>
         <Section title="1 - Registration">
           <div>
-            Judge
-            <FieldContainer type="judge" />
+            <div id="JudgeName">
+              <span>Judge</span>
+              <FieldContainer type="judge" />
+            </div>
+            <div id="gameType">
+              Type of game
+              <GameTypeContainer type="gametype" />
+            </div>
+            <div className="playersTeam">
+              Team A name:
+              <FieldContainer type="team-name-A" />
+            </div>
+            <div className="playersTeam">
+              Team B name:
+              <FieldContainer type="team-name-B" />
+            </div>
             <br/>
-            Type of game
-            <GameTypeContainer type="gametype" />
-            <br/>
-            Team A name:
-            <FieldContainer type="team-name-A" />
-            <br/>
-            Team B name:
-            <FieldContainer type="team-name-B" />
           </div>
         </Section>
         <Section title="2 - Players">
           <div>
-              <div className="form-group">
+              <div className="playersTeam">
                 Players Team A:
-                <FieldContainer type="player-name-A1" />
+                <SelectContainer type="player-name-A1" />
                 <PlayContainer type="player-play-A1" />
+
+                <SelectContainer type="player-name-A2" />
+                <PlayContainer type="player-play-A2" />
+
+                <SelectContainer type="player-name-A3" />
+                <PlayContainer type="player-play-A3" />
+
+                <SelectContainer type="player-name-A4" />
+                <PlayContainer type="player-play-A4" />
+
+                <SelectContainer type="player-name-A5" />
+                <PlayContainer type="player-play-A5" />
               </div>
+              <div className="playersTeam">
+                Players Team B:
+                <SelectContainer type="player-name-B1" />
+                <PlayContainer type="player-play-B1" />
 
-              <FieldContainer type="player-name-A2" />
-              <PlayContainer type="player-play-A2" />
+                <SelectContainer type="player-name-B2" />
+                <PlayContainer type="player-play-B2" />
 
-              <FieldContainer type="player-name-A3" />
-              <PlayContainer type="player-play-A3" />
+                <SelectContainer type="player-name-B3" />
+                <PlayContainer type="player-play-B3" />
 
-              <FieldContainer type="player-name-A4" />
-              <PlayContainer type="player-play-A4" />
+                <SelectContainer type="player-name-B4" />
+                <PlayContainer type="player-play-B4" />
 
-              <FieldContainer type="player-name-A5" />
-              <PlayContainer type="player-play-A5" />
-
-              <br/>
-              Players Team B:
-              <FieldContainer type="player-name-B1" />
-              <PlayContainer type="player-play-B1" />
-
-              <FieldContainer type="player-name-B2" />
-              <PlayContainer type="player-play-B2" />
-
-              <FieldContainer type="player-name-B3" />
-              <PlayContainer type="player-play-B3" />
-
-              <FieldContainer type="player-name-B4" />
-              <PlayContainer type="player-play-B4" />
-
-              <FieldContainer type="player-name-B5" />
-              <PlayContainer type="player-play-B5" />
+                <SelectContainer type="player-name-B5" />
+                <PlayContainer type="player-play-B5" />
+              </div>
           </div>
         </Section>
         <Section title="3 - Team A - Live judging">

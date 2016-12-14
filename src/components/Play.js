@@ -4,7 +4,7 @@ const Play = ({ field = {}, onChange}) => {
     let input;
 
      return (
-          <span className="input-group-addon">
+          <span className="input-group-addon activePlayer">
           <input
             type="checkbox"
             defaultChecked={field.value}
