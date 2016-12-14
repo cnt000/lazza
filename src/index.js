@@ -19,15 +19,27 @@ const defaultState = {
   }
 };
 
-fetch("players.json", {
-  method: 'get',
-  headers: {
-    'Accept': 'application/json, text/plain, */*',
-    'Content-Type': 'x-www-form-urlencoded'
+function status(response) {
+  if (response.status >= 200 && response.status < 300) {
+    return Promise.resolve(response)
+  } else {
+    return Promise.reject(new Error(response.statusText))
   }
-})
-  .then(response => response.json())
-  .then(json => defaultState.judging.players, error => console.log(error));
+}
+
+function json(response) {
+  return response.json()
+}
+
+fetch('players.php')
+  .then(status)
+  .then(json)
+  .then(function(data) {
+    defaultState.judging.players = data.players;
+    console.log('Request succeeded with JSON response', data);
+  }).catch(function(error) {
+    console.log('Request failed', error);
+  });
 
 
 console.log(defaultState);

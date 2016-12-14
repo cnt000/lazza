@@ -11,10 +11,11 @@
 
 	$row = $query->fetchAll(PDO::FETCH_ASSOC);
 	header('Content-type: application/json');
-  $result = "{ players: [";
+  $result = "{ \"players\": [";
   foreach ($row as $key => $value) {
     $result .= "\"" . $value['player-name'] . "\",";
   }
+  $result = rtrim($result, ",");
   $result .= "]}";
   echo $result;
 	$conn = null;
