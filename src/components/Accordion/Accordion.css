@@ -135,8 +135,9 @@
 Registration
 */
 .playersTeam{
-  width:48%;
+  width: 48%;
   margin: 0 1%;
+  padding-bottom: 20px;
   float: left;
 }
 

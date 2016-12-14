@@ -15,7 +15,7 @@ const defaultState = {
     fields: [],
     votes: [],
     results: {},
-    players: []
+    players: ["edo", "gianluca"]
   }
 };
 
@@ -41,8 +41,7 @@ fetch('players.php')
     console.log('Request failed', error);
   });
 
-
-console.log(defaultState);
+//console.log(defaultState);
 const persistedState = localStorage.getItem(SESSION_NAME_REDUX) ? JSON.parse(localStorage.getItem(SESSION_NAME_REDUX)) : defaultState;
 let store = createStore(
   appReducers,
