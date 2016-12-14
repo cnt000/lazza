@@ -41,10 +41,10 @@ export const vote = (id, value, oneshot) => {
   };
 }
 
-export function savingFinalResp(identifier) {
+export function savingFinalResp(state) {
   return {
     type: 'SAVING_RESP',
-    id: identifier,
+    id: state,
     cb: data => console.log("pippo", data)
   }
 }
@@ -66,10 +66,13 @@ function savedResponseError(identifier) {
 export const customMiddleware = store => next => action => {
   if(action.type !== 'SAVING_RESP') return next(action);
 
-
-  fetch("//thbologna.it/lazza2/savefinal.php", {
-      method: 'POST',
-      body: "CIAO"
+  return fetch("savefinal.php", {
+      method: 'post',
+      headers: {
+         'Accept': 'application/json, text/plain, */*',
+         'Content-Type': 'x-www-form-urlencoded'
+      },
+      body: encodeURI(JSON.stringify(action.id.judging))
     })
     .then(response => response.json())
     .then(json => action.cb({json}), error => action.cb({error}))

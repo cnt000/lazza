@@ -14,10 +14,34 @@ const defaultState = {
     session: '',
     fields: [],
     votes: [],
-    results: {}
+    results: {},
+    players: ["edo", "gianluca"]
   }
 };
 
+function status(response) {
+  if (response.status >= 200 && response.status < 300) {
+    return Promise.resolve(response)
+  } else {
+    return Promise.reject(new Error(response.statusText))
+  }
+}
+
+function json(response) {
+  return response.json()
+}
+
+fetch('players.php')
+  .then(status)
+  .then(json)
+  .then(function(data) {
+    defaultState.judging.players = data.players;
+    console.log('Request succeeded with JSON response', data);
+  }).catch(function(error) {
+    console.log('Request failed', error);
+  });
+
+//console.log(defaultState);
 const persistedState = localStorage.getItem(SESSION_NAME_REDUX) ? JSON.parse(localStorage.getItem(SESSION_NAME_REDUX)) : defaultState;
 let store = createStore(
   appReducers,
