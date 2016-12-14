@@ -6,14 +6,15 @@ const mapStateToProps = (state, ownProps) => {
   return {
     id: ownProps.type,
     value: ownProps.weight,
-    oneshot: ownProps.oneshot
+    oneshot: ownProps.oneshot,
+    className: ownProps.nameClass
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onClick: () => {
-      dispatch(vote(ownProps.type, ownProps.weight, ownProps.oneshot))
+      dispatch(vote(ownProps.type, ownProps.weight, ownProps.oneshot, ownProps.nameClass))
     }
   }
 }

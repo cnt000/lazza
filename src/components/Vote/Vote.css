@@ -9,3 +9,54 @@ button.annotation {
   width: 50px;
   height: 50px;
 }
+
+button {outline: 0 !important;}
+
+/*
+PALETTE COLOR
+*/
+.ink {
+  display: block; position: absolute;
+  background: hsl(180, 40%, 80%);
+  border-radius: 100%;
+  transform: scale(0);
+}
+/*animation effect*/
+.ink.animate {animation: ripple 0.65s linear;}
+@keyframes ripple {
+/*scale the element to 250% to safely cover the entire link and fade it out*/
+100% {opacity: 0; transform: scale(2.5);}
+}
+
+
+
+.circleBtn{
+  border-radius: 64px !important;
+  color: white !important;
+  font-weight: bold !important;
+  font-size: 14px !important;
+  color: white;
+  font-weight: bold;
+  width: 100px !important;
+}
+
+.bad{
+  background-color: red;
+}
+
+.not-good{
+  background-color: purple;
+}
+
+.medium{
+  background-color: yellow;
+  color: black !important;
+}
+
+.good{
+  background-color: blue;
+}
+
+.amazing{
+  background-color: green;
+}
