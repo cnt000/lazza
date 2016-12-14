@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react'
 
-const SelectPlayer = ({ children, field = {}, options, onChange}) => {
+const SelectPlayer = ({ children, field = {}, players, onChange}) => {
     return (
       <div>
+      {console.log(players)}
         <select
           className="form-control"
           type="type-of-game"
@@ -12,6 +13,8 @@ const SelectPlayer = ({ children, field = {}, options, onChange}) => {
              onChange(e.target.value)
          }}
           >
+
+
           <option value="" >Select...</option>
           <option value="Andrea Ludergnani"> Andrea Ludergnani</option>
           <option value="Andrea Festi">Andrea Festi</option>

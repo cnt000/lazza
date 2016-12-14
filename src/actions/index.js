@@ -66,7 +66,7 @@ function savedResponseError(identifier) {
 export const customMiddleware = store => next => action => {
   if(action.type !== 'SAVING_RESP') return next(action);
 
-  fetch("savefinal.php", {
+  return fetch("savefinal.php", {
       method: 'post',
       headers: {
          'Accept': 'application/json, text/plain, */*',

@@ -5,7 +5,7 @@ import SelectPlayer from '../components/SelectPlayer'
 const mapStateToProps = (state, ownProps) => {
   return {
     id: ownProps.type,
-    options: ownProps.options,
+    players: state.judging.players,
     field: state.judging.fields.find((obj) => { return obj.id === ownProps.type })
   }
 }

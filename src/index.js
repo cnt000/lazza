@@ -14,10 +14,23 @@ const defaultState = {
     session: '',
     fields: [],
     votes: [],
-    results: {}
+    results: {},
+    players: []
   }
 };
 
+fetch("players.json", {
+  method: 'get',
+  headers: {
+    'Accept': 'application/json, text/plain, */*',
+    'Content-Type': 'x-www-form-urlencoded'
+  }
+})
+  .then(response => response.json())
+  .then(json => defaultState.judging.players, error => console.log(error));
+
+
+console.log(defaultState);
 const persistedState = localStorage.getItem(SESSION_NAME_REDUX) ? JSON.parse(localStorage.getItem(SESSION_NAME_REDUX)) : defaultState;
 let store = createStore(
   appReducers,
