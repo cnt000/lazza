@@ -133,7 +133,7 @@ var Accordion = React.createClass({
               Result: <Total type="execution-team-A" />
             </VoteRow>
           </div>
-          ----- Under this line it's only an annotation, not final vote -----
+          //----- Under this line it's only an annotation, not final vote -----
           <div className="vote-row annotation-block">
             <div>
               Teamwork
@@ -260,7 +260,7 @@ var Accordion = React.createClass({
               Result: <Total type="execution-team-B" />
             </VoteRow>
           </div>
-          ----- Under this line it's only an annotation, not final vote -----
+          //----- Under this line it's only an annotation, not final vote -----
           <div className="vote-row annotation-block">
             <div>
               Teamwork

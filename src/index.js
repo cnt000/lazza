@@ -38,6 +38,7 @@ fetch('players.php')
     defaultState.judging.players = data.players;
     console.log('Request succeeded with JSON response', data);
   }).catch(function(error) {
+    defaultState.judging.players = {"players": ["Edoardo Gargano","Gianluca Bertoncelli", "Andrea Ludergnani","Andrea Festi","Gianluca Giglio","Andrea Meola"]};
     console.log('Request failed', error);
   });
 
