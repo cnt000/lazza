@@ -63,11 +63,11 @@ var Accordion = React.createClass({
               <GameTypeContainer type="gametype" />
             </div>
             <div className="playersTeam">
-              Team A name:
+              <div className="playersTeamTitle">Team A name:</div>
               <FieldContainer type="team-name-A" />
             </div>
             <div className="playersTeam">
-              Team B name:
+              <div className="playersTeamTitle">Team B name:</div>
               <FieldContainer type="team-name-B" />
             </div>
             <br/>
@@ -76,44 +76,68 @@ var Accordion = React.createClass({
         <Section title="2 - Players">
           <div>
               <div className="playersTeam">
-                Players Team A:
+                <div className="playersTeamTitle">
+                  Players Team A:
+                  </div>
+                <div className="playerTeamEntry">
                 <SelectContainer type="player-name-A1" />
                 <PlayContainer type="player-play-A1" />
 
+                </div>
+                <div className="playerTeamEntry">
                 <SelectContainer type="player-name-A2" />
                 <PlayContainer type="player-play-A2" />
 
+                </div>
+                <div className="playerTeamEntry">
                 <SelectContainer type="player-name-A3" />
                 <PlayContainer type="player-play-A3" />
 
+                </div>
+                <div className="playerTeamEntry">
                 <SelectContainer type="player-name-A4" />
                 <PlayContainer type="player-play-A4" />
 
+                </div>
+                <div className="playerTeamEntry">
                 <SelectContainer type="player-name-A5" />
                 <PlayContainer type="player-play-A5" />
+                </div>
               </div>
               <div className="playersTeam">
-                Players Team B:
+                <div className="playersTeamTitle">
+                Team B:
+                </div>
+                <div className="playerTeamEntry">
                 <SelectContainer type="player-name-B1" />
                 <PlayContainer type="player-play-B1" />
 
+                </div>
+                <div className="playerTeamEntry">
                 <SelectContainer type="player-name-B2" />
                 <PlayContainer type="player-play-B2" />
 
+                </div>
+                <div className="playerTeamEntry">
                 <SelectContainer type="player-name-B3" />
                 <PlayContainer type="player-play-B3" />
 
+                </div>
+                <div className="playerTeamEntry">
                 <SelectContainer type="player-name-B4" />
                 <PlayContainer type="player-play-B4" />
 
+                </div>
+                <div className="playerTeamEntry">
                 <SelectContainer type="player-name-B5" />
                 <PlayContainer type="player-play-B5" />
+              </div>
               </div>
           </div>
         </Section>
         <Section title="3 - Team A - Live judging">
           <div className="vote-row">
-              Difficulty
+              <div className="playersTeamTitle">Difficulty</div>
               <br/>
               <VoteContainer type="difficulty-team-A" weight="-0.5" oneshot="false" nameClass="bad circleBtn vote">BAD</VoteContainer>
               <VoteContainer type="difficulty-team-A" weight="-0.25" oneshot="false" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
@@ -125,10 +149,10 @@ var Accordion = React.createClass({
           </div>
           <div>
             <VoteRow type="execution-team-A">
-              Execution
+              <div className="playersTeamTitle">Execution</div>
               <br/>
-              <VoteContainer type="execution-team-A" weight="-0.1" oneshot="false">MINOR</VoteContainer>
-              <VoteContainer type="execution-team-A" weight="-0.3" oneshot="false">DROP</VoteContainer>
+              <VoteContainer type="execution-team-A" weight="-0.1" oneshot="false" nameClass="medium circleBtn">MINOR</VoteContainer>
+              <VoteContainer type="execution-team-A" weight="-0.3" oneshot="false" nameClass="bad circleBtn">DROP</VoteContainer>
               <br/>
               Result: <Total type="execution-team-A" />
             </VoteRow>
@@ -136,38 +160,38 @@ var Accordion = React.createClass({
           //----- Under this line it's only an annotation, not final vote -----
           <div className="vote-row annotation-block">
             <div>
-              Teamwork
+              <div className="playersTeamTitle">Teamwork</div>
               <br/>
-              <VoteContainer type="teamwork-team-A-annotation" weight="-1" oneshot="false">-</VoteContainer>
-              <VoteContainer type="teamwork-team-A-annotation" weight="1" oneshot="false">+</VoteContainer>
+              <VoteContainer type="teamwork-team-A-annotation" weight="-1" oneshot="false" nameClass="bad circleBtn">-</VoteContainer>
+              <VoteContainer type="teamwork-team-A-annotation" weight="1" oneshot="false" nameClass="amazing circleBtn">+</VoteContainer>
               <ReviewResults type="teamwork-team-A-annotation" />
             </div>
             <div>
-              Music
+              <div className="playersTeamTitle">Music</div>
               <br/>
-              <VoteContainer type="music-team-A-annotation" weight="-1" oneshot="false">-</VoteContainer>
-              <VoteContainer type="music-team-A-annotation" weight="1" oneshot="false">+</VoteContainer>
+              <VoteContainer type="music-team-A-annotation" weight="-1" oneshot="false" nameClass="bad circleBtn">-</VoteContainer>
+              <VoteContainer type="music-team-A-annotation" weight="1" oneshot="false" nameClass="amazing circleBtn">+</VoteContainer>
               <ReviewResults type="music-team-A-annotation" />
             </div>
             <div>
-              Flow
+              <div className="playersTeamTitle">Flow</div>
               <br/>
-              <VoteContainer type="flow-team-A-annotation" weight="-1" oneshot="false">-</VoteContainer>
-              <VoteContainer type="flow-team-A-annotation" weight="1" oneshot="false">+</VoteContainer>
+              <VoteContainer type="flow-team-A-annotation" weight="-1" oneshot="false" nameClass="bad circleBtn">-</VoteContainer>
+              <VoteContainer type="flow-team-A-annotation" weight="1" oneshot="false" nameClass="amazing circleBtn">+</VoteContainer>
               <ReviewResults type="flow-team-A-annotation" />
             </div>
             <div>
-              Variety
+              <div className="playersTeamTitle">Variety</div>
               <br/>
-              <VoteContainer type="variety-team-A-annotation" weight="-1" oneshot="false">-</VoteContainer>
-              <VoteContainer type="variety-team-A-annotation" weight="1" oneshot="false">+</VoteContainer>
+              <VoteContainer type="variety-team-A-annotation" weight="-1" oneshot="false" nameClass="bad circleBtn">-</VoteContainer>
+              <VoteContainer type="variety-team-A-annotation" weight="1" oneshot="false" nameClass="amazing circleBtn">+</VoteContainer>
               <ReviewResults type="variety-team-A-annotation" />
             </div>
             <div>
-              General Impression
+              <div className="playersTeamTitle">General Imp.</div>
               <br/>
-              <VoteContainer type="general-impression-team-A-annotation" weight="-1" oneshot="false">-</VoteContainer>
-              <VoteContainer type="general-impression-team-A-annotation" weight="1" oneshot="false">+</VoteContainer>
+              <VoteContainer type="general-impression-team-A-annotation" weight="-1" oneshot="false" nameClass="bad circleBtn">-</VoteContainer>
+              <VoteContainer type="general-impression-team-A-annotation" weight="1" oneshot="false" nameClass="amazing circleBtn">+</VoteContainer>
               <ReviewResults type="general-impression-team-A-annotation" />
             </div>
           </div>
@@ -175,15 +199,15 @@ var Accordion = React.createClass({
         <Section title="4 - Team A - Review and Artistic Impression">
           <h2>REVIEW DIFFICULTY / EXECUTION</h2>
           <div className="vote-row">
-            Difficulty Review:
+            <div className="playersTeamTitle">Difficulty Review:</div>
             <ReviewResults type="difficulty-team-A" />
             <br/>
-            Execution Review:
+            <div className="playersTeamTitle">Execution Review:</div>
             <ReviewResults type="execution-team-A" />
           </div>
           <h2>VOTE ARTISTIC IMPRESSION</h2>
           <div className="vote-row">
-            Teamwork<br/>
+            <div className="playersTeamTitle">Teamwork</div>
             <Total type="teamwork-team-A" />
             <VoteContainer type="teamwork-team-A" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD</VoteContainer>
             <VoteContainer type="teamwork-team-A" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
@@ -194,7 +218,7 @@ var Accordion = React.createClass({
             Previous annotations: <ReviewResults type="teamwork-team-A-annotation" />
           </div>
           <div className="vote-row">
-            Music<br/>
+            <div className="playersTeamTitle">Music</div>
             <Total type="music-team-A" />
             <VoteContainer type="music-team-A" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD</VoteContainer>
             <VoteContainer type="music-team-A" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
@@ -205,7 +229,7 @@ var Accordion = React.createClass({
             Previous annotations: <ReviewResults type="music-team-A-annotation" />
           </div>
           <div className="vote-row">
-            Flow<br/>
+            <div className="playersTeamTitle">Flow</div>
             <Total type="flow-team-A" />
             <VoteContainer type="flow-team-A" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD</VoteContainer>
             <VoteContainer type="flow-team-A" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
@@ -216,7 +240,7 @@ var Accordion = React.createClass({
             Previous annotations: <ReviewResults type="flow-team-A-annotation" />
           </div>
           <div className="vote-row">
-            Variety<br/>
+            <div className="playersTeamTitle">Variety</div>
             <Total type="variety-team-A" />
             <VoteContainer type="variety-team-A" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD</VoteContainer>
             <VoteContainer type="variety-team-A" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
@@ -227,7 +251,7 @@ var Accordion = React.createClass({
             Previous annotations: <ReviewResults type="variety-team-A-annotation" />
           </div>
           <div className="vote-row">
-            General Impression<br/>
+            <div className="playersTeamTitle">General Imp.</div>
             <Total type="general-impression-team-A" />
             <VoteContainer type="general-impression-team-A" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD</VoteContainer>
             <VoteContainer type="general-impression-team-A" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
@@ -240,9 +264,9 @@ var Accordion = React.createClass({
         </Section>
         <Section title="5 - Team B - Live judging">
           <div className="vote-row">
-              Difficulty
+              <div className="playersTeamTitle">Difficulty</div>
               <br/>
-              <VoteContainer type="difficulty-team-B" weight="-0.5" oneshot="false"nameClass="bad circleBtn vote">BAD</VoteContainer>
+              <VoteContainer type="difficulty-team-B" weight="-0.5" oneshot="false" nameClass="bad circleBtn vote">BAD</VoteContainer>
               <VoteContainer type="difficulty-team-B" weight="-0.25" oneshot="false" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
               <VoteContainer type="difficulty-team-B" weight="0" oneshot="false"nameClass="medium circleBtn" >MEDIUM</VoteContainer>
               <VoteContainer type="difficulty-team-B" weight="0.25" oneshot="false"nameClass="good circleBtn" >GOOD</VoteContainer>
@@ -252,10 +276,10 @@ var Accordion = React.createClass({
           </div>
           <div>
             <VoteRow type="execution-team-B">
-              Execution
+              <div className="playersTeamTitle">Execution</div>
               <br/>
-              <VoteContainer type="execution-team-B" weight="-0.1" oneshot="false">MINOR</VoteContainer>
-              <VoteContainer type="execution-team-B" weight="-0.3" oneshot="false">DROP</VoteContainer>
+              <VoteContainer type="execution-team-B" weight="-0.1" oneshot="false" nameClass="medium circleBtn">MINOR</VoteContainer>
+              <VoteContainer type="execution-team-B" weight="-0.3" oneshot="false" nameClass="bad circleBtn">DROP</VoteContainer>
               <br/>
               Result: <Total type="execution-team-B" />
             </VoteRow>
@@ -263,38 +287,38 @@ var Accordion = React.createClass({
           //----- Under this line it's only an annotation, not final vote -----
           <div className="vote-row annotation-block">
             <div>
-              Teamwork
+              <div className="playersTeamTitle">Teamwork</div>
               <br/>
-              <VoteContainer type="teamwork-team-B-annotation" weight="-1" oneshot="false">-</VoteContainer>
-              <VoteContainer type="teamwork-team-B-annotation" weight="1" oneshot="false">+</VoteContainer>
+              <VoteContainer type="teamwork-team-B-annotation" weight="-1" oneshot="false" nameClass="bad circleBtn">-</VoteContainer>
+              <VoteContainer type="teamwork-team-B-annotation" weight="1" oneshot="false" nameClass="amazing circleBtn">+</VoteContainer>
               <ReviewResults type="teamwork-team-B-annotation" />
             </div>
             <div>
-              Music
+              <div className="playersTeamTitle">Music</div>
               <br/>
-              <VoteContainer type="music-team-B-annotation" weight="-1" oneshot="false">-</VoteContainer>
-              <VoteContainer type="music-team-B-annotation" weight="1" oneshot="false">+</VoteContainer>
+              <VoteContainer type="music-team-B-annotation" weight="-1" oneshot="false" nameClass="bad circleBtn">-</VoteContainer>
+              <VoteContainer type="music-team-B-annotation" weight="1" oneshot="false" nameClass="amazing circleBtn">+</VoteContainer>
               <ReviewResults type="music-team-B-annotation" />
             </div>
             <div>
-              Flow
+              <div className="playersTeamTitle">Flow</div>
               <br/>
-              <VoteContainer type="flow-team-B-annotation" weight="-1" oneshot="false">-</VoteContainer>
-              <VoteContainer type="flow-team-B-annotation" weight="1" oneshot="false">+</VoteContainer>
+              <VoteContainer type="flow-team-B-annotation" weight="-1" oneshot="false" nameClass="bad circleBtn">-</VoteContainer>
+              <VoteContainer type="flow-team-B-annotation" weight="1" oneshot="false" nameClass="amazing circleBtn">+</VoteContainer>
               <ReviewResults type="flow-team-B-annotation" />
             </div>
             <div>
-              Variety
+              <div className="playersTeamTitle">Variety</div>
               <br/>
-              <VoteContainer type="variety-team-B-annotation" weight="-1" oneshot="false">-</VoteContainer>
-              <VoteContainer type="variety-team-B-annotation" weight="1" oneshot="false">+</VoteContainer>
+              <VoteContainer type="variety-team-B-annotation" weight="-1" oneshot="false" nameClass="bad circleBtn">-</VoteContainer>
+              <VoteContainer type="variety-team-B-annotation" weight="1" oneshot="false" nameClass="amazing circleBtn">+</VoteContainer>
               <ReviewResults type="variety-team-B-annotation" />
             </div>
             <div>
-              General Impression
+              <div className="playersTeamTitle">General Imp.</div>
               <br/>
-              <VoteContainer type="general-impression-team-B-annotation" weight="-1" oneshot="false">-</VoteContainer>
-              <VoteContainer type="general-impression-team-B-annotation" weight="1" oneshot="false">+</VoteContainer>
+              <VoteContainer type="general-impression-team-B-annotation" weight="-1" oneshot="false" nameClass="bad circleBtn">-</VoteContainer>
+              <VoteContainer type="general-impression-team-B-annotation" weight="1" oneshot="false" nameClass="amazing circleBtn">+</VoteContainer>
               <ReviewResults type="general-impression-team-B-annotation" />
             </div>
           </div>
@@ -354,7 +378,7 @@ var Accordion = React.createClass({
             Previous annotations: <ReviewResults type="variety-team-B-annotation" />
           </div>
           <div className="vote-row">
-            General Impression<br/>
+            General Imp.<br/>
             <Total type="general-impression-team-B" />
             <VoteContainer type="general-impression-team-B" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD</VoteContainer>
             <VoteContainer type="general-impression-team-B" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
@@ -380,7 +404,7 @@ var Accordion = React.createClass({
             <ReviewResults type="flow-team-A" />
             <h3>Variety:</h3>
             <ReviewResults type="variety-team-A" />
-            <h3>General impression:</h3>
+            <h3>General Imp.:</h3>
             <ReviewResults type="general-impression-team-A" />
           </div>
           <div className="final-vote-row vote-row">
@@ -397,7 +421,7 @@ var Accordion = React.createClass({
             <ReviewResults type="flow-team-B" />
             <h3>Variety:</h3>
             <ReviewResults type="variety-team-B" />
-            <h3>General impression:</h3>
+            <h3>General Imp.:</h3>
             <ReviewResults type="general-impression-team-B" />
           </div>
           <div className="vote-row">
