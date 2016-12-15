@@ -201,32 +201,15 @@ Registration
     padding: 20px;
     width: 200px;
     text-align: center;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.1s; /* Safari */
+    transition-duration: 0.1s;
     text-decoration: none;
     overflow: hidden;
     cursor: pointer;
     overflow: hidden;
 }
 
-.circleBtn:after {
-    content: "";
-    background: #ececec;
-    display: block;
-    position: absolute;
-    padding-top: 200%;
-    padding-left: 450%;
-    margin-left: -0px!important;
-    margin-top: -120%;
-    opacity: 0;
-    transition: all 0.8s;
-    border-radius: 160px;
-}
 
-.circleBtn:active:after {
-    padding: 0;
-    margin: 0;
-    opacity: 1;
-    transition: 0s;
-    border-radius: 160px;
+.circleBtn:active {
+    border: 8px solid #ececec;
 }

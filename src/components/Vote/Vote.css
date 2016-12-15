@@ -3,7 +3,7 @@ button.vote {
   height: 100px;
   padding: 4px;
   margin: 0 4px;
-  border: 1px solid darkgrey
+  border: 2px solid #ccc;
 }
 button.annotation {
   width: 50px;
@@ -41,22 +41,21 @@ PALETTE COLOR
 }
 
 .bad{
-  background-color: red;
+  background-color: #e74c3c;
 }
 
 .not-good{
-  background-color: purple;
+  background-color: #9b59b6;
 }
 
 .medium{
-  background-color: yellow;
-  color: black !important;
+  background-color: #f1c40f;
 }
 
 .good{
-  background-color: blue;
+  background-color: #3498db;
 }
 
 .amazing{
-  background-color: green;
+  background-color: #2ecc71;
 }
