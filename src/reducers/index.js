@@ -119,8 +119,9 @@ function save(list, element) {
   } else {
     list.forEach((obj) => {
         if(obj.id === element.id) {
-          obj.value = "off";
-          obj.time = 0;
+          debugger;
+          obj.value = element.value;
+          obj.time = element.time;
         }
     });
   }

@@ -9,7 +9,7 @@ const Play = ({ field = {}, onChange}) => {
             type="checkbox"
             defaultChecked={field.value}
             onChange={e => {
-               onChange(e.target.value)
+               onChange(e.target.checked)
            }}
            /> Play</span>
   );
