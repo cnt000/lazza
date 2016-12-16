@@ -4,20 +4,12 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import {customMiddleware} from './actions'
 import appReducers from './reducers'
+import { defaultState } from './defaultState';
 import App from './components/App'
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.css';
 
 const SESSION_NAME_REDUX = 'lazza_redux_';
-const defaultState = {
-  judging: {
-    session: '',
-    fields: [],
-    votes: [],
-    results: {},
-    players: ["edo", "gianluca"]
-  }
-};
 
 function status(response) {
   if (response.status >= 200 && response.status < 300) {
@@ -38,7 +30,7 @@ fetch('players.php')
     defaultState.judging.players = data.players;
     console.log('Request succeeded with JSON response', data);
   }).catch(function(error) {
-    defaultState.judging.players = {"players": ["Edoardo Gargano","Gianluca Bertoncelli", "Andrea Ludergnani","Andrea Festi","Gianluca Giglio","Andrea Meola"]};
+    defaultState.judging.players = ["Edoardo Gargano","Gianluca Bertoncelli", "Andrea Ludergnani","Andrea Festi","Gianluca Giglio","Andrea Meola"];
     console.log('Request failed', error);
   });
 

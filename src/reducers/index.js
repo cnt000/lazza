@@ -1,3 +1,5 @@
+import { defaultState } from '../defaultState';
+
 const judginApp = (state = {}, action) => {
   var newState;
 
@@ -94,6 +96,9 @@ const judginApp = (state = {}, action) => {
         error: null
       }
       return newState;
+
+    case 'RESET_ALL_DATA':
+      return defaultState;
 
     default:
       return state;

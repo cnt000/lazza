@@ -9,6 +9,7 @@ import ReviewResults from '../../components/ReviewResults/ReviewResults';
 import VoteRow from '../../components/VoteRow/VoteRow';
 import Total from '../../components/Total';
 import WinnerBadge from '../../components/WinnerBadge';
+import ResetAll from '../../components/ResetAll';
 import './Accordion.css';
 
 var Section = React.createClass({
@@ -456,6 +457,10 @@ var Accordion = React.createClass({
           <div className="vote-row">
             <WinnerBadge />
             <SendResponseContainer>Send Final Response</SendResponseContainer>
+          </div>
+          <div className="vote-row">
+            RESET ALL DATA! USE IT CAREFULLY<br/>
+            <ResetAll>Reset All Data</ResetAll>
           </div>
         </Section>
       </div>

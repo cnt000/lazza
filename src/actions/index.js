@@ -49,6 +49,13 @@ export function savingFinalResp(state) {
   }
 }
 
+export function resetAll(id) {
+  return {
+    type: 'RESET_ALL_DATA',
+    id: id
+  }
+}
+
 function savedResponse(identifier) {
   return {
     type: 'SAVED_RESP',
