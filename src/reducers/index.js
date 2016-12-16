@@ -119,7 +119,6 @@ function save(list, element) {
   } else {
     list.forEach((obj) => {
         if(obj.id === element.id) {
-          debugger;
           obj.value = element.value;
           obj.time = element.time;
         }
