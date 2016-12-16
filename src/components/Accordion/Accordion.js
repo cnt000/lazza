@@ -140,11 +140,11 @@ var Accordion = React.createClass({
           <div className="vote-row">
               <div className="playersTeamTitle">Difficulty</div>
               <br/>
-              <VoteContainer type="difficulty-team-A" weight="-0.5" oneshot="false" nameClass="bad circleBtn vote">BAD</VoteContainer>
-              <VoteContainer type="difficulty-team-A" weight="-0.25" oneshot="false" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
-              <VoteContainer type="difficulty-team-A" weight="0" oneshot="false" nameClass="medium circleBtn" >MEDIUM</VoteContainer>
-              <VoteContainer type="difficulty-team-A" weight="0.25" oneshot="false" nameClass="good circleBtn" >GOOD</VoteContainer>
-              <VoteContainer type="difficulty-team-A" weight="0.5" oneshot="false" nameClass="amazing circleBtn">AMAZING</VoteContainer>
+              <VoteContainer type="difficulty-team-A" weight="-0.5" oneshot="false" nameClass="bad circleBtn vote">BAD<span>0-2.0</span></VoteContainer>
+              <VoteContainer type="difficulty-team-A" weight="-0.25" oneshot="false" nameClass="not-good circleBtn" >NOT GOOD<span>2.1-4.0</span></VoteContainer>
+              <VoteContainer type="difficulty-team-A" weight="0" oneshot="false" nameClass="medium circleBtn" >MEDIUM<span>4.1-6.0</span></VoteContainer>
+              <VoteContainer type="difficulty-team-A" weight="0.25" oneshot="false" nameClass="good circleBtn" >GOOD<span>6.1-8.0</span></VoteContainer>
+              <VoteContainer type="difficulty-team-A" weight="0.5" oneshot="false" nameClass="amazing circleBtn">AMAZING<span>8.1-10.0</span></VoteContainer>
               <br/>
               Result: <Total type="difficulty-team-A" />
           </div>
@@ -152,8 +152,8 @@ var Accordion = React.createClass({
             <VoteRow type="execution-team-A">
               <div className="playersTeamTitle">Execution</div>
               <br/>
-              <VoteContainer type="execution-team-A" weight="-0.1" oneshot="false" nameClass="medium circleBtn">MINOR</VoteContainer>
-              <VoteContainer type="execution-team-A" weight="-0.3" oneshot="false" nameClass="bad circleBtn">DROP</VoteContainer>
+              <VoteContainer type="execution-team-A" weight="-0.1" oneshot="false" nameClass="medium circleBtn">MINOR<span>-0.1</span></VoteContainer>
+              <VoteContainer type="execution-team-A" weight="-0.3" oneshot="false" nameClass="bad circleBtn">DROP<span>-0.3</span></VoteContainer>
               <br/>
               Result: <Total type="execution-team-A" />
             </VoteRow>
@@ -210,55 +210,55 @@ var Accordion = React.createClass({
           <div className="vote-row">
             <div className="playersTeamTitle">Teamwork</div>
             <Total type="teamwork-team-A" />
-            <VoteContainer type="teamwork-team-A" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD</VoteContainer>
-            <VoteContainer type="teamwork-team-A" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
-            <VoteContainer type="teamwork-team-A" weight="1" oneshot="true"nameClass="medium circleBtn" >MEDIUM</VoteContainer>
-            <VoteContainer type="teamwork-team-A" weight="1.5" oneshot="true"nameClass="good circleBtn" >GOOD</VoteContainer>
-            <VoteContainer type="teamwork-team-A" weight="2" oneshot="true" nameClass="amazing circleBtn">AMAZING</VoteContainer>
+            <VoteContainer type="teamwork-team-A" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD<span>0-2.0</span></VoteContainer>
+            <VoteContainer type="teamwork-team-A" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD<span>2.1-4.0</span></VoteContainer>
+            <VoteContainer type="teamwork-team-A" weight="1" oneshot="true"nameClass="medium circleBtn" >MEDIUM<span>4.1-6.0</span></VoteContainer>
+            <VoteContainer type="teamwork-team-A" weight="1.5" oneshot="true"nameClass="good circleBtn" >GOOD<span>6.1-8.0</span></VoteContainer>
+            <VoteContainer type="teamwork-team-A" weight="2" oneshot="true" nameClass="amazing circleBtn">AMAZING<span>8.1-10.0</span></VoteContainer>
             <br/>
             Previous annotations: <ReviewResults type="teamwork-team-A-annotation" />
           </div>
           <div className="vote-row">
             <div className="playersTeamTitle">Music</div>
             <Total type="music-team-A" />
-            <VoteContainer type="music-team-A" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD</VoteContainer>
-            <VoteContainer type="music-team-A" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
-            <VoteContainer type="music-team-A" weight="1" oneshot="true"nameClass="medium circleBtn" >MEDIUM</VoteContainer>
-            <VoteContainer type="music-team-A" weight="1.5" oneshot="true"nameClass="good circleBtn" >GOOD</VoteContainer>
-            <VoteContainer type="music-team-A" weight="2" oneshot="true" nameClass="amazing circleBtn">AMAZING</VoteContainer>
+            <VoteContainer type="music-team-A" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD<span>0-2.0</span></VoteContainer>
+            <VoteContainer type="music-team-A" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD<span>2.1-4.0</span></VoteContainer>
+            <VoteContainer type="music-team-A" weight="1" oneshot="true"nameClass="medium circleBtn" >MEDIUM<span>4.1-6.0</span></VoteContainer>
+            <VoteContainer type="music-team-A" weight="1.5" oneshot="true"nameClass="good circleBtn" >GOOD<span>6.1-8.0</span></VoteContainer>
+            <VoteContainer type="music-team-A" weight="2" oneshot="true" nameClass="amazing circleBtn">AMAZING<span>8.1-10.0</span></VoteContainer>
             <br/>
             Previous annotations: <ReviewResults type="music-team-A-annotation" />
           </div>
           <div className="vote-row">
             <div className="playersTeamTitle">Flow</div>
             <Total type="flow-team-A" />
-            <VoteContainer type="flow-team-A" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD</VoteContainer>
-            <VoteContainer type="flow-team-A" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
-            <VoteContainer type="flow-team-A" weight="1" oneshot="true"nameClass="medium circleBtn" >MEDIUM</VoteContainer>
-            <VoteContainer type="flow-team-A" weight="1.5" oneshot="true"nameClass="good circleBtn" >GOOD</VoteContainer>
-            <VoteContainer type="flow-team-A" weight="2" oneshot="true" nameClass="amazing circleBtn">AMAZING</VoteContainer>
+            <VoteContainer type="flow-team-A" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD<span>0-2.0</span></VoteContainer>
+            <VoteContainer type="flow-team-A" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD<span>2.1-4.0</span></VoteContainer>
+            <VoteContainer type="flow-team-A" weight="1" oneshot="true"nameClass="medium circleBtn" >MEDIUM<span>4.1-6.0</span></VoteContainer>
+            <VoteContainer type="flow-team-A" weight="1.5" oneshot="true"nameClass="good circleBtn" >GOOD<span>6.1-8.0</span></VoteContainer>
+            <VoteContainer type="flow-team-A" weight="2" oneshot="true" nameClass="amazing circleBtn">AMAZING<span>8.1-10.0</span></VoteContainer>
             <br/>
             Previous annotations: <ReviewResults type="flow-team-A-annotation" />
           </div>
           <div className="vote-row">
             <div className="playersTeamTitle">Variety</div>
             <Total type="variety-team-A" />
-            <VoteContainer type="variety-team-A" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD</VoteContainer>
-            <VoteContainer type="variety-team-A" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
-            <VoteContainer type="variety-team-A" weight="1" oneshot="true"nameClass="medium circleBtn" >MEDIUM</VoteContainer>
-            <VoteContainer type="variety-team-A" weight="1.5" oneshot="true"nameClass="good circleBtn" >GOOD</VoteContainer>
-            <VoteContainer type="variety-team-A" weight="2" oneshot="true" nameClass="amazing circleBtn">AMAZING</VoteContainer>
+            <VoteContainer type="variety-team-A" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD<span>0-2.0</span></VoteContainer>
+            <VoteContainer type="variety-team-A" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD<span>2.1-4.0</span></VoteContainer>
+            <VoteContainer type="variety-team-A" weight="1" oneshot="true"nameClass="medium circleBtn" >MEDIUM<span>4.1-6.0</span></VoteContainer>
+            <VoteContainer type="variety-team-A" weight="1.5" oneshot="true"nameClass="good circleBtn" >GOOD<span>6.1-8.0</span></VoteContainer>
+            <VoteContainer type="variety-team-A" weight="2" oneshot="true" nameClass="amazing circleBtn">AMAZING<span>8.1-10.0</span></VoteContainer>
             <br/>
             Previous annotations: <ReviewResults type="variety-team-A-annotation" />
           </div>
           <div className="vote-row">
             <div className="playersTeamTitle">General Imp.</div>
             <Total type="general-impression-team-A" />
-            <VoteContainer type="general-impression-team-A" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD</VoteContainer>
-            <VoteContainer type="general-impression-team-A" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
-            <VoteContainer type="general-impression-team-A" weight="1" oneshot="true"nameClass="medium circleBtn" >MEDIUM</VoteContainer>
-            <VoteContainer type="general-impression-team-A" weight="1.5" oneshot="true"nameClass="good circleBtn" >GOOD</VoteContainer>
-            <VoteContainer type="general-impression-team-A" weight="2" oneshot="true" nameClass="amazing circleBtn">AMAZING</VoteContainer>
+            <VoteContainer type="general-impression-team-A" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD<span>0-2.0</span></VoteContainer>
+            <VoteContainer type="general-impression-team-A" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD<span>2.1-4.0</span></VoteContainer>
+            <VoteContainer type="general-impression-team-A" weight="1" oneshot="true"nameClass="medium circleBtn" >MEDIUM<span>4.1-6.0</span></VoteContainer>
+            <VoteContainer type="general-impression-team-A" weight="1.5" oneshot="true"nameClass="good circleBtn" >GOOD<span>6.1-8.0</span></VoteContainer>
+            <VoteContainer type="general-impression-team-A" weight="2" oneshot="true" nameClass="amazing circleBtn">AMAZING<span>8.1-10.0</span></VoteContainer>
             <br/>
             Previous annotations: <ReviewResults type="general-impression-team-A-annotation" />
           </div>
@@ -267,11 +267,11 @@ var Accordion = React.createClass({
           <div className="vote-row">
               <div className="playersTeamTitle">Difficulty</div>
               <br/>
-              <VoteContainer type="difficulty-team-B" weight="-0.5" oneshot="false" nameClass="bad circleBtn vote">BAD</VoteContainer>
-              <VoteContainer type="difficulty-team-B" weight="-0.25" oneshot="false" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
-              <VoteContainer type="difficulty-team-B" weight="0" oneshot="false"nameClass="medium circleBtn" >MEDIUM</VoteContainer>
-              <VoteContainer type="difficulty-team-B" weight="0.25" oneshot="false"nameClass="good circleBtn" >GOOD</VoteContainer>
-              <VoteContainer type="difficulty-team-B" weight="0.5" oneshot="false" nameClass="amazing circleBtn">AMAZING</VoteContainer>
+              <VoteContainer type="difficulty-team-B" weight="-0.5" oneshot="false" nameClass="bad circleBtn vote">BAD<span>0-2.0</span><span>0-2.0</span></VoteContainer>
+              <VoteContainer type="difficulty-team-B" weight="-0.25" oneshot="false" nameClass="not-good circleBtn" >NOT GOOD<span>2.1-4.0</span></VoteContainer>
+              <VoteContainer type="difficulty-team-B" weight="0" oneshot="false" nameClass="medium circleBtn" >MEDIUM<span>4.1-6.0</span></VoteContainer>
+              <VoteContainer type="difficulty-team-B" weight="0.25" oneshot="false" nameClass="good circleBtn" >GOOD<span>6.1-8.0</span></VoteContainer>
+              <VoteContainer type="difficulty-team-B" weight="0.5" oneshot="false" nameClass="amazing circleBtn">AMAZING<span>8.1-10</span></VoteContainer>
               <br/>
               Result: <Total type="difficulty-team-B" />
           </div>
@@ -279,8 +279,8 @@ var Accordion = React.createClass({
             <VoteRow type="execution-team-B">
               <div className="playersTeamTitle">Execution</div>
               <br/>
-              <VoteContainer type="execution-team-B" weight="-0.1" oneshot="false" nameClass="medium circleBtn">MINOR</VoteContainer>
-              <VoteContainer type="execution-team-B" weight="-0.3" oneshot="false" nameClass="bad circleBtn">DROP</VoteContainer>
+              <VoteContainer type="execution-team-B" weight="-0.1" oneshot="false" nameClass="medium circleBtn">MINOR<span>-0.1</span></VoteContainer>
+              <VoteContainer type="execution-team-B" weight="-0.3" oneshot="false" nameClass="bad circleBtn">DROP<span>-0.3</span></VoteContainer>
               <br/>
               Result: <Total type="execution-team-B" />
             </VoteRow>
@@ -337,55 +337,55 @@ var Accordion = React.createClass({
           <div className="vote-row">
             <div className="playersTeamTitle">Teamwork</div>
             <Total type="teamwork-team-B" />
-            <VoteContainer type="teamwork-team-B" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD</VoteContainer>
-            <VoteContainer type="teamwork-team-B" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
-            <VoteContainer type="teamwork-team-B" weight="1" oneshot="true"nameClass="medium circleBtn" >MEDIUM</VoteContainer>
-            <VoteContainer type="teamwork-team-B" weight="1.5" oneshot="true"nameClass="good circleBtn" >GOOD</VoteContainer>
-            <VoteContainer type="teamwork-team-B" weight="2" oneshot="true" nameClass="amazing circleBtn">AMAZING</VoteContainer>
+            <VoteContainer type="teamwork-team-B" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD<span>0-2.0</span></VoteContainer>
+            <VoteContainer type="teamwork-team-B" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD<span>2.1-4.0</span></VoteContainer>
+            <VoteContainer type="teamwork-team-B" weight="1" oneshot="true"nameClass="medium circleBtn" >MEDIUM<span>4.1-6.0</span></VoteContainer>
+            <VoteContainer type="teamwork-team-B" weight="1.5" oneshot="true"nameClass="good circleBtn" >GOOD<span>6.1-8.0</span></VoteContainer>
+            <VoteContainer type="teamwork-team-B" weight="2" oneshot="true" nameClass="amazing circleBtn">AMAZING<span>8.1-10.0</span></VoteContainer>
             <br/>
             Previous annotations: <ReviewResults type="teamwork-team-B-annotation" />
           </div>
           <div className="vote-row">
             <div className="playersTeamTitle">Music</div>
             <Total type="music-team-B" />
-            <VoteContainer type="music-team-B" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD</VoteContainer>
-            <VoteContainer type="music-team-B" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
-            <VoteContainer type="music-team-B" weight="1" oneshot="true"nameClass="medium circleBtn" >MEDIUM</VoteContainer>
-            <VoteContainer type="music-team-B" weight="1.5" oneshot="true"nameClass="good circleBtn" >GOOD</VoteContainer>
-            <VoteContainer type="music-team-B" weight="2" oneshot="true" nameClass="amazing circleBtn">AMAZING</VoteContainer>
+            <VoteContainer type="music-team-B" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD<span>0-2.0</span></VoteContainer>
+            <VoteContainer type="music-team-B" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD<span>2.1-4.0</span></VoteContainer>
+            <VoteContainer type="music-team-B" weight="1" oneshot="true"nameClass="medium circleBtn" >MEDIUM<span>4.1-6.0</span></VoteContainer>
+            <VoteContainer type="music-team-B" weight="1.5" oneshot="true"nameClass="good circleBtn" >GOOD<span>6.1-8.0</span></VoteContainer>
+            <VoteContainer type="music-team-B" weight="2" oneshot="true" nameClass="amazing circleBtn">AMAZING<span>8.1-10.0</span></VoteContainer>
             <br/>
             Previous annotations: <ReviewResults type="music-team-B-annotation" />
           </div>
           <div className="vote-row">
             <div className="playersTeamTitle">Flow</div>
             <Total type="flow-team-B" />
-            <VoteContainer type="flow-team-B" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD</VoteContainer>
-            <VoteContainer type="flow-team-B" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
-            <VoteContainer type="flow-team-B" weight="1" oneshot="true"nameClass="medium circleBtn" >MEDIUM</VoteContainer>
-            <VoteContainer type="flow-team-B" weight="1.5" oneshot="true"nameClass="good circleBtn" >GOOD</VoteContainer>
-            <VoteContainer type="flow-team-B" weight="2" oneshot="true" nameClass="amazing circleBtn">AMAZING</VoteContainer>
+            <VoteContainer type="flow-team-B" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD<span>0-2.0</span></VoteContainer>
+            <VoteContainer type="flow-team-B" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD<span>2.1-4.0</span></VoteContainer>
+            <VoteContainer type="flow-team-B" weight="1" oneshot="true"nameClass="medium circleBtn" >MEDIUM<span>4.1-6.0</span></VoteContainer>
+            <VoteContainer type="flow-team-B" weight="1.5" oneshot="true"nameClass="good circleBtn" >GOOD<span>6.1-8.0</span></VoteContainer>
+            <VoteContainer type="flow-team-B" weight="2" oneshot="true" nameClass="amazing circleBtn">AMAZING<span>8.1-10.0</span></VoteContainer>
             <br/>
             Previous annotations: <ReviewResults type="flow-team-B-annotation" />
           </div>
           <div className="vote-row">
             <div className="playersTeamTitle">Variety</div>
             <Total type="variety-team-B" />
-            <VoteContainer type="variety-team-B" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD</VoteContainer>
-            <VoteContainer type="variety-team-B" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
-            <VoteContainer type="variety-team-B" weight="1" oneshot="true"nameClass="medium circleBtn" >MEDIUM</VoteContainer>
-            <VoteContainer type="variety-team-B" weight="1.5" oneshot="true"nameClass="good circleBtn" >GOOD</VoteContainer>
-            <VoteContainer type="variety-team-B" weight="2" oneshot="true" nameClass="amazing circleBtn">AMAZING</VoteContainer>
+            <VoteContainer type="variety-team-B" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD<span>0-2.0</span></VoteContainer>
+            <VoteContainer type="variety-team-B" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD<span>2.1-4.0</span></VoteContainer>
+            <VoteContainer type="variety-team-B" weight="1" oneshot="true"nameClass="medium circleBtn" >MEDIUM<span>4.1-6.0</span></VoteContainer>
+            <VoteContainer type="variety-team-B" weight="1.5" oneshot="true"nameClass="good circleBtn" >GOOD<span>6.1-8.0</span></VoteContainer>
+            <VoteContainer type="variety-team-B" weight="2" oneshot="true" nameClass="amazing circleBtn">AMAZING<span>8.1-10.0</span></VoteContainer>
             <br/>
             Previous annotations: <ReviewResults type="variety-team-B-annotation" />
           </div>
           <div className="vote-row">
             <div className="playersTeamTitle">General Imp.</div>
             <Total type="general-impression-team-B" />
-            <VoteContainer type="general-impression-team-B" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD</VoteContainer>
-            <VoteContainer type="general-impression-team-B" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
-            <VoteContainer type="general-impression-team-B" weight="1" oneshot="true"nameClass="medium circleBtn" >MEDIUM</VoteContainer>
-            <VoteContainer type="general-impression-team-B" weight="1.5" oneshot="true"nameClass="good circleBtn" >GOOD</VoteContainer>
-            <VoteContainer type="general-impression-team-B" weight="2" oneshot="true" nameClass="amazing circleBtn">AMAZING</VoteContainer>
+            <VoteContainer type="general-impression-team-B" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD<span>0-2.0</span></VoteContainer>
+            <VoteContainer type="general-impression-team-B" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD<span>2.1-4.0</span></VoteContainer>
+            <VoteContainer type="general-impression-team-B" weight="1" oneshot="true"nameClass="medium circleBtn" >MEDIUM<span>4.1-6.0</span></VoteContainer>
+            <VoteContainer type="general-impression-team-B" weight="1.5" oneshot="true"nameClass="good circleBtn" >GOOD<span>6.1-8.0</span></VoteContainer>
+            <VoteContainer type="general-impression-team-B" weight="2" oneshot="true" nameClass="amazing circleBtn">AMAZING<span>8.1-10.0</span></VoteContainer>
             <br/>
             Previous annotations: <ReviewResults type="general-impression-team-B-annotation" />
           </div>
