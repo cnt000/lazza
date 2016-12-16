@@ -326,15 +326,15 @@ var Accordion = React.createClass({
         <Section title="6 - Team B - Review and Artistic Impression">
           <h2>REVIEW DIFFICULTY / EXECUTION</h2>
           <div className="vote-row">
-            Difficulty Review:
+            <div className="playersTeamTitle">Difficulty Review:</div>
             <ReviewResults type="difficulty-team-B" />
             <br/>
-            Execution Review:
+            <div className="playersTeamTitle">Execution Review:</div>
             <ReviewResults type="execution-team-B" />
           </div>
           <h2>VOTE ARTISTIC IMPRESSION</h2>
           <div className="vote-row">
-            Teamwork<br/>
+            <div className="playersTeamTitle">Teamwork</div>
             <Total type="teamwork-team-B" />
             <VoteContainer type="teamwork-team-B" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD</VoteContainer>
             <VoteContainer type="teamwork-team-B" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
@@ -345,7 +345,7 @@ var Accordion = React.createClass({
             Previous annotations: <ReviewResults type="teamwork-team-B-annotation" />
           </div>
           <div className="vote-row">
-            Music<br/>
+            <div className="playersTeamTitle">Music</div>
             <Total type="music-team-B" />
             <VoteContainer type="music-team-B" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD</VoteContainer>
             <VoteContainer type="music-team-B" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
@@ -356,7 +356,7 @@ var Accordion = React.createClass({
             Previous annotations: <ReviewResults type="music-team-B-annotation" />
           </div>
           <div className="vote-row">
-            Flow<br/>
+            <div className="playersTeamTitle">Flow</div>
             <Total type="flow-team-B" />
             <VoteContainer type="flow-team-B" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD</VoteContainer>
             <VoteContainer type="flow-team-B" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
@@ -367,7 +367,7 @@ var Accordion = React.createClass({
             Previous annotations: <ReviewResults type="flow-team-B-annotation" />
           </div>
           <div className="vote-row">
-            Variety<br/>
+            <div className="playersTeamTitle">Variety</div>
             <Total type="variety-team-B" />
             <VoteContainer type="variety-team-B" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD</VoteContainer>
             <VoteContainer type="variety-team-B" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
@@ -378,7 +378,7 @@ var Accordion = React.createClass({
             Previous annotations: <ReviewResults type="variety-team-B-annotation" />
           </div>
           <div className="vote-row">
-            General Imp.<br/>
+            <div className="playersTeamTitle">General Imp.</div>
             <Total type="general-impression-team-B" />
             <VoteContainer type="general-impression-team-B" weight="0" oneshot="true"nameClass="bad circleBtn vote">BAD</VoteContainer>
             <VoteContainer type="general-impression-team-B" weight="0.5" oneshot="true" nameClass="not-good circleBtn" >NOT GOOD</VoteContainer>
@@ -391,38 +391,67 @@ var Accordion = React.createClass({
         </Section>
         <Section title="7 - Submit Final Vote">
           <div className="final-vote-row vote-row">
-            Team A Final Review:
-            <h3>Execution:</h3>
-            <ReviewResults type="execution-team-A" />
-            <h3>Difficulty:</h3>
-            <ReviewResults type="difficulty-team-A" />
-            <h3>Teamwork:</h3>
-            <ReviewResults type="teamwork-team-A" />
-            <h3>Music:</h3>
-            <ReviewResults type="music-team-A" />
-            <h3>Flow:</h3>
-            <ReviewResults type="flow-team-A" />
-            <h3>Variety:</h3>
-            <ReviewResults type="variety-team-A" />
-            <h3>General Imp.:</h3>
-            <ReviewResults type="general-impression-team-A" />
+
+            <div className="playersTeamTitle">Team A Final Review:</div>
+            <div className="resultBox">
+              <div className="playersTeamTitle">Execution:</div>
+              <ReviewResults type="execution-team-A" />
+            </div>
+            <div className="resultBox">
+              <div className="playersTeamTitle">Difficulty:</div>
+              <ReviewResults type="difficulty-team-A" />
+            </div>
+            <div className="resultBox small">
+              <div className="playersTeamTitle">Teamwork:</div>
+              <ReviewResults type="teamwork-team-A" />
+            </div>
+            <div className="resultBox small">
+              <div className="playersTeamTitle">Music:</div>
+              <ReviewResults type="music-team-A" />
+            </div>
+            <div className="resultBox small">
+              <div className="playersTeamTitle">Flow:</div>
+              <ReviewResults type="flow-team-A" />
+            </div>
+            <div className="resultBox small">
+              <div className="playersTeamTitle">Variety:</div>
+              <ReviewResults type="variety-team-A" />
+            </div>
+            <div className="resultBox small">
+              <div className="playersTeamTitle">General Imp.:</div>
+              <ReviewResults type="general-impression-team-A" />
+            </div>
           </div>
           <div className="final-vote-row vote-row">
-            Team B Final Review:
-            <h3>Execution:</h3>
-            <ReviewResults type="execution-team-B" />
-            <h3>Difficulty:</h3>
-            <ReviewResults type="difficulty-team-B" />
-            <h3>Teamwork:</h3>
-            <ReviewResults type="teamwork-team-B" />
-            <h3>Music:</h3>
-            <ReviewResults type="music-team-B" />
-            <h3>Flow:</h3>
-            <ReviewResults type="flow-team-B" />
-            <h3>Variety:</h3>
-            <ReviewResults type="variety-team-B" />
-            <h3>General Imp.:</h3>
-            <ReviewResults type="general-impression-team-B" />
+            <div className="playersTeamTitle">Team B Final Review:</div>
+            <div className="resultBox">
+              <div className="playersTeamTitle">Execution:</div>
+              <ReviewResults type="execution-team-B" />
+            </div>
+            <div className="resultBox">
+              <div className="playersTeamTitle">Difficulty:</div>
+              <ReviewResults type="difficulty-team-B" />
+            </div>
+            <div className="resultBox small">
+              <div className="playersTeamTitle">Teamwork:</div>
+              <ReviewResults type="teamwork-team-B" />
+            </div>
+            <div className="resultBox small">
+              <div className="playersTeamTitle">Music:</div>
+              <ReviewResults type="music-team-B" />
+            </div>
+            <div className="resultBox small">
+              <div className="playersTeamTitle">Flow:</div>
+              <ReviewResults type="flow-team-B" />
+            </div>
+            <div className="resultBox small">
+              <div className="playersTeamTitle">Variety:</div>
+              <ReviewResults type="variety-team-B" />
+            </div>
+            <div className="resultBox small">
+              <div className="playersTeamTitle">General Imp.:</div>
+              <ReviewResults type="general-impression-team-B" />
+            </div>
           </div>
           <div className="vote-row">
             <WinnerBadge />

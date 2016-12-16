@@ -213,3 +213,17 @@ Registration
 .circleBtn:active {
     border: 8px solid #ececec;
 }
+
+.resultBox{
+    min-height: 500px;
+    max-height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.resultBox.small{
+    min-height: 150px;
+    max-height: 150px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
