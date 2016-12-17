@@ -5,7 +5,7 @@ const Total = ({ result, type }) => {
   return (
     <div className="total">
       <span>
-        {result.value.toFixed(1)} ({result.time})
+        {result.value.toFixed(2)} ({result.time})
       </span>
     </div>
   )

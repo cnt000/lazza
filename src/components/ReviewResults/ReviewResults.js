@@ -54,7 +54,7 @@ const ReviewResults = ({ votes, result, onClick, type }) => {
            </tr>)}
         </tbody>
       </Table>
-      <span className="total">Total: {result.value.toFixed(1)} - Votes: {result.time}</span>
+      <span className="total">Total: {result.value.toFixed(2)} - Votes: {result.time}</span>
     </div>
   )
 }

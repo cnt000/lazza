@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 const WinnerBadge = ({ resultA, resultB }) => {
   return (
     <div className="total">
-      Total Team A: {resultA.toFixed(1)}
+      Total Team A: {resultA.toFixed(2)}
       <br/>
-      Total Team B: {resultB.toFixed(1)}
+      Total Team B: {resultB.toFixed(2)}
       <h1>WINNER IS TEAM {(resultA > resultB) ? 'A' : 'B'}</h1>
     </div>
   )

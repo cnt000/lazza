@@ -67,6 +67,18 @@ const judginApp = (state = {}, action) => {
       return (element.id !== action.id || element.time !== action.time)
       });
       newState.judging.votes = filteredVotes;
+
+      let oldValRemove = newState.judging.results[action.id].value;
+      let newTimeRemove = newState.judging.results[action.id].time - 1;
+      newState.judging.results[action.id] = {
+        value: oldValRemove - (parseFloat(action.value, 10)),
+        time: newTimeRemove
+      };
+
+      newState.judging.results.totalA = calculateTotal('-A', newState.judging.results);
+      newState.judging.results.totalB = calculateTotal('-B', newState.judging.results);
+
+
       return newState;
 
     case 'SAVED_RESP':
