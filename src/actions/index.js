@@ -1,4 +1,8 @@
 
+const SOMETHING_REQUEST = 'REQUEST_TEAMS';
+const SOMETHING_SUCCESS = 'RECEIVE_TEAMS';
+const SOMETHING_FAILURE = 'SOMETHING_FAILURE';
+
 export const removeVote = (id, value, time) => {
   return {
     type: 'REMOVE_VOTE',
@@ -24,12 +28,37 @@ export const entryPlay = (id, value) => {
   };
 }
 
-export const loadResult = (id) => {
-  return {
-    type: 'LOAD_RESULT',
-    id: id
-  };
+// function requestTeams(subreddit) {
+//   return {
+//     type: 'REQUEST_TEAMS',
+//     subreddit
+//   }
+// }
+
+// function receiveTeams(subreddit, json) {
+//   return {
+//     type: 'RECEIVE_TEAMS',
+//     subreddit,
+//     posts: json.data.children.map(child => child.data),
+//     receivedAt: Date.now()
+//   }
+// }
+
+function fetchTeams(subreddit) {
+  // return dispatch => {
+  //   dispatch(requestTeams(subreddit))
+    return fetch(`https://www.reddit.com/r/${subreddit}.json`)
+      .then(response => response.json())
+      .then(json => json.data.children.map(child => child.data))
+      // .then(json => receiveTeams(subreddit, json))
+  // }
 }
+
+// export function loadTeams(subreddit) {
+//   return (dispatch, getState) => {
+//     return dispatch(fetchTeams(subreddit))
+//   }
+// }
 
 export const vote = (id, value, oneshot) => {
   let voteType = (JSON.parse(oneshot)) ? 'ONESHOT_VOTE' : 'VOTE';
@@ -83,4 +112,30 @@ export const customMiddleware = store => next => action => {
     })
     .then(response => response.json())
     .then(json => action.cb({json}), error => action.cb({error}))
+}
+
+// Middleware
+export const promiseMiddleware = () => {
+  return (next) => (action) => {
+    const { promise, types, ...rest } = action;
+    if (!promise) {
+      return next(action);
+    }
+
+    const [REQUEST, SUCCESS, FAILURE] = types;
+    next({ ...rest, type: REQUEST });
+    return promise.then(
+      (result) => next({ ...rest, result, type: SUCCESS }),
+      (error) => next({ ...rest, error, type: FAILURE })
+    );
+  };
+}
+
+// Usage
+export function loadTeams(userId) {
+  return {
+    types: [SOMETHING_REQUEST, SOMETHING_SUCCESS, SOMETHING_FAILURE],
+    promise: fetchTeams(userId),
+    userId
+  };
 }

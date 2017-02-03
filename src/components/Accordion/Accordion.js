@@ -65,11 +65,11 @@ var Accordion = React.createClass({
             </div>
             <div className="playersTeam">
               <div className="playersTeamTitle">Team A name:</div>
-              <FieldContainer type="team-name-A" />
+              <SelectContainer type="team-name-A" />
             </div>
             <div className="playersTeam">
               <div className="playersTeamTitle">Team B name:</div>
-              <FieldContainer type="team-name-B" />
+              <SelectContainer type="team-name-B" />
             </div>
             <br/>
           </div>
@@ -81,27 +81,27 @@ var Accordion = React.createClass({
                   Players Team A:
                   </div>
                 <div className="playerTeamEntry">
-                <SelectContainer type="player-name-A1" />
+                <FieldContainer type="player-name-A1" />
                 <PlayContainer type="player-play-A1" />
 
                 </div>
                 <div className="playerTeamEntry">
-                <SelectContainer type="player-name-A2" />
+                <FieldContainer type="player-name-A2" />
                 <PlayContainer type="player-play-A2" />
 
                 </div>
                 <div className="playerTeamEntry">
-                <SelectContainer type="player-name-A3" />
+                <FieldContainer type="player-name-A3" />
                 <PlayContainer type="player-play-A3" />
 
                 </div>
                 <div className="playerTeamEntry">
-                <SelectContainer type="player-name-A4" />
+                <FieldContainer type="player-name-A4" />
                 <PlayContainer type="player-play-A4" />
 
                 </div>
                 <div className="playerTeamEntry">
-                <SelectContainer type="player-name-A5" />
+                <FieldContainer type="player-name-A5" />
                 <PlayContainer type="player-play-A5" />
                 </div>
               </div>
@@ -110,27 +110,27 @@ var Accordion = React.createClass({
                 Team B:
                 </div>
                 <div className="playerTeamEntry">
-                <SelectContainer type="player-name-B1" />
+                <FieldContainer type="player-name-B1" />
                 <PlayContainer type="player-play-B1" />
 
                 </div>
                 <div className="playerTeamEntry">
-                <SelectContainer type="player-name-B2" />
+                <FieldContainer type="player-name-B2" />
                 <PlayContainer type="player-play-B2" />
 
                 </div>
                 <div className="playerTeamEntry">
-                <SelectContainer type="player-name-B3" />
+                <FieldContainer type="player-name-B3" />
                 <PlayContainer type="player-play-B3" />
 
                 </div>
                 <div className="playerTeamEntry">
-                <SelectContainer type="player-name-B4" />
+                <FieldContainer type="player-name-B4" />
                 <PlayContainer type="player-play-B4" />
 
                 </div>
                 <div className="playerTeamEntry">
-                <SelectContainer type="player-name-B5" />
+                <FieldContainer type="player-name-B5" />
                 <PlayContainer type="player-play-B5" />
               </div>
               </div>

@@ -1,8 +1,12 @@
 import React, { PropTypes } from 'react'
 
-const SelectPlayer = ({ children, field = {}, players, onChange}) => {
+const SelectPlayer = ({ children, field = {}, players, onChange, onLoad}) => {
     return (
       <div>
+        <button onClick={e => {
+                   e.preventDefault()
+                   onLoad('test')
+               }}>load</button>
         <select
           className="form-control"
           type="type-of-game"
@@ -13,9 +17,9 @@ const SelectPlayer = ({ children, field = {}, players, onChange}) => {
          }}
           >
           <option value="" >Select...</option>
-          {players.map(option =>
-            <option value={option} key={option}>
-              {option}
+          {players.length > 0 && players.map(option =>
+            <option value={option.name} key={option.name}>
+              {option.name}
             </option>)
           }
         </select>

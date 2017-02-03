@@ -4,7 +4,7 @@
 
   $conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
 
-  $query_str = "select * from $table_players";
+  $query_str = "SELECT * FROM $table_players ORDER BY `player-name` ASC LIMIT 0 , 100";
   $query = $conn->prepare($query_str);
 
   $query->execute();
@@ -13,7 +13,7 @@
 	header('Content-type: application/json');
   $result = "{ \"players\": [";
   foreach ($row as $key => $value) {
-    $result .= "\"" . $value['player-name'] . "\",";
+    $result .= "\"" . trim($value['player-name']) . "\",";
   }
   $result = rtrim($result, ",");
   $result .= "]}";

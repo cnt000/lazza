@@ -109,6 +109,21 @@ const judginApp = (state = {}, action) => {
       }
       return newState;
 
+    case 'RECEIVE_TEAMS':
+      newState = Object.assign({}, state);
+      newState.judging.players = action.result;
+      return Object.assign({}, newState, {
+        isFetching: false,
+        didInvalidate: false,
+        lastUpdated: action.receivedAt
+      });
+
+    case 'REQUEST_TEAMS':
+      return Object.assign({}, state, {
+        isFetching: true,
+        didInvalidate: false
+      })
+
     case 'RESET_ALL_DATA':
       return defaultState;
 
