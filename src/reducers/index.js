@@ -60,14 +60,8 @@ const judginApp = (state = {}, action) => {
       return newState;
 
     case 'ENTRY_FIELD':
-      newState = {...state};
-      newState.fields = save(newState.fields, action);
-      return newState;
-
     case 'ENTRY_PLAY':
-      newState = {...state};
-      newState.fields = save(newState.fields, action);
-      return newState;
+      return {...state, fields: save(state.fields, action)};
 
     case 'REMOVE_VOTE':
       newState = Object.assign({}, state);
