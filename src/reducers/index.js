@@ -21,76 +21,76 @@ const judginApp = (state = {}, action) => {
       } else if((/difficulty/i).test(action.id)) {
         points = 5.0;
       }
-      var votesFiltered = selectItems(newState.judging.votes, action.id);
-      newState.judging.votes.push({
+      var votesFiltered = selectItems(newState.votes, action.id);
+      newState.votes.push({
         id: action.id,
         value: action.value,
         time: timeMaxId(votesFiltered) + 1
       });
 
-      if(typeof newState.judging.results[action.id] === 'undefined') {
-        newState.judging.results[action.id] = {
+      if(typeof newState.results[action.id] === 'undefined') {
+        newState.results[action.id] = {
           value: points,
           time: 0
         };
       }
-      let oldVal = newState.judging.results[action.id].value;
-      let newTime = newState.judging.results[action.id].time + 1;
-      newState.judging.results[action.id] = {
+      let oldVal = newState.results[action.id].value;
+      let newTime = newState.results[action.id].time + 1;
+      newState.results[action.id] = {
         value: (parseFloat(action.value, 10) + oldVal),
         time: newTime
       };
 
-      newState.judging.results.totalA = calculateTotal('-A', newState.judging.results);
-      newState.judging.results.totalB = calculateTotal('-B', newState.judging.results);
+      newState.results.totalA = calculateTotal('-A', newState.results);
+      newState.results.totalB = calculateTotal('-B', newState.results);
 
       return newState;
 
     case 'ONESHOT_VOTE':
       newState = {...state};
-      newState.judging.votes = save(newState.judging.votes, action);
-      newState.judging.results[action.id] = {
+      newState.votes = save(newState.votes, action);
+      newState.results[action.id] = {
                                               value: parseFloat(action.value, 10),
                                               time: 1
                                             };
 
-      newState.judging.results.totalA = calculateTotal('-A', newState.judging.results);
-      newState.judging.results.totalB = calculateTotal('-B', newState.judging.results);
+      newState.results.totalA = calculateTotal('-A', newState.results);
+      newState.results.totalB = calculateTotal('-B', newState.results);
 
       return newState;
 
     case 'ENTRY_FIELD':
       newState = {...state};
-      newState.judging.fields = save(newState.judging.fields, action);
+      newState.fields = save(newState.fields, action);
       return newState;
 
     case 'ENTRY_PLAY':
       newState = {...state};
-      newState.judging.fields = save(newState.judging.fields, action);
+      newState.fields = save(newState.fields, action);
       return newState;
 
     case 'REMOVE_VOTE':
       newState = Object.assign({}, state);
-      var filteredVotes = newState.judging.votes.filter((element) => {
+      var filteredVotes = newState.votes.filter((element) => {
       return (element.id !== action.id || element.time !== action.time)
       });
-      newState.judging.votes = filteredVotes;
+      newState.votes = filteredVotes;
 
-      let oldValRemove = newState.judging.results[action.id].value;
-      let newTimeRemove = newState.judging.results[action.id].time - 1;
-      newState.judging.results[action.id] = {
+      let oldValRemove = newState.results[action.id].value;
+      let newTimeRemove = newState.results[action.id].time - 1;
+      newState.results[action.id] = {
         value: oldValRemove - (parseFloat(action.value, 10)),
         time: newTimeRemove
       };
 
-      newState.judging.results.totalA = calculateTotal('-A', newState.judging.results);
-      newState.judging.results.totalB = calculateTotal('-B', newState.judging.results);
+      newState.results.totalA = calculateTotal('-A', newState.results);
+      newState.results.totalB = calculateTotal('-B', newState.results);
 
       return newState;
 
     case SUCCESS_SAVE_RESULT:
       newState = Object.assign({}, state);
-      newState.judging.finalResponse = {
+      newState.finalResponse = {
         isSaving: false,
         savedAt: Date.now(),
         error: false
@@ -99,7 +99,7 @@ const judginApp = (state = {}, action) => {
 
     case FAILURE_SAVE_RESULT:
       newState = Object.assign({}, state);
-      newState.judging.finalResponse = {
+      newState.finalResponse = {
         isSaving: false,
         savedAt: Date.now(),
         error: true
@@ -108,8 +108,8 @@ const judginApp = (state = {}, action) => {
 
     case REQUEST_SAVE_RESULT:
       newState = Object.assign({}, state);
-      newState.judging.session = action.id;
-      newState.judging.finalResponse = {
+      newState.session = action.id;
+      newState.finalResponse = {
         isSaving: true,
         savedAt: null,
         error: null
@@ -118,7 +118,7 @@ const judginApp = (state = {}, action) => {
 
     case RECEIVE_LOADTEAMS:
       newState = Object.assign({}, state);
-      newState.judging.players = action.result;
+      newState.players = action.result;
       return Object.assign({}, newState, {
         isFetching: false,
         didInvalidate: false,
@@ -133,7 +133,7 @@ const judginApp = (state = {}, action) => {
 
     case FAILURE_LOADTEAMS:
       newState = Object.assign({}, state);
-      newState.judging.finalResponse = {
+      newState.finalResponse = {
         isSaving: false,
         savedAt: Date.now(),
         error: true

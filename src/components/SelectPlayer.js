@@ -1,34 +1,68 @@
-import React, { PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 
-const SelectPlayer = ({ children, field = {}, players, onChange, onLoad}) => {
+class SelectPlayer extends Component {
+
+  static propTypes = {
+    onChange: PropTypes.func.isRequired
+  }
+
+  componentDidMount() {
+    this.props.onLoad('test');
+  }
+
+  render() {
     return (
       <div>
-        <button onClick={e => {
-                   e.preventDefault()
-                   onLoad('test')
-               }}>load</button>
         <select
           className="form-control"
           type="type-of-game"
-          defaultValue={field.value}
+          defaultValue={(this.props.field) ? this.props.field.value : ""}
           onChange={e => {
              e.preventDefault()
-             onChange(e.target.value)
+             this.props.onChange(e.target.value)
          }}
           >
           <option value="" >Select...</option>
-          {players.length > 0 && players.map(option =>
+          {this.props.players.length > 0 && this.props.players.map(option =>
             <option value={option.name} key={option.name}>
               {option.name}
             </option>)
           }
         </select>
       </div>
-  );
-};
-
-SelectPlayer.propTypes = {
-  onChange: PropTypes.func.isRequired
+    )
+  }
 }
+
+// const SelectPlayer = ({ children, field = {}, players, onChange, onLoad}) => {
+//     return (
+//       <div>
+//         <button onClick={e => {
+//                    e.preventDefault()
+//                    onLoad('test')
+//                }}>load</button>
+//         <select
+//           className="form-control"
+//           type="type-of-game"
+//           defaultValue={field.value}
+//           onChange={e => {
+//              e.preventDefault()
+//              onChange(e.target.value)
+//          }}
+//           >
+//           <option value="" >Select...</option>
+//           {players.length > 0 && players.map(option =>
+//             <option value={option.name} key={option.name}>
+//               {option.name}
+//             </option>)
+//           }
+//         </select>
+//       </div>
+//   );
+// };
+
+// SelectPlayer.propTypes = {
+//   onChange: PropTypes.func.isRequired
+// }
 
 export default SelectPlayer

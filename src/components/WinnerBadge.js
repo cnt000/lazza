@@ -14,8 +14,8 @@ const WinnerBadge = ({ resultA, resultB }) => {
 
 //TODO
 const mapStateToProps = (state, ownProps) => ({
-  resultA: state.judging.results.totalA || 0.0,
-  resultB: state.judging.results.totalB || 0.0
+  resultA: state.results.totalA || 0.0,
+  resultB: state.results.totalB || 0.0
 })
 
 export default connect(

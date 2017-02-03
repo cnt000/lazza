@@ -12,7 +12,7 @@ const Total = ({ result, type }) => {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  result: state.judging.results[ownProps.type] || { value: 0.0, time: 0},
+  result: state.results[ownProps.type] || { value: 0.0, time: 0},
   type: ownProps.type
 })
 

@@ -60,8 +60,8 @@ const ReviewResults = ({ votes, result, onClick, type }) => {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  votes: state.judging.votes.filter(elm => ownProps.type === elm.id),
-  result: state.judging.results[ownProps.type] || { value: 0.0, time: 0},
+  votes: state.votes.filter(elm => ownProps.type === elm.id),
+  result: state.results[ownProps.type] || { value: 0.0, time: 0},
   type: ownProps.type
 })
 

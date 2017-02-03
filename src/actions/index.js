@@ -57,7 +57,7 @@ function saveResults(state) {
   return fetch("savefinal.php", {
     method: 'post',
     headers: HEADERS_JSON,
-    body: encodeURI(JSON.stringify(state.judging))
+    body: encodeURI(JSON.stringify(state))
   })
   .then(response => response.json())
 }

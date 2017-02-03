@@ -10,7 +10,7 @@ const Player = ({ fields }) => {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  fields: state.judging.fields.filter(elm => ownProps.type === elm.id),
+  fields: state.fields.filter(elm => ownProps.type === elm.id),
 })
 
 export default connect(

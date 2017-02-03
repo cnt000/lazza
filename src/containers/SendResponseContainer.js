@@ -5,7 +5,7 @@ import SendResponse from '../components/SendResponse'
 const mapStateToProps = (state, ownProps) => {
   return {
     state: state,
-    isSaving: state.judging.finalResponse
+    isSaving: state.finalResponse
   }
 }
 
