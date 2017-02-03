@@ -49,7 +49,6 @@ export const vote = (id, value, oneshot) => {
 function fetchTeams(subreddit) {
   return fetch(`teams.json`)
   .then(response => response.json())
-
 }
 
 function saveResults(state) {
