@@ -1,4 +1,12 @@
 import { defaultState } from '../defaultState';
+import {
+  REQUEST_LOADTEAMS,
+  RECEIVE_LOADTEAMS,
+  FAILURE_LOADTEAMS,
+  REQUEST_SAVE_RESULT,
+  SUCCESS_SAVE_RESULT,
+  FAILURE_SAVE_RESULT
+} from '../actions'
 
 const judginApp = (state = {}, action) => {
   var newState;
@@ -78,10 +86,9 @@ const judginApp = (state = {}, action) => {
       newState.judging.results.totalA = calculateTotal('-A', newState.judging.results);
       newState.judging.results.totalB = calculateTotal('-B', newState.judging.results);
 
-
       return newState;
 
-    case 'SAVED_RESP':
+    case SUCCESS_SAVE_RESULT:
       newState = Object.assign({}, state);
       newState.judging.finalResponse = {
         isSaving: false,
@@ -90,7 +97,7 @@ const judginApp = (state = {}, action) => {
       }
       return newState;
 
-    case 'SAVED_RESP_ERR':
+    case FAILURE_SAVE_RESULT:
       newState = Object.assign({}, state);
       newState.judging.finalResponse = {
         isSaving: false,
@@ -99,7 +106,7 @@ const judginApp = (state = {}, action) => {
       }
       return newState;
 
-    case 'SAVING_RESP':
+    case REQUEST_SAVE_RESULT:
       newState = Object.assign({}, state);
       newState.judging.session = action.id;
       newState.judging.finalResponse = {
@@ -109,7 +116,7 @@ const judginApp = (state = {}, action) => {
       }
       return newState;
 
-    case 'RECEIVE_TEAMS':
+    case RECEIVE_LOADTEAMS:
       newState = Object.assign({}, state);
       newState.judging.players = action.result;
       return Object.assign({}, newState, {
@@ -118,11 +125,20 @@ const judginApp = (state = {}, action) => {
         lastUpdated: action.receivedAt
       });
 
-    case 'REQUEST_TEAMS':
+    case REQUEST_LOADTEAMS:
       return Object.assign({}, state, {
         isFetching: true,
         didInvalidate: false
-      })
+      });
+
+    case FAILURE_LOADTEAMS:
+      newState = Object.assign({}, state);
+      newState.judging.finalResponse = {
+        isSaving: false,
+        savedAt: Date.now(),
+        error: true
+      }
+      return newState;
 
     case 'RESET_ALL_DATA':
       return defaultState;

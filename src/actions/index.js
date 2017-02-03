@@ -1,7 +1,15 @@
 
-const SOMETHING_REQUEST = 'REQUEST_TEAMS';
-const SOMETHING_SUCCESS = 'RECEIVE_TEAMS';
-const SOMETHING_FAILURE = 'SOMETHING_FAILURE';
+export const REQUEST_LOADTEAMS = 'REQUEST_LOADTEAMS';
+export const RECEIVE_LOADTEAMS = 'RECEIVE_LOADTEAMS';
+export const FAILURE_LOADTEAMS = 'FAILURE_LOADTEAMS';
+export const REQUEST_SAVE_RESULT = 'REQUEST_SAVE_RESULT';
+export const SUCCESS_SAVE_RESULT = 'SUCCESS_SAVE_RESULT';
+export const FAILURE_SAVE_RESULT = 'FAILURE_SAVE_RESULT';
+
+const HEADERS_JSON = {
+  'Accept': 'application/json, text/plain, */*',
+  'Content-Type': 'x-www-form-urlencoded'
+};
 
 export const removeVote = (id, value, time) => {
   return {
@@ -28,38 +36,6 @@ export const entryPlay = (id, value) => {
   };
 }
 
-// function requestTeams(subreddit) {
-//   return {
-//     type: 'REQUEST_TEAMS',
-//     subreddit
-//   }
-// }
-
-// function receiveTeams(subreddit, json) {
-//   return {
-//     type: 'RECEIVE_TEAMS',
-//     subreddit,
-//     posts: json.data.children.map(child => child.data),
-//     receivedAt: Date.now()
-//   }
-// }
-
-function fetchTeams(subreddit) {
-  // return dispatch => {
-  //   dispatch(requestTeams(subreddit))
-    return fetch(`https://www.reddit.com/r/${subreddit}.json`)
-      .then(response => response.json())
-      .then(json => json.data.children.map(child => child.data))
-      // .then(json => receiveTeams(subreddit, json))
-  // }
-}
-
-// export function loadTeams(subreddit) {
-//   return (dispatch, getState) => {
-//     return dispatch(fetchTeams(subreddit))
-//   }
-// }
-
 export const vote = (id, value, oneshot) => {
   let voteType = (JSON.parse(oneshot)) ? 'ONESHOT_VOTE' : 'VOTE';
   return {
@@ -70,14 +46,21 @@ export const vote = (id, value, oneshot) => {
   };
 }
 
-export function savingFinalResp(state) {
-  return {
-    type: 'SAVING_RESP',
-    id: state,
-    cb: data => console.log("pippo", data)
-  }
+function fetchTeams(subreddit) {
+  return fetch(`https://www.reddit.com/r/${subreddit}.json`)
+  .then(response => response.json())
+  .then(json => json.data.children.map(child => child.data))
 }
 
+function saveResults(state) {
+  debugger;
+  return fetch("savefinal.php", {
+    method: 'post',
+    headers: HEADERS_JSON,
+    body: encodeURI(JSON.stringify(state.judging))
+  })
+  .then(response => response.json())
+}
 export function resetAll(id) {
   return {
     type: 'RESET_ALL_DATA',
@@ -85,33 +68,20 @@ export function resetAll(id) {
   }
 }
 
-function savedResponse(identifier) {
+export function loadTeams(userId) {
   return {
-    type: 'SAVED_RESP',
-    id: identifier
-  }
+    types: [REQUEST_LOADTEAMS, RECEIVE_LOADTEAMS, FAILURE_LOADTEAMS],
+    promise: fetchTeams(userId),
+    userId
+  };
 }
 
-function savedResponseError(identifier) {
+export function promiseSaveResult(state) {
   return {
-    type: 'SAVED_RESP_ERR',
-    id: identifier
-  }
-}
-
-export const customMiddleware = store => next => action => {
-  if(action.type !== 'SAVING_RESP') return next(action);
-
-  return fetch("savefinal.php", {
-      method: 'post',
-      headers: {
-         'Accept': 'application/json, text/plain, */*',
-         'Content-Type': 'x-www-form-urlencoded'
-      },
-      body: encodeURI(JSON.stringify(action.id.judging))
-    })
-    .then(response => response.json())
-    .then(json => action.cb({json}), error => action.cb({error}))
+    types: [REQUEST_SAVE_RESULT, SUCCESS_SAVE_RESULT, FAILURE_SAVE_RESULT],
+    promise: saveResults(state),
+    state
+  };
 }
 
 // Middleware
@@ -128,14 +98,5 @@ export const promiseMiddleware = () => {
       (result) => next({ ...rest, result, type: SUCCESS }),
       (error) => next({ ...rest, error, type: FAILURE })
     );
-  };
-}
-
-// Usage
-export function loadTeams(userId) {
-  return {
-    types: [SOMETHING_REQUEST, SOMETHING_SUCCESS, SOMETHING_FAILURE],
-    promise: fetchTeams(userId),
-    userId
   };
 }

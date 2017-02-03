@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { savingFinalResp } from '../actions'
+import { promiseSaveResult } from '../actions'
 import SendResponse from '../components/SendResponse'
 
 const mapStateToProps = (state, ownProps) => {
@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onClick: (state) => {
-      dispatch(savingFinalResp(state))
+      dispatch(promiseSaveResult(state))
     }
   }
 }
