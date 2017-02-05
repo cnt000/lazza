@@ -15,12 +15,8 @@ const judginApp = (state = {}, action) => {
 
     case 'VOTE':
       newState = {...state};
-      let points = 0.0;
-      if((/execution/i).test(action.id)) {
-        points = 10.0;
-      } else if((/difficulty/i).test(action.id)) {
-        points = 5.0;
-      }
+
+      // vedi entry field
       var votesFiltered = selectItems(newState.votes, action.id);
       newState.votes.push({
         id: action.id,
@@ -28,6 +24,15 @@ const judginApp = (state = {}, action) => {
         time: timeMaxId(votesFiltered) + 1
       });
 
+      // da portare da componente
+      let points = 0.0;
+      if((/execution/i).test(action.id)) {
+        points = 10.0;
+      } else if((/difficulty/i).test(action.id)) {
+        points = 5.0;
+      }
+
+      // RISULTATI DA CALCOLARE ON THE FLY?
       if(typeof newState.results[action.id] === 'undefined') {
         newState.results[action.id] = {
           value: points,
@@ -47,6 +52,7 @@ const judginApp = (state = {}, action) => {
       return newState;
 
     case 'ONESHOT_VOTE':
+    // vedi entry_field
       newState = {...state};
       newState.votes = save(newState.votes, action);
       newState.results[action.id] = {
@@ -150,18 +156,10 @@ function selectItems(list, id) {
 
 function save(list, element) {
   let filteredList = selectItems(list, element.id);
-  let time = element.time || 1;
-  if(filteredList.length === 0) {
-    list.push({id: element.id, value: element.value, time: time});
-  } else {
-    list.forEach((obj) => {
-        if(obj.id === element.id) {
-          obj.value = element.value;
-          obj.time = element.time;
-        }
-    });
-  }
-  return list;
+  let isNew = (filteredList.length === 0);
+  return (isNew) ? list.concat(element) : list.map((obj) =>
+          (obj.id === element.id) ? element : obj
+        );
 }
 
 function timeMaxId(array) {
