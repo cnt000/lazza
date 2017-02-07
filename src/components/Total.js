@@ -5,7 +5,7 @@ const Total = ({ result, time }) => {
   return (
     <div className="total">
       <span>
-        {result} ({time})
+        {result} {(time>1) ? `(${time})` : ""}
       </span>
     </div>
   )
