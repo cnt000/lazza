@@ -23,7 +23,7 @@ class SelectPlayer extends Component {
          }}
           >
           <option value="" >Select...</option>
-          {this.props.players.length > 0 && this.props.players.map(option =>
+          {this.props.teams.length > 0 && this.props.teams.map(option =>
             <option value={option.name} key={option.name}>
               {option.name}
             </option>)

@@ -118,7 +118,7 @@ const judginApp = (state = {}, action) => {
 
     case RECEIVE_LOADTEAMS:
       newState = Object.assign({}, state);
-      newState.players = action.result;
+      newState.teams = action.result;
       return Object.assign({}, newState, {
         isFetching: false,
         didInvalidate: false,

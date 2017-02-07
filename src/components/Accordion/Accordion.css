@@ -149,13 +149,6 @@ Registration
   float: left;
 }
 
-.playerTeamEntry span{
-  display: block;
-  width: 20%;
-  float: left;
-  margin-left: 2%;
-}
-
 .playersTeamTitle{
   padding: 10px;
   font-size: 14px;

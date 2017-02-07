@@ -73,66 +73,23 @@ var Accordion = React.createClass({
             </div>
             <br/>
           </div>
-        </Section>
-        <Section title="2 - Players">
           <div>
               <div className="playersTeam">
                 <div className="playersTeamTitle">
                   Players Team A:
                   </div>
                 <div className="playerTeamEntry">
-                <FieldContainer type="player-name-A1" />
-                <PlayContainer type="player-play-A1" />
+                  <PlayContainer type="player-play-A" teamKey="team-name-A" />
+                </div>
 
-                </div>
-                <div className="playerTeamEntry">
-                <FieldContainer type="player-name-A2" />
-                <PlayContainer type="player-play-A2" />
-
-                </div>
-                <div className="playerTeamEntry">
-                <FieldContainer type="player-name-A3" />
-                <PlayContainer type="player-play-A3" />
-
-                </div>
-                <div className="playerTeamEntry">
-                <FieldContainer type="player-name-A4" />
-                <PlayContainer type="player-play-A4" />
-
-                </div>
-                <div className="playerTeamEntry">
-                <FieldContainer type="player-name-A5" />
-                <PlayContainer type="player-play-A5" />
-                </div>
               </div>
               <div className="playersTeam">
                 <div className="playersTeamTitle">
                 Team B:
                 </div>
                 <div className="playerTeamEntry">
-                <FieldContainer type="player-name-B1" />
-                <PlayContainer type="player-play-B1" />
-
+                  <PlayContainer type="player-play-B" teamKey="team-name-B" />
                 </div>
-                <div className="playerTeamEntry">
-                <FieldContainer type="player-name-B2" />
-                <PlayContainer type="player-play-B2" />
-
-                </div>
-                <div className="playerTeamEntry">
-                <FieldContainer type="player-name-B3" />
-                <PlayContainer type="player-play-B3" />
-
-                </div>
-                <div className="playerTeamEntry">
-                <FieldContainer type="player-name-B4" />
-                <PlayContainer type="player-play-B4" />
-
-                </div>
-                <div className="playerTeamEntry">
-                <FieldContainer type="player-name-B5" />
-                <PlayContainer type="player-play-B5" />
-              </div>
               </div>
           </div>
         </Section>

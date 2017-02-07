@@ -5,7 +5,8 @@ import Play from '../components/Play'
 const mapStateToProps = (state, ownProps) => {
   return {
     id: ownProps.type,
-    field: state.fields.find((obj) => { return obj.id === ownProps.type })
+    teamName: state.fields.find((obj) => { return obj.id === ownProps.teamKey }),
+    teams: state.teams
   }
 }
 

@@ -5,7 +5,7 @@ import SelectPlayer from '../components/SelectPlayer'
 const mapStateToProps = (state, ownProps) => {
   return {
     id: ownProps.type,
-    players: state.players || {},
+    teams: state.teams || {},
     field: state.fields.find((obj) => { return obj.id === ownProps.type }),
     onLoad: ownProps.onLoad
   }

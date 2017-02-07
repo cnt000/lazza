@@ -3,5 +3,5 @@ export const defaultState = {
   fields: [],
   votes: [],
   results: {},
-  players: []
+  teams: []
 }
