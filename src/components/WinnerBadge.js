@@ -1,21 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const WinnerBadge = ({ resultA, resultB }) => {
+const WinnerBadge = ({ resultsA, resultsB }) => {
   return (
     <div className="total">
-      Total Team A: {resultA.toFixed(2)}
+      Total Team A: {resultsA}
       <br/>
-      Total Team B: {resultB.toFixed(2)}
-      <h1>WINNER IS TEAM {(resultA > resultB) ? 'A' : 'B'}</h1>
+      Total Team B: {resultsB}
+      <h1>WINNER IS TEAM {(resultsA > resultsB) ? 'A' : 'B'}</h1>
     </div>
   )
 }
-
-//TODO
+// TODO come stacco tutti i risultati per il calcolo diverso? execution: 5 difficulty 10
 const mapStateToProps = (state, ownProps) => ({
-  resultA: state.results.totalA || 0.0,
-  resultB: state.results.totalB || 0.0
+  resultsA: state.votes.filter(obj => (/-A$/.test(obj.id))).reduce((total, vote) => {
+    return total + vote.value;
+  }, 0.0),
+  resultsB: state.votes.filter(obj => (/-B$/.test(obj.id))).reduce((total, vote) => {
+    return total + vote.value;
+  }, 0.0)
 })
 
 export default connect(

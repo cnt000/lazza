@@ -1,19 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const Total = ({ result, type }) => {
+const Total = ({ result, time }) => {
   return (
     <div className="total">
       <span>
-        {result.value.toFixed(2)} ({result.time})
+        {result} ({time})
       </span>
     </div>
   )
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  result: state.results[ownProps.type] || { value: 0.0, time: 0},
-  type: ownProps.type
+  result: state.votes.filter(obj => (obj.id === ownProps.type)).reduce((total, vote) => {
+    return total + vote.value;
+  }, parseFloat(ownProps.startingPoint)),
+  time: state.votes.filter(obj => (obj.id === ownProps.type)).length
 })
 
 export default connect(

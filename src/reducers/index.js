@@ -14,79 +14,34 @@ const judginApp = (state = {}, action) => {
   switch (action.type) {
 
     case 'VOTE':
-      newState = {...state};
-
-      // vedi entry field
-      var votesFiltered = selectItems(newState.votes, action.id);
-      newState.votes.push({
-        id: action.id,
-        value: action.value,
-        time: timeMaxId(votesFiltered) + 1
-      });
-
-      // da portare da componente
-      let points = 0.0;
-      if((/execution/i).test(action.id)) {
-        points = 10.0;
-      } else if((/difficulty/i).test(action.id)) {
-        points = 5.0;
-      }
-
-      // RISULTATI DA CALCOLARE ON THE FLY?
-      if(typeof newState.results[action.id] === 'undefined') {
-        newState.results[action.id] = {
-          value: points,
-          time: 0
-        };
-      }
-      let oldVal = newState.results[action.id].value;
-      let newTime = newState.results[action.id].time + 1;
-      newState.results[action.id] = {
-        value: (parseFloat(action.value, 10) + oldVal),
-        time: newTime
-      };
-
-      newState.results.totalA = calculateTotal('-A', newState.results);
-      newState.results.totalB = calculateTotal('-B', newState.results);
-
-      return newState;
+      var votesFiltered = selectItems(state.votes, action.id);
+      let vote = {
+              id: action.id,
+              value: parseFloat(action.value),
+              time: timeMaxId(votesFiltered) + 1
+            };
+      return {...state, votes: state.votes.concat(vote)};
 
     case 'ONESHOT_VOTE':
-    // vedi entry_field
-      newState = {...state};
-      newState.votes = save(newState.votes, action);
-      newState.results[action.id] = {
-                                              value: parseFloat(action.value, 10),
-                                              time: 1
-                                            };
-
-      newState.results.totalA = calculateTotal('-A', newState.results);
-      newState.results.totalB = calculateTotal('-B', newState.results);
-
-      return newState;
+      let oneShotVote = {
+              id: action.id,
+              value: parseFloat(action.value),
+              time: 1
+            };
+      return {...state, votes: save(state.votes, oneShotVote)};
 
     case 'ENTRY_FIELD':
     case 'ENTRY_PLAY':
       return {...state, fields: save(state.fields, action)};
 
     case 'REMOVE_VOTE':
-      newState = Object.assign({}, state);
-      var filteredVotes = newState.votes.filter((element) => {
-      return (element.id !== action.id || element.time !== action.time)
+      var filteredVotes = state.votes.filter((element) => {
+        return (element.id !== action.id || element.time !== action.time)
       });
-      newState.votes = filteredVotes;
+      return {...state, votes: filteredVotes};
 
-      let oldValRemove = newState.results[action.id].value;
-      let newTimeRemove = newState.results[action.id].time - 1;
-      newState.results[action.id] = {
-        value: oldValRemove - (parseFloat(action.value, 10)),
-        time: newTimeRemove
-      };
-
-      newState.results.totalA = calculateTotal('-A', newState.results);
-      newState.results.totalB = calculateTotal('-B', newState.results);
-
-      return newState;
+    case 'RESET_ALL_DATA':
+      return defaultState;
 
     case SUCCESS_SAVE_RESULT:
       newState = Object.assign({}, state);
@@ -140,9 +95,6 @@ const judginApp = (state = {}, action) => {
       }
       return newState;
 
-    case 'RESET_ALL_DATA':
-      return defaultState;
-
     default:
       return state;
   }
@@ -166,19 +118,6 @@ function timeMaxId(array) {
   return array.reduce((prevVal, elm) => {
     return (prevVal > elm.time) ? prevVal : elm.time;
   }, 0);
-}
-
-function calculateTotal(seed, arr) {
-  let total = 0.0;
-  for(var key in arr) {
-    if(arr.hasOwnProperty(key)) {
-      let reg = new RegExp(seed);
-      if(reg.test(key)) {
-        total += arr[key].value;
-      }
-    }
-  }
-  return total;
 }
 
 export default judginApp
