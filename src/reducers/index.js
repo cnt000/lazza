@@ -35,7 +35,7 @@ const judginApp = (state = {}, action) => {
       return {...state, fields: save(state.fields, action)};
 
     case 'REMOVE_VOTE':
-      var filteredVotes = state.votes.filter((element) => {
+      let filteredVotes = state.votes.filter((element) => {
         return (element.id !== action.id || element.time !== action.time)
       });
       return {...state, votes: filteredVotes};
