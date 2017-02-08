@@ -3,7 +3,7 @@ import './Vote.css';
 
 const Vote = ({ children, onClick, type, value, nameClass }) => {
   let annotationButtonClass = (/-annotation/i).test(type) ? 'annotation' : '' ;
-  annotationButtonClass += ' btn btn-lg vote';
+  annotationButtonClass += ' btn circle-btn ';
   annotationButtonClass += ' '+nameClass;
 
   return (

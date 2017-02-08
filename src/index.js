@@ -6,8 +6,8 @@ import {promiseMiddleware} from './actions'
 import appReducers from './reducers'
 import { defaultState } from './defaultState';
 import App from './components/App'
-import './index.css'
 import 'bootstrap/dist/css/bootstrap.css';
+import './index.css'
 
 const SESSION_NAME_REDUX = 'lazza_redux_';
 

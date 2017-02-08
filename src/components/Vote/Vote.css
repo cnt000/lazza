@@ -1,29 +1,41 @@
-button.vote {
-  width: 120px;
-  height: 100px;
-  padding: 4px;
-  margin: 0 2%;
-  border: 2px solid #ccc;
-}
 button.annotation {
   width: 50px;
   height: 50px;
 }
 
-button {outline: 0 !important;}
-
 /*
 PALETTE COLOR
 */
-.circleBtn{
-  border-radius: 64px !important;
-  color: white !important;
-  font-weight: bold !important;
-  font-size: 14px !important;
+
+button.circle-btn {
+  width: 100px;
+  height: 100px;
+  margin: 0 2%;
+  border: 2px solid #ccc;
+  position: relative;
+  border: none;
   color: white;
-  font-weight: bold;
-  width: 100px !important;
+  font-size: 14px;
+  padding: 20px;
+  text-align: center;
+  -webkit-transition-duration: 0.1s; /* Safari */
+  transition-duration: 0.1s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 64px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.circle-btn span {
+  font-size: 10px;
+  display: block;
+}
+
+.circle-btn:active {
+    border: 8px solid #ececec;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.2), 10px 10px 10px 10px rgba(0, 0, 0, 0.19);
 }
 
 .bad{
