@@ -1,6 +1,21 @@
 import { connect } from 'react-redux'
-import { entryPlay } from '../actions'
-import Play from '../components/Play'
+import React from 'react'
+import PlayCheckContainer from '../containers/PlayCheckContainer'
+
+const Play = ({ id, teamName, teams}) => {
+  let teamNameCheck = (teamName) ? teamName.value : "";
+  return (
+    <div>
+      {teams.map(team =>
+        (team.name === teamNameCheck)
+          ? team.players.map((player, index) => <div>
+              {player} <PlayCheckContainer type={`${id}${index}`} />
+            </div>)
+          : ""
+      )}
+    </div>
+  );
+};
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -10,17 +25,8 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    onChange: (value) => {
-      dispatch(entryPlay(ownProps.type, value))
-    }
-  }
-}
-
 const PlayContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(Play)
 
 export default PlayContainer

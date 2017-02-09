@@ -1,12 +1,9 @@
 import React from 'react';
-import FieldContainer from '../../containers/FieldContainer';
-import PlayContainer from '../../containers/PlayContainer';
-import GameTypeContainer from '../../containers/GameTypeContainer';
-import SelectContainer from '../../containers/SelectContainer';
-import SendResponseContainer from '../../containers/SendResponseContainer';
-import ReviewResults from '../../components/ReviewResults/ReviewResults';
-import Total from '../../components/Total';
+import Registration from '../../components/Registration';
 import LiveJudging from '../../components/LiveJudging';
+import Total from '../../components/Total';
+import ReviewResults from '../../components/ReviewResults/ReviewResults';
+import SendResponseContainer from '../../containers/SendResponseContainer';
 import FinalJudging from '../../components/FinalJudging';
 import WinnerBadge from '../../components/WinnerBadge';
 import ResetAll from '../../components/ResetAll';
@@ -53,49 +50,15 @@ var Accordion = React.createClass({
     return (
       <div className="main-accordion">
         <div className="title">{this.props.title}</div>
-        <Section title="1 - Registration">
-          <div>
-            <div id="JudgeName">
-              <span>Judge</span>
-              <FieldContainer type="judge" />
-            </div>
-            <div id="gameType">
-              Type of game
-              <GameTypeContainer type="gametype" />
-            </div>
-            <div className="playersTeam">
-              <div className="playersTeamTitle">Team A name:</div>
-              <SelectContainer type="team-name-A" />
-            </div>
-            <div className="playersTeam">
-              <div className="playersTeamTitle">Team B name:</div>
-              <SelectContainer type="team-name-B" />
-            </div>
-            <br/>
-          </div>
-          <div>
-            <div className="playersTeam">
-              <div className="playersTeamTitle">
-                Players Team A:
-                </div>
-              <div className="playerTeamEntry">
-                <PlayContainer type="player-play-A" teamKey="team-name-A" />
-              </div>
 
-            </div>
-            <div className="playersTeam">
-              <div className="playersTeamTitle">
-              Team B:
-              </div>
-              <div className="playerTeamEntry">
-                <PlayContainer type="player-play-B" teamKey="team-name-B" />
-              </div>
-            </div>
-          </div>
+        <Section title="1 - Registration">
+          <Registration />
         </Section>
+
         <Section title="2 - Team A - Live judging">
           <LiveJudging teamLetter="A" />
         </Section>
+
         <Section title="3 - Team A - Review and Artistic Impression">
           <h2>REVIEW DIFFICULTY / EXECUTION</h2>
           <div className="vote-row">
@@ -107,9 +70,11 @@ var Accordion = React.createClass({
           </div>
           <FinalJudging teamLetter="A" />
         </Section>
+
         <Section title="4 - Team B - Live judging">
           <LiveJudging teamLetter="B" />
         </Section>
+
         <Section title="5 - Team B - Review and Artistic Impression">
           <h2>REVIEW DIFFICULTY / EXECUTION</h2>
           <div className="vote-row">
@@ -121,6 +86,7 @@ var Accordion = React.createClass({
           </div>
           <FinalJudging teamLetter="B" />
         </Section>
+
         <Section title="6 - Submit Final Vote">
           <div className="final-vote-row vote-row">
 
