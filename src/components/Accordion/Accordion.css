@@ -162,3 +162,13 @@ Registration
     background-color: #f5f5f5;
     margin: 10px;
 }
+
+.review-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.review-row .total {
+  margin: 0 10px 0 14px ;
+}

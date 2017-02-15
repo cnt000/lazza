@@ -151,7 +151,7 @@ var Accordion = React.createClass({
               <ReviewResults type="general-impression-team-B" />
             </div>
           </div>
-          <div className="vote-row">
+          <div className="review-row">
             difficulty A:
             <Total type="difficulty-team-A" startingPoint="5.0" />
             difficulty B:
@@ -182,9 +182,9 @@ var Accordion = React.createClass({
             <Total type="general-impression-team-A" startingPoint="0.0" />
             general impression B:
             <Total type="general-impression-team-B" startingPoint="0.0" />
-            <WinnerBadge />
-            <SendResponseContainer>Send Final Response</SendResponseContainer>
           </div>
+          <WinnerBadge />
+          <SendResponseContainer>Send Final Response</SendResponseContainer>
           <div className="vote-row">
             RESET ALL DATA! USE IT CAREFULLY<br/>
             <ResetAll>Reset All Data</ResetAll>
