@@ -53,7 +53,7 @@ function fetchTeams(subreddit) {
 
 function saveResults(state) {
   debugger;
-  return fetch("savefinal.php", {
+  return fetch("/api/finalresult", {
     method: 'post',
     headers: HEADERS_JSON,
     body: encodeURI(JSON.stringify(state))

@@ -7,15 +7,13 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 8080;        // set our port
+var port = process.env.PORT || 8080;
 
-var router = express.Router();              // get an instance of the express Router
+app.use('/', express.static('build'));
 
-router.get('/', function(req, res) {
+app.use('/api/finalresult', function(req, res) {
     res.json({ message: 'hooray! welcome to our api!' });
 });
-
-app.use('/api', router);
 
 app.listen(port);
 console.log('Magic happens on port ' + port);
