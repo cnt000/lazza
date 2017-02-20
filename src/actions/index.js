@@ -47,7 +47,7 @@ export const vote = (id, value, oneshot) => {
 }
 
 function fetchTeams(subreddit) {
-  return fetch(`teams.json`)
+  return fetch(`api/teams`)
   .then(response => response.json())
 }
 

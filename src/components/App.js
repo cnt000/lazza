@@ -23,11 +23,11 @@ class App extends Component {
         <Tabs>
           <TabList>
             <Tab>Registration</Tab>
-            <Tab>Team A - Live judging</Tab>
-            <Tab>Team A - Review and AI</Tab>
-            <Tab>Team B - Live judging</Tab>
-            <Tab>Team B - Review and AI</Tab>
-            <Tab>Submit Final Vote</Tab>
+            <Tab>A - Live judging</Tab>
+            <Tab>A - Check and AI</Tab>
+            <Tab>B - Live judging</Tab>
+            <Tab>B - Check and AI</Tab>
+            <Tab>Close Vote</Tab>
           </TabList>
           <TabPanel>
             <Registration />
@@ -58,7 +58,7 @@ class App extends Component {
               <div className="playersTeamTitle">Execution Review:</div>
               <ReviewResults type="execution-team-B" />
             </div>
-            <FinalJudging teamLetter="A" />
+            <FinalJudging teamLetter="B" />
           </TabPanel>
           <TabPanel>
             <div className="final-vote-row vote-row">
