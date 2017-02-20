@@ -3,11 +3,11 @@ import React, { Component, PropTypes } from 'react'
 class SelectPlayer extends Component {
 
   static propTypes = {
-    onChange: PropTypes.func.isRequired
+    loadTeams: PropTypes.func.isRequired
   }
 
   componentDidMount() {
-    this.props.onLoad('test');
+    this.props.loadTeams('test');
   }
 
   render() {

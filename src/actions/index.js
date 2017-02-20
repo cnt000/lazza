@@ -7,8 +7,8 @@ export const SUCCESS_SAVE_RESULT = 'SUCCESS_SAVE_RESULT';
 export const FAILURE_SAVE_RESULT = 'FAILURE_SAVE_RESULT';
 
 const HEADERS_JSON = {
-  'Accept': 'application/json, text/plain, */*',
-  'Content-Type': 'x-www-form-urlencoded'
+  'Accept': 'application/json',
+  'Content-Type': 'application/json'
 };
 
 export const removeVote = (id, value, time) => {
@@ -47,16 +47,16 @@ export const vote = (id, value, oneshot) => {
 }
 
 function fetchTeams(subreddit) {
-  return fetch(`teams.json`)
+  return fetch(`api/teams`)
   .then(response => response.json())
 }
 
 function saveResults(state) {
   debugger;
-  return fetch("savefinal.php", {
+  return fetch("/api/finalresult", {
     method: 'post',
     headers: HEADERS_JSON,
-    body: encodeURI(JSON.stringify(state))
+    body: JSON.stringify(state)
   })
   .then(response => response.json())
 }

@@ -4,22 +4,44 @@ import { connect } from 'react-redux';
 const WinnerBadge = ({ resultsA, resultsB }) => {
   return (
     <div className="total">
-      Total Team A: {resultsA}
+      Total Team A: {resultsA.toFixed(2)}
       <br/>
-      Total Team B: {resultsB}
+      Total Team B: {resultsB.toFixed(2)}
       <h1>WINNER IS TEAM {(resultsA > resultsB) ? 'A' : 'B'}</h1>
     </div>
   )
 }
-// TODO come stacco tutti i risultati per il calcolo diverso? execution: 5 difficulty 10
+
 const mapStateToProps = (state, ownProps) => ({
-  resultsA: state.votes.filter(obj => (/-A$/.test(obj.id))).reduce((total, vote) => {
-    return total + vote.value;
-  }, 0.0),
-  resultsB: state.votes.filter(obj => (/-B$/.test(obj.id))).reduce((total, vote) => {
-    return total + vote.value;
-  }, 0.0)
+  resultsA: calculateTotal({ votes: state.votes, team: 'team-A' }),
+  resultsB: calculateTotal({ votes: state.votes, team: 'team-B' })
 })
+
+
+function calculateTotal({ votes, team }) {
+  let difficultyResult = calculatePartial({ votes, team, startingPoint: 5.0, type: 'difficulty' });
+  let executionResult = calculatePartial({ votes, team, startingPoint: 10.0, type: 'execution' });
+  let teamworkResult = calculatePartial({ votes, team, startingPoint: 0, type: 'teamwork' });
+  let musicResult = calculatePartial({ votes, team, startingPoint: 0, type: 'music' });
+  let flowResult = calculatePartial({ votes, team, startingPoint: 0, type: 'flow' });
+  let varietyResult = calculatePartial({ votes, team, startingPoint: 0, type: 'variety' });
+  let generalImpressionResult = calculatePartial({ votes, team, startingPoint: 0, type: 'general-impression' });
+
+  return difficultyResult +
+          executionResult +
+            teamworkResult +
+              musicResult +
+                flowResult +
+                  varietyResult +
+                  generalImpressionResult;
+}
+
+function calculatePartial({ votes, team, startingPoint, type }) {
+  let regex = new RegExp(`^${type}-${team}$`,'g');
+  return votes.filter(obj => (regex.test(obj.id))).reduce((total, vote) => {
+    return total + vote.value;
+  }, parseFloat(startingPoint))
+}
 
 export default connect(
   mapStateToProps

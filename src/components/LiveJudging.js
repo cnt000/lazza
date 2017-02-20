@@ -8,27 +8,25 @@ import ReviewResults from '../components/ReviewResults/ReviewResults';
 const LiveJudging = ({ teamLetter}) => {
   return (
     <div>
-      <div className="vote-row">
-          <div className="playersTeamTitle">Difficulty</div>
-          <br/>
-          <VoteContainer type={`difficulty-team-${teamLetter}`} weight="-0.5" oneshot="false" nameClass="bad">BAD<span>0-2.0</span></VoteContainer>
-          <VoteContainer type={`difficulty-team-${teamLetter}`} weight="-0.25" oneshot="false" nameClass="not-good" >NOT GOOD<span>2.1-4.0</span></VoteContainer>
-          <VoteContainer type={`difficulty-team-${teamLetter}`} weight="0" oneshot="false" nameClass="medium" >MEDIUM<span>4.1-6.0</span></VoteContainer>
-          <VoteContainer type={`difficulty-team-${teamLetter}`} weight="0.25" oneshot="false" nameClass="good" >GOOD<span>6.1-8.0</span></VoteContainer>
-          <VoteContainer type={`difficulty-team-${teamLetter}`} weight="0.5" oneshot="false" nameClass="amazing">AMAZING<span>8.1-10.0</span></VoteContainer>
-          <br/>
-          Result: <Total type={`difficulty-team-${teamLetter}`} startingPoint="5.0" />
-      </div>
-      <div>
-        <VoteRow type="execution-team-A">
-          <div className="playersTeamTitle">Execution</div>
-          <br/>
-          <VoteContainer type={`execution-team-${teamLetter}`} weight="-0.1" oneshot="false" nameClass="medium">MINOR<span>-0.1</span></VoteContainer>
-          <VoteContainer type={`execution-team-${teamLetter}`} weight="-0.3" oneshot="false" nameClass="bad">DROP<span>-0.3</span></VoteContainer>
-          <br/>
-          Result: <Total type={`execution-team-${teamLetter}`} startingPoint="10.0" />
-        </VoteRow>
-      </div>
+      <VoteRow type="difficulty-team-A">
+        <div className="playersTeamTitle">Difficulty</div>
+        <br/>
+        <VoteContainer type={`difficulty-team-${teamLetter}`} weight="-0.5" oneshot="false" nameClass="bad">BAD<span>0-2.0</span></VoteContainer>
+        <VoteContainer type={`difficulty-team-${teamLetter}`} weight="-0.25" oneshot="false" nameClass="not-good" >NOT GOOD<span>2.1-4.0</span></VoteContainer>
+        <VoteContainer type={`difficulty-team-${teamLetter}`} weight="0" oneshot="false" nameClass="medium" >MEDIUM<span>4.1-6.0</span></VoteContainer>
+        <VoteContainer type={`difficulty-team-${teamLetter}`} weight="0.25" oneshot="false" nameClass="good" >GOOD<span>6.1-8.0</span></VoteContainer>
+        <VoteContainer type={`difficulty-team-${teamLetter}`} weight="0.5" oneshot="false" nameClass="amazing">AMAZING<span>8.1-10.0</span></VoteContainer>
+        <br/>
+        Result: <Total type={`difficulty-team-${teamLetter}`} startingPoint="5.0" />
+      </VoteRow>
+      <VoteRow type="execution-team-A">
+        <div className="playersTeamTitle">Execution</div>
+        <br/>
+        <VoteContainer type={`execution-team-${teamLetter}`} weight="-0.1" oneshot="false" nameClass="medium">MINOR<span>-0.1</span></VoteContainer>
+        <VoteContainer type={`execution-team-${teamLetter}`} weight="-0.3" oneshot="false" nameClass="bad">DROP<span>-0.3</span></VoteContainer>
+        <br/>
+        Result: <Total type={`execution-team-${teamLetter}`} startingPoint="10.0" />
+      </VoteRow>
       //----- Under this line it's only an annotation, not final vote -----
       <div className="vote-row annotation-block">
         <div>

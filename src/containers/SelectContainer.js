@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onChange: (value) => {
       dispatch(entryField(ownProps.type, value))
     },
-    onLoad: (value) => {
+    loadTeams: (value) => {
       dispatch(loadTeams(value))
     }
   }

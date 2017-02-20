@@ -20,7 +20,7 @@ let store = createStore(
 
 store.subscribe(()=>{
   localStorage.setItem(SESSION_NAME_REDUX, JSON.stringify(store.getState()));
-  console.log(store.getState());
+  //console.log(store.getState());
 });
 
 render(

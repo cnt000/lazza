@@ -3,5 +3,23 @@ export const defaultState = {
   fields: [],
   votes: [],
   results: {},
-  teams: []
+  teams: [{
+    name: "I ragazzi",
+    players: [
+      "Andrea",
+      "Dario",
+      "Davide",
+      "Jakub",
+      "Lorenzo"
+    ]
+  },
+  {
+    name: "I supepro",
+    players: [
+      "Luca",
+      "Marco",
+      "Riccardo",
+      "Silvina"
+    ]
+  },]
 }
