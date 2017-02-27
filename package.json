@@ -5,7 +5,11 @@
   "devDependencies": {
     "eslint": "^3.9.1",
     "react": "^15.3.2",
-    "react-scripts": "0.7.0"
+    "react-scripts": "0.9.2"
+  },
+  "proxy": "http://localhost:8080",
+  "eslintConfig": {
+    "extends": "react-app"
   },
   "dependencies": {
     "body-parser": "^1.16.1",
