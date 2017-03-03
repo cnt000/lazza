@@ -6,7 +6,7 @@ import Table from 'react-bootstrap/lib/Table';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
-const ReviewResults = ({ votes, result, onClick, type }) => {
+const ReviewResults = ({ votes, onClick, type }) => {
   let isAnnotation = (/-annotation/i).test(type) ? true : false;
 
   if(votes.length === 0) {
@@ -55,14 +55,13 @@ const ReviewResults = ({ votes, result, onClick, type }) => {
            </tr>)}
         </tbody>
       </Table>
-      <span className="total">Total: {result.value.toFixed(2)} - Votes: {result.time}</span>
+      <Total type={type} startingPoint="0" />
     </div>
   )
 }
 
 const mapStateToProps = (state, ownProps) => ({
   votes: state.votes.filter(elm => ownProps.type === elm.id),
-  result: state.results[ownProps.type] || { value: 0.0, time: 2},
   type: ownProps.type
 })
 

@@ -46,6 +46,14 @@ export const vote = (id, value, oneshot) => {
   };
 }
 
+export const selectedIndex = (value) => {
+  return {
+    type: 'TAB_SELECTED_INDEX',
+    value: value
+  };
+}
+
+
 function fetchTeams(subreddit) {
   return fetch(`api/teams`)
   .then(response => response.json())

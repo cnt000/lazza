@@ -43,6 +43,9 @@ const judginApp = (state = {}, action) => {
     case 'RESET_ALL_DATA':
       return defaultState;
 
+    case 'TAB_SELECTED_INDEX':
+      return {...state, selectedIndex: action.value};
+
     case SUCCESS_SAVE_RESULT:
       newState = Object.assign({}, state);
       newState.finalResponse = {
