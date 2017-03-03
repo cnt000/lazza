@@ -39,7 +39,7 @@ const LiveJudging = ({ teamLetter}) => {
           <VoteContainer type={`execution-team-${teamLetter}`} weight="-0.3" oneshot="false" nameClass="bad">DROP<span>-0.3</span></VoteContainer>
         </div>
       </VoteRow>
-      <h3> ----------- Under this line it's only an annotation, not final vote ------------------------------------------------------- </h3>
+      <h3> --------- Under this line it's only an annotation, not final vote --------------------------------------------------- </h3>
       <div className="vote-row annotation-block" style={annotationStyle}>
         <div>
           <div style={annotationStyle}>Teamwork</div>
