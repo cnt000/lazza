@@ -1,13 +1,14 @@
 import React from 'react'
 import { render } from 'react-dom'
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import {promiseMiddleware} from './actions'
 import appReducers from './reducers'
 import { defaultState } from './defaultState';
-import App from './components/App'
-import 'bootstrap/dist/css/bootstrap.css';
-import './index.css'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import App from './components/App';
+import 'typeface-roboto';
 
 const SESSION_NAME_REDUX = 'lazza_redux_';
 
@@ -23,9 +24,15 @@ store.subscribe(()=>{
   //console.log(store.getState());
 });
 
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin();
+
 render(
   <Provider store={store}>
-    <App />
+    <MuiThemeProvider>
+      <App />
+    </MuiThemeProvider>
   </Provider>,
   document.getElementById('root')
 )

@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { removeVote } from '../../actions';
+import Total from '../Total';
 import Table from 'react-bootstrap/lib/Table';
-import './ReviewResults.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 const ReviewResults = ({ votes, result, onClick, type }) => {
@@ -17,7 +18,7 @@ const ReviewResults = ({ votes, result, onClick, type }) => {
   if(isAnnotation) {
     return (
       <div className="annotation-result">
-        <span className="total">Annotations: {result.time}</span>
+        <Total type={type} startingPoint="0" />
         <ul>
           {votes.map(p => <li key={p.id+'_'+p.time+'_'+p.value}>
                           {(parseInt(p.value, 10) === 1) ? '+' : '-'}
@@ -61,7 +62,7 @@ const ReviewResults = ({ votes, result, onClick, type }) => {
 
 const mapStateToProps = (state, ownProps) => ({
   votes: state.votes.filter(elm => ownProps.type === elm.id),
-  result: state.results[ownProps.type] || { value: 0.0, time: 0},
+  result: state.results[ownProps.type] || { value: 0.0, time: 2},
   type: ownProps.type
 })
 

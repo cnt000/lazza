@@ -1,8 +1,11 @@
 import React, { PropTypes } from 'react'
-import './VoteRow.css'
+import Divider from 'material-ui/Divider'
 
 const VoteRow = ({ children, type }) => (
-  <div type={type} className="vote-row">{children}</div>
+  <div type={type} className="vote-row">
+    {children}
+    <Divider />
+  </div>
 )
 
 VoteRow.propTypes = {

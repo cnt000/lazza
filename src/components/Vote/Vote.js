@@ -1,18 +1,31 @@
 import React, { PropTypes } from 'react'
-import './Vote.css';
+import RaisedButton from 'material-ui/RaisedButton';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
 
-const Vote = ({ children, onClick, type, value, nameClass }) => {
-  let annotationButtonClass = (/-annotation/i).test(type) ? 'annotation' : '' ;
-  annotationButtonClass += ' btn circle-btn ';
-  annotationButtonClass += ' '+nameClass;
-
+const Vote = ({ children, onClick, type, value }) => {
+  const marginVoteButton = {
+    margin: 6
+  };
   return (
-    <button className={annotationButtonClass} onClick={e => {
+    (/-annotation/i).test(type) ?
+    <FloatingActionButton
+      style={marginVoteButton}
+      mini={true}
+      onTouchTap={e => {
            e.preventDefault()
            onClick()
-         }}>
-      {children}
-    </button>
+         }}
+    >
+    {children}
+    </FloatingActionButton>
+    :
+    <RaisedButton
+      label={children}
+      onTouchTap={e => {
+           e.preventDefault()
+           onClick()
+         }}
+    />
   );
 }
 
