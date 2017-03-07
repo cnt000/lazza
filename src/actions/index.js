@@ -46,7 +46,7 @@ export const vote = (id, value, oneshot) => {
   };
 }
 
-export const selectedIndex = (value) => {
+export const handleActive = (value) => {
   return {
     type: 'TAB_SELECTED_INDEX',
     value: value
@@ -60,7 +60,6 @@ function fetchTeams(subreddit) {
 }
 
 function saveResults(state) {
-  debugger;
   return fetch("/api/finalresult", {
     method: 'post',
     headers: HEADERS_JSON,
@@ -68,6 +67,7 @@ function saveResults(state) {
   })
   .then(response => response.json())
 }
+
 export function resetAll(id) {
   return {
     type: 'RESET_ALL_DATA',
