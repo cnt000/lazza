@@ -5,26 +5,26 @@ import PlayContainer from '../containers/PlayContainer'
 import GameTypeContainer from '../containers/GameTypeContainer'
 import SelectContainer from '../containers/SelectContainer'
 
+const styles = {
+  margin: 20
+}
+
 const Registration = () => {
   return (
-    <div>
+    <div style={styles}>
       <div>
         <div id="JudgeName">
           <FieldContainer type="judge" label="Judge" />
         </div>
         <div id="gameType">
-          Type of game
-          <GameTypeContainer type="gametype" />
+          <GameTypeContainer type="gametype" label="Type of game" />
         </div>
         <div className="playersTeam">
-          <div className="playersTeamTitle">Team A name:</div>
-          <SelectContainer type="team-name-A" />
+          <SelectContainer type="team-name-A" label="Team A" />
         </div>
         <div className="playersTeam">
-          <div className="playersTeamTitle">Team B name:</div>
-          <SelectContainer type="team-name-B" />
+          <SelectContainer type="team-name-B" label="Team B" />
         </div>
-        <br/>
       </div>
       <div>
         <div className="playersTeam">

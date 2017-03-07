@@ -1,21 +1,25 @@
 import React, { PropTypes } from 'react'
+import SelectField from 'material-ui/SelectField'
+import MenuItem from 'material-ui/MenuItem'
 
-const GameType = ({ children, field = {}, onChange}) => {
+const GameType = ({ children, field = {}, label, onChange}) => {
     return (
       <div>
-        <select
-          className="form-control"
+        <SelectField
           type="type-of-game"
-          defaultValue={field.value}
+          floatingLabelText={label}
+          value={field.value}
+          autoWidth={true}
           onChange={e => {
              e.preventDefault()
-             onChange(e.target.value)
+             onChange(e.target.textContent)
          }}
-         >
-          <option value="Pair">Pair</option>
-          <option value="Co-op">Co-op</option>
-          <option value="SuperPro">SuperPro</option>
-        </select>
+        >
+          <MenuItem value={null} primaryText="" />
+          <MenuItem value="Pair" primaryText="Pair" />
+          <MenuItem value="Co-op" primaryText="Co-op" />
+          <MenuItem value="SuperPro" primaryText="SuperPro" />
+        </SelectField>
       </div>
   );
 };

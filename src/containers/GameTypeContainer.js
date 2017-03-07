@@ -5,6 +5,7 @@ import GameType from '../components/GameType'
 const mapStateToProps = (state, ownProps) => {
   return {
     id: ownProps.type,
+    label: ownProps.label,
     field: state.fields.find((obj) => { return obj.id === ownProps.type })
   }
 }

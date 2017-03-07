@@ -1,10 +1,11 @@
 import { connect } from 'react-redux'
 import { entryField, loadTeams } from '../actions'
-import SelectPlayer from '../components/SelectPlayer'
+import SelectTeam from '../components/SelectTeam'
 
 const mapStateToProps = (state, ownProps) => {
   return {
     id: ownProps.type,
+    label: ownProps.label,
     teams: state.teams || {},
     field: state.fields.find((obj) => { return obj.id === ownProps.type }),
     onLoad: ownProps.onLoad
@@ -25,6 +26,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 const SelectContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(SelectPlayer)
+)(SelectTeam)
 
 export default SelectContainer
