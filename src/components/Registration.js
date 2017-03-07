@@ -19,7 +19,7 @@ const styles = {
 const Registration = () => {
   return (
     <div style={styles.wrapper}>
-      <div style={styles.boxes}>
+      <div>
         <div id="JudgeName">
           <FieldContainer type="judge" label="Judge" />
         </div>
