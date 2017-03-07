@@ -1,10 +1,10 @@
-import React from 'react';
-import Divider from 'material-ui/Divider';
-import { connect } from 'react-redux';
-import VoteContainer from '../containers/VoteContainer';
-import VoteRow from '../components/VoteRow/VoteRow';
-import Total from '../components/Total';
-import ReviewResults from '../components/ReviewResults/ReviewResults';
+import React from 'react'
+import Divider from 'material-ui/Divider'
+import { connect } from 'react-redux'
+import VoteContainer from '../containers/VoteContainer'
+import VoteRow from '../components/VoteRow/VoteRow'
+import Total from '../components/Total'
+import ReviewResults from '../components/ReviewResults/ReviewResults'
 
 const LiveJudging = ({ teamLetter}) => {
 

@@ -1,21 +1,21 @@
 import React, { PropTypes } from 'react'
+import TextField from 'material-ui/TextField'
 
-const Field = ({ children, field = {}, onChange}) => {
+const Field = ({ field = {}, label = '', onChange}) => {
     let input;
 
      return (
-        <input
-          type="text"
-          className="form-control"
-          defaultValue={field.value}
-          onChange={e => {
-             e.preventDefault()
-             onChange(e.target.value)
-         }}
-         ref={node => {
-             input = node;
-         }}
-         />
+      <TextField
+        defaultValue={field.value}
+        floatingLabelText={label}
+        onChange={e => {
+           e.preventDefault()
+           onChange(e.target.value)
+       }}
+       ref={node => {
+           input = node;
+       }}
+      />
   );
 };
 

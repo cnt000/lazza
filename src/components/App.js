@@ -1,18 +1,18 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from 'react'
+import { connect } from 'react-redux'
 import { handleActive } from '../actions'
-import {Tabs, Tab} from 'material-ui/Tabs';
-import Paper from 'material-ui/Paper';
-import Divider from 'material-ui/Divider';
-import Registration from './Registration';
-import LiveJudging from './LiveJudging';
-import ReviewResults from './ReviewResults/ReviewResults';
-import FinalJudging from './FinalJudging';
-import Total from './Total';
-import WinnerBadge from './WinnerBadge';
-import ResetAll from './ResetAll';
-import SendResponseContainer from '../containers/SendResponseContainer';
-import './App.css';
+import {Tabs, Tab} from 'material-ui/Tabs'
+import Paper from 'material-ui/Paper'
+import Divider from 'material-ui/Divider'
+import Registration from './Registration'
+import LiveJudging from './LiveJudging'
+import ReviewResults from './ReviewResults/ReviewResults'
+import FinalJudging from './FinalJudging'
+import Total from './Total'
+import WinnerBadge from './WinnerBadge'
+import ResetAll from './ResetAll'
+import SendResponseContainer from '../containers/SendResponseContainer'
+import './App.css'
 
 const App = ({ selectedIndex, handleActive}) => {
 

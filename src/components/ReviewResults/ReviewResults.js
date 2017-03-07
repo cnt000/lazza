@@ -1,9 +1,9 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { removeVote } from '../../actions';
-import Total from '../Total';
-import Table from 'react-bootstrap/lib/Table';
-import 'bootstrap/dist/css/bootstrap.css';
+import React from 'react'
+import { connect } from 'react-redux'
+import { removeVote } from '../../actions'
+import Total from '../Total'
+import Table from 'react-bootstrap/lib/Table'
+import 'bootstrap/dist/css/bootstrap.css'
 
 
 const ReviewResults = ({ votes, onClick, type }) => {

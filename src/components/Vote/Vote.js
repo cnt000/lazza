@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
-import RaisedButton from 'material-ui/RaisedButton';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
+import RaisedButton from 'material-ui/RaisedButton'
+import FloatingActionButton from 'material-ui/FloatingActionButton'
 
 const Vote = ({ children, onClick, type, value }) => {
   const marginVoteButton = {

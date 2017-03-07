@@ -1,17 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import FieldContainer from '../containers/FieldContainer';
-import PlayContainer from '../containers/PlayContainer';
-import GameTypeContainer from '../containers/GameTypeContainer';
-import SelectContainer from '../containers/SelectContainer';
+import FieldContainer from '../containers/FieldContainer'
+import PlayContainer from '../containers/PlayContainer'
+import GameTypeContainer from '../containers/GameTypeContainer'
+import SelectContainer from '../containers/SelectContainer'
 
 const Registration = () => {
   return (
     <div>
       <div>
         <div id="JudgeName">
-          <span>Judge</span>
-          <FieldContainer type="judge" />
+          <FieldContainer type="judge" label="Judge" />
         </div>
         <div id="gameType">
           Type of game

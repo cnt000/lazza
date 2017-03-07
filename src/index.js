@@ -1,14 +1,14 @@
 import React from 'react'
 import { render } from 'react-dom'
-import injectTapEventPlugin from 'react-tap-event-plugin';
+import injectTapEventPlugin from 'react-tap-event-plugin'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import {promiseMiddleware} from './actions'
 import appReducers from './reducers'
-import { defaultState } from './defaultState';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import App from './components/App';
-import 'typeface-roboto';
+import { defaultState } from './defaultState'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import App from './components/App'
+import 'typeface-roboto'
 
 const SESSION_NAME_REDUX = 'lazza_redux_';
 

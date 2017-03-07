@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import VoteContainer from '../containers/VoteContainer';
-import Total from '../components/Total';
-import ReviewResults from '../components/ReviewResults/ReviewResults';
-import VoteRow from '../components/VoteRow/VoteRow';
+import VoteContainer from '../containers/VoteContainer'
+import Total from '../components/Total'
+import ReviewResults from '../components/ReviewResults/ReviewResults'
+import VoteRow from '../components/VoteRow/VoteRow'
 
 const FinalJudging = ({ teamLetter}) => {
 

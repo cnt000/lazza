@@ -5,7 +5,8 @@ import Field from '../components/Field'
 const mapStateToProps = (state, ownProps) => {
   return {
     id: ownProps.type,
-    field: state.fields.find((obj) => { return obj.id === ownProps.type })
+    field: state.fields.find((obj) => { return obj.id === ownProps.type }),
+    label: ownProps.label
   }
 }
 
