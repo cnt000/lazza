@@ -5,6 +5,15 @@ import Total from '../Total'
 import Table from 'react-bootstrap/lib/Table'
 import 'bootstrap/dist/css/bootstrap.css'
 
+const styles = {
+  list: {
+    listStyle: 'none'
+  },
+  annotationIcons: {
+    display: 'inline',
+    margin: 4
+  },
+};
 
 const ReviewResults = ({ votes, onClick, type }) => {
   let isAnnotation = (/-annotation/i).test(type) ? true : false;
@@ -19,8 +28,8 @@ const ReviewResults = ({ votes, onClick, type }) => {
     return (
       <div className="annotation-result">
         <Total type={type} startingPoint="0" />
-        <ul>
-          {votes.map(p => <li key={p.id+'_'+p.time+'_'+p.value}>
+        <ul style={styles.list}>
+          {votes.map(p => <li key={p.id+'_'+p.time+'_'+p.value} style={styles.annotationIcons}>
                           {(parseInt(p.value, 10) === 1) ? '+' : '-'}
                          </li>)}
         </ul>

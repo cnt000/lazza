@@ -1,17 +1,29 @@
 import { connect } from 'react-redux'
 import React, { PropTypes } from 'react'
 import { entryField } from '../actions'
+import Checkbox from 'material-ui/Checkbox'
+
+const styles = {
+  block: {
+    maxWidth: 250
+  },
+  checkbox: {
+    marginBottom: 16
+  },
+};
 
 const PlayCheck = ({ children, field = {}, onChange}) => {
-    return (
-      <span>
-      <input
-      type="checkbox"
-      defaultChecked={field.value}
-      onChange={e => {
-         onChange(e.target.checked)
-      }}
-      /> Play</span>
+  return (
+    <span style={styles.checkbox}>
+      <Checkbox
+        label="Play"
+        style={styles.checkbox}
+        defaultChecked={field.value}
+        onChange={e => {
+          onChange(e.target.checked)
+        }}
+      />
+    </span>
   );
 };
 
