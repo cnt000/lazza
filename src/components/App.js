@@ -40,14 +40,6 @@ const App = ({ selectedIndex, handleActive}) => {
           data-route="/checkai-a"
           onActive={handleActive}
         >
-          <Divider />
-          <div className="vote-row">
-            <div className="playersTeamTitle">Difficulty Review:</div>
-            <ReviewResults type="difficulty-team-A" />
-            <br/>
-            <div className="playersTeamTitle">Execution Review:</div>
-            <ReviewResults type="execution-team-A" />
-          </div>
           <FinalJudging teamLetter="A" />
         </Tab>
         <Tab
@@ -62,13 +54,6 @@ const App = ({ selectedIndex, handleActive}) => {
             data-route="/checkai-b"
             onActive={handleActive}
           >
-            <div className="vote-row">
-              <div className="playersTeamTitle">Difficulty Review:</div>
-              <ReviewResults type="difficulty-team-B" />
-              <br/>
-              <div className="playersTeamTitle">Execution Review:</div>
-              <ReviewResults type="execution-team-B" />
-            </div>
             <FinalJudging teamLetter="B" />
         </Tab>
         <Tab
