@@ -11,6 +11,7 @@ const styles = {
     margin: '0 10px'
   },
   boxes: {
+    width: '50%',
     display: 'flex',
     justifyContent: 'space-between'
   }
@@ -40,14 +41,14 @@ const Registration = () => {
         <div className="playersTeam">
           <div className="playersTeamTitle">
             Players Team A:
-            </div>
+          </div>
           <div className="playerTeamEntry">
             <PlayContainer type="player-play-A" teamKey="team-name-A" />
           </div>
         </div>
         <div className="playersTeam">
           <div className="playersTeamTitle">
-          Team B:
+            Players Team B:
           </div>
           <div className="playerTeamEntry">
             <PlayContainer type="player-play-B" teamKey="team-name-B" />

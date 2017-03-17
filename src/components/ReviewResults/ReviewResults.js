@@ -13,6 +13,9 @@ const styles = {
     display: 'inline',
     margin: 4
   },
+  annotationsResults: {
+    fontSize: '0.8em'
+  }
 };
 
 const ReviewResults = ({ votes, onClick, type }) => {
@@ -26,8 +29,8 @@ const ReviewResults = ({ votes, onClick, type }) => {
 
   if(isAnnotation) {
     return (
-      <div className="annotation-result">
-        <Total type={type} startingPoint="0" />
+      <div style={styles.annotationsResults}>
+        Previous annotations: <Total type={type} startingPoint="0" />
         <ul style={styles.list}>
           {votes.map(p => <li key={p.id+'_'+p.time+'_'+p.value} style={styles.annotationIcons}>
                           {(parseInt(p.value, 10) === 1) ? '+' : '-'}

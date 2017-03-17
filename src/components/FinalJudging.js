@@ -13,12 +13,14 @@ const FinalJudging = ({ teamLetter}) => {
     justifyContent: 'space-around'
   };
 
+  const headerStyle = {
+    margin: 10
+  };
+
   return (
-    <div>
-      <h2>VOTE ARTISTIC IMPRESSION</h2>
+    <div style={headerStyle}>
       <VoteRow type="difficulty-team-A">
-        <div className="playersTeamTitle">Teamwork</div>
-        <Total type={`teamwork-team-${teamLetter}`} startingPoint="0.0" />
+        <span className="playersTeamTitle">Teamwork</span>: <Total type={`teamwork-team-${teamLetter}`} startingPoint="0.0" />
         <div style={annotationStyle}>
           <VoteContainer type={`teamwork-team-${teamLetter}`} weight="0" oneshot="true"nameClass="bad vote">BAD<span>0-2.0</span></VoteContainer>
           <VoteContainer type={`teamwork-team-${teamLetter}`} weight="0.5" oneshot="true" nameClass="not-good" >NOT GOOD<span>2.1-4.0</span></VoteContainer>
@@ -26,11 +28,10 @@ const FinalJudging = ({ teamLetter}) => {
           <VoteContainer type={`teamwork-team-${teamLetter}`} weight="1.5" oneshot="true"nameClass="good" >GOOD<span>6.1-8.0</span></VoteContainer>
           <VoteContainer type={`teamwork-team-${teamLetter}`} weight="2" oneshot="true" nameClass="amazing">AMAZING<span>8.1-10.0</span></VoteContainer>
         </div>
-        Previous annotations: <ReviewResults type={`teamwork-team-${teamLetter}-annotation`} />
+        <ReviewResults type={`teamwork-team-${teamLetter}-annotation`} />
       </VoteRow>
       <VoteRow type="difficulty-team-A">
-        <div className="playersTeamTitle">Music</div>
-        <Total type={`music-team-${teamLetter}`} startingPoint="0.0" />
+        <span className="playersTeamTitle">Music</span>: <Total type={`music-team-${teamLetter}`} startingPoint="0.0" />
         <div style={annotationStyle}>
           <VoteContainer type={`music-team-${teamLetter}`} weight="0" oneshot="true"nameClass="bad vote">BAD<span>0-2.0</span></VoteContainer>
           <VoteContainer type={`music-team-${teamLetter}`} weight="0.5" oneshot="true" nameClass="not-good" >NOT GOOD<span>2.1-4.0</span></VoteContainer>
@@ -38,11 +39,10 @@ const FinalJudging = ({ teamLetter}) => {
           <VoteContainer type={`music-team-${teamLetter}`} weight="1.5" oneshot="true"nameClass="good" >GOOD<span>6.1-8.0</span></VoteContainer>
           <VoteContainer type={`music-team-${teamLetter}`} weight="2" oneshot="true" nameClass="amazing">AMAZING<span>8.1-10.0</span></VoteContainer>
         </div>
-        Previous annotations: <ReviewResults type={`music-team-${teamLetter}-annotation`} />
+        <ReviewResults type={`music-team-${teamLetter}-annotation`} />
       </VoteRow>
       <VoteRow type="difficulty-team-A">
-        <div className="playersTeamTitle">Flow</div>
-        <Total type={`flow-team-${teamLetter}`} startingPoint="0.0" />
+        <span className="playersTeamTitle">Flow</span>: <Total type={`flow-team-${teamLetter}`} startingPoint="0.0" />
         <div style={annotationStyle}>
           <VoteContainer type={`flow-team-${teamLetter}`} weight="0" oneshot="true"nameClass="bad vote">BAD<span>0-2.0</span></VoteContainer>
           <VoteContainer type={`flow-team-${teamLetter}`} weight="0.5" oneshot="true" nameClass="not-good" >NOT GOOD<span>2.1-4.0</span></VoteContainer>
@@ -50,11 +50,10 @@ const FinalJudging = ({ teamLetter}) => {
           <VoteContainer type={`flow-team-${teamLetter}`} weight="1.5" oneshot="true"nameClass="good" >GOOD<span>6.1-8.0</span></VoteContainer>
           <VoteContainer type={`flow-team-${teamLetter}`} weight="2" oneshot="true" nameClass="amazing">AMAZING<span>8.1-10.0</span></VoteContainer>
         </div>
-        Previous annotations: <ReviewResults type={`flow-team-${teamLetter}-annotation`} />
+        <ReviewResults type={`flow-team-${teamLetter}-annotation`} />
       </VoteRow>
       <VoteRow type="difficulty-team-A">
-        <div className="playersTeamTitle">Variety</div>
-        <Total type={`variety-team-${teamLetter}`} startingPoint="0.0" />
+        <span className="playersTeamTitle">Variety</span>: <Total type={`variety-team-${teamLetter}`} startingPoint="0.0" />
         <div style={annotationStyle}>
           <VoteContainer type={`variety-team-${teamLetter}`} weight="0" oneshot="true"nameClass="bad vote">BAD<span>0-2.0</span></VoteContainer>
           <VoteContainer type={`variety-team-${teamLetter}`} weight="0.5" oneshot="true" nameClass="not-good" >NOT GOOD<span>2.1-4.0</span></VoteContainer>
@@ -62,11 +61,10 @@ const FinalJudging = ({ teamLetter}) => {
           <VoteContainer type={`variety-team-${teamLetter}`} weight="1.5" oneshot="true"nameClass="good" >GOOD<span>6.1-8.0</span></VoteContainer>
           <VoteContainer type={`variety-team-${teamLetter}`} weight="2" oneshot="true" nameClass="amazing">AMAZING<span>8.1-10.0</span></VoteContainer>
         </div>
-        Previous annotations: <ReviewResults type={`variety-team-${teamLetter}-annotation`} />
+        <ReviewResults type={`variety-team-${teamLetter}-annotation`} />
       </VoteRow>
       <VoteRow type="difficulty-team-A">
-        <div className="playersTeamTitle">General Imp.</div>
-        <Total type={`general-impression-team-${teamLetter}`} startingPoint="0.0" />
+        <span className="playersTeamTitle">General Imp.</span>: <Total type={`general-impression-team-${teamLetter}`} startingPoint="0.0" />
         <div style={annotationStyle}>
           <VoteContainer type={`general-impression-team-${teamLetter}`} weight="0" oneshot="true"nameClass="bad vote">BAD<span>0-2.0</span></VoteContainer>
           <VoteContainer type={`general-impression-team-${teamLetter}`} weight="0.5" oneshot="true" nameClass="not-good" >NOT GOOD<span>2.1-4.0</span></VoteContainer>
@@ -74,7 +72,7 @@ const FinalJudging = ({ teamLetter}) => {
           <VoteContainer type={`general-impression-team-${teamLetter}`} weight="1.5" oneshot="true"nameClass="good" >GOOD<span>6.1-8.0</span></VoteContainer>
           <VoteContainer type={`general-impression-team-${teamLetter}`} weight="2" oneshot="true" nameClass="amazing">AMAZING<span>8.1-10.0</span></VoteContainer>
         </div>
-        Previous annotations: <ReviewResults type={`general-impression-team-${teamLetter}-annotation`} />
+        <ReviewResults type={`general-impression-team-${teamLetter}-annotation`} />
       </VoteRow>
     </div>
   );

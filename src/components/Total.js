@@ -3,11 +3,9 @@ import { connect } from 'react-redux'
 
 const Total = ({ result, time }) => {
   return (
-    <div className="total">
-      <span>
-        {result.toFixed(2)} {(time>1) ? `(${time})` : ""}
-      </span>
-    </div>
+    <span className="total">
+      {result.toFixed(2)} {(time>1) ? `(${time})` : ""}
+    </span>
   )
 }
 
