@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { removeVote } from '../../actions'
 import Total from '../Total'
+import Badge from 'material-ui/Badge'
 import Table from 'react-bootstrap/lib/Table'
 import 'bootstrap/dist/css/bootstrap.css'
 
@@ -18,7 +19,7 @@ const styles = {
   }
 };
 
-const ReviewResults = ({ votes, onClick, type }) => {
+const ReviewResults = ({ votes, plus, minus, onClick, type }) => {
   let isAnnotation = (/-annotation/i).test(type) ? true : false;
 
   if(votes.length === 0) {
@@ -28,14 +29,18 @@ const ReviewResults = ({ votes, onClick, type }) => {
   }
 
   if(isAnnotation) {
+    let plusC = votes.filter(obj => obj.value === 1).length;
+    let minusC = votes.length - plusC;
     return (
       <div style={styles.annotationsResults}>
-        Previous annotations: <Total type={type} startingPoint="0" />
-        <ul style={styles.list}>
-          {votes.map(p => <li key={p.id+'_'+p.time+'_'+p.value} style={styles.annotationIcons}>
-                          {(parseInt(p.value, 10) === 1) ? '+' : '-'}
-                         </li>)}
-        </ul>
+        <Badge
+          badgeContent={minusC}
+          primary={true}
+          >-</Badge>
+        <Badge
+          badgeContent={plusC}
+          secondary={true}
+        >+</Badge>
       </div>
     )
   }
@@ -74,6 +79,8 @@ const ReviewResults = ({ votes, onClick, type }) => {
 
 const mapStateToProps = (state, ownProps) => ({
   votes: state.votes.filter(elm => ownProps.type === elm.id),
+  plus: 1,
+  minus: 2,
   type: ownProps.type
 })
 

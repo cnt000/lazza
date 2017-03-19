@@ -10,13 +10,15 @@ const Vote = ({ children, onClick, type, value }) => {
     (/-annotation/i).test(type) ?
     <FloatingActionButton
       style={marginVoteButton}
-      mini={true}
+      secondary={(value === "-1") ? false : true}
       onTouchTap={e => {
            e.preventDefault()
            onClick()
          }}
     >
-    {children}
+      <span>
+        {children}
+      </span>
     </FloatingActionButton>
     :
     <RaisedButton

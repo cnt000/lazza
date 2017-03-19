@@ -43,33 +43,38 @@ const LiveJudging = ({ teamLetter}) => {
       <Divider />
       <div className="vote-row annotation-block" style={annotationStyle}>
         <div>
+          <div style={annotationStyle}>Teamwork</div>
           <VoteContainer type={`teamwork-team-${teamLetter}-annotation`} weight="-1" oneshot="false" nameClass="bad">-</VoteContainer>
           <VoteContainer type={`teamwork-team-${teamLetter}-annotation`} weight="1" oneshot="false" nameClass="amazing">+</VoteContainer>
-          <div style={annotationStyle}>Teamwork</div>
+          <div style={annotationStyle}>Annotations</div>
           <ReviewResults type={`teamwork-team-${teamLetter}-annotation`} />
         </div>
         <div>
+          <div style={annotationStyle}>Music</div>
           <VoteContainer type={`music-team-${teamLetter}-annotation`} weight="-1" oneshot="false" nameClass="bad">-</VoteContainer>
           <VoteContainer type={`music-team-${teamLetter}-annotation`} weight="1" oneshot="false" nameClass="amazing">+</VoteContainer>
-          <div style={annotationStyle}>Music</div>
+          <div style={annotationStyle}>Annotations</div>
           <ReviewResults type={`music-team-${teamLetter}-annotation`} />
         </div>
         <div>
+          <div style={annotationStyle}>Flow</div>
           <VoteContainer type={`flow-team-${teamLetter}-annotation`} weight="-1" oneshot="false" nameClass="bad">-</VoteContainer>
           <VoteContainer type={`flow-team-${teamLetter}-annotation`} weight="1" oneshot="false" nameClass="amazing">+</VoteContainer>
-          <div style={annotationStyle}>Flow</div>
+          <div style={annotationStyle}>Annotations</div>
           <ReviewResults type={`flow-team-${teamLetter}-annotation`} />
         </div>
         <div>
+          <div style={annotationStyle}>Variety</div>
           <VoteContainer type={`variety-team-${teamLetter}-annotation`} weight="-1" oneshot="false" nameClass="bad">-</VoteContainer>
           <VoteContainer type={`variety-team-${teamLetter}-annotation`} weight="1" oneshot="false" nameClass="amazing">+</VoteContainer>
-          <div style={annotationStyle}>Variety</div>
+          <div style={annotationStyle}>Annotations</div>
           <ReviewResults type={`variety-team-${teamLetter}-annotation`} />
         </div>
         <div>
+          <div style={annotationStyle}>General Impression</div>
           <VoteContainer type={`general-impression-team-${teamLetter}-annotation`} weight="-1" oneshot="false" nameClass="bad">-</VoteContainer>
           <VoteContainer type={`general-impression-team-${teamLetter}-annotation`} weight="1" oneshot="false" nameClass="amazing">+</VoteContainer>
-          <div style={annotationStyle}>General Impression</div>
+          <div style={annotationStyle}>Annotations</div>
           <ReviewResults type={`general-impression-team-${teamLetter}-annotation`} />
         </div>
       </div>
