@@ -5,6 +5,7 @@ import VoteContainer from '../containers/VoteContainer'
 import VoteRow from '../components/VoteRow/VoteRow'
 import Total from '../components/Total'
 import ReviewResults from '../components/ReviewResults/ReviewResults'
+import Paper from 'material-ui/Paper'
 
 const LiveJudging = ({ teamLetter}) => {
 
@@ -25,11 +26,11 @@ const LiveJudging = ({ teamLetter}) => {
       <VoteRow type="difficulty-team-A">
         <div style={headerStyle}>Difficulty: <Total type={`difficulty-team-${teamLetter}`} startingPoint="5.0" /></div>
         <div style={annotationStyle}>
-          <VoteContainer type={`difficulty-team-${teamLetter}`} weight="-0.5" oneshot="false" nameClass="bad">BAD<span>0-2.0</span></VoteContainer>
-          <VoteContainer type={`difficulty-team-${teamLetter}`} weight="-0.25" oneshot="false" nameClass="not-good" >NOT GOOD<span>2.1-4.0</span></VoteContainer>
-          <VoteContainer type={`difficulty-team-${teamLetter}`} weight="0" oneshot="false" nameClass="medium" >MEDIUM<span>4.1-6.0</span></VoteContainer>
-          <VoteContainer type={`difficulty-team-${teamLetter}`} weight="0.25" oneshot="false" nameClass="good" >GOOD<span>6.1-8.0</span></VoteContainer>
-          <VoteContainer type={`difficulty-team-${teamLetter}`} weight="0.5" oneshot="false" nameClass="amazing">AMAZING<span>8.1-10.0</span></VoteContainer>
+          <VoteContainer type={`difficulty-team-${teamLetter}`} weight="-0.5" oneshot="false" nameClass="bad">BAD <span>0-2.0</span></VoteContainer>
+          <VoteContainer type={`difficulty-team-${teamLetter}`} weight="-0.25" oneshot="false" nameClass="not-good" >NOT GOOD <span>2.1-4.0</span></VoteContainer>
+          <VoteContainer type={`difficulty-team-${teamLetter}`} weight="0" oneshot="false" nameClass="medium" >MEDIUM <span>4.1-6.0</span></VoteContainer>
+          <VoteContainer type={`difficulty-team-${teamLetter}`} weight="0.25" oneshot="false" nameClass="good" >GOOD <span>6.1-8.0</span></VoteContainer>
+          <VoteContainer type={`difficulty-team-${teamLetter}`} weight="0.5" oneshot="false" nameClass="amazing">AMAZING <span>8.1-10.0</span></VoteContainer>
         </div>
       </VoteRow>
       <VoteRow type="execution-team-A">
@@ -42,41 +43,41 @@ const LiveJudging = ({ teamLetter}) => {
       <h3> --------- Under this line it's only an annotation, not final vote --------------------------------------------------- </h3>
       <Divider />
       <div className="vote-row annotation-block" style={annotationStyle}>
-        <div>
+        <Paper>
           <div style={annotationStyle}>Teamwork</div>
           <VoteContainer type={`teamwork-team-${teamLetter}-annotation`} weight="-1" oneshot="false" nameClass="bad">-</VoteContainer>
           <VoteContainer type={`teamwork-team-${teamLetter}-annotation`} weight="1" oneshot="false" nameClass="amazing">+</VoteContainer>
           <div style={annotationStyle}>Annotations</div>
           <ReviewResults type={`teamwork-team-${teamLetter}-annotation`} />
-        </div>
-        <div>
+        </Paper>
+        <Paper>
           <div style={annotationStyle}>Music</div>
           <VoteContainer type={`music-team-${teamLetter}-annotation`} weight="-1" oneshot="false" nameClass="bad">-</VoteContainer>
           <VoteContainer type={`music-team-${teamLetter}-annotation`} weight="1" oneshot="false" nameClass="amazing">+</VoteContainer>
           <div style={annotationStyle}>Annotations</div>
           <ReviewResults type={`music-team-${teamLetter}-annotation`} />
-        </div>
-        <div>
+        </Paper>
+        <Paper>
           <div style={annotationStyle}>Flow</div>
           <VoteContainer type={`flow-team-${teamLetter}-annotation`} weight="-1" oneshot="false" nameClass="bad">-</VoteContainer>
           <VoteContainer type={`flow-team-${teamLetter}-annotation`} weight="1" oneshot="false" nameClass="amazing">+</VoteContainer>
           <div style={annotationStyle}>Annotations</div>
           <ReviewResults type={`flow-team-${teamLetter}-annotation`} />
-        </div>
-        <div>
+        </Paper>
+        <Paper>
           <div style={annotationStyle}>Variety</div>
           <VoteContainer type={`variety-team-${teamLetter}-annotation`} weight="-1" oneshot="false" nameClass="bad">-</VoteContainer>
           <VoteContainer type={`variety-team-${teamLetter}-annotation`} weight="1" oneshot="false" nameClass="amazing">+</VoteContainer>
           <div style={annotationStyle}>Annotations</div>
           <ReviewResults type={`variety-team-${teamLetter}-annotation`} />
-        </div>
-        <div>
+        </Paper>
+        <Paper>
           <div style={annotationStyle}>General Impression</div>
           <VoteContainer type={`general-impression-team-${teamLetter}-annotation`} weight="-1" oneshot="false" nameClass="bad">-</VoteContainer>
           <VoteContainer type={`general-impression-team-${teamLetter}-annotation`} weight="1" oneshot="false" nameClass="amazing">+</VoteContainer>
           <div style={annotationStyle}>Annotations</div>
           <ReviewResults type={`general-impression-team-${teamLetter}-annotation`} />
-        </div>
+        </Paper>
       </div>
     </div>
   );

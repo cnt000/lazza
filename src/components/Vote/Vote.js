@@ -23,6 +23,9 @@ const Vote = ({ children, onClick, type, value }) => {
     :
     <RaisedButton
       label={children}
+      buttonStyle={{
+        width: '18vw'
+      }}
       onTouchTap={e => {
            e.preventDefault()
            onClick()

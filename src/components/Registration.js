@@ -8,19 +8,19 @@ import Divider from 'material-ui/Divider'
 
 const styles = {
   wrapper: {
-    margin: '0 10px'
-  },
-  boxes: {
-    width: '50%',
+    margin: '0 10px',
     display: 'flex',
     justifyContent: 'space-between'
+  },
+  boxes: {
+
   }
 }
 
 const Registration = () => {
   return (
     <div style={styles.wrapper}>
-      <div>
+      <div style={styles.boxes}>
         <div id="JudgeName">
           <FieldContainer type="judge" label="Judge" />
         </div>
@@ -28,31 +28,16 @@ const Registration = () => {
           <GameTypeContainer type="gametype" label="Type of game" />
         </div>
       </div>
-      <Divider />
       <div style={styles.boxes}>
         <div className="playersTeam">
           <SelectContainer type="team-name-A" label="Team A" />
-        </div>
-        <div className="playersTeam">
-          <SelectContainer type="team-name-B" label="Team B" />
+          <PlayContainer type="player-play-A" teamKey="team-name-A" />
         </div>
       </div>
       <div style={styles.boxes}>
         <div className="playersTeam">
-          <div className="playersTeamTitle">
-            Players Team A:
-          </div>
-          <div className="playerTeamEntry">
-            <PlayContainer type="player-play-A" teamKey="team-name-A" />
-          </div>
-        </div>
-        <div className="playersTeam">
-          <div className="playersTeamTitle">
-            Players Team B:
-          </div>
-          <div className="playerTeamEntry">
-            <PlayContainer type="player-play-B" teamKey="team-name-B" />
-          </div>
+          <SelectContainer type="team-name-B" label="Team B" />
+          <PlayContainer type="player-play-B" teamKey="team-name-B" />
         </div>
       </div>
     </div>
