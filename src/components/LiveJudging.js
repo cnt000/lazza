@@ -23,17 +23,18 @@ const LiveJudging = ({ teamLetter}) => {
       display: 'flex',
       justifyContent: 'space-around',
       alignItems: 'center',
-      fontSize: '24px',
+      fontSize: '22px'
     },
     vote: {
-      height: '30%'
+      height: '28vh',
+      padding: '10px'
     },
     separator: {
-      height: '10%'
+      height: '4vh'
     },
     header: {
       margin: 10,
-      fontSize: '28px',
+      fontSize: '26px',
       display: 'flex',
       justifyContent: 'space-between'
     },

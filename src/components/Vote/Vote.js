@@ -25,7 +25,7 @@ const Vote = ({ children, onClick, type, value }) => {
       label={children}
       buttonStyle={{
         width: '18vw',
-        height: '20vh'
+        height: '18vh'
       }}
       onTouchTap={e => {
            e.preventDefault()
