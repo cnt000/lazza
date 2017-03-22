@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { handleActive } from '../actions'
 import {Tabs, Tab} from 'material-ui/Tabs'
 import Paper from 'material-ui/Paper'
+import Divider from 'material-ui/Divider'
 import Registration from './Registration'
 import LiveJudging from './LiveJudging'
 import ReviewResults from './ReviewResults/ReviewResults'
@@ -14,15 +15,16 @@ import SendResponseContainer from '../containers/SendResponseContainer'
 import './App.css'
 
 const styles = {
-  layout: {
-    width: '100%'
+  container: {
+    width: '100%',
+    margin: '10px'
   }
 }
 
 const App = ({ selectedIndex, handleActive}) => {
 
   return (
-    <Paper style={styles.layout}>
+    <Paper style={styles.container}>
       <Tabs initialSelectedIndex={selectedIndex}>
         <Tab
           label="Entry"
@@ -64,105 +66,124 @@ const App = ({ selectedIndex, handleActive}) => {
             data-route="/review"
             onActive={handleActive}
           >
-            <div className="final-vote-row">
-
-              <div className="playersTeamTitle">Team A Final Review:</div>
-              <div className="resultBox">
-                <div className="playersTeamTitle">Execution:</div>
-                <ReviewResults type="execution-team-A" />
+            <div>
+              <div>
+                <h3>Team A Final Review:</h3>
               </div>
-              <div className="resultBox">
-                <div className="playersTeamTitle">Difficulty:</div>
-                <ReviewResults type="difficulty-team-A" />
-              </div>
-              <div className="resultBox small">
-                <div className="playersTeamTitle">Teamwork:</div>
-                <ReviewResults type="teamwork-team-A" />
-              </div>
-              <div className="resultBox small">
-                <div className="playersTeamTitle">Music:</div>
-                <ReviewResults type="music-team-A" />
-              </div>
-              <div className="resultBox small">
-                <div className="playersTeamTitle">Flow:</div>
-                <ReviewResults type="flow-team-A" />
-              </div>
-              <div className="resultBox small">
-                <div className="playersTeamTitle">Variety:</div>
-                <ReviewResults type="variety-team-A" />
-              </div>
-              <div className="resultBox small">
-                <div className="playersTeamTitle">General Imp.:</div>
-                <ReviewResults type="general-impression-team-A" />
-              </div>
-            </div>
-            <div className="final-vote-row">
-              <div className="playersTeamTitle">Team B Final Review:</div>
-              <div className="resultBox">
-                <div className="playersTeamTitle">Execution:</div>
-                <ReviewResults type="execution-team-B" />
-              </div>
-              <div className="resultBox">
-                <div className="playersTeamTitle">Difficulty:</div>
-                <ReviewResults type="difficulty-team-B" />
-              </div>
-              <div className="resultBox small">
-                <div className="playersTeamTitle">Teamwork:</div>
-                <ReviewResults type="teamwork-team-B" />
-              </div>
-              <div className="resultBox small">
-                <div className="playersTeamTitle">Music:</div>
-                <ReviewResults type="music-team-B" />
-              </div>
-              <div className="resultBox small">
-                <div className="playersTeamTitle">Flow:</div>
-                <ReviewResults type="flow-team-B" />
-              </div>
-              <div className="resultBox small">
-                <div className="playersTeamTitle">Variety:</div>
-                <ReviewResults type="variety-team-B" />
-              </div>
-              <div className="resultBox small">
-                <div className="playersTeamTitle">General Imp.:</div>
-                <ReviewResults type="general-impression-team-B" />
+              <div style={{display:'flex'}}>
+                <div>
+                  <div>Execution:</div>
+                  <ReviewResults type="execution-team-A" />
+                </div>
+                <div>
+                  <div>Difficulty:</div>
+                  <ReviewResults type="difficulty-team-A" />
+                </div>
+                <div>
+                  <div>Teamwork:</div>
+                  <ReviewResults type="teamwork-team-A" />
+                </div>
+                <div>
+                  <div>Music:</div>
+                  <ReviewResults type="music-team-A" />
+                </div>
+                <div>
+                  <div>Flow:</div>
+                  <ReviewResults type="flow-team-A" />
+                </div>
+                <div>
+                  <div>Variety:</div>
+                  <ReviewResults type="variety-team-A" />
+                </div>
+                <div>
+                  <div>General Imp.:</div>
+                  <ReviewResults type="general-impression-team-A" />
+                </div>
               </div>
             </div>
-            <div className="review-row">
-              difficulty A:
-              <Total type="difficulty-team-A" startingPoint="5.0" />
-              difficulty B:
-              <Total type="difficulty-team-B" startingPoint="5.0" />
-
-              execution A:
-              <Total type="execution-team-A" startingPoint="10.0" />
-              execution B:
-              <Total type="execution-team-B" startingPoint="10.0" />
-
-              teamwork A:
-              <Total type="teamwork-team-A" startingPoint="0.0" />
-              teamwork B:
-              <Total type="teamwork-team-B" startingPoint="0.0" />
-              music A:
-              <Total type="music-team-A" startingPoint="0.0" />
-              music B:
-              <Total type="music-team-B" startingPoint="0.0" />
-              flow A:
-              <Total type="flow-team-A" startingPoint="0.0" />
-              flow B:
-              <Total type="flow-team-B" startingPoint="0.0" />
-              variety A:
-              <Total type="variety-team-A" startingPoint="0.0" />
-              variety B:
-              <Total type="variety-team-B" startingPoint="0.0" />
-              general impression A:
-              <Total type="general-impression-team-A" startingPoint="0.0" />
-              general impression B:
-              <Total type="general-impression-team-B" startingPoint="0.0" />
+            <Divider />
+            <div>
+              <div>
+                <h3>Team B Final Review:</h3>
+              </div>
+              <div style={{display:'flex'}}>
+                <div>
+                  <div>Execution:</div>
+                  <ReviewResults type="execution-team-B" />
+                </div>
+                <div>
+                  <div>Difficulty:</div>
+                  <ReviewResults type="difficulty-team-B" />
+                </div>
+                <div>
+                  <div>Teamwork:</div>
+                  <ReviewResults type="teamwork-team-B" />
+                </div>
+                <div>
+                  <div>Music:</div>
+                  <ReviewResults type="music-team-B" />
+                </div>
+                <div>
+                  <div>Flow:</div>
+                  <ReviewResults type="flow-team-B" />
+                </div>
+                <div>
+                  <div>Variety:</div>
+                  <ReviewResults type="variety-team-B" />
+                </div>
+                <div>
+                  <div>General Imp.:</div>
+                  <ReviewResults type="general-impression-team-B" />
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                difficulty A:
+                <Total type="difficulty-team-A" startingPoint="5.0" />
+                difficulty B:
+                <Total type="difficulty-team-B" startingPoint="5.0" />
+              </div>
+              <div>
+                execution A:
+                <Total type="execution-team-A" startingPoint="10.0" />
+                execution B:
+                <Total type="execution-team-B" startingPoint="10.0" />
+              </div>
+              <div>
+                teamwork A:
+                <Total type="teamwork-team-A" startingPoint="0.0" />
+                teamwork B:
+                <Total type="teamwork-team-B" startingPoint="0.0" />
+              </div>
+              <div>
+                music A:
+                <Total type="music-team-A" startingPoint="0.0" />
+                music B:
+                <Total type="music-team-B" startingPoint="0.0" />
+              </div>
+              <div>
+                flow A:
+                <Total type="flow-team-A" startingPoint="0.0" />
+                flow B:
+                <Total type="flow-team-B" startingPoint="0.0" />
+              </div>
+              <div>
+                variety A:
+                <Total type="variety-team-A" startingPoint="0.0" />
+                variety B:
+                <Total type="variety-team-B" startingPoint="0.0" />
+              </div>
+              <div>
+                general impression A:
+                <Total type="general-impression-team-A" startingPoint="0.0" />
+                general impression B:
+                <Total type="general-impression-team-B" startingPoint="0.0" />
+              </div>
             </div>
             <WinnerBadge />
             <SendResponseContainer>Send Final Response</SendResponseContainer>
             <div>
-              RESET ALL DATA
               <ResetAll>Reset All Data</ResetAll>
             </div>
         </Tab>

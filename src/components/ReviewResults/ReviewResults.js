@@ -47,6 +47,7 @@ const ReviewResults = ({ votes, plus, minus, onClick, type }) => {
 
   return (
     <div>
+      <Total type={type} startingPoint="0" />
       <Table striped bordered condensed hover>
         <thead>
           <tr>
@@ -72,7 +73,6 @@ const ReviewResults = ({ votes, plus, minus, onClick, type }) => {
            </tr>)}
         </tbody>
       </Table>
-      <Total type={type} startingPoint="0" />
     </div>
   )
 }
