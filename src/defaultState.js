@@ -1,8 +1,8 @@
 export const defaultState = {
   session: '',
+  gameType: ['battle', 'co-op'],
   fields: [],
   votes: [],
-  results: {},
   teams: [{
     name: "I ragazzi",
     players: [

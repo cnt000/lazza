@@ -73,7 +73,7 @@ const FinalJudging = ({ children, teamLetter, onChange, votes}) => {
       value: variety.value
     },
     {
-      type: 'genaral-impression',
+      type: 'general-impression',
       label: 'General Impr.',
       value: generalImpression.value
     }

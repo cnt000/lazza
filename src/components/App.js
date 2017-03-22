@@ -17,7 +17,6 @@ import './App.css'
 const styles = {
   container: {
     width: '100%',
-    margin: '10px'
   }
 }
 
@@ -62,8 +61,8 @@ const App = ({ selectedIndex, handleActive}) => {
             <FinalJudgingContainer teamLetter="B" />
         </Tab>
         <Tab
-            label="Review"
-            data-route="/review"
+            label="Close"
+            data-route="/close"
             onActive={handleActive}
           >
             <div>
@@ -78,26 +77,6 @@ const App = ({ selectedIndex, handleActive}) => {
                 <div>
                   <div>Difficulty:</div>
                   <ReviewResults type="difficulty-team-A" />
-                </div>
-                <div>
-                  <div>Teamwork:</div>
-                  <ReviewResults type="teamwork-team-A" />
-                </div>
-                <div>
-                  <div>Music:</div>
-                  <ReviewResults type="music-team-A" />
-                </div>
-                <div>
-                  <div>Flow:</div>
-                  <ReviewResults type="flow-team-A" />
-                </div>
-                <div>
-                  <div>Variety:</div>
-                  <ReviewResults type="variety-team-A" />
-                </div>
-                <div>
-                  <div>General Imp.:</div>
-                  <ReviewResults type="general-impression-team-A" />
                 </div>
               </div>
             </div>
@@ -115,40 +94,6 @@ const App = ({ selectedIndex, handleActive}) => {
                   <div>Difficulty:</div>
                   <ReviewResults type="difficulty-team-B" />
                 </div>
-                <div>
-                  <div>Teamwork:</div>
-                  <ReviewResults type="teamwork-team-B" />
-                </div>
-                <div>
-                  <div>Music:</div>
-                  <ReviewResults type="music-team-B" />
-                </div>
-                <div>
-                  <div>Flow:</div>
-                  <ReviewResults type="flow-team-B" />
-                </div>
-                <div>
-                  <div>Variety:</div>
-                  <ReviewResults type="variety-team-B" />
-                </div>
-                <div>
-                  <div>General Imp.:</div>
-                  <ReviewResults type="general-impression-team-B" />
-                </div>
-              </div>
-            </div>
-            <div>
-              <div>
-                difficulty A:
-                <Total type="difficulty-team-A" startingPoint="5.0" />
-                difficulty B:
-                <Total type="difficulty-team-B" startingPoint="5.0" />
-              </div>
-              <div>
-                execution A:
-                <Total type="execution-team-A" startingPoint="10.0" />
-                execution B:
-                <Total type="execution-team-B" startingPoint="10.0" />
               </div>
               <div>
                 teamwork A:

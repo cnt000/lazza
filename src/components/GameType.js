@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
 
-const GameType = ({ children, field = {}, label, onChange}) => {
+const GameType = ({ children, field = {}, label, onChange, gameType}) => {
     return (
       <div>
         <SelectField
@@ -16,9 +16,7 @@ const GameType = ({ children, field = {}, label, onChange}) => {
          }}
         >
           <MenuItem value={null} primaryText="" />
-          <MenuItem value="Pair" primaryText="Pair" />
-          <MenuItem value="Co-op" primaryText="Co-op" />
-          <MenuItem value="SuperPro" primaryText="SuperPro" />
+          {gameType.map((type)=> <MenuItem value={type} primaryText={type} /> )}
         </SelectField>
       </div>
   );
