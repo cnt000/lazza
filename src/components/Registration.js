@@ -4,22 +4,23 @@ import FieldContainer from '../containers/FieldContainer'
 import PlayContainer from '../containers/PlayContainer'
 import GameTypeContainer from '../containers/GameTypeContainer'
 import SelectContainer from '../containers/SelectContainer'
-import Divider from 'material-ui/Divider'
 
 const styles = {
-  wrapper: {
+  container: {
     margin: '0 10px',
     display: 'flex',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    alignItems: 'stretch',
+    height: 'calc(100vh - 48px)'
   },
   boxes: {
-
+    padding: '6px'
   }
-}
+};
 
 const Registration = () => {
   return (
-    <div style={styles.wrapper}>
+    <div style={styles.container}>
       <div style={styles.boxes}>
         <div id="JudgeName">
           <FieldContainer type="judge" label="Judge" />

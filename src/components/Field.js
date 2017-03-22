@@ -1,9 +1,7 @@
 import React, { PropTypes } from 'react'
 import TextField from 'material-ui/TextField'
 
-const Field = ({ field = {}, label = '', onChange}) => {
-    let input;
-
+const Field = ({ field = {}, label = '', onChange, input}) => {
      return (
       <TextField
         defaultValue={field.value}

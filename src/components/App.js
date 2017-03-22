@@ -3,11 +3,10 @@ import { connect } from 'react-redux'
 import { handleActive } from '../actions'
 import {Tabs, Tab} from 'material-ui/Tabs'
 import Paper from 'material-ui/Paper'
-import Divider from 'material-ui/Divider'
 import Registration from './Registration'
 import LiveJudging from './LiveJudging'
 import ReviewResults from './ReviewResults/ReviewResults'
-import FinalJudging from './FinalJudging'
+import FinalJudgingContainer from '../containers/FinalJudgingContainer'
 import Total from './Total'
 import WinnerBadge from './WinnerBadge'
 import ResetAll from './ResetAll'
@@ -20,48 +19,46 @@ const App = ({ selectedIndex, handleActive}) => {
     <Paper>
       <Tabs initialSelectedIndex={selectedIndex}>
         <Tab
-          label="Registration"
-          data-route="/registration"
+          label="Entry"
+          data-route="/entry"
           onActive={handleActive}
         >
-          <Divider />
           <Registration />
         </Tab>
         <Tab
-          label="A - Live judging"
-          data-route="/livejudging-a"
+          label="A-Live"
+          data-route="/a-live"
           onActive={handleActive}
         >
-          <Divider />
           <LiveJudging teamLetter="A" />
         </Tab>
         <Tab
-          label="A - Check and AI"
-          data-route="/checkai-a"
+          label="A-AI"
+          data-route="/a-ai"
           onActive={handleActive}
         >
-          <FinalJudging teamLetter="A" />
+          <FinalJudgingContainer teamLetter="A" />
         </Tab>
         <Tab
-            label="B - Live judging"
-            data-route="/livejudging-b"
+            label="B-Live"
+            data-route="/b-live"
             onActive={handleActive}
           >
             <LiveJudging teamLetter="B" />
         </Tab>
         <Tab
-            label="B - Check and AI"
-            data-route="/checkai-b"
+            label="B-AI"
+            data-route="/b-ai"
             onActive={handleActive}
           >
-            <FinalJudging teamLetter="B" />
+            <FinalJudgingContainer teamLetter="B" />
         </Tab>
         <Tab
-            label="Close Vote"
+            label="Review"
             data-route="/review"
             onActive={handleActive}
           >
-            <div className="final-vote-row vote-row">
+            <div className="final-vote-row">
 
               <div className="playersTeamTitle">Team A Final Review:</div>
               <div className="resultBox">
@@ -93,7 +90,7 @@ const App = ({ selectedIndex, handleActive}) => {
                 <ReviewResults type="general-impression-team-A" />
               </div>
             </div>
-            <div className="final-vote-row vote-row">
+            <div className="final-vote-row">
               <div className="playersTeamTitle">Team B Final Review:</div>
               <div className="resultBox">
                 <div className="playersTeamTitle">Execution:</div>
@@ -158,7 +155,7 @@ const App = ({ selectedIndex, handleActive}) => {
             </div>
             <WinnerBadge />
             <SendResponseContainer>Send Final Response</SendResponseContainer>
-            <div className="vote-row">
+            <div>
               RESET ALL DATA
               <ResetAll>Reset All Data</ResetAll>
             </div>

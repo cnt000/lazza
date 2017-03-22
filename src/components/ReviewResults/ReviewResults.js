@@ -22,7 +22,7 @@ const styles = {
 const ReviewResults = ({ votes, plus, minus, onClick, type }) => {
   let isAnnotation = (/-annotation/i).test(type) ? true : false;
 
-  if(votes.length === 0) {
+  if(votes.length === 0 && !isAnnotation) {
     return (
       <div>No votes yet</div>
     )

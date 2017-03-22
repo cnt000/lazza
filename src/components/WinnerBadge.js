@@ -33,7 +33,7 @@ function calculateTotal({ votes, team }) {
               musicResult +
                 flowResult +
                   varietyResult +
-                  generalImpressionResult;
+                    generalImpressionResult;
 }
 
 function calculatePartial({ votes, team, startingPoint, type }) {
