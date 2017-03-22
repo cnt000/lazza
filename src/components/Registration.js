@@ -14,7 +14,8 @@ const styles = {
     height: 'calc(100vh - 48px)'
   },
   boxes: {
-    padding: '6px'
+    padding: '6px',
+    width: '30%'
   }
 };
 

@@ -13,10 +13,16 @@ import ResetAll from './ResetAll'
 import SendResponseContainer from '../containers/SendResponseContainer'
 import './App.css'
 
+const styles = {
+  layout: {
+    width: '100%'
+  }
+}
+
 const App = ({ selectedIndex, handleActive}) => {
 
   return (
-    <Paper>
+    <Paper style={styles.layout}>
       <Tabs initialSelectedIndex={selectedIndex}>
         <Tab
           label="Entry"
