@@ -31,13 +31,13 @@ const Registration = () => {
         </div>
       </div>
       <div style={styles.boxes}>
-        <div className="playersTeam">
+        <div>
           <SelectContainer type="team-name-A" label="Team A" />
           <PlayContainer type="player-play-A" teamKey="team-name-A" />
         </div>
       </div>
       <div style={styles.boxes}>
-        <div className="playersTeam">
+        <div>
           <SelectContainer type="team-name-B" label="Team B" />
           <PlayContainer type="player-play-B" teamKey="team-name-B" />
         </div>

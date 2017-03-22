@@ -7,7 +7,8 @@ const mapStateToProps = (state, ownProps) => {
     id: ownProps.type,
     value: ownProps.weight,
     oneshot: ownProps.oneshot,
-    className: ownProps.nameClass
+    className: ownProps.nameClass,
+    color: ownProps.color
   }
 }
 

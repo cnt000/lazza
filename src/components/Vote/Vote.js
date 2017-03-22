@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import RaisedButton from 'material-ui/RaisedButton'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 
-const Vote = ({ children, onClick, type, value }) => {
+const Vote = ({ children, onClick, type, value, color }) => {
   const marginVoteButton = {
     margin: 6
   };
@@ -25,7 +25,8 @@ const Vote = ({ children, onClick, type, value }) => {
       label={children}
       buttonStyle={{
         width: '18vw',
-        height: '18vh'
+        height: '14vh',
+        backgroundColor: color
       }}
       onTouchTap={e => {
            e.preventDefault()
