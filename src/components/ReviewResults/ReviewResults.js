@@ -19,7 +19,7 @@ const styles = {
   }
 };
 
-const ReviewResults = ({ votes, plus, minus, onClick, type }) => {
+const ReviewResults = ({ votes, plus, minus, onClick, type, label }) => {
   let isAnnotation = (/-annotation/i).test(type) ? true : false;
 
   if(votes.length === 0 && !isAnnotation) {
@@ -47,8 +47,8 @@ const ReviewResults = ({ votes, plus, minus, onClick, type }) => {
 
   return (
     <div>
-      <Total type={type} startingPoint="0" />
-      <Table striped bordered condensed hover>
+      {label}: <Total type={type} startingPoint="0" />
+      <Table striped bordered hover>
         <thead>
           <tr>
             <th>#</th>
