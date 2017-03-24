@@ -25,15 +25,15 @@ const CloseVote = ({ children, onClickSendVote, onClickResetData, state}) => {
           <ReviewResults type="execution-team-A" />
           <div>Difficulty:</div>
           <ReviewResults type="difficulty-team-A" />
-          teamwork A:
+          Teamwork A:
           <Total type="teamwork-team-A" startingPoint="0.0" />
-          music A:
+          Music A:
           <Total type="music-team-A" startingPoint="0.0" />
-          flow A:
+          Flow A:
           <Total type="flow-team-A" startingPoint="0.0" />
-          variety A:
+          Variety A:
           <Total type="variety-team-A" startingPoint="0.0" />
-          general impression A:
+          General Impression A:
           <Total type="general-impression-team-A" startingPoint="0.0" />
         </div>
         <div>
@@ -42,15 +42,15 @@ const CloseVote = ({ children, onClickSendVote, onClickResetData, state}) => {
           <ReviewResults type="execution-team-B" />
           <div>Difficulty:</div>
           <ReviewResults type="difficulty-team-B" />
-          teamwork B:
+          Teamwork B:
           <Total type="teamwork-team-B" startingPoint="0.0" />
-          music B:
+          Music B:
           <Total type="music-team-B" startingPoint="0.0" />
-          flow B:
+          Flow B:
           <Total type="flow-team-B" startingPoint="0.0" />
-          variety B:
+          Variety B:
           <Total type="variety-team-B" startingPoint="0.0" />
-          general impression B:
+          General Impression B:
           <Total type="general-impression-team-B" startingPoint="0.0" />
         </div>
       </div>
