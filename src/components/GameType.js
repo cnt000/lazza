@@ -16,7 +16,7 @@ const GameType = ({ children, field = {}, label, onChange, gameType}) => {
          }}
         >
           <MenuItem value={null} primaryText="" />
-          {gameType.map((type)=> <MenuItem value={type} primaryText={type} /> )}
+          {gameType.map((type)=> <MenuItem value={type} key={type} primaryText={type} /> )}
         </SelectField>
       </div>
   );

@@ -5,11 +5,11 @@ import {
   FAILURE_LOADTEAMS,
   REQUEST_SAVE_RESULT,
   SUCCESS_SAVE_RESULT,
-  FAILURE_SAVE_RESULT
+  FAILURE_SAVE_RESULT,
+  calculateTotal
 } from '../actions'
 
 const judginApp = (state = {}, action) => {
-  var newState;
 
   switch (action.type) {
 
@@ -47,56 +47,46 @@ const judginApp = (state = {}, action) => {
       return {...state, selectedIndex: action.value};
 
     case SUCCESS_SAVE_RESULT:
-      newState = Object.assign({}, state);
-      newState.finalResponse = {
-        isSaving: false,
-        savedAt: Date.now(),
-        error: false
-      }
-      return newState;
+      return defaultState;
 
     case FAILURE_SAVE_RESULT:
-      newState = Object.assign({}, state);
-      newState.finalResponse = {
+      let unsavedState = Object.assign({}, state);
+      unsavedState.finalResponse = {
         isSaving: false,
         savedAt: Date.now(),
         error: true
       }
-      return newState;
+      return unsavedState;
 
     case REQUEST_SAVE_RESULT:
-      newState = Object.assign({}, state);
-      newState.session = action.id;
-      newState.finalResponse = {
+      let savedState = Object.assign({}, state);
+      savedState.resultA = calculateTotal({ votes: state.votes, team: 'team-A' });
+      savedState.resultB = calculateTotal({ votes: state.votes, team: 'team-B' });
+      savedState.finalResponse = {
         isSaving: true,
         savedAt: null,
         error: null
       }
-      return newState;
+      return savedState;
 
     case RECEIVE_LOADTEAMS:
-      newState = Object.assign({}, state);
-      newState.teams = action.result;
-      return Object.assign({}, newState, {
+      return Object.assign({}, state, {
         isFetching: false,
         didInvalidate: false,
-        lastUpdated: action.receivedAt
+        lastUpdated: action.receivedAt,
+        teams: action.result
       });
 
     case REQUEST_LOADTEAMS:
-      return Object.assign({}, state, {
-        isFetching: true,
-        didInvalidate: false
-      });
+      return {...state, isFetching: true, didInvalidate: false};
 
     case FAILURE_LOADTEAMS:
-      newState = Object.assign({}, state);
-      newState.finalResponse = {
-        isSaving: false,
-        savedAt: Date.now(),
-        error: true
-      }
-      return newState;
+      return {...state,
+        finalResponse: {
+          isSaving: false,
+          savedAt: Date.now(),
+          error: true
+        }};
 
     default:
       return state;

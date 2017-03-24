@@ -1,5 +1,4 @@
 import React from 'react'
-import Divider from 'material-ui/Divider'
 import { connect } from 'react-redux'
 import VoteContainer from '../containers/VoteContainer'
 import Total from '../components/Total'

@@ -9,7 +9,7 @@ const Play = ({ id, teamName, teams}) => {
       {teams.map(team =>
         (team.name === teamNameCheck)
           ? team.players.map((player, index) => <div>
-              {player} <PlayCheckContainer type={`${id}${index}`} />
+              {player} <PlayCheckContainer type={`${id}${index}`} playerName={player} />
             </div>)
           : ""
       )}

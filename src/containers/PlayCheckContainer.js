@@ -12,18 +12,17 @@ const styles = {
   },
 };
 
-const PlayCheck = ({ children, field = {}, onChange}) => {
+const PlayCheck = ({ children, field = {}, onChange, playerName}) => {
   return (
-    <span style={styles.checkbox}>
-      <Checkbox
-        label="Play"
-        style={styles.checkbox}
-        defaultChecked={field.value}
-        onChange={e => {
-          onChange(e.target.checked)
-        }}
-      />
-    </span>
+    <Checkbox
+      label="Play"
+      style={styles.checkbox}
+      defaultChecked={(field.value) ? true : false}
+      onClick={e => {
+        e.stopPropagation();
+        onChange((e.target.checked) ? playerName : '')
+      }}
+    />
   );
 };
 
