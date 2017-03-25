@@ -56,8 +56,8 @@ const App = ({ selectedIndex, handleActive}) => {
             <FinalJudgingContainer teamLetter="B" />
         </Tab>
         <Tab
-            label="Close"
-            data-route="/close"
+            label="Send"
+            data-route="/send"
             onActive={handleActive}
           >
             <CloseVoteContainer />

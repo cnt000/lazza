@@ -7,8 +7,8 @@ const FinalJudging = ({ children, teamLetter, onChange, votes}) => {
 
   const styles = {
     container: {
-      margin: '10px',
-      height: 'calc(100vh - 48px)',
+      margin: '4px 10px',
+      height: 'calc(100vh - 56px)',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-around',
@@ -27,7 +27,7 @@ const FinalJudging = ({ children, teamLetter, onChange, votes}) => {
     info: {
       flex: '0 1 auto',
       width: '4em',
-      fontSize: '28px'
+      fontSize: '26px'
     }
   };
 

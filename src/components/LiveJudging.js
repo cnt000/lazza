@@ -22,7 +22,7 @@ const LiveJudging = ({ teamLetter}) => {
       display: 'flex',
       justifyContent: 'space-around',
       alignItems: 'center',
-      fontSize: '22px'
+      fontSize: '20px'
     },
     vote: {
       height: '28vh',
