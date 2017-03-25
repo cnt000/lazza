@@ -28,6 +28,7 @@ const Vote = ({ children, onClick, type, value, color }) => {
         height: '14vh',
         backgroundColor: color
       }}
+      labelStyle={{fontSize: '28px', textAlign: 'center'}}
       onTouchTap={e => {
            e.preventDefault()
            onClick()

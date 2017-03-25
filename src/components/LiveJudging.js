@@ -35,10 +35,15 @@ const LiveJudging = ({ teamLetter}) => {
       margin: 10,
       fontSize: '26px',
       display: 'flex',
-      justifyContent: 'space-between'
+      justifyContent: 'center'
     },
     paper: {
       padding: '4px'
+    },
+    weight: {
+      display: 'block',
+      fontSize: '14px',
+      lineHeight: 0.5
     }
   };
 
@@ -47,18 +52,18 @@ const LiveJudging = ({ teamLetter}) => {
       <div style={styles.vote}>
         <div style={styles.header}>Difficulty: <Total type={`difficulty-team-${teamLetter}`} startingPoint="5.0" /></div>
         <div style={styles.annotation}>
-          <VoteContainer color={green200} type={`difficulty-team-${teamLetter}`} weight="-0.5" oneshot="false" nameClass="bad">BAD <span>0-2.0</span></VoteContainer>
-          <VoteContainer color={green300} type={`difficulty-team-${teamLetter}`} weight="-0.25" oneshot="false" nameClass="not-good" >NOT GOOD <span>2.1-4.0</span></VoteContainer>
-          <VoteContainer color={green400} type={`difficulty-team-${teamLetter}`} weight="0" oneshot="false" nameClass="medium" >MEDIUM <span>4.1-6.0</span></VoteContainer>
-          <VoteContainer color={green500} type={`difficulty-team-${teamLetter}`} weight="0.25" oneshot="false" nameClass="good" >GOOD <span>6.1-8.0</span></VoteContainer>
-          <VoteContainer color={green600} type={`difficulty-team-${teamLetter}`} weight="0.5" oneshot="false" nameClass="amazing">AMAZING <span>8.1-10.0</span></VoteContainer>
+          <VoteContainer color={green200} type={`difficulty-team-${teamLetter}`} weight="-0.5" oneshot="false" nameClass="bad">BAD<span style={styles.weight}>0-2.0</span></VoteContainer>
+          <VoteContainer color={green300} type={`difficulty-team-${teamLetter}`} weight="-0.25" oneshot="false" nameClass="not-good" >NOT GOOD<span style={styles.weight}>2.1-4.0</span></VoteContainer>
+          <VoteContainer color={green400} type={`difficulty-team-${teamLetter}`} weight="0" oneshot="false" nameClass="medium" >MEDIUM<span style={styles.weight}>4.1-6.0</span></VoteContainer>
+          <VoteContainer color={green500} type={`difficulty-team-${teamLetter}`} weight="0.25" oneshot="false" nameClass="good" >GOOD<span style={styles.weight}>6.1-8.0</span></VoteContainer>
+          <VoteContainer color={green600} type={`difficulty-team-${teamLetter}`} weight="0.5" oneshot="false" nameClass="amazing">AMAZING<span style={styles.weight}>8.1-10.0</span></VoteContainer>
         </div>
       </div>
       <div style={styles.vote}>
         <div style={styles.header}>Execution: <Total type={`execution-team-${teamLetter}`} startingPoint="10.0" /></div>
         <div style={styles.annotation}>
-          <VoteContainer color={red200} type={`execution-team-${teamLetter}`} weight="-0.1" oneshot="false" nameClass="medium">MINOR<span>-0.1</span></VoteContainer>
-          <VoteContainer color={red400} type={`execution-team-${teamLetter}`} weight="-0.3" oneshot="false" nameClass="bad">DROP<span>-0.3</span></VoteContainer>
+          <VoteContainer color={red200} type={`execution-team-${teamLetter}`} weight="-0.1" oneshot="false" nameClass="medium">MINOR <span style={styles.weight}>-0.1</span></VoteContainer>
+          <VoteContainer color={red400} type={`execution-team-${teamLetter}`} weight="-0.3" oneshot="false" nameClass="bad">DROP <span style={styles.weight}>-0.3</span></VoteContainer>
         </div>
       </div>
       <div style={styles.separator}>
