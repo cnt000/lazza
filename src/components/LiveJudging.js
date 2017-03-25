@@ -22,7 +22,7 @@ const LiveJudging = ({ teamLetter}) => {
       display: 'flex',
       justifyContent: 'space-around',
       alignItems: 'center',
-      fontSize: '20px'
+      fontSize: '16px'
     },
     vote: {
       height: '28vh',
@@ -33,7 +33,7 @@ const LiveJudging = ({ teamLetter}) => {
     },
     header: {
       margin: 10,
-      fontSize: '26px',
+      fontSize: '22px',
       display: 'flex',
       justifyContent: 'center'
     },
@@ -42,8 +42,8 @@ const LiveJudging = ({ teamLetter}) => {
     },
     weight: {
       display: 'block',
-      fontSize: '14px',
-      lineHeight: 0.5
+      fontSize: '12px',
+      lineHeight: '1px'
     }
   };
 

@@ -7,8 +7,8 @@ import {promiseMiddleware} from './actions'
 import appReducers from './reducers'
 import { defaultState } from './defaultState'
 import App from './components/App'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import 'reset-css'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import 'typeface-roboto'
 
 const SESSION_NAME_REDUX = 'lazza_redux_';

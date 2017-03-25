@@ -12,6 +12,7 @@ import './App.css'
 const styles = {
   container: {
     width: '100%',
+    fontFamily: 'Roboto'
   }
 }
 

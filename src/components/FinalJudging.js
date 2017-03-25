@@ -27,7 +27,7 @@ const FinalJudging = ({ children, teamLetter, onChange, votes}) => {
     info: {
       flex: '0 1 auto',
       width: '4em',
-      fontSize: '32px'
+      fontSize: '24px'
     }
   };
 
