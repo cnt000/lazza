@@ -18,7 +18,7 @@ const styles = {
 const App = ({ selectedIndex, handleActive}) => {
 
   return (
-    <Paper style={styles.container}>
+    <div style={styles.container}>
       <Tabs initialSelectedIndex={selectedIndex}>
         <Tab
           label="Entry"
@@ -63,7 +63,7 @@ const App = ({ selectedIndex, handleActive}) => {
             <CloseVoteContainer />
         </Tab>
       </Tabs>
-    </Paper>
+    </div>
   );
 
 };

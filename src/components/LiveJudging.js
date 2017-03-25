@@ -10,7 +10,7 @@ const LiveJudging = ({ teamLetter}) => {
 
   const styles = {
     container: {
-      height: 'calc(100vh - 48px)',
+      height: '100%',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-between',
