@@ -24,11 +24,10 @@ const Vote = ({ children, onClick, type, value, color }) => {
     <RaisedButton
       label={children}
       buttonStyle={{
-        width: '18vw',
-        height: '14vh',
         backgroundColor: color
       }}
-      labelStyle={{fontSize: '16px', textAlign: 'center'}}
+      style={{margin: 12, height: 80, width: 100}}
+      labelStyle={{fontSize: 16, height: 28}}
       onTouchTap={e => {
            e.preventDefault()
            onClick()

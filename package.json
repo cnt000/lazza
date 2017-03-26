@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "eslint": "^3.9.1",
+    "npm-run-all": "^4.0.2",
     "react": "^15.3.2",
     "react-scripts": "0.9.2"
   },
@@ -27,7 +28,9 @@
     "typeface-roboto": "0.0.22"
   },
   "scripts": {
-    "start": "react-scripts start & node server/index.js",
+    "start": "npm-run-all -p start-js start-server",
+    "start-js": "react-scripts start",
+    "start-server": "node server/index.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

@@ -78,7 +78,6 @@ const FinalJudging = ({ children, teamLetter, onChange, votes}) => {
       value: generalImpression.value
     }
   ];
-
   return (
     <div style={styles.container}>
       {sliders.map((obj)=>
@@ -93,7 +92,7 @@ const FinalJudging = ({ children, teamLetter, onChange, votes}) => {
               max={2}
               step={0.5}
               defaultValue={0}
-              value={obj.teamwork}
+              value={obj.value}
               onChange={(e,v) => onChange(e, v, obj.type)}
               name={obj.type}
             />
