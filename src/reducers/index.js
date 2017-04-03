@@ -60,7 +60,6 @@ const judginApp = (state = {}, action) => {
 
     case REQUEST_SAVE_RESULT:
       let savedState = Object.assign({}, state);
-      debugger;
       savedState.resultA = calculateTotal({ votes: state.votes, team: 'team-A' });
       savedState.resultB = calculateTotal({ votes: state.votes, team: 'team-B' });
       savedState.finalResponse = {
