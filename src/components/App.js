@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { handleActive } from '../actions'
 import {Tabs, Tab} from 'material-ui/Tabs'
 import Registration from './Registration'
-import LiveJudging from './LiveJudging'
+import LiveJudgingContainer from '../containers/LiveJudgingContainer'
 import FinalJudgingContainer from '../containers/FinalJudgingContainer'
 import CloseVoteContainer from '../containers/CloseVoteContainer'
 import './App.css'
@@ -32,7 +32,7 @@ const App = ({ selectedIndex, handleActive}) => {
           data-route="/a-live"
           onActive={handleActive}
         >
-          <LiveJudging teamLetter="A" />
+          <LiveJudgingContainer teamLetter="A" />
         </Tab>
         <Tab
           label="A-AI"
@@ -46,7 +46,7 @@ const App = ({ selectedIndex, handleActive}) => {
             data-route="/b-live"
             onActive={handleActive}
           >
-            <LiveJudging teamLetter="B" />
+            <LiveJudgingContainer teamLetter="B" />
         </Tab>
         <Tab
             label="B-AI"
