@@ -1,0 +1,46 @@
+<table border="1">
+<% for(var i=0; i < docs.length; i++) { %>
+   <tr>
+     <th>Match (<%= i+1 %>:) </th>
+     <th>Teams: </th>
+   </tr>
+   <tr>
+     <td>
+      <table>
+        <% for(var j=0; j < docs[i].votes.length; j++) { %>
+          <tr>
+            <th>Vote: </th>
+            <th>Value: </th>
+          </tr>
+          <tr>
+            <td>
+              <%= docs[i].votes[j].id %>
+            </td>
+            <td>
+              <%= docs[i].votes[j].value %>
+            </td>
+          </tr>
+        <% } %>
+      </table>
+     </td>
+     <td>
+      <table>
+        <% for(var x=0; x < docs[i].fields.length; x++) { %>
+          <tr>
+            <th>Field: </th>
+            <th>Value: </th>
+          </tr>
+          <tr>
+            <td>
+              <%= docs[i].fields[x].id %>
+            </td>
+            <td>
+              <%= docs[i].fields[x].value %>
+            </td>
+          </tr>
+        <% } %>
+      </table>
+     </td>
+   </tr>
+<% } %>
+</table>

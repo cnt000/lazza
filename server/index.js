@@ -81,6 +81,18 @@ app.get("/api/finalresult", function(req, res) {
   });
 });
 
+app.get("/api/renderfinalresult", function(req, res) {
+  app.set('view engine', 'ejs');
+  db.collection(BATTLE_COLLECTION).find({}).toArray(function(err, docs) {
+    if (err) {
+      handleError(res, err.message, "Failed to get contacts.");
+    } else {
+      //let names = new Set(docs);
+      res.status(200).render('results.ejs', { docs });
+    }
+  });
+});
+
 
 app.post("/api/finalresult", function(req, res) {
   var finalResult = req.body;
@@ -97,3 +109,10 @@ app.post("/api/finalresult", function(req, res) {
     }
   });
 });
+
+function calculatePartial({ votes, team, startingPoint, type }) {
+  let regex = new RegExp(`^${type}-${team}$`,'g');
+  return votes.filter(obj => (regex.test(obj.id))).reduce((total, vote) => {
+    return total + vote.value;
+  }, parseFloat(startingPoint))
+}
