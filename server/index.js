@@ -3,47 +3,36 @@ var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
 
-var BATTLE_COLLECTION = "lazzaWinter";
-var TEAMS_COLLECTION = "teamsWinter";
+var BATTLE_COLLECTION = "pagaEaster";
+var TEAMS_COLLECTION = "teamPaga";
 
 var app = express();
 app.use(bodyParser.json());
 
-// Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
-// mongodb://<dbuser>:<dbpassword>@ds119738.mlab.com:19738/heroku_jp9vx606
 var mongodb_uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/lazza';
 
-// Connect to the database before starting the application server.
 mongodb.MongoClient.connect(mongodb_uri, function (err, database) {
   if (err) {
     console.log(err);
     process.exit(1);
   }
 
-  // Save database object from the callback for reuse.
   db = database;
   console.log("Database connection ready");
 
-  // Initialize the app.
   var server = app.listen(process.env.PORT || 8080, function () {
     var port = server.address().port;
     console.log("App now running on port", port);
   });
 });
 
-// Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
   console.log("ERROR: " + reason);
   res.status(code || 500).json({"error": message});
 }
 
 app.use('/', express.static('build'));
-
-/*  "/api/contacts"
- *    GET: finds all contacts
- *    POST: creates a new contact
- */
 
 app.get("/api/teams", function(req, res) {
   db.collection(TEAMS_COLLECTION).find({}).toArray(function(err, docs) {
@@ -88,11 +77,11 @@ app.get("/api/renderfinalresult", function(req, res) {
       handleError(res, err.message, "Failed to get contacts.");
     } else {
       //let names = new Set(docs);
-      res.status(200).render('results.ejs', { docs });
+      let results = calculateResults(docs);
+      res.status(200).render('results.ejs', { results });
     }
   });
 });
-
 
 app.post("/api/finalresult", function(req, res) {
   var finalResult = req.body;
@@ -105,6 +94,7 @@ app.post("/api/finalresult", function(req, res) {
     if (err) {
       handleError(res, err.message, "Failed to save final result.");
     } else {
+      doc.ops[0].session = new Date().toLocaleString();
       res.status(201).json(doc.ops[0]);
     }
   });
@@ -115,4 +105,38 @@ function calculatePartial({ votes, team, startingPoint, type }) {
   return votes.filter(obj => (regex.test(obj.id))).reduce((total, vote) => {
     return total + vote.value;
   }, parseFloat(startingPoint))
+}
+
+function calculateResults(docs) {
+  return docs.map((doc) => {
+    return calculateResult(doc);
+  });
+}
+
+function calculateResult(doc) {
+  return {
+    info: doc.fields,
+    resultsTeamA: {
+      difficulty: calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 5.0, type: 'difficulty' }),
+      execution: calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 10.0, type: 'execution' }),
+      ai: {
+        teamwork: calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 0, type: 'teamwork' }),
+        flow: calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 0, type: 'flow' }),
+        music: calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 0, type: 'music' }),
+        variety: calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 0, type: 'variety' }),
+        generalImpression: calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 0, type: 'general-impression' }),
+      }
+    },
+    resultsTeamB: {
+      difficulty: calculatePartial({ votes: doc.votes, team: 'team-B', startingPoint: 5.0, type: 'difficulty' }),
+      execution: calculatePartial({ votes: doc.votes, team: 'team-B', startingPoint: 10.0, type: 'execution' }),
+      ai: {
+        teamwork: calculatePartial({ votes: doc.votes, team: 'team-B', startingPoint: 0, type: 'teamwork' }),
+        flow: calculatePartial({ votes: doc.votes, team: 'team-B', startingPoint: 0, type: 'flow' }),
+        music: calculatePartial({ votes: doc.votes, team: 'team-B', startingPoint: 0, type: 'music' }),
+        variety: calculatePartial({ votes: doc.votes, team: 'team-B', startingPoint: 0, type: 'variety' }),
+        generalImpression: calculatePartial({ votes: doc.votes, team: 'team-B', startingPoint: 0, type: 'general-impression' }),
+      }
+    }
+  }
 }

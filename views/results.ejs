@@ -1,45 +1,36 @@
 <table border="1">
-<% for(var i=0; i < docs.length; i++) { %>
+<% for(var i=0; i < results.length; i++) { %>
    <tr>
-     <th>Match (<%= i+1 %>:) </th>
-     <th>Teams: </th>
+     <th>Info Match (<%= i+1 %>:) </th>
+     <th>Results A: </th>
+     <th>Results B: </th>
    </tr>
    <tr>
      <td>
-      <table>
-        <% for(var j=0; j < docs[i].votes.length; j++) { %>
-          <tr>
-            <th>Vote: </th>
-            <th>Value: </th>
-          </tr>
-          <tr>
-            <td>
-              <%= docs[i].votes[j].id %>
-            </td>
-            <td>
-              <%= docs[i].votes[j].value %>
-            </td>
-          </tr>
+        <% for(var j=0; j < results[i].info.length; j++) { %>
+          <%= results[i].info[j].id %>
+          :
+          <%= results[i].info[j].value %>
+          <br />
         <% } %>
-      </table>
      </td>
      <td>
-      <table>
-        <% for(var x=0; x < docs[i].fields.length; x++) { %>
-          <tr>
-            <th>Field: </th>
-            <th>Value: </th>
-          </tr>
-          <tr>
-            <td>
-              <%= docs[i].fields[x].id %>
-            </td>
-            <td>
-              <%= docs[i].fields[x].value %>
-            </td>
-          </tr>
-        <% } %>
-      </table>
+        Difficulty: <%= results[i].resultsTeamA.difficulty %><br />
+        Execution: <%= results[i].resultsTeamA.execution %><br />
+        Teamwork: <%= results[i].resultsTeamA.ai.teamwork %><br />
+        Flow: <%= results[i].resultsTeamA.ai.teamwork %><br />
+        Variety: <%= results[i].resultsTeamA.ai.teamwork %><br />
+        General Impression: <%= results[i].resultsTeamA.ai.teamwork %><br />
+        Music: <%= results[i].resultsTeamA.ai.teamwork %>
+     </td>
+     <td>
+        Difficulty: <%= results[i].resultsTeamB.difficulty %><br />
+        Execution: <%= results[i].resultsTeamB.execution %><br />
+        Teamwork: <%= results[i].resultsTeamB.ai.teamwork %><br />
+        Flow: <%= results[i].resultsTeamB.ai.teamwork %><br />
+        Variety: <%= results[i].resultsTeamB.ai.teamwork %><br />
+        General Impression: <%= results[i].resultsTeamB.ai.teamwork %><br />
+        Music: <%= results[i].resultsTeamB.ai.teamwork %>
      </td>
    </tr>
 <% } %>
