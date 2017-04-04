@@ -90,11 +90,12 @@ app.post("/api/finalresult", function(req, res) {
   //   handleError(res, "Invalid user input", "Must provide a session.", 400);
   // }
 
+  req.body.session = new Date().toLocaleString();
+
   db.collection(BATTLE_COLLECTION).insertOne(finalResult, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to save final result.");
     } else {
-      doc.ops[0].session = new Date().toLocaleString();
       res.status(201).json(doc.ops[0]);
     }
   });
