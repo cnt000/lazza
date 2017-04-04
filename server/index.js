@@ -117,6 +117,7 @@ function calculateResults(docs) {
 function calculateResult(doc) {
   return {
     info: doc.fields,
+    session: doc.session,
     resultsTeamA: {
       difficulty: calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 5.0, type: 'difficulty' }),
       execution: calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 10.0, type: 'execution' }),
