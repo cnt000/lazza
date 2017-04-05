@@ -127,6 +127,7 @@ const LiveJudging = ({ teamLetter, onClick }) => {
                 style={styles.raisedButton}
                 labelStyle={styles.raisedButtonLabel}
                 onTouchTap={e => {
+                    navigator.vibrate(300);
                     e.preventDefault()
                     onClick(`${button.type}${teamLetter}`, button.weight)
                   }}

@@ -12,6 +12,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onClick: (type, value) => {
+      navigator.vibrate(300);
       dispatch(vote(type, value, false))
     }
   }
