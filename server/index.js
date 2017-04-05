@@ -115,29 +115,63 @@ function calculateResults(docs) {
 }
 
 function calculateResult(doc) {
+  let difficultyTeamA = calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 5.0, type: 'difficulty' });
+  let executionTeamA = calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 10.0, type: 'execution' });
+  let teamworkTeamA = calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 0, type: 'teamwork' });
+  let flowTeamA = calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 0, type: 'flow' })
+  let musicTeamA = calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 0, type: 'music' })
+  let varietyTeamA = calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 0, type: 'variety' });
+  let generalImpressionTeamA = calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 0, type: 'general-impression' });
+
+  let totalTeamA = difficultyTeamA +
+                    executionTeamA +
+                      teamworkTeamA +
+                        flowTeamA +
+                          musicTeamA +
+                            varietyTeamA +
+                              generalImpressionTeamA;
+
+  let difficultyTeamB = calculatePartial({ votes: doc.votes, team: 'team-B', startingPoint: 5.0, type: 'difficulty' });
+  let executionTeamB = calculatePartial({ votes: doc.votes, team: 'team-B', startingPoint: 10.0, type: 'execution' });
+  let teamworkTeamB = calculatePartial({ votes: doc.votes, team: 'team-B', startingPoint: 0, type: 'teamwork' });
+  let flowTeamB = calculatePartial({ votes: doc.votes, team: 'team-B', startingPoint: 0, type: 'flow' })
+  let musicTeamB = calculatePartial({ votes: doc.votes, team: 'team-B', startingPoint: 0, type: 'music' })
+  let varietyTeamB = calculatePartial({ votes: doc.votes, team: 'team-B', startingPoint: 0, type: 'variety' });
+  let generalImpressionTeamB = calculatePartial({ votes: doc.votes, team: 'team-B', startingPoint: 0, type: 'general-impression' });
+  
+  let totalTeamB = difficultyTeamB +
+                    executionTeamB +
+                      teamworkTeamB +
+                        flowTeamB +
+                          musicTeamB +
+                            varietyTeamB +
+                              generalImpressionTeamB;
+
   return {
     info: doc.fields,
     session: doc.session,
     resultsTeamA: {
-      difficulty: calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 5.0, type: 'difficulty' }),
-      execution: calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 10.0, type: 'execution' }),
+      total: totalTeamA,
+      difficulty: difficultyTeamA,
+      execution: executionTeamA,
       ai: {
-        teamwork: calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 0, type: 'teamwork' }),
-        flow: calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 0, type: 'flow' }),
-        music: calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 0, type: 'music' }),
-        variety: calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 0, type: 'variety' }),
-        generalImpression: calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 0, type: 'general-impression' }),
+        teamwork: teamworkTeamA,
+        flow: flowTeamA,
+        music: musicTeamA,
+        variety: varietyTeamA,
+        generalImpression: generalImpressionTeamA,
       }
     },
     resultsTeamB: {
-      difficulty: calculatePartial({ votes: doc.votes, team: 'team-B', startingPoint: 5.0, type: 'difficulty' }),
-      execution: calculatePartial({ votes: doc.votes, team: 'team-B', startingPoint: 10.0, type: 'execution' }),
+      total: totalTeamB,
+      difficulty: difficultyTeamB,
+      execution: executionTeamB,
       ai: {
-        teamwork: calculatePartial({ votes: doc.votes, team: 'team-B', startingPoint: 0, type: 'teamwork' }),
-        flow: calculatePartial({ votes: doc.votes, team: 'team-B', startingPoint: 0, type: 'flow' }),
-        music: calculatePartial({ votes: doc.votes, team: 'team-B', startingPoint: 0, type: 'music' }),
-        variety: calculatePartial({ votes: doc.votes, team: 'team-B', startingPoint: 0, type: 'variety' }),
-        generalImpression: calculatePartial({ votes: doc.votes, team: 'team-B', startingPoint: 0, type: 'general-impression' }),
+        teamwork: teamworkTeamB,
+        flow: flowTeamB,
+        music: musicTeamB,
+        variety: varietyTeamB,
+        generalImpression: generalImpressionTeamB,
       }
     }
   }

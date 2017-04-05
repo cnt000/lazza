@@ -22,7 +22,7 @@ const CloseVote = ({ children, onClickSendVote, onClickResetData, state}) => {
       marginBottom:'12px'
     },
     buttons: {
-      margin: '0 auto',
+      margin: '20px auto',
       textAlign: 'center'
     }
   };
@@ -104,14 +104,15 @@ const CloseVote = ({ children, onClickSendVote, onClickResetData, state}) => {
                onClickSendVote(state)
              }}
         />
-        <br />
+      </div>
+      <div style={styles.buttons}>
         <RaisedButton
           label={`Reset All`}
           onTouchTap={e => {
-               e.preventDefault()
-               if(!confirm('Are you sure?')) return false
-               onClickResetData()
-             }}
+              e.preventDefault()
+              if(!confirm('Are you sure?')) return false
+              onClickResetData()
+            }}
         />
       </div>
     </div>
