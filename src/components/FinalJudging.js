@@ -98,7 +98,7 @@ const FinalJudging = ({ children, teamLetter, onChange, votes}) => {
             />
           </div>
           <div style={styles.info}>
-            <ReviewResults type={`teamwork-team-${teamLetter}-annotation`} />
+            <ReviewResults type={`${obj.type}-team-${teamLetter}-annotation`} />
           </div>
         </div>
       )}

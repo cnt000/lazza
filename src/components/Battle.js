@@ -26,28 +26,17 @@ const Battle = ({ onClick }) => {
     raisedButton: {
       margin: 12, 
       height: 80, 
-      width: 100
+      width: 140
     },
     raisedButtonLabel: {
       fontSize: 16, 
       height: 28
-    },
-    separator: {
-      height: '4vh'
     },
     header: {
       margin: 10,
       fontSize: '22px',
       display: 'flex',
       justifyContent: 'center'
-    },
-    paper: {
-      padding: '4px'
-    },
-    weight: {
-      display: 'none',
-      fontSize: '12px',
-      lineHeight: '1px'
     }
   };
 
