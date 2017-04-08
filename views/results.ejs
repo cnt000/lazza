@@ -2,6 +2,7 @@
 <% for(var i=0; i < results.length; i++) { %>
    <tr>
      <th>Info Match (<%= i+1 %>) <%= results[i].session %> </th>
+     <th>Battle</th>
      <th style="background-color:<%= (results[i].resultsTeamA.total>results[i].resultsTeamB.total) ? 'green' : 'red' %>">Results A: </th>
      <th style="background-color:<%= (results[i].resultsTeamB.total>results[i].resultsTeamA.total) ? 'green' : 'red' %>">Results B: </th>
    </tr>
@@ -11,6 +12,14 @@
           <%= results[i].info[j].id %>
           :
           <%= results[i].info[j].value %>
+          <br />
+        <% } %>
+     </td>
+      <td>
+        <% for(var j=0; j < results[i].resultsBattle.length; j++) { %>
+          <%= results[i].resultsBattle[j].id %>
+          : WIN TEAM 
+          <%= results[i].resultsBattle[j].value %>
           <br />
         <% } %>
      </td>

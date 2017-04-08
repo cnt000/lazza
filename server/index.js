@@ -123,6 +123,8 @@ function calculateResult(doc) {
   let varietyTeamA = calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 0, type: 'variety' });
   let generalImpressionTeamA = calculatePartial({ votes: doc.votes, team: 'team-A', startingPoint: 0, type: 'general-impression' });
 
+  let resultsBattle = doc.votes.filter((obj)=> (/^Round/.test(obj.id)));
+
   let totalTeamA = difficultyTeamA +
                     executionTeamA +
                       teamworkTeamA +
@@ -150,6 +152,7 @@ function calculateResult(doc) {
   return {
     info: doc.fields,
     session: doc.session,
+    resultsBattle: resultsBattle,
     resultsTeamA: {
       total: totalTeamA,
       difficulty: difficultyTeamA,
