@@ -1,11 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { handleActive } from '../actions'
-import {Tabs, Tab} from 'material-ui/Tabs'
+import { Tabs, Tab } from 'material-ui/Tabs'
 import Registration from './Registration'
 import LiveJudgingContainer from '../containers/LiveJudgingContainer'
 import FinalJudgingContainer from '../containers/FinalJudgingContainer'
 import CloseVoteContainer from '../containers/CloseVoteContainer'
+import BattleContainer from '../containers/BattleContainer'
 import './App.css'
 
 const styles = {
@@ -26,6 +27,13 @@ const App = ({ selectedIndex, handleActive}) => {
           onActive={handleActive}
         >
           <Registration />
+        </Tab>
+        <Tab
+          label="Battle"
+          data-route="/battle"
+          onActive={handleActive}
+        >
+          <BattleContainer />
         </Tab>
         <Tab
           label="A-Live"
