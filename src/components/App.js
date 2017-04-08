@@ -20,6 +20,8 @@ const App = ({ selectedIndex, handleActive, isBattle}) => {
 
   return (
     <div style={styles.container}>
+      {(isBattle.length > 0) 
+      ?
       <Tabs initialSelectedIndex={selectedIndex}>
         <Tab
           label="Entry"
@@ -28,52 +30,67 @@ const App = ({ selectedIndex, handleActive, isBattle}) => {
         >
           <Registration />
         </Tab>
-        {
-          isBattle.length > 0 &&  <Tab
-                                    label="Battle"
-                                    data-route="/battle"
-                                    onActive={handleActive}
-                                  >
-                                    <BattleContainer />
-                                  </Tab>
-        }
-         <Tab
-            label="A-Live"
-            data-route="/a-live"
-            onActive={handleActive}
-          >
-            <LiveJudgingContainer teamLetter="A" />
-          </Tab>
-          <Tab
-            label="A-AI"
-            data-route="/a-ai"
-            onActive={handleActive}
-          >
-            <FinalJudgingContainer teamLetter="A" />
-          </Tab>
-          <Tab
-              label="B-Live"
-              data-route="/b-live"
-              onActive={handleActive}
-            >
-              <LiveJudgingContainer teamLetter="B" />
-          </Tab>
-          <Tab
-              label="B-AI"
-              data-route="/b-ai"
-              onActive={handleActive}
-            >
-              <FinalJudgingContainer teamLetter="B" />
-          </Tab>
-          <Tab
-              label="Send"
-              data-route="/send"
-              onActive={handleActive}
-            >
-              <CloseVoteContainer />
-          </Tab>
-        
+        <Tab
+          label="Battle"
+          data-route="/battle"
+          onActive={handleActive}
+        >
+          <BattleContainer />
+        </Tab>
+        <Tab
+          label="Send"
+          data-route="/send"
+          onActive={handleActive}
+        >
+          <CloseVoteContainer />
+        </Tab>
       </Tabs>
+      :
+       <Tabs initialSelectedIndex={selectedIndex}>
+        <Tab
+          label="Entry"
+          data-route="/entry"
+          onActive={handleActive}
+        >
+          <Registration />
+        </Tab>
+        <Tab
+          label="A-Live"
+          data-route="/a-live"
+          onActive={handleActive}
+        >
+          <LiveJudgingContainer teamLetter="A" />
+        </Tab>
+        <Tab
+          label="A-AI"
+          data-route="/a-ai"
+          onActive={handleActive}
+        >
+          <FinalJudgingContainer teamLetter="A" />
+        </Tab>
+        <Tab
+          label="B-Live"
+          data-route="/b-live"
+          onActive={handleActive}
+        >
+            <LiveJudgingContainer teamLetter="B" />
+        </Tab>
+        <Tab
+          label="B-AI"
+          data-route="/b-ai"
+          onActive={handleActive}
+        >
+            <FinalJudgingContainer teamLetter="B" />
+        </Tab>
+        <Tab
+          label="Send"
+          data-route="/send"
+          onActive={handleActive}
+        >
+          <CloseVoteContainer />
+        </Tab>
+      </Tabs>
+      }
     </div>
   );
 
