@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {calculateTotal} from '../actions'
+import { calculateTotal } from '../actions'
 
 let styles = {
   results: {

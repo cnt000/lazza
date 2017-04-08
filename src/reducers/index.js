@@ -25,7 +25,7 @@ const judginApp = (state = {}, action) => {
     case 'ONESHOT_VOTE':
       let oneShotVote = {
               id: action.id,
-              value: parseFloat(action.value),
+              value: action.value,
               time: 1
             };
       return {...state, votes: save(state.votes, oneShotVote)};
