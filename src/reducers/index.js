@@ -6,6 +6,7 @@ import {
   REQUEST_SAVE_RESULT,
   SUCCESS_SAVE_RESULT,
   FAILURE_SAVE_RESULT,
+  CONFIRM_SAVED_RESULT,
   calculateTotal
 } from '../actions'
 
@@ -47,14 +48,21 @@ const judginApp = (state = {}, action) => {
       return {...state, selectedIndex: action.value};
 
     case SUCCESS_SAVE_RESULT:
-      return defaultState;
+      return { ...defaultState,  finalResponse: {
+                                  isSaving: false,
+                                  savedAt: Date.now(),
+                                  error: null,
+                                  saved: true
+                                }
+                              };
 
     case FAILURE_SAVE_RESULT:
       let unsavedState = Object.assign({}, state);
       unsavedState.finalResponse = {
         isSaving: false,
         savedAt: Date.now(),
-        error: true
+        error: true,
+        saved: false
       }
       return unsavedState;
 
@@ -65,7 +73,8 @@ const judginApp = (state = {}, action) => {
       savedState.finalResponse = {
         isSaving: true,
         savedAt: null,
-        error: null
+        error: null,
+        saved: false
       }
       return savedState;
 
@@ -79,6 +88,9 @@ const judginApp = (state = {}, action) => {
 
     case REQUEST_LOADTEAMS:
       return {...state, isFetching: true, didInvalidate: false};
+
+    case CONFIRM_SAVED_RESULT:
+      return { ...defaultState,  finalResponse: { saved: false } }; 
 
     case FAILURE_LOADTEAMS:
       return {...state,

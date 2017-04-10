@@ -2,34 +2,101 @@ import React from 'react'
 import RaisedButton from 'material-ui/RaisedButton'
 import Total from './Total'
 import WinnerBadge from './WinnerBadge'
+import RoundWinner from './RoundWinner'
 import ReviewResults from './ReviewResults/ReviewResults'
 
-const CloseVote = ({ children, onClickSendVote, onClickResetData, state}) => {
+const styles = {
+  container: {
+    margin: '10px'
+  },
+  columns: {
+    display: 'flex',
+  },
+  column: {
+    width: '48%',
+    textAlign: 'center'
+  },
+  title: {
+    fontSize: '24px',
+    marginBottom:'12px'
+  },
+  buttons: {
+    margin: '20px auto',
+    textAlign: 'center'
+  }
+};
 
-  const styles = {
-    container: {
-      margin: '10px'
-    },
-    columns: {
-      display: 'flex',
-    },
-    column: {
-      width: '48%',
-      textAlign: 'center'
-    },
-    title: {
-      fontSize: '24px',
-      marginBottom:'12px'
-    },
-    buttons: {
-      margin: '20px auto',
-      textAlign: 'center'
-    }
-  };
+const CloseVote = ({ children, 
+                    finalResponse, 
+                    isBattle, 
+                    onClickSendVote, 
+                    onClickResetData, 
+                    onClickConfirmSaved, 
+                    state}) => {
+
+  if(finalResponse && finalResponse.saved) {
+    return (
+      <div style={styles.container}>
+        <div style={styles.title}>
+          I dati sono salvati correttamente sul server, <br/>resetta e ricarica la pagina per votare ancora
+        </div>
+        <div style={styles.buttons}>
+          <RaisedButton
+            label={`Ok`}
+            onTouchTap={e => {
+                e.preventDefault()
+                onClickConfirmSaved()
+              }}
+          />
+        </div>
+      </div>
+    )
+  }
+
+  let battleButtons = [
+    "Round 1",
+    "Round 2",
+    "Round 3",
+    "Round 4",
+    "Round 5"
+  ]
+
+  if(isBattle.length > 0) {
+    return (
+      <div style={styles.container}>
+        <div style={styles.buttons}>
+          <WinnerBadge type="battle" />
+          {battleButtons.map(round => <div key={round} style={styles.title}>{`${round}: `} <RoundWinner type={round} /></div>)}
+        </div>
+        <div style={styles.buttons}>
+          <RaisedButton
+            label={`Send Response`}
+            secondary={true}
+            buttonStyle={{width: '80vw'}}
+            onTouchTap={e => {
+                e.preventDefault()
+                if(!confirm('Are you sure? It\'s FINAL decision')) return false
+                onClickSendVote(state)
+              }}
+          />
+        </div>
+        <div style={styles.buttons}>
+          <RaisedButton
+            label={`Reset All`}
+            onTouchTap={e => {
+                e.preventDefault()
+                if(!confirm('Are you sure?')) return false
+                onClickResetData()
+              }}
+          />
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div style={styles.container}>
-      <WinnerBadge />
+      <WinnerBadge type="co-op" />
       <br/>
       <br/>
       <div style={styles.columns}>

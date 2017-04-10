@@ -1,11 +1,12 @@
 import { connect } from 'react-redux'
-import { promiseSaveResult, resetAll } from '../actions'
+import { promiseSaveResult, resetAll, confirmSaved } from '../actions'
 import CloseVote from '../components/CloseVote'
 
 const mapStateToProps = (state, ownProps) => {
   return {
     state: state,
-    isSaving: state.finalResponse
+    finalResponse: state.finalResponse,
+    isBattle: state.fields.filter((obj)=>(obj.id==="gametype" && obj.value==='battle'))
   }
 }
 
@@ -16,6 +17,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     onClickResetData: () => {
       dispatch(resetAll())
+    },
+    onClickConfirmSaved: () => {
+       dispatch(confirmSaved())
     }
   }
 }

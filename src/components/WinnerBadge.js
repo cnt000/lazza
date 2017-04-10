@@ -18,11 +18,28 @@ let styles = {
   }
 }
 
-const WinnerBadge = ({ resultsA, resultsB, teamNameA, teamNameB }) => {
+const WinnerBadge = ({ resultsA, 
+                        resultsB, 
+                        teamNameA, 
+                        teamNameB, 
+                        type, 
+                        battleRoundTeamA, 
+                        battleRoundTeamB }) => {
+
+  if(type === 'battle') {
+    return (
+      <div>
+        <div style={styles.winner}>
+          WINNER IS TEAM {(battleRoundTeamA > battleRoundTeamB) ? ` A (${teamNameA.value})` : ` B (${teamNameA.value})`}
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div>
       <div style={styles.winner}>
-        WINNER IS TEAM {(resultsA > resultsB) ? `A (${teamNameA.value})` : `B ${teamNameA.value}`}
+        WINNER IS TEAM {(resultsA > resultsB) ? `A (${teamNameA.value})` : `B ${teamNameB.value}`}
       </div>
       <div style={styles.results}>
         <div style={styles.column}>
@@ -40,7 +57,9 @@ const mapStateToProps = (state, ownProps) => ({
   resultsA: calculateTotal({ votes: state.votes, team: 'team-A' }),
   resultsB: calculateTotal({ votes: state.votes, team: 'team-B' }),
   teamNameA: state.fields.find(obj => (obj.id === `team-name-A`)) || {value: '-'},
-  teamNameB: state.fields.find(obj => (obj.id === `team-name-B`)) || {value: '-'}
+  teamNameB: state.fields.find(obj => (obj.id === `team-name-B`)) || {value: '-'},
+  battleRoundTeamA: state.votes.filter(obj => (/^Round/.test(obj.id) && obj.value === 'A')),
+  battleRoundTeamB: state.votes.filter(obj => (/^Round/.test(obj.id) && obj.value === 'B'))
 });
 
 export default connect(

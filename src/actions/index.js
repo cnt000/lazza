@@ -5,6 +5,7 @@ export const FAILURE_LOADTEAMS = 'FAILURE_LOADTEAMS'
 export const REQUEST_SAVE_RESULT = 'REQUEST_SAVE_RESULT'
 export const SUCCESS_SAVE_RESULT = 'SUCCESS_SAVE_RESULT'
 export const FAILURE_SAVE_RESULT = 'FAILURE_SAVE_RESULT'
+export const CONFIRM_SAVED_RESULT = 'CONFIRM_SAVED_RESULT'
 
 const HEADERS_JSON = {
   'Accept': 'application/json',
@@ -62,6 +63,13 @@ function fetchTeams(subreddit) {
 export function resetAll(id) {
   return {
     type: 'RESET_ALL_DATA',
+    id: id
+  }
+}
+
+export function confirmSaved(id) {
+  return {
+    type: CONFIRM_SAVED_RESULT,
     id: id
   }
 }
