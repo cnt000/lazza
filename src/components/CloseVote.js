@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import RaisedButton from 'material-ui/RaisedButton'
 import Total from './Total'
-import WinnerBadge from './WinnerBadge'
+import MatchWinner from './MatchWinner'
 import RoundWinner from './RoundWinner'
 import ReviewResults from './ReviewResults/ReviewResults'
 
@@ -37,7 +37,8 @@ const CloseVote = ({ children,
                     onClickSendVote, 
                     onClickResetData, 
                     onClickConfirmSaved, 
-                    state}) => {
+                    state,
+                    battleRounds}) => {
 
   if(finalResponse && finalResponse.saved) {
     return (
@@ -57,21 +58,13 @@ const CloseVote = ({ children,
       </div>
     )
   }
-  // to state
-  let battleButtons = [
-    "Round 1",
-    "Round 2",
-    "Round 3",
-    "Round 4",
-    "Round 5"
-  ]
 
   if(isBattle.length > 0) {
     return (
       <div style={styles.container}>
         <div style={styles.buttons}>
-          <WinnerBadge type="battle" />
-          {battleButtons.map(round => <div key={round} style={styles.title}>{`${round}: `} <RoundWinner type={round} /></div>)}
+          <MatchWinner type="battle" />
+          {battleRounds.map(round => <div key={round} style={styles.title}>{`${round}: `} <RoundWinner type={round} /></div>)}
         </div>
         <div style={styles.buttons}>
           <RaisedButton
@@ -101,7 +94,7 @@ const CloseVote = ({ children,
 
   return (
     <div style={styles.container}>
-      <WinnerBadge type="co-op" />
+      <MatchWinner type="co-op" />
       <br/>
       <br/>
       <div style={styles.columns}>

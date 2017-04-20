@@ -18,7 +18,7 @@ let styles = {
   }
 }
 
-const WinnerBadge = ({ resultsA, 
+const MatchWinner = ({ resultsA, 
                         resultsB, 
                         teamNameA, 
                         teamNameB, 
@@ -64,4 +64,4 @@ const mapStateToProps = (state, ownProps) => ({
 
 export default connect(
   mapStateToProps
-)(WinnerBadge)
+)(MatchWinner)

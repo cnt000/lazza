@@ -200,7 +200,7 @@ const LiveJudging = ({ teamLetter, onClick }) => {
 
 LiveJudging.propTypes = {
   onClick: PropTypes.func.isRequired,
-  teamLetter: PropTypes.string
+  teamLetter: PropTypes.string.isRequired
 }
 
 export default LiveJudging

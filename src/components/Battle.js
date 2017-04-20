@@ -4,7 +4,7 @@ import RoundWinner from './RoundWinner'
 import Divider from 'material-ui/Divider'
 import { orange500, blue500 } from 'material-ui/styles/colors'
 
-const Battle = ({ onClick }) => {
+const Battle = ({ onClick, battleRounds }) => {
 
   const styles = {
     container: {
@@ -40,19 +40,11 @@ const Battle = ({ onClick }) => {
     }
   };
 
-  let battleButtons = [
-    "Round 1",
-    "Round 2",
-    "Round 3",
-    "Round 4",
-    "Round 5"
-  ]
-
   return (
     <div style={styles.container}>
       <div style={styles.vote}>
         {
-          battleButtons.map((button) => 
+          battleRounds.map((button) => 
           <div key={button}>
             <div style={styles.header}>{button} -> <RoundWinner type={button} /></div>
               <div style={styles.annotation}>
@@ -93,7 +85,8 @@ const Battle = ({ onClick }) => {
 };
 
 Battle.propTypes = {
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
+  battleRounds: PropTypes.array.isRequired
 }
 
 export default Battle

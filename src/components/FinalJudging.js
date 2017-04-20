@@ -109,7 +109,7 @@ const FinalJudging = ({ children, teamLetter, onChange, votes}) => {
 
 FinalJudging.propTypes = {
   onChange: PropTypes.func.isRequired,
-  teamLetter: PropTypes.string
+  teamLetter: PropTypes.string.isRequired
 }
 
 export default FinalJudging

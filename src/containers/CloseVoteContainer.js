@@ -6,7 +6,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     state: state,
     finalResponse: state.finalResponse,
-    isBattle: state.fields.filter((obj)=>(obj.id==="gametype" && obj.value==='battle'))
+    isBattle: state.fields.filter((obj)=>(obj.id==="gametype" && obj.value==='battle')),
+    battleRounds: state.battleRounds
   }
 }
 

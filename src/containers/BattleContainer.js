@@ -4,7 +4,8 @@ import Battle from '../components/Battle'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    votes: state.votes
+    votes: state.votes,
+    battleRounds: state.battleRounds
   }
 }
 
