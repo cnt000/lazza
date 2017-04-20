@@ -20,6 +20,11 @@ const styles = {
     fontSize: '24px',
     marginBottom:'12px'
   },
+  confirm: {
+    fontSize: '32px',
+    margin:'12px auto',
+    textAlign: 'center'
+  },
   buttons: {
     margin: '20px auto',
     textAlign: 'center'
@@ -37,8 +42,8 @@ const CloseVote = ({ children,
   if(finalResponse && finalResponse.saved) {
     return (
       <div style={styles.container}>
-        <div style={styles.title}>
-          I dati sono salvati correttamente sul server, <br/>resetta e ricarica la pagina per votare ancora
+        <div style={styles.confirm}>
+          I dati sono salvati correttamente sul server, <br/>clicca ok per giudicare il prossima match
         </div>
         <div style={styles.buttons}>
           <RaisedButton
@@ -52,7 +57,7 @@ const CloseVote = ({ children,
       </div>
     )
   }
-
+  // to state
   let battleButtons = [
     "Round 1",
     "Round 2",

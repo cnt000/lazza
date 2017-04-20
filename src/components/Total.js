@@ -9,6 +9,7 @@ const Total = ({ result, time }) => {
   )
 }
 
+//sul container padre
 const mapStateToProps = (state, ownProps) => ({
   result: state.votes.filter(obj => (obj.id === ownProps.type)).reduce((total, vote) => {
     return total + vote.value;

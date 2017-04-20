@@ -51,6 +51,7 @@ const FinalJudging = ({ children, teamLetter, onChange, votes}) => {
     (obj.id === `general-impression-team-${teamLetter}`)
   ) || {value: 0};
 
+  // to state
   const sliders = [
     {
       type: 'teamwork',

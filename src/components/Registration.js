@@ -46,11 +46,4 @@ const Registration = () => {
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-  }
-}
-
-export default connect(
-  mapStateToProps
-)(Registration)
+export default Registration

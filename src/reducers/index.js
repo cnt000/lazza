@@ -90,7 +90,7 @@ const judginApp = (state = {}, action) => {
       return {...state, isFetching: true, didInvalidate: false};
 
     case CONFIRM_SAVED_RESULT:
-      return { ...defaultState,  finalResponse: { saved: false } }; 
+      return { ...defaultState}; 
 
     case FAILURE_LOADTEAMS:
       return {...state,
