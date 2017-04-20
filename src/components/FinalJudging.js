@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import Total from '../components/Total'
 import ReviewResults from '../components/ReviewResults/ReviewResults'
 import Slider from 'material-ui/Slider'
@@ -106,5 +106,10 @@ const FinalJudging = ({ children, teamLetter, onChange, votes}) => {
     </div>
   );
 };
+
+FinalJudging.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  teamLetter: PropTypes.string
+}
 
 export default FinalJudging

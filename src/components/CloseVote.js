@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import RaisedButton from 'material-ui/RaisedButton'
 import Total from './Total'
 import WinnerBadge from './WinnerBadge'
@@ -191,4 +191,10 @@ const CloseVote = ({ children,
   );
 };
 
-  export default CloseVote
+CloseVote.propTypes = {
+  onClickSendVote: PropTypes.func.isRequired, 
+  onClickResetData: PropTypes.func.isRequired,
+  onClickConfirmSaved: PropTypes.func.isRequired 
+}
+
+export default CloseVote

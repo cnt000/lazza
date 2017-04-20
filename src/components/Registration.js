@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import FieldContainer from '../containers/FieldContainer'
 import PlayContainer from '../containers/PlayContainer'
 import GameTypeContainer from '../containers/GameTypeContainer'
