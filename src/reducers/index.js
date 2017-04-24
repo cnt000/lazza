@@ -21,7 +21,7 @@ const judginApp = (state = {}, action) => {
               value: parseFloat(action.value),
               time: timeMaxId(votesFiltered) + 1
             };
-      return {...state, votes: state.votes.concat(vote)};
+      return {...state, votes: state.votes.concat(vote) };
 
     case 'ONESHOT_VOTE':
       let oneShotVote = {

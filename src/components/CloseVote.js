@@ -64,7 +64,7 @@ const CloseVote = ({ children,
       <div style={styles.container}>
         <div style={styles.buttons}>
           <MatchWinner type="battle" />
-          {battleRounds.map(round => <div key={round} style={styles.title}>{`${round}: `} <RoundWinner type={round} /></div>)}
+          {battleRounds.map(round => <div key={round.name} style={styles.title}>{`${round.name}: `} <RoundWinner type={round.name} /></div>)}
         </div>
         <div style={styles.buttons}>
           <RaisedButton

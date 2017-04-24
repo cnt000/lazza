@@ -2,11 +2,26 @@ export const defaultState = {
   session: '',
   gameType: ['battle', 'co-op'],
   battleRounds: [
-    "Round 1",
-    "Round 2",
-    "Round 3",
-    "Round 4",
-    "Round 5"
+    { 
+      name: "Round 1",
+      voted: false
+    },
+    { 
+      name: "Round 2",
+      voted: false
+    },
+    { 
+      name: "Round 3",
+      voted: false
+    },
+    { 
+      name: "Round 4",
+      voted: false
+    },
+    { 
+      name: "Round 5",
+      voted: false
+    }
   ],
   fields: [],
   votes: [],

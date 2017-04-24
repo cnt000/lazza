@@ -9,11 +9,11 @@ const RoundWinner = ({ winnerTeam,teamNameA, teamNameB }) => {
 
   return (
     <span style={styles}>
-      {(winnerTeam !== '' && winnerTeam === 'A') ? `Win Team ${winnerTeam} (${teamNameA.value})`: `Win Team (${teamNameB.value})`}
+      {(winnerTeam !== '' && winnerTeam === 'A') ? `Win Team ${winnerTeam} (${teamNameA.value})`: `Win Team B (${teamNameB.value})`}
     </span>
   )
 }
-// sul container padre
+
 const mapStateToProps = (state, ownProps) => ({
   winnerTeam: state.votes.filter(obj => (obj.id === ownProps.type)).reduce((total, vote) => {
     return vote.value;

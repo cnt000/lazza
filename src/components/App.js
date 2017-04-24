@@ -18,42 +18,42 @@ const styles = {
 
 const App = ({ selectedIndex, handleActive, isBattle}) => {
 
-  return (
-    <div style={styles.container}>
-      {(isBattle.length > 0) 
-      ?
-      <Tabs initialSelectedIndex={selectedIndex}>
-        <Tab
+  const registrationTab = <Tab
           label="Entry"
           data-route="/entry"
           onActive={handleActive}
         >
           <Registration />
         </Tab>
-        <Tab
-          label="Battle"
-          data-route="/battle"
-          onActive={handleActive}
-        >
-          <BattleContainer />
-        </Tab>
-        <Tab
+
+  const closeVoteTab = <Tab
           label="Send"
           data-route="/send"
           onActive={handleActive}
         >
           <CloseVoteContainer />
         </Tab>
+
+  const battleTab = <Tab
+          label="Battle"
+          data-route="/battle"
+          onActive={handleActive}
+        >
+          <BattleContainer />
+        </Tab>
+
+  return (
+    <div style={styles.container}>
+      {(isBattle.length > 0) 
+      ?
+      <Tabs initialSelectedIndex={selectedIndex}>
+        { registrationTab }
+        { battleTab }
+        { closeVoteTab }
       </Tabs>
       :
        <Tabs initialSelectedIndex={selectedIndex}>
-        <Tab
-          label="Entry"
-          data-route="/entry"
-          onActive={handleActive}
-        >
-          <Registration />
-        </Tab>
+        { registrationTab }
         <Tab
           label="A-Live"
           data-route="/a-live"
@@ -82,13 +82,7 @@ const App = ({ selectedIndex, handleActive, isBattle}) => {
         >
             <FinalJudgingContainer teamLetter="B" />
         </Tab>
-        <Tab
-          label="Send"
-          data-route="/send"
-          onActive={handleActive}
-        >
-          <CloseVoteContainer />
-        </Tab>
+        { closeVoteTab }
       </Tabs>
       }
     </div>
