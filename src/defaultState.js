@@ -1,4 +1,4 @@
-export const defaultState = {
+const defaultState = {
   session: '',
   gameType: ['battle', 'co-op'],
   battleRounds: [
@@ -43,5 +43,7 @@ export const defaultState = {
       "Riccardo",
       "Silvina"
     ]
-  },]
+  },],
+  selectedIndex: 0
 }
+export default defaultState

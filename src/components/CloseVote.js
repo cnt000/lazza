@@ -44,7 +44,7 @@ const CloseVote = ({ children,
     return (
       <div style={styles.container}>
         <div style={styles.confirm}>
-          I dati sono salvati correttamente sul server, <br/>clicca ok per giudicare il prossima match
+          <p>I dati sono salvati correttamente sul server, <br/>clicca ok per giudicare il prossima match</p>
         </div>
         <div style={styles.buttons}>
           <RaisedButton

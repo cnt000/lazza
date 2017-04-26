@@ -1,4 +1,4 @@
-import { defaultState } from '../defaultState'
+import defaultState from '../defaultState'
 import {
   REQUEST_LOADTEAMS,
   RECEIVE_LOADTEAMS,
@@ -48,7 +48,7 @@ const judginApp = (state = {}, action) => {
       return {...state, selectedIndex: action.value};
 
     case SUCCESS_SAVE_RESULT:
-      return { ...defaultState,  finalResponse: {
+      return { ...state,  finalResponse: {
                                   isSaving: false,
                                   savedAt: Date.now(),
                                   error: null,

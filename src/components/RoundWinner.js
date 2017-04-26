@@ -9,7 +9,8 @@ const RoundWinner = ({ winnerTeam,teamNameA, teamNameB }) => {
 
   return (
     <span style={styles}>
-      {(winnerTeam !== '' && winnerTeam === 'A') ? `Win Team ${winnerTeam} (${teamNameA.value})`: `Win Team B (${teamNameB.value})`}
+      {(winnerTeam !== '' && winnerTeam === 'A') ? `Win Team ${winnerTeam} (${teamNameA.value})`: ``}
+      {(winnerTeam !== '' && winnerTeam === 'B') ? `Win Team ${winnerTeam} (${teamNameA.value})`: ``}
     </span>
   )
 }

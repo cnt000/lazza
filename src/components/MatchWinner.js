@@ -24,7 +24,18 @@ const MatchWinner = ({ resultsA,
                         teamNameB, 
                         type, 
                         battleRoundTeamA, 
-                        battleRoundTeamB }) => {
+                        battleRoundTeamB,
+                        hasVotes }) => {
+
+  if(!hasVotes) {
+    return (
+      <div>
+        <div style={styles.winner}>
+          NO VOTES YET
+        </div>
+      </div>
+    )
+  }
 
   if(type === 'battle') {
     return (
@@ -59,7 +70,8 @@ const mapStateToProps = (state, ownProps) => ({
   teamNameA: state.fields.find(obj => (obj.id === `team-name-A`)) || {value: '-'},
   teamNameB: state.fields.find(obj => (obj.id === `team-name-B`)) || {value: '-'},
   battleRoundTeamA: state.votes.filter(obj => (/^Round/.test(obj.id) && obj.value === 'A')),
-  battleRoundTeamB: state.votes.filter(obj => (/^Round/.test(obj.id) && obj.value === 'B'))
+  battleRoundTeamB: state.votes.filter(obj => (/^Round/.test(obj.id) && obj.value === 'B')),
+  hasVotes: state.votes.length > 0
 });
 
 export default connect(
