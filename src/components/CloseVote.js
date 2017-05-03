@@ -1,20 +1,13 @@
 import React, { PropTypes } from 'react'
 import RaisedButton from 'material-ui/RaisedButton'
-import Total from './Total'
+import CoopRecap from './CoopRecap'
 import MatchWinner from './MatchWinner'
 import RoundWinner from './RoundWinner'
-import ReviewResults from './ReviewResults/ReviewResults'
+
 
 const styles = {
   container: {
     margin: '10px'
-  },
-  columns: {
-    display: 'flex',
-  },
-  column: {
-    width: '48%',
-    textAlign: 'center'
   },
   title: {
     fontSize: '24px',
@@ -31,6 +24,7 @@ const styles = {
   }
 };
 
+
 const CloseVote = ({ children, 
                     finalResponse, 
                     isBattle, 
@@ -38,13 +32,32 @@ const CloseVote = ({ children,
                     onClickResetData, 
                     onClickConfirmSaved, 
                     state,
-                    battleRounds}) => {
+                    battleRounds,
+                    hasVotes
+                  }) => {
+
+  const resetDebugBtn = <RaisedButton
+          label={`Reset All`}
+          onTouchTap={e => {
+              e.preventDefault()
+              if(!confirm('Are you sure?')) return false
+              onClickResetData()
+            }}
+        />
+
+  if(!hasVotes) {
+    return <div style={styles.container}>
+            <div style={styles.buttons}>
+              <MatchWinner type="battle" />
+            </div>
+          </div>
+  }
 
   if(finalResponse && finalResponse.saved) {
     return (
       <div style={styles.container}>
         <div style={styles.confirm}>
-          <p>I dati sono salvati correttamente sul server, <br/>clicca ok per giudicare il prossima match</p>
+          <p>I dati sono salvati correttamente sul server, <br/>clicca ok per giudicare il prossimo match</p>
         </div>
         <div style={styles.buttons}>
           <RaisedButton
@@ -79,14 +92,7 @@ const CloseVote = ({ children,
           />
         </div>
         <div style={styles.buttons}>
-          <RaisedButton
-            label={`Reset All`}
-            onTouchTap={e => {
-                e.preventDefault()
-                if(!confirm('Are you sure?')) return false
-                onClickResetData()
-              }}
-          />
+          { resetDebugBtn }
         </div>
       </div>
     )
@@ -97,67 +103,7 @@ const CloseVote = ({ children,
       <MatchWinner type="co-op" />
       <br/>
       <br/>
-      <div style={styles.columns}>
-        <div style={styles.column}>
-          <h3 style={styles.title}>Team A results:</h3>
-          Teamwork A:
-          <Total type="teamwork-team-A" startingPoint="0.0" />
-          <br/>
-          Music A:
-          <Total type="music-team-A" startingPoint="0.0" />
-          <br/>
-          Flow A:
-          <Total type="flow-team-A" startingPoint="0.0" />
-          <br/>
-          Variety A:
-          <Total type="variety-team-A" startingPoint="0.0" />
-          <br/>
-          General Impression A:
-          <Total type="general-impression-team-A" startingPoint="0.0" />
-          <br/>
-          Difficulty A:
-          <Total type="difficulty-team-A" startingPoint="0.0" />
-          <br/>
-          Execution A:
-          <Total type="execution-team-A" startingPoint="0.0" />
-          <br/>
-          <br/>
-          <br/>
-          Review Difficulty and Execution:
-          <br/>
-          <ReviewResults label="Difficulty" type="difficulty-team-A" />
-          <ReviewResults label="Execution" type="execution-team-A" />
-        </div>
-        <div style={styles.column}>
-          <h3 style={styles.title}>Team B results:</h3>
-          Teamwork B:
-          <Total type="teamwork-team-B" startingPoint="0.0" />
-          <br/>
-          Music B:
-          <Total type="music-team-B" startingPoint="0.0" />
-          <br/>
-          Flow B:
-          <Total type="flow-team-B" startingPoint="0.0" />
-          <br/>
-          Variety B:
-          <Total type="variety-team-B" startingPoint="0.0" />
-          <br/>
-          General Impression B:
-          <Total type="general-impression-team-B" startingPoint="0.0" />
-          <br/>
-          Difficulty B:
-          <Total type="difficulty-team-B" startingPoint="0.0" />
-          <br/>
-          Execution B:
-          <Total type="execution-team-B" startingPoint="0.0" />
-          <br/>
-          <br/>
-          <br/>
-          Review Difficulty and Execution:
-          <ReviewResults label="Difficulty" type="difficulty-team-B" />
-          <ReviewResults label="Execution" type="execution-team-B" />
-        </div>
-      </div>
+      <CoopRecap />
       <div style={styles.buttons}>
         <RaisedButton
           label={`Send Response`}
@@ -171,14 +117,7 @@ const CloseVote = ({ children,
         />
       </div>
       <div style={styles.buttons}>
-        <RaisedButton
-          label={`Reset All`}
-          onTouchTap={e => {
-              e.preventDefault()
-              if(!confirm('Are you sure?')) return false
-              onClickResetData()
-            }}
-        />
+        { resetDebugBtn }
       </div>
     </div>
   );

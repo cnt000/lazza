@@ -18,7 +18,7 @@ const RoundWinner = ({ winnerTeam,teamNameA, teamNameB }) => {
 const mapStateToProps = (state, ownProps) => ({
   winnerTeam: state.votes.filter(obj => (obj.id === ownProps.type)).reduce((total, vote) => {
     return vote.value;
-  }, ""),
+  }, ''),
   teamNameA: state.fields.find(obj => (obj.id === `team-name-A`)) || {value: '-'},
   teamNameB: state.fields.find(obj => (obj.id === `team-name-B`)) || {value: '-'}
 })
