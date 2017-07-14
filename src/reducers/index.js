@@ -24,12 +24,13 @@ const judginApp = (state = {}, action) => {
       return {...state, votes: state.votes.concat(vote) };
 
     case 'ONESHOT_VOTE':
-      let oneShotVote = {
-              id: action.id,
-              value: action.value,
-              time: 1
-            };
-      return {...state, votes: save(state.votes, oneShotVote)};
+      return { ...state, 
+                votes: save(state.votes, 
+                            {
+                              id: action.id,
+                              value: action.value,
+                              time: 1
+                            }) };
 
     case 'ENTRY_FIELD':
     case 'ENTRY_PLAY':
